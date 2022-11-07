@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recyclebin:RecycleBin xmlns:recyclebin="http://www.talend.org/recyclebin">
+  <deletedFolders>process/pf15002</deletedFolders>
+  <deletedFolders>process/pf15002/dailyJobs</deletedFolders>
+  <deletedFolders>process/pf15002/dailyJobs/RawData</deletedFolders>
+  <deletedFolders>process/pf15002/dailyJobs/stage</deletedFolders>
+  <deletedFolders>process/pf15002/dailyJobs/stage/AccountTax</deletedFolders>
+  <deletedFolders>process/pf15002/dailyJobs/stage/PosBill</deletedFolders>
+  <deletedFolders>process/pf15002/dailyJobs/stage/PosConfig</deletedFolders>
+  <deletedFolders>process/pf15002/dailyJobs/stage/SaleOrderOption</deletedFolders>
+  <deletedFolders>process/pf15002/dailyJobs/stage/SaleOrderTemplate</deletedFolders>
+  <deletedFolders>process/pf15002/dailyJobs/stage/SaleOrderTemplateLine</deletedFolders>
+  <deletedFolders>process/pf15002/dailyJobs/stage/SaleOrderTemplateOption</deletedFolders>
+  <deletedFolders>process/pf15002/first_load</deletedFolders>
+  <deletedFolders>process/pf15002/first_load/raw</deletedFolders>
+  <deletedFolders>process/pf15002/first_load/stage</deletedFolders>
+  <deletedItems id="_x1etIF1nEe268q8OidYuSg" path="pf15002" type="PROCESS"/>
+  <deletedItems id="_1mNeAFmcEe219LD33WVmtA" path="pf15002/dailyJobs/RawData" type="PROCESS"/>
+  <deletedItems id="_8jpp4FmfEe2pELsXjtX2_w" path="pf15002/dailyJobs/RawData" type="PROCESS"/>
+  <deletedItems id="_GEjN0FmfEe2pELsXjtX2_w" path="pf15002/dailyJobs/RawData" type="PROCESS"/>
+  <deletedItems id="_L3FCkFmeEe2pELsXjtX2_w" path="pf15002/dailyJobs/RawData" type="PROCESS"/>
+  <deletedItems id="_R4CqAFmfEe2pELsXjtX2_w" path="pf15002/dailyJobs/RawData" type="PROCESS"/>
+  <deletedItems id="_fnob8FmeEe2pELsXjtX2_w" path="pf15002/dailyJobs/RawData" type="PROCESS"/>
+  <deletedItems id="_g-z00FmfEe2pELsXjtX2_w" path="pf15002/dailyJobs/RawData" type="PROCESS"/>
+  <deletedItems id="_msrogFmdEe219LD33WVmtA" path="pf15002/dailyJobs/RawData" type="PROCESS"/>
+  <deletedItems id="_xKpxUFmfEe2pELsXjtX2_w" path="pf15002/dailyJobs/RawData" type="PROCESS"/>
+  <deletedItems id="_BLsZoFstEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/AccountTax" type="PROCESS"/>
+  <deletedItems id="_LQD-YFspEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/AccountTax" type="PROCESS"/>
+  <deletedItems id="_uDdMMFsmEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/AccountTax" type="PROCESS"/>
+  <deletedItems id="_l-ruYFsvEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/PosBill" type="PROCESS"/>
+  <deletedItems id="_mAkkwFsvEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/PosBill" type="PROCESS"/>
+  <deletedItems id="_mCID8FsvEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/PosBill" type="PROCESS"/>
+  <deletedItems id="_Tj8mgFsxEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/PosConfig" type="PROCESS"/>
+  <deletedItems id="_TlCLoFsxEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/PosConfig" type="PROCESS"/>
+  <deletedItems id="_w0WwEFsyEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/PosConfig" type="PROCESS"/>
+  <deletedItems id="_iikQAFszEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderOption" type="PROCESS"/>
+  <deletedItems id="_ijvUsFszEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderOption" type="PROCESS"/>
+  <deletedItems id="_imRrUFszEe2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderOption" type="PROCESS"/>
+  <deletedItems id="_6VT3AFs0Ee2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderTemplate" type="PROCESS"/>
+  <deletedItems id="_6WYOAFs0Ee2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderTemplate" type="PROCESS"/>
+  <deletedItems id="_6Xvf8Fs0Ee2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderTemplate" type="PROCESS"/>
+  <deletedItems id="_-AtVQFs1Ee2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderTemplateLine" type="PROCESS"/>
+  <deletedItems id="_9-V9wFs1Ee2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderTemplateLine" type="PROCESS"/>
+  <deletedItems id="_9_YfkFs1Ee2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderTemplateLine" type="PROCESS"/>
+  <deletedItems id="_IrTaQFs3Ee2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderTemplateOption" type="PROCESS"/>
+  <deletedItems id="_Isd34Fs3Ee2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderTemplateOption" type="PROCESS"/>
+  <deletedItems id="_IucN0Fs3Ee2CG9YBn9RmYA" path="pf15002/dailyJobs/stage/SaleOrderTemplateOption" type="PROCESS"/>
+  <deletedItems id="_72WuEFNUEe2BbexQ5lqZRg" path="pf15002/first_load/raw" type="PROCESS"/>
+  <deletedItems id="_8d1aQFNTEe2BbexQ5lqZRg" path="pf15002/first_load/raw" type="PROCESS"/>
+  <deletedItems id="_OQQTAFNUEe2BbexQ5lqZRg" path="pf15002/first_load/raw" type="PROCESS"/>
+  <deletedItems id="_Pu5wcFKSEe2zh6J62jcYQw" path="pf15002/first_load/raw" type="PROCESS"/>
+  <deletedItems id="_SpGNcFNSEe2BbexQ5lqZRg" path="pf15002/first_load/raw" type="PROCESS"/>
+  <deletedItems id="_WTTuAFNVEe2BbexQ5lqZRg" path="pf15002/first_load/raw" type="PROCESS"/>
+  <deletedItems id="_aYnocFNTEe2BbexQ5lqZRg" path="pf15002/first_load/raw" type="PROCESS"/>
+  <deletedItems id="_o7VOgFNUEe2BbexQ5lqZRg" path="pf15002/first_load/raw" type="PROCESS"/>
+  <deletedItems id="_pjcAEFW0Ee2lMvfMjAhNYg" path="pf15002/first_load/raw" type="PROCESS"/>
+  <deletedItems id="_2l0-sFW8Ee2uUry64lyzHQ" path="pf15002/first_load/stage" type="PROCESS"/>
+  <deletedItems id="_CJWFMFW9Ee2uUry64lyzHQ" path="pf15002/first_load/stage" type="PROCESS"/>
+  <deletedItems id="_KO2zwFW9Ee2uUry64lyzHQ" path="pf15002/first_load/stage" type="PROCESS"/>
+  <deletedItems id="_MpwlYFW8Ee2uUry64lyzHQ" path="pf15002/first_load/stage" type="PROCESS"/>
+  <deletedItems id="_ZVMWMFW8Ee2uUry64lyzHQ" path="pf15002/first_load/stage" type="PROCESS"/>
+  <deletedItems id="_bIJsIFW9Ee2uUry64lyzHQ" path="pf15002/first_load/stage" type="PROCESS"/>
+  <deletedItems id="_kLa44FW8Ee2uUry64lyzHQ" path="pf15002/first_load/stage" type="PROCESS"/>
+  <deletedItems id="_ntXu8FW3Ee2UJIMKQd7ZJA" path="pf15002/first_load/stage" type="PROCESS"/>
+  <deletedItems id="_tsoJYFW8Ee2uUry64lyzHQ" path="pf15002/first_load/stage" type="PROCESS"/>
+</recyclebin:RecycleBin>
