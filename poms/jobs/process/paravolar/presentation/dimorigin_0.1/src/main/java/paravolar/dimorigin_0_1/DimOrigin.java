@@ -425,9 +425,9 @@ public static class dimensionStruct implements routines.system.IPersistableRow<d
 					return this.stateName;
 				}
 				
-			    public String worldAreaCode;
+			    public Integer worldAreaCode;
 
-				public String getWorldAreaCode () {
+				public Integer getWorldAreaCode () {
 					return this.worldAreaCode;
 				}
 				
@@ -611,7 +611,7 @@ public static class dimensionStruct implements routines.system.IPersistableRow<d
 					
 					this.stateName = readString(dis);
 					
-					this.worldAreaCode = readString(dis);
+						this.worldAreaCode = readInteger(dis);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -649,7 +649,7 @@ public static class dimensionStruct implements routines.system.IPersistableRow<d
 					
 					this.stateName = readString(dis);
 					
-					this.worldAreaCode = readString(dis);
+						this.worldAreaCode = readInteger(dis);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -697,9 +697,9 @@ public static class dimensionStruct implements routines.system.IPersistableRow<d
 				
 						writeString(this.stateName,dos);
 					
-					// String
+					// Integer
 				
-						writeString(this.worldAreaCode,dos);
+						writeInteger(this.worldAreaCode,dos);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -740,9 +740,9 @@ public static class dimensionStruct implements routines.system.IPersistableRow<d
 				
 						writeString(this.stateName,dos);
 					
-					// String
+					// Integer
 				
-						writeString(this.worldAreaCode,dos);
+						writeInteger(this.worldAreaCode,dos);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -764,7 +764,7 @@ public static class dimensionStruct implements routines.system.IPersistableRow<d
 		sb.append(",cityName="+cityName);
 		sb.append(",stateCode="+stateCode);
 		sb.append(",stateName="+stateName);
-		sb.append(",worldAreaCode="+worldAreaCode);
+		sb.append(",worldAreaCode="+String.valueOf(worldAreaCode));
 	    sb.append("]");
 
 	    return sb.toString();
@@ -816,718 +816,718 @@ public static class row3Struct implements routines.system.IPersistableRow<row3St
     static byte[] commonByteArray_PARAVOLAR_DimOrigin = new byte[0];
 
 	
-			    public Integer _Year;
+			    public Integer Year;
 
-				public Integer get_Year () {
-					return this._Year;
+				public Integer getYear () {
+					return this.Year;
 				}
 				
-			    public Integer _Quarter;
+			    public Integer Quarter;
 
-				public Integer get_Quarter () {
-					return this._Quarter;
+				public Integer getQuarter () {
+					return this.Quarter;
 				}
 				
-			    public Integer _Month;
+			    public Integer Month;
 
-				public Integer get_Month () {
-					return this._Month;
+				public Integer getMonth () {
+					return this.Month;
 				}
 				
-			    public Integer _DayofMonth;
+			    public Integer DayofMonth;
 
-				public Integer get_DayofMonth () {
-					return this._DayofMonth;
+				public Integer getDayofMonth () {
+					return this.DayofMonth;
 				}
 				
-			    public Integer _DayOfWeek;
+			    public Integer DayOfWeek;
 
-				public Integer get_DayOfWeek () {
-					return this._DayOfWeek;
+				public Integer getDayOfWeek () {
+					return this.DayOfWeek;
 				}
 				
-			    public String _FlightDate;
+			    public String FlightDate;
 
-				public String get_FlightDate () {
-					return this._FlightDate;
+				public String getFlightDate () {
+					return this.FlightDate;
 				}
 				
-			    public String _Marketing_Airline_Network;
+			    public String Marketing_Airline_Network;
 
-				public String get_Marketing_Airline_Network () {
-					return this._Marketing_Airline_Network;
+				public String getMarketing_Airline_Network () {
+					return this.Marketing_Airline_Network;
 				}
 				
-			    public String _Operated_or_Branded_Code_Share_Partners;
+			    public String Operated_or_Branded_Code_Share_Partners;
 
-				public String get_Operated_or_Branded_Code_Share_Partners () {
-					return this._Operated_or_Branded_Code_Share_Partners;
+				public String getOperated_or_Branded_Code_Share_Partners () {
+					return this.Operated_or_Branded_Code_Share_Partners;
 				}
 				
-			    public Integer _DOT_ID_Marketing_Airline;
+			    public Integer DOT_ID_Marketing_Airline;
 
-				public Integer get_DOT_ID_Marketing_Airline () {
-					return this._DOT_ID_Marketing_Airline;
+				public Integer getDOT_ID_Marketing_Airline () {
+					return this.DOT_ID_Marketing_Airline;
 				}
 				
-			    public String _IATA_Code_Marketing_Airline;
+			    public String IATA_Code_Marketing_Airline;
 
-				public String get_IATA_Code_Marketing_Airline () {
-					return this._IATA_Code_Marketing_Airline;
+				public String getIATA_Code_Marketing_Airline () {
+					return this.IATA_Code_Marketing_Airline;
 				}
 				
-			    public String _Flight_Number_Marketing_Airline;
+			    public Integer Flight_Number_Marketing_Airline;
 
-				public String get_Flight_Number_Marketing_Airline () {
-					return this._Flight_Number_Marketing_Airline;
+				public Integer getFlight_Number_Marketing_Airline () {
+					return this.Flight_Number_Marketing_Airline;
 				}
 				
-			    public String _Originally_Scheduled_Code_Share_Airline;
+			    public String Originally_Scheduled_Code_Share_Airline;
 
-				public String get_Originally_Scheduled_Code_Share_Airline () {
-					return this._Originally_Scheduled_Code_Share_Airline;
+				public String getOriginally_Scheduled_Code_Share_Airline () {
+					return this.Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _DOT_ID_Originally_Scheduled_Code_Share_Airline;
+			    public String DOT_ID_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_DOT_ID_Originally_Scheduled_Code_Share_Airline () {
-					return this._DOT_ID_Originally_Scheduled_Code_Share_Airline;
+				public String getDOT_ID_Originally_Scheduled_Code_Share_Airline () {
+					return this.DOT_ID_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _IATA_Code_Originally_Scheduled_Code_Share_Airline;
+			    public String IATA_Code_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_IATA_Code_Originally_Scheduled_Code_Share_Airline () {
-					return this._IATA_Code_Originally_Scheduled_Code_Share_Airline;
+				public String getIATA_Code_Originally_Scheduled_Code_Share_Airline () {
+					return this.IATA_Code_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _Flight_Num_Originally_Scheduled_Code_Share_Airline;
+			    public String Flight_Num_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_Flight_Num_Originally_Scheduled_Code_Share_Airline () {
-					return this._Flight_Num_Originally_Scheduled_Code_Share_Airline;
+				public String getFlight_Num_Originally_Scheduled_Code_Share_Airline () {
+					return this.Flight_Num_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _Operating_Airline;
+			    public String Operating_Airline;
 
-				public String get_Operating_Airline () {
-					return this._Operating_Airline;
+				public String getOperating_Airline () {
+					return this.Operating_Airline;
 				}
 				
-			    public Integer _DOT_ID_Operating_Airline;
+			    public Integer DOT_ID_Operating_Airline;
 
-				public Integer get_DOT_ID_Operating_Airline () {
-					return this._DOT_ID_Operating_Airline;
+				public Integer getDOT_ID_Operating_Airline () {
+					return this.DOT_ID_Operating_Airline;
 				}
 				
-			    public String _IATA_Code_Operating_Airline;
+			    public String IATA_Code_Operating_Airline;
 
-				public String get_IATA_Code_Operating_Airline () {
-					return this._IATA_Code_Operating_Airline;
+				public String getIATA_Code_Operating_Airline () {
+					return this.IATA_Code_Operating_Airline;
 				}
 				
-			    public String _Tail_Number;
+			    public String Tail_Number;
 
-				public String get_Tail_Number () {
-					return this._Tail_Number;
+				public String getTail_Number () {
+					return this.Tail_Number;
 				}
 				
-			    public String _Flight_Number_Operating_Airline;
+			    public Integer Flight_Number_Operating_Airline;
 
-				public String get_Flight_Number_Operating_Airline () {
-					return this._Flight_Number_Operating_Airline;
+				public Integer getFlight_Number_Operating_Airline () {
+					return this.Flight_Number_Operating_Airline;
 				}
 				
-			    public Integer _OriginAirportID;
+			    public Integer OriginAirportID;
 
-				public Integer get_OriginAirportID () {
-					return this._OriginAirportID;
+				public Integer getOriginAirportID () {
+					return this.OriginAirportID;
 				}
 				
-			    public Integer _OriginAirportSeqID;
+			    public Integer OriginAirportSeqID;
 
-				public Integer get_OriginAirportSeqID () {
-					return this._OriginAirportSeqID;
+				public Integer getOriginAirportSeqID () {
+					return this.OriginAirportSeqID;
 				}
 				
-			    public Integer _OriginCityMarketID;
+			    public Integer OriginCityMarketID;
 
-				public Integer get_OriginCityMarketID () {
-					return this._OriginCityMarketID;
+				public Integer getOriginCityMarketID () {
+					return this.OriginCityMarketID;
 				}
 				
-			    public String _Origin;
+			    public String Origin;
 
-				public String get_Origin () {
-					return this._Origin;
+				public String getOrigin () {
+					return this.Origin;
 				}
 				
-			    public String _OriginCityName;
+			    public String OriginCityName;
 
-				public String get_OriginCityName () {
-					return this._OriginCityName;
+				public String getOriginCityName () {
+					return this.OriginCityName;
 				}
 				
-			    public String _OriginState;
+			    public String OriginState;
 
-				public String get_OriginState () {
-					return this._OriginState;
+				public String getOriginState () {
+					return this.OriginState;
 				}
 				
-			    public String _OriginStateFips;
+			    public String OriginStateFips;
 
-				public String get_OriginStateFips () {
-					return this._OriginStateFips;
+				public String getOriginStateFips () {
+					return this.OriginStateFips;
 				}
 				
-			    public String _OriginStateName;
+			    public String OriginStateName;
 
-				public String get_OriginStateName () {
-					return this._OriginStateName;
+				public String getOriginStateName () {
+					return this.OriginStateName;
 				}
 				
-			    public String _OriginWac;
+			    public Integer OriginWac;
 
-				public String get_OriginWac () {
-					return this._OriginWac;
+				public Integer getOriginWac () {
+					return this.OriginWac;
 				}
 				
-			    public Integer _DestAirportID;
+			    public Integer DestAirportID;
 
-				public Integer get_DestAirportID () {
-					return this._DestAirportID;
+				public Integer getDestAirportID () {
+					return this.DestAirportID;
 				}
 				
-			    public Integer _DestAirportSeqID;
+			    public Integer DestAirportSeqID;
 
-				public Integer get_DestAirportSeqID () {
-					return this._DestAirportSeqID;
+				public Integer getDestAirportSeqID () {
+					return this.DestAirportSeqID;
 				}
 				
-			    public Integer _DestCityMarketID;
+			    public Integer DestCityMarketID;
 
-				public Integer get_DestCityMarketID () {
-					return this._DestCityMarketID;
+				public Integer getDestCityMarketID () {
+					return this.DestCityMarketID;
 				}
 				
-			    public Integer _Dest;
+			    public String Dest;
 
-				public Integer get_Dest () {
-					return this._Dest;
+				public String getDest () {
+					return this.Dest;
 				}
 				
-			    public String _DestCityName;
+			    public String DestCityName;
 
-				public String get_DestCityName () {
-					return this._DestCityName;
+				public String getDestCityName () {
+					return this.DestCityName;
 				}
 				
-			    public String _DestState;
+			    public String DestState;
 
-				public String get_DestState () {
-					return this._DestState;
+				public String getDestState () {
+					return this.DestState;
 				}
 				
-			    public String _DestStateFips;
+			    public String DestStateFips;
 
-				public String get_DestStateFips () {
-					return this._DestStateFips;
+				public String getDestStateFips () {
+					return this.DestStateFips;
 				}
 				
-			    public String _DestStateName;
+			    public String DestStateName;
 
-				public String get_DestStateName () {
-					return this._DestStateName;
+				public String getDestStateName () {
+					return this.DestStateName;
 				}
 				
-			    public String _DestWac;
+			    public Integer DestWac;
 
-				public String get_DestWac () {
-					return this._DestWac;
+				public Integer getDestWac () {
+					return this.DestWac;
 				}
 				
-			    public String _CRSDepTime;
+			    public String CRSDepTime;
 
-				public String get_CRSDepTime () {
-					return this._CRSDepTime;
+				public String getCRSDepTime () {
+					return this.CRSDepTime;
 				}
 				
-			    public Integer _DepTime;
+			    public String DepTime;
 
-				public Integer get_DepTime () {
-					return this._DepTime;
+				public String getDepTime () {
+					return this.DepTime;
 				}
 				
-			    public String _DepDelay;
+			    public String DepDelay;
 
-				public String get_DepDelay () {
-					return this._DepDelay;
+				public String getDepDelay () {
+					return this.DepDelay;
 				}
 				
-			    public String _DepDelayMinutes;
+			    public String DepDelayMinutes;
 
-				public String get_DepDelayMinutes () {
-					return this._DepDelayMinutes;
+				public String getDepDelayMinutes () {
+					return this.DepDelayMinutes;
 				}
 				
-			    public String _DepDel15;
+			    public String DepDel15;
 
-				public String get_DepDel15 () {
-					return this._DepDel15;
+				public String getDepDel15 () {
+					return this.DepDel15;
 				}
 				
-			    public String _DepartureDelayGroups;
+			    public String DepartureDelayGroups;
 
-				public String get_DepartureDelayGroups () {
-					return this._DepartureDelayGroups;
+				public String getDepartureDelayGroups () {
+					return this.DepartureDelayGroups;
 				}
 				
-			    public String _DepTimeBlk;
+			    public String DepTimeBlk;
 
-				public String get_DepTimeBlk () {
-					return this._DepTimeBlk;
+				public String getDepTimeBlk () {
+					return this.DepTimeBlk;
 				}
 				
-			    public String _TaxiOut;
+			    public String TaxiOut;
 
-				public String get_TaxiOut () {
-					return this._TaxiOut;
+				public String getTaxiOut () {
+					return this.TaxiOut;
 				}
 				
-			    public String _WheelsOff;
+			    public String WheelsOff;
 
-				public String get_WheelsOff () {
-					return this._WheelsOff;
+				public String getWheelsOff () {
+					return this.WheelsOff;
 				}
 				
-			    public String _WheelsOn;
+			    public String WheelsOn;
 
-				public String get_WheelsOn () {
-					return this._WheelsOn;
+				public String getWheelsOn () {
+					return this.WheelsOn;
 				}
 				
-			    public String _TaxiIn;
+			    public String TaxiIn;
 
-				public String get_TaxiIn () {
-					return this._TaxiIn;
+				public String getTaxiIn () {
+					return this.TaxiIn;
 				}
 				
-			    public String _CRSArrTime;
+			    public String CRSArrTime;
 
-				public String get_CRSArrTime () {
-					return this._CRSArrTime;
+				public String getCRSArrTime () {
+					return this.CRSArrTime;
 				}
 				
-			    public String _ArrTime;
+			    public String ArrTime;
 
-				public String get_ArrTime () {
-					return this._ArrTime;
+				public String getArrTime () {
+					return this.ArrTime;
 				}
 				
-			    public String _ArrDelay;
+			    public String ArrDelay;
 
-				public String get_ArrDelay () {
-					return this._ArrDelay;
+				public String getArrDelay () {
+					return this.ArrDelay;
 				}
 				
-			    public String _ArrDelayMinutes;
+			    public String ArrDelayMinutes;
 
-				public String get_ArrDelayMinutes () {
-					return this._ArrDelayMinutes;
+				public String getArrDelayMinutes () {
+					return this.ArrDelayMinutes;
 				}
 				
-			    public String _ArrDel15;
+			    public String ArrDel15;
 
-				public String get_ArrDel15 () {
-					return this._ArrDel15;
+				public String getArrDel15 () {
+					return this.ArrDel15;
 				}
 				
-			    public String _ArrivalDelayGroups;
+			    public String ArrivalDelayGroups;
 
-				public String get_ArrivalDelayGroups () {
-					return this._ArrivalDelayGroups;
+				public String getArrivalDelayGroups () {
+					return this.ArrivalDelayGroups;
 				}
 				
-			    public String _ArrTimeBlk;
+			    public String ArrTimeBlk;
 
-				public String get_ArrTimeBlk () {
-					return this._ArrTimeBlk;
+				public String getArrTimeBlk () {
+					return this.ArrTimeBlk;
 				}
 				
-			    public String _Cancelled;
+			    public Float Cancelled;
 
-				public String get_Cancelled () {
-					return this._Cancelled;
+				public Float getCancelled () {
+					return this.Cancelled;
 				}
 				
-			    public String _CancellationCode;
+			    public String CancellationCode;
 
-				public String get_CancellationCode () {
-					return this._CancellationCode;
+				public String getCancellationCode () {
+					return this.CancellationCode;
 				}
 				
-			    public Float _Diverted;
+			    public Float Diverted;
 
-				public Float get_Diverted () {
-					return this._Diverted;
+				public Float getDiverted () {
+					return this.Diverted;
 				}
 				
-			    public String _CRSElapsedTime;
+			    public Float CRSElapsedTime;
 
-				public String get_CRSElapsedTime () {
-					return this._CRSElapsedTime;
+				public Float getCRSElapsedTime () {
+					return this.CRSElapsedTime;
 				}
 				
-			    public Float _ActualElapsedTime;
+			    public String ActualElapsedTime;
 
-				public Float get_ActualElapsedTime () {
-					return this._ActualElapsedTime;
+				public String getActualElapsedTime () {
+					return this.ActualElapsedTime;
 				}
 				
-			    public Float _AirTime;
+			    public String AirTime;
 
-				public Float get_AirTime () {
-					return this._AirTime;
+				public String getAirTime () {
+					return this.AirTime;
 				}
 				
-			    public String _Flights;
+			    public Float Flights;
 
-				public String get_Flights () {
-					return this._Flights;
+				public Float getFlights () {
+					return this.Flights;
 				}
 				
-			    public String _Distance;
+			    public Float Distance;
 
-				public String get_Distance () {
-					return this._Distance;
+				public Float getDistance () {
+					return this.Distance;
 				}
 				
-			    public Float _DistanceGroup;
+			    public Integer DistanceGroup;
 
-				public Float get_DistanceGroup () {
-					return this._DistanceGroup;
+				public Integer getDistanceGroup () {
+					return this.DistanceGroup;
 				}
 				
-			    public Float _CarrierDelay;
+			    public String CarrierDelay;
 
-				public Float get_CarrierDelay () {
-					return this._CarrierDelay;
+				public String getCarrierDelay () {
+					return this.CarrierDelay;
 				}
 				
-			    public Integer _WeatherDelay;
+			    public String WeatherDelay;
 
-				public Integer get_WeatherDelay () {
-					return this._WeatherDelay;
+				public String getWeatherDelay () {
+					return this.WeatherDelay;
 				}
 				
-			    public String _NASDelay;
+			    public String NASDelay;
 
-				public String get_NASDelay () {
-					return this._NASDelay;
+				public String getNASDelay () {
+					return this.NASDelay;
 				}
 				
-			    public String _SecurityDelay;
+			    public String SecurityDelay;
 
-				public String get_SecurityDelay () {
-					return this._SecurityDelay;
+				public String getSecurityDelay () {
+					return this.SecurityDelay;
 				}
 				
-			    public String _LateAircraftDelay;
+			    public String LateAircraftDelay;
 
-				public String get_LateAircraftDelay () {
-					return this._LateAircraftDelay;
+				public String getLateAircraftDelay () {
+					return this.LateAircraftDelay;
 				}
 				
-			    public String _FirstDepTime;
+			    public String FirstDepTime;
 
-				public String get_FirstDepTime () {
-					return this._FirstDepTime;
+				public String getFirstDepTime () {
+					return this.FirstDepTime;
 				}
 				
-			    public String _TotalAddGTime;
+			    public String TotalAddGTime;
 
-				public String get_TotalAddGTime () {
-					return this._TotalAddGTime;
+				public String getTotalAddGTime () {
+					return this.TotalAddGTime;
 				}
 				
-			    public String _LongestAddGTime;
+			    public String LongestAddGTime;
 
-				public String get_LongestAddGTime () {
-					return this._LongestAddGTime;
+				public String getLongestAddGTime () {
+					return this.LongestAddGTime;
 				}
 				
-			    public String _DivAirportLandings;
+			    public Integer DivAirportLandings;
 
-				public String get_DivAirportLandings () {
-					return this._DivAirportLandings;
+				public Integer getDivAirportLandings () {
+					return this.DivAirportLandings;
 				}
 				
-			    public String _DivReachedDest;
+			    public String DivReachedDest;
 
-				public String get_DivReachedDest () {
-					return this._DivReachedDest;
+				public String getDivReachedDest () {
+					return this.DivReachedDest;
 				}
 				
-			    public Integer _DivActualElapsedTime;
+			    public String DivActualElapsedTime;
 
-				public Integer get_DivActualElapsedTime () {
-					return this._DivActualElapsedTime;
+				public String getDivActualElapsedTime () {
+					return this.DivActualElapsedTime;
 				}
 				
-			    public String _DivArrDelay;
+			    public String DivArrDelay;
 
-				public String get_DivArrDelay () {
-					return this._DivArrDelay;
+				public String getDivArrDelay () {
+					return this.DivArrDelay;
 				}
 				
-			    public String _DivDistance;
+			    public String DivDistance;
 
-				public String get_DivDistance () {
-					return this._DivDistance;
+				public String getDivDistance () {
+					return this.DivDistance;
 				}
 				
-			    public String _Div1Airport;
+			    public String Div1Airport;
 
-				public String get_Div1Airport () {
-					return this._Div1Airport;
+				public String getDiv1Airport () {
+					return this.Div1Airport;
 				}
 				
-			    public String _Div1AirportID;
+			    public String Div1AirportID;
 
-				public String get_Div1AirportID () {
-					return this._Div1AirportID;
+				public String getDiv1AirportID () {
+					return this.Div1AirportID;
 				}
 				
-			    public String _Div1AirportSeqID;
+			    public String Div1AirportSeqID;
 
-				public String get_Div1AirportSeqID () {
-					return this._Div1AirportSeqID;
+				public String getDiv1AirportSeqID () {
+					return this.Div1AirportSeqID;
 				}
 				
-			    public String _Div1WheelsOn;
+			    public String Div1WheelsOn;
 
-				public String get_Div1WheelsOn () {
-					return this._Div1WheelsOn;
+				public String getDiv1WheelsOn () {
+					return this.Div1WheelsOn;
 				}
 				
-			    public String _Div1TotalGTime;
+			    public String Div1TotalGTime;
 
-				public String get_Div1TotalGTime () {
-					return this._Div1TotalGTime;
+				public String getDiv1TotalGTime () {
+					return this.Div1TotalGTime;
 				}
 				
-			    public String _Div1LongestGTime;
+			    public String Div1LongestGTime;
 
-				public String get_Div1LongestGTime () {
-					return this._Div1LongestGTime;
+				public String getDiv1LongestGTime () {
+					return this.Div1LongestGTime;
 				}
 				
-			    public String _Div1WheelsOff;
+			    public String Div1WheelsOff;
 
-				public String get_Div1WheelsOff () {
-					return this._Div1WheelsOff;
+				public String getDiv1WheelsOff () {
+					return this.Div1WheelsOff;
 				}
 				
-			    public String _Div1TailNum;
+			    public String Div1TailNum;
 
-				public String get_Div1TailNum () {
-					return this._Div1TailNum;
+				public String getDiv1TailNum () {
+					return this.Div1TailNum;
 				}
 				
-			    public String _Div2Airport;
+			    public String Div2Airport;
 
-				public String get_Div2Airport () {
-					return this._Div2Airport;
+				public String getDiv2Airport () {
+					return this.Div2Airport;
 				}
 				
-			    public String _Div2AirportID;
+			    public String Div2AirportID;
 
-				public String get_Div2AirportID () {
-					return this._Div2AirportID;
+				public String getDiv2AirportID () {
+					return this.Div2AirportID;
 				}
 				
-			    public String _Div2AirportSeqID;
+			    public String Div2AirportSeqID;
 
-				public String get_Div2AirportSeqID () {
-					return this._Div2AirportSeqID;
+				public String getDiv2AirportSeqID () {
+					return this.Div2AirportSeqID;
 				}
 				
-			    public String _Div2WheelsOn;
+			    public String Div2WheelsOn;
 
-				public String get_Div2WheelsOn () {
-					return this._Div2WheelsOn;
+				public String getDiv2WheelsOn () {
+					return this.Div2WheelsOn;
 				}
 				
-			    public String _Div2TotalGTime;
+			    public String Div2TotalGTime;
 
-				public String get_Div2TotalGTime () {
-					return this._Div2TotalGTime;
+				public String getDiv2TotalGTime () {
+					return this.Div2TotalGTime;
 				}
 				
-			    public String _Div2LongestGTime;
+			    public String Div2LongestGTime;
 
-				public String get_Div2LongestGTime () {
-					return this._Div2LongestGTime;
+				public String getDiv2LongestGTime () {
+					return this.Div2LongestGTime;
 				}
 				
-			    public String _Div2WheelsOff;
+			    public String Div2WheelsOff;
 
-				public String get_Div2WheelsOff () {
-					return this._Div2WheelsOff;
+				public String getDiv2WheelsOff () {
+					return this.Div2WheelsOff;
 				}
 				
-			    public String _Div2TailNum;
+			    public String Div2TailNum;
 
-				public String get_Div2TailNum () {
-					return this._Div2TailNum;
+				public String getDiv2TailNum () {
+					return this.Div2TailNum;
 				}
 				
-			    public String _Div3Airport;
+			    public String Div3Airport;
 
-				public String get_Div3Airport () {
-					return this._Div3Airport;
+				public String getDiv3Airport () {
+					return this.Div3Airport;
 				}
 				
-			    public String _Div3AirportID;
+			    public String Div3AirportID;
 
-				public String get_Div3AirportID () {
-					return this._Div3AirportID;
+				public String getDiv3AirportID () {
+					return this.Div3AirportID;
 				}
 				
-			    public String _Div3AirportSeqID;
+			    public String Div3AirportSeqID;
 
-				public String get_Div3AirportSeqID () {
-					return this._Div3AirportSeqID;
+				public String getDiv3AirportSeqID () {
+					return this.Div3AirportSeqID;
 				}
 				
-			    public String _Div3WheelsOn;
+			    public String Div3WheelsOn;
 
-				public String get_Div3WheelsOn () {
-					return this._Div3WheelsOn;
+				public String getDiv3WheelsOn () {
+					return this.Div3WheelsOn;
 				}
 				
-			    public String _Div3TotalGTime;
+			    public String Div3TotalGTime;
 
-				public String get_Div3TotalGTime () {
-					return this._Div3TotalGTime;
+				public String getDiv3TotalGTime () {
+					return this.Div3TotalGTime;
 				}
 				
-			    public String _Div3LongestGTime;
+			    public String Div3LongestGTime;
 
-				public String get_Div3LongestGTime () {
-					return this._Div3LongestGTime;
+				public String getDiv3LongestGTime () {
+					return this.Div3LongestGTime;
 				}
 				
-			    public String _Div3WheelsOff;
+			    public String Div3WheelsOff;
 
-				public String get_Div3WheelsOff () {
-					return this._Div3WheelsOff;
+				public String getDiv3WheelsOff () {
+					return this.Div3WheelsOff;
 				}
 				
-			    public String _Div3TailNum;
+			    public String Div3TailNum;
 
-				public String get_Div3TailNum () {
-					return this._Div3TailNum;
+				public String getDiv3TailNum () {
+					return this.Div3TailNum;
 				}
 				
-			    public String _Div4Airport;
+			    public String Div4Airport;
 
-				public String get_Div4Airport () {
-					return this._Div4Airport;
+				public String getDiv4Airport () {
+					return this.Div4Airport;
 				}
 				
-			    public String _Div4AirportID;
+			    public String Div4AirportID;
 
-				public String get_Div4AirportID () {
-					return this._Div4AirportID;
+				public String getDiv4AirportID () {
+					return this.Div4AirportID;
 				}
 				
-			    public String _Div4AirportSeqID;
+			    public String Div4AirportSeqID;
 
-				public String get_Div4AirportSeqID () {
-					return this._Div4AirportSeqID;
+				public String getDiv4AirportSeqID () {
+					return this.Div4AirportSeqID;
 				}
 				
-			    public String _Div4WheelsOn;
+			    public String Div4WheelsOn;
 
-				public String get_Div4WheelsOn () {
-					return this._Div4WheelsOn;
+				public String getDiv4WheelsOn () {
+					return this.Div4WheelsOn;
 				}
 				
-			    public String _Div4TotalGTime;
+			    public String Div4TotalGTime;
 
-				public String get_Div4TotalGTime () {
-					return this._Div4TotalGTime;
+				public String getDiv4TotalGTime () {
+					return this.Div4TotalGTime;
 				}
 				
-			    public String _Div4LongestGTime;
+			    public String Div4LongestGTime;
 
-				public String get_Div4LongestGTime () {
-					return this._Div4LongestGTime;
+				public String getDiv4LongestGTime () {
+					return this.Div4LongestGTime;
 				}
 				
-			    public String _Div4WheelsOff;
+			    public String Div4WheelsOff;
 
-				public String get_Div4WheelsOff () {
-					return this._Div4WheelsOff;
+				public String getDiv4WheelsOff () {
+					return this.Div4WheelsOff;
 				}
 				
-			    public String _Div4TailNum;
+			    public String Div4TailNum;
 
-				public String get_Div4TailNum () {
-					return this._Div4TailNum;
+				public String getDiv4TailNum () {
+					return this.Div4TailNum;
 				}
 				
-			    public String _Div5Airport;
+			    public String Div5Airport;
 
-				public String get_Div5Airport () {
-					return this._Div5Airport;
+				public String getDiv5Airport () {
+					return this.Div5Airport;
 				}
 				
-			    public String _Div5AirportID;
+			    public String Div5AirportID;
 
-				public String get_Div5AirportID () {
-					return this._Div5AirportID;
+				public String getDiv5AirportID () {
+					return this.Div5AirportID;
 				}
 				
-			    public String _Div5AirportSeqID;
+			    public String Div5AirportSeqID;
 
-				public String get_Div5AirportSeqID () {
-					return this._Div5AirportSeqID;
+				public String getDiv5AirportSeqID () {
+					return this.Div5AirportSeqID;
 				}
 				
-			    public String _Div5WheelsOn;
+			    public String Div5WheelsOn;
 
-				public String get_Div5WheelsOn () {
-					return this._Div5WheelsOn;
+				public String getDiv5WheelsOn () {
+					return this.Div5WheelsOn;
 				}
 				
-			    public String _Div5TotalGTime;
+			    public String Div5TotalGTime;
 
-				public String get_Div5TotalGTime () {
-					return this._Div5TotalGTime;
+				public String getDiv5TotalGTime () {
+					return this.Div5TotalGTime;
 				}
 				
-			    public String _Div5LongestGTime;
+			    public String Div5LongestGTime;
 
-				public String get_Div5LongestGTime () {
-					return this._Div5LongestGTime;
+				public String getDiv5LongestGTime () {
+					return this.Div5LongestGTime;
 				}
 				
-			    public String _Div5WheelsOff;
+			    public String Div5WheelsOff;
 
-				public String get_Div5WheelsOff () {
-					return this._Div5WheelsOff;
+				public String getDiv5WheelsOff () {
+					return this.Div5WheelsOff;
 				}
 				
-			    public String _Div5TailNum;
+			    public String Div5TailNum;
 
-				public String get_Div5TailNum () {
-					return this._Div5TailNum;
+				public String getDiv5TailNum () {
+					return this.Div5TailNum;
 				}
 				
-			    public String _Duplicate;
+			    public Character Duplicate;
 
-				public String get_Duplicate () {
-					return this._Duplicate;
+				public Character getDuplicate () {
+					return this.Duplicate;
 				}
 				
 
@@ -1642,268 +1642,273 @@ public static class row3Struct implements routines.system.IPersistableRow<row3St
 
         		int length = 0;
 		
-						this._Year = readInteger(dis);
+						this.Year = readInteger(dis);
 					
-						this._Quarter = readInteger(dis);
+						this.Quarter = readInteger(dis);
 					
-						this._Month = readInteger(dis);
+						this.Month = readInteger(dis);
 					
-						this._DayofMonth = readInteger(dis);
+						this.DayofMonth = readInteger(dis);
 					
-						this._DayOfWeek = readInteger(dis);
+						this.DayOfWeek = readInteger(dis);
 					
-					this._FlightDate = readString(dis);
+					this.FlightDate = readString(dis);
 					
-					this._Marketing_Airline_Network = readString(dis);
+					this.Marketing_Airline_Network = readString(dis);
 					
-					this._Operated_or_Branded_Code_Share_Partners = readString(dis);
+					this.Operated_or_Branded_Code_Share_Partners = readString(dis);
 					
-						this._DOT_ID_Marketing_Airline = readInteger(dis);
+						this.DOT_ID_Marketing_Airline = readInteger(dis);
 					
-					this._IATA_Code_Marketing_Airline = readString(dis);
+					this.IATA_Code_Marketing_Airline = readString(dis);
 					
-					this._Flight_Number_Marketing_Airline = readString(dis);
+						this.Flight_Number_Marketing_Airline = readInteger(dis);
 					
-					this._Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Operating_Airline = readString(dis);
+					this.Operating_Airline = readString(dis);
 					
-						this._DOT_ID_Operating_Airline = readInteger(dis);
+						this.DOT_ID_Operating_Airline = readInteger(dis);
 					
-					this._IATA_Code_Operating_Airline = readString(dis);
+					this.IATA_Code_Operating_Airline = readString(dis);
 					
-					this._Tail_Number = readString(dis);
+					this.Tail_Number = readString(dis);
 					
-					this._Flight_Number_Operating_Airline = readString(dis);
+						this.Flight_Number_Operating_Airline = readInteger(dis);
 					
-						this._OriginAirportID = readInteger(dis);
+						this.OriginAirportID = readInteger(dis);
 					
-						this._OriginAirportSeqID = readInteger(dis);
+						this.OriginAirportSeqID = readInteger(dis);
 					
-						this._OriginCityMarketID = readInteger(dis);
+						this.OriginCityMarketID = readInteger(dis);
 					
-					this._Origin = readString(dis);
+					this.Origin = readString(dis);
 					
-					this._OriginCityName = readString(dis);
+					this.OriginCityName = readString(dis);
 					
-					this._OriginState = readString(dis);
+					this.OriginState = readString(dis);
 					
-					this._OriginStateFips = readString(dis);
+					this.OriginStateFips = readString(dis);
 					
-					this._OriginStateName = readString(dis);
+					this.OriginStateName = readString(dis);
 					
-					this._OriginWac = readString(dis);
+						this.OriginWac = readInteger(dis);
 					
-						this._DestAirportID = readInteger(dis);
+						this.DestAirportID = readInteger(dis);
 					
-						this._DestAirportSeqID = readInteger(dis);
+						this.DestAirportSeqID = readInteger(dis);
 					
-						this._DestCityMarketID = readInteger(dis);
+						this.DestCityMarketID = readInteger(dis);
 					
-						this._Dest = readInteger(dis);
+					this.Dest = readString(dis);
 					
-					this._DestCityName = readString(dis);
+					this.DestCityName = readString(dis);
 					
-					this._DestState = readString(dis);
+					this.DestState = readString(dis);
 					
-					this._DestStateFips = readString(dis);
+					this.DestStateFips = readString(dis);
 					
-					this._DestStateName = readString(dis);
+					this.DestStateName = readString(dis);
 					
-					this._DestWac = readString(dis);
+						this.DestWac = readInteger(dis);
 					
-					this._CRSDepTime = readString(dis);
+					this.CRSDepTime = readString(dis);
 					
-						this._DepTime = readInteger(dis);
+					this.DepTime = readString(dis);
 					
-					this._DepDelay = readString(dis);
+					this.DepDelay = readString(dis);
 					
-					this._DepDelayMinutes = readString(dis);
+					this.DepDelayMinutes = readString(dis);
 					
-					this._DepDel15 = readString(dis);
+					this.DepDel15 = readString(dis);
 					
-					this._DepartureDelayGroups = readString(dis);
+					this.DepartureDelayGroups = readString(dis);
 					
-					this._DepTimeBlk = readString(dis);
+					this.DepTimeBlk = readString(dis);
 					
-					this._TaxiOut = readString(dis);
+					this.TaxiOut = readString(dis);
 					
-					this._WheelsOff = readString(dis);
+					this.WheelsOff = readString(dis);
 					
-					this._WheelsOn = readString(dis);
+					this.WheelsOn = readString(dis);
 					
-					this._TaxiIn = readString(dis);
+					this.TaxiIn = readString(dis);
 					
-					this._CRSArrTime = readString(dis);
+					this.CRSArrTime = readString(dis);
 					
-					this._ArrTime = readString(dis);
+					this.ArrTime = readString(dis);
 					
-					this._ArrDelay = readString(dis);
+					this.ArrDelay = readString(dis);
 					
-					this._ArrDelayMinutes = readString(dis);
+					this.ArrDelayMinutes = readString(dis);
 					
-					this._ArrDel15 = readString(dis);
+					this.ArrDel15 = readString(dis);
 					
-					this._ArrivalDelayGroups = readString(dis);
+					this.ArrivalDelayGroups = readString(dis);
 					
-					this._ArrTimeBlk = readString(dis);
-					
-					this._Cancelled = readString(dis);
-					
-					this._CancellationCode = readString(dis);
+					this.ArrTimeBlk = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._Diverted = null;
+           	    			this.Cancelled = null;
            				} else {
-           			    	this._Diverted = dis.readFloat();
+           			    	this.Cancelled = dis.readFloat();
            				}
 					
-					this._CRSElapsedTime = readString(dis);
+					this.CancellationCode = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._ActualElapsedTime = null;
+           	    			this.Diverted = null;
            				} else {
-           			    	this._ActualElapsedTime = dis.readFloat();
+           			    	this.Diverted = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._AirTime = null;
+           	    			this.CRSElapsedTime = null;
            				} else {
-           			    	this._AirTime = dis.readFloat();
+           			    	this.CRSElapsedTime = dis.readFloat();
            				}
 					
-					this._Flights = readString(dis);
+					this.ActualElapsedTime = readString(dis);
 					
-					this._Distance = readString(dis);
+					this.AirTime = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._DistanceGroup = null;
+           	    			this.Flights = null;
            				} else {
-           			    	this._DistanceGroup = dis.readFloat();
+           			    	this.Flights = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._CarrierDelay = null;
+           	    			this.Distance = null;
            				} else {
-           			    	this._CarrierDelay = dis.readFloat();
+           			    	this.Distance = dis.readFloat();
            				}
 					
-						this._WeatherDelay = readInteger(dis);
+						this.DistanceGroup = readInteger(dis);
 					
-					this._NASDelay = readString(dis);
+					this.CarrierDelay = readString(dis);
 					
-					this._SecurityDelay = readString(dis);
+					this.WeatherDelay = readString(dis);
 					
-					this._LateAircraftDelay = readString(dis);
+					this.NASDelay = readString(dis);
 					
-					this._FirstDepTime = readString(dis);
+					this.SecurityDelay = readString(dis);
 					
-					this._TotalAddGTime = readString(dis);
+					this.LateAircraftDelay = readString(dis);
 					
-					this._LongestAddGTime = readString(dis);
+					this.FirstDepTime = readString(dis);
 					
-					this._DivAirportLandings = readString(dis);
+					this.TotalAddGTime = readString(dis);
 					
-					this._DivReachedDest = readString(dis);
+					this.LongestAddGTime = readString(dis);
 					
-						this._DivActualElapsedTime = readInteger(dis);
+						this.DivAirportLandings = readInteger(dis);
 					
-					this._DivArrDelay = readString(dis);
+					this.DivReachedDest = readString(dis);
 					
-					this._DivDistance = readString(dis);
+					this.DivActualElapsedTime = readString(dis);
 					
-					this._Div1Airport = readString(dis);
+					this.DivArrDelay = readString(dis);
 					
-					this._Div1AirportID = readString(dis);
+					this.DivDistance = readString(dis);
 					
-					this._Div1AirportSeqID = readString(dis);
+					this.Div1Airport = readString(dis);
 					
-					this._Div1WheelsOn = readString(dis);
+					this.Div1AirportID = readString(dis);
 					
-					this._Div1TotalGTime = readString(dis);
+					this.Div1AirportSeqID = readString(dis);
 					
-					this._Div1LongestGTime = readString(dis);
+					this.Div1WheelsOn = readString(dis);
 					
-					this._Div1WheelsOff = readString(dis);
+					this.Div1TotalGTime = readString(dis);
 					
-					this._Div1TailNum = readString(dis);
+					this.Div1LongestGTime = readString(dis);
 					
-					this._Div2Airport = readString(dis);
+					this.Div1WheelsOff = readString(dis);
 					
-					this._Div2AirportID = readString(dis);
+					this.Div1TailNum = readString(dis);
 					
-					this._Div2AirportSeqID = readString(dis);
+					this.Div2Airport = readString(dis);
 					
-					this._Div2WheelsOn = readString(dis);
+					this.Div2AirportID = readString(dis);
 					
-					this._Div2TotalGTime = readString(dis);
+					this.Div2AirportSeqID = readString(dis);
 					
-					this._Div2LongestGTime = readString(dis);
+					this.Div2WheelsOn = readString(dis);
 					
-					this._Div2WheelsOff = readString(dis);
+					this.Div2TotalGTime = readString(dis);
 					
-					this._Div2TailNum = readString(dis);
+					this.Div2LongestGTime = readString(dis);
 					
-					this._Div3Airport = readString(dis);
+					this.Div2WheelsOff = readString(dis);
 					
-					this._Div3AirportID = readString(dis);
+					this.Div2TailNum = readString(dis);
 					
-					this._Div3AirportSeqID = readString(dis);
+					this.Div3Airport = readString(dis);
 					
-					this._Div3WheelsOn = readString(dis);
+					this.Div3AirportID = readString(dis);
 					
-					this._Div3TotalGTime = readString(dis);
+					this.Div3AirportSeqID = readString(dis);
 					
-					this._Div3LongestGTime = readString(dis);
+					this.Div3WheelsOn = readString(dis);
 					
-					this._Div3WheelsOff = readString(dis);
+					this.Div3TotalGTime = readString(dis);
 					
-					this._Div3TailNum = readString(dis);
+					this.Div3LongestGTime = readString(dis);
 					
-					this._Div4Airport = readString(dis);
+					this.Div3WheelsOff = readString(dis);
 					
-					this._Div4AirportID = readString(dis);
+					this.Div3TailNum = readString(dis);
 					
-					this._Div4AirportSeqID = readString(dis);
+					this.Div4Airport = readString(dis);
 					
-					this._Div4WheelsOn = readString(dis);
+					this.Div4AirportID = readString(dis);
 					
-					this._Div4TotalGTime = readString(dis);
+					this.Div4AirportSeqID = readString(dis);
 					
-					this._Div4LongestGTime = readString(dis);
+					this.Div4WheelsOn = readString(dis);
 					
-					this._Div4WheelsOff = readString(dis);
+					this.Div4TotalGTime = readString(dis);
 					
-					this._Div4TailNum = readString(dis);
+					this.Div4LongestGTime = readString(dis);
 					
-					this._Div5Airport = readString(dis);
+					this.Div4WheelsOff = readString(dis);
 					
-					this._Div5AirportID = readString(dis);
+					this.Div4TailNum = readString(dis);
 					
-					this._Div5AirportSeqID = readString(dis);
+					this.Div5Airport = readString(dis);
 					
-					this._Div5WheelsOn = readString(dis);
+					this.Div5AirportID = readString(dis);
 					
-					this._Div5TotalGTime = readString(dis);
+					this.Div5AirportSeqID = readString(dis);
 					
-					this._Div5LongestGTime = readString(dis);
+					this.Div5WheelsOn = readString(dis);
 					
-					this._Div5WheelsOff = readString(dis);
+					this.Div5TotalGTime = readString(dis);
 					
-					this._Div5TailNum = readString(dis);
+					this.Div5LongestGTime = readString(dis);
 					
-					this._Duplicate = readString(dis);
+					this.Div5WheelsOff = readString(dis);
+					
+					this.Div5TailNum = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Duplicate = null;
+           				} else {
+           			    	this.Duplicate = dis.readChar();
+           				}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -1927,268 +1932,273 @@ public static class row3Struct implements routines.system.IPersistableRow<row3St
 
         		int length = 0;
 		
-						this._Year = readInteger(dis);
+						this.Year = readInteger(dis);
 					
-						this._Quarter = readInteger(dis);
+						this.Quarter = readInteger(dis);
 					
-						this._Month = readInteger(dis);
+						this.Month = readInteger(dis);
 					
-						this._DayofMonth = readInteger(dis);
+						this.DayofMonth = readInteger(dis);
 					
-						this._DayOfWeek = readInteger(dis);
+						this.DayOfWeek = readInteger(dis);
 					
-					this._FlightDate = readString(dis);
+					this.FlightDate = readString(dis);
 					
-					this._Marketing_Airline_Network = readString(dis);
+					this.Marketing_Airline_Network = readString(dis);
 					
-					this._Operated_or_Branded_Code_Share_Partners = readString(dis);
+					this.Operated_or_Branded_Code_Share_Partners = readString(dis);
 					
-						this._DOT_ID_Marketing_Airline = readInteger(dis);
+						this.DOT_ID_Marketing_Airline = readInteger(dis);
 					
-					this._IATA_Code_Marketing_Airline = readString(dis);
+					this.IATA_Code_Marketing_Airline = readString(dis);
 					
-					this._Flight_Number_Marketing_Airline = readString(dis);
+						this.Flight_Number_Marketing_Airline = readInteger(dis);
 					
-					this._Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Operating_Airline = readString(dis);
+					this.Operating_Airline = readString(dis);
 					
-						this._DOT_ID_Operating_Airline = readInteger(dis);
+						this.DOT_ID_Operating_Airline = readInteger(dis);
 					
-					this._IATA_Code_Operating_Airline = readString(dis);
+					this.IATA_Code_Operating_Airline = readString(dis);
 					
-					this._Tail_Number = readString(dis);
+					this.Tail_Number = readString(dis);
 					
-					this._Flight_Number_Operating_Airline = readString(dis);
+						this.Flight_Number_Operating_Airline = readInteger(dis);
 					
-						this._OriginAirportID = readInteger(dis);
+						this.OriginAirportID = readInteger(dis);
 					
-						this._OriginAirportSeqID = readInteger(dis);
+						this.OriginAirportSeqID = readInteger(dis);
 					
-						this._OriginCityMarketID = readInteger(dis);
+						this.OriginCityMarketID = readInteger(dis);
 					
-					this._Origin = readString(dis);
+					this.Origin = readString(dis);
 					
-					this._OriginCityName = readString(dis);
+					this.OriginCityName = readString(dis);
 					
-					this._OriginState = readString(dis);
+					this.OriginState = readString(dis);
 					
-					this._OriginStateFips = readString(dis);
+					this.OriginStateFips = readString(dis);
 					
-					this._OriginStateName = readString(dis);
+					this.OriginStateName = readString(dis);
 					
-					this._OriginWac = readString(dis);
+						this.OriginWac = readInteger(dis);
 					
-						this._DestAirportID = readInteger(dis);
+						this.DestAirportID = readInteger(dis);
 					
-						this._DestAirportSeqID = readInteger(dis);
+						this.DestAirportSeqID = readInteger(dis);
 					
-						this._DestCityMarketID = readInteger(dis);
+						this.DestCityMarketID = readInteger(dis);
 					
-						this._Dest = readInteger(dis);
+					this.Dest = readString(dis);
 					
-					this._DestCityName = readString(dis);
+					this.DestCityName = readString(dis);
 					
-					this._DestState = readString(dis);
+					this.DestState = readString(dis);
 					
-					this._DestStateFips = readString(dis);
+					this.DestStateFips = readString(dis);
 					
-					this._DestStateName = readString(dis);
+					this.DestStateName = readString(dis);
 					
-					this._DestWac = readString(dis);
+						this.DestWac = readInteger(dis);
 					
-					this._CRSDepTime = readString(dis);
+					this.CRSDepTime = readString(dis);
 					
-						this._DepTime = readInteger(dis);
+					this.DepTime = readString(dis);
 					
-					this._DepDelay = readString(dis);
+					this.DepDelay = readString(dis);
 					
-					this._DepDelayMinutes = readString(dis);
+					this.DepDelayMinutes = readString(dis);
 					
-					this._DepDel15 = readString(dis);
+					this.DepDel15 = readString(dis);
 					
-					this._DepartureDelayGroups = readString(dis);
+					this.DepartureDelayGroups = readString(dis);
 					
-					this._DepTimeBlk = readString(dis);
+					this.DepTimeBlk = readString(dis);
 					
-					this._TaxiOut = readString(dis);
+					this.TaxiOut = readString(dis);
 					
-					this._WheelsOff = readString(dis);
+					this.WheelsOff = readString(dis);
 					
-					this._WheelsOn = readString(dis);
+					this.WheelsOn = readString(dis);
 					
-					this._TaxiIn = readString(dis);
+					this.TaxiIn = readString(dis);
 					
-					this._CRSArrTime = readString(dis);
+					this.CRSArrTime = readString(dis);
 					
-					this._ArrTime = readString(dis);
+					this.ArrTime = readString(dis);
 					
-					this._ArrDelay = readString(dis);
+					this.ArrDelay = readString(dis);
 					
-					this._ArrDelayMinutes = readString(dis);
+					this.ArrDelayMinutes = readString(dis);
 					
-					this._ArrDel15 = readString(dis);
+					this.ArrDel15 = readString(dis);
 					
-					this._ArrivalDelayGroups = readString(dis);
+					this.ArrivalDelayGroups = readString(dis);
 					
-					this._ArrTimeBlk = readString(dis);
-					
-					this._Cancelled = readString(dis);
-					
-					this._CancellationCode = readString(dis);
+					this.ArrTimeBlk = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._Diverted = null;
+           	    			this.Cancelled = null;
            				} else {
-           			    	this._Diverted = dis.readFloat();
+           			    	this.Cancelled = dis.readFloat();
            				}
 					
-					this._CRSElapsedTime = readString(dis);
+					this.CancellationCode = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._ActualElapsedTime = null;
+           	    			this.Diverted = null;
            				} else {
-           			    	this._ActualElapsedTime = dis.readFloat();
+           			    	this.Diverted = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._AirTime = null;
+           	    			this.CRSElapsedTime = null;
            				} else {
-           			    	this._AirTime = dis.readFloat();
+           			    	this.CRSElapsedTime = dis.readFloat();
            				}
 					
-					this._Flights = readString(dis);
+					this.ActualElapsedTime = readString(dis);
 					
-					this._Distance = readString(dis);
+					this.AirTime = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._DistanceGroup = null;
+           	    			this.Flights = null;
            				} else {
-           			    	this._DistanceGroup = dis.readFloat();
+           			    	this.Flights = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._CarrierDelay = null;
+           	    			this.Distance = null;
            				} else {
-           			    	this._CarrierDelay = dis.readFloat();
+           			    	this.Distance = dis.readFloat();
            				}
 					
-						this._WeatherDelay = readInteger(dis);
+						this.DistanceGroup = readInteger(dis);
 					
-					this._NASDelay = readString(dis);
+					this.CarrierDelay = readString(dis);
 					
-					this._SecurityDelay = readString(dis);
+					this.WeatherDelay = readString(dis);
 					
-					this._LateAircraftDelay = readString(dis);
+					this.NASDelay = readString(dis);
 					
-					this._FirstDepTime = readString(dis);
+					this.SecurityDelay = readString(dis);
 					
-					this._TotalAddGTime = readString(dis);
+					this.LateAircraftDelay = readString(dis);
 					
-					this._LongestAddGTime = readString(dis);
+					this.FirstDepTime = readString(dis);
 					
-					this._DivAirportLandings = readString(dis);
+					this.TotalAddGTime = readString(dis);
 					
-					this._DivReachedDest = readString(dis);
+					this.LongestAddGTime = readString(dis);
 					
-						this._DivActualElapsedTime = readInteger(dis);
+						this.DivAirportLandings = readInteger(dis);
 					
-					this._DivArrDelay = readString(dis);
+					this.DivReachedDest = readString(dis);
 					
-					this._DivDistance = readString(dis);
+					this.DivActualElapsedTime = readString(dis);
 					
-					this._Div1Airport = readString(dis);
+					this.DivArrDelay = readString(dis);
 					
-					this._Div1AirportID = readString(dis);
+					this.DivDistance = readString(dis);
 					
-					this._Div1AirportSeqID = readString(dis);
+					this.Div1Airport = readString(dis);
 					
-					this._Div1WheelsOn = readString(dis);
+					this.Div1AirportID = readString(dis);
 					
-					this._Div1TotalGTime = readString(dis);
+					this.Div1AirportSeqID = readString(dis);
 					
-					this._Div1LongestGTime = readString(dis);
+					this.Div1WheelsOn = readString(dis);
 					
-					this._Div1WheelsOff = readString(dis);
+					this.Div1TotalGTime = readString(dis);
 					
-					this._Div1TailNum = readString(dis);
+					this.Div1LongestGTime = readString(dis);
 					
-					this._Div2Airport = readString(dis);
+					this.Div1WheelsOff = readString(dis);
 					
-					this._Div2AirportID = readString(dis);
+					this.Div1TailNum = readString(dis);
 					
-					this._Div2AirportSeqID = readString(dis);
+					this.Div2Airport = readString(dis);
 					
-					this._Div2WheelsOn = readString(dis);
+					this.Div2AirportID = readString(dis);
 					
-					this._Div2TotalGTime = readString(dis);
+					this.Div2AirportSeqID = readString(dis);
 					
-					this._Div2LongestGTime = readString(dis);
+					this.Div2WheelsOn = readString(dis);
 					
-					this._Div2WheelsOff = readString(dis);
+					this.Div2TotalGTime = readString(dis);
 					
-					this._Div2TailNum = readString(dis);
+					this.Div2LongestGTime = readString(dis);
 					
-					this._Div3Airport = readString(dis);
+					this.Div2WheelsOff = readString(dis);
 					
-					this._Div3AirportID = readString(dis);
+					this.Div2TailNum = readString(dis);
 					
-					this._Div3AirportSeqID = readString(dis);
+					this.Div3Airport = readString(dis);
 					
-					this._Div3WheelsOn = readString(dis);
+					this.Div3AirportID = readString(dis);
 					
-					this._Div3TotalGTime = readString(dis);
+					this.Div3AirportSeqID = readString(dis);
 					
-					this._Div3LongestGTime = readString(dis);
+					this.Div3WheelsOn = readString(dis);
 					
-					this._Div3WheelsOff = readString(dis);
+					this.Div3TotalGTime = readString(dis);
 					
-					this._Div3TailNum = readString(dis);
+					this.Div3LongestGTime = readString(dis);
 					
-					this._Div4Airport = readString(dis);
+					this.Div3WheelsOff = readString(dis);
 					
-					this._Div4AirportID = readString(dis);
+					this.Div3TailNum = readString(dis);
 					
-					this._Div4AirportSeqID = readString(dis);
+					this.Div4Airport = readString(dis);
 					
-					this._Div4WheelsOn = readString(dis);
+					this.Div4AirportID = readString(dis);
 					
-					this._Div4TotalGTime = readString(dis);
+					this.Div4AirportSeqID = readString(dis);
 					
-					this._Div4LongestGTime = readString(dis);
+					this.Div4WheelsOn = readString(dis);
 					
-					this._Div4WheelsOff = readString(dis);
+					this.Div4TotalGTime = readString(dis);
 					
-					this._Div4TailNum = readString(dis);
+					this.Div4LongestGTime = readString(dis);
 					
-					this._Div5Airport = readString(dis);
+					this.Div4WheelsOff = readString(dis);
 					
-					this._Div5AirportID = readString(dis);
+					this.Div4TailNum = readString(dis);
 					
-					this._Div5AirportSeqID = readString(dis);
+					this.Div5Airport = readString(dis);
 					
-					this._Div5WheelsOn = readString(dis);
+					this.Div5AirportID = readString(dis);
 					
-					this._Div5TotalGTime = readString(dis);
+					this.Div5AirportSeqID = readString(dis);
 					
-					this._Div5LongestGTime = readString(dis);
+					this.Div5WheelsOn = readString(dis);
 					
-					this._Div5WheelsOff = readString(dis);
+					this.Div5TotalGTime = readString(dis);
 					
-					this._Div5TailNum = readString(dis);
+					this.Div5LongestGTime = readString(dis);
 					
-					this._Duplicate = readString(dis);
+					this.Div5WheelsOff = readString(dis);
+					
+					this.Div5TailNum = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Duplicate = null;
+           				} else {
+           			    	this.Duplicate = dis.readChar();
+           				}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -2210,504 +2220,509 @@ public static class row3Struct implements routines.system.IPersistableRow<row3St
 		
 					// Integer
 				
-						writeInteger(this._Year,dos);
+						writeInteger(this.Year,dos);
 					
 					// Integer
 				
-						writeInteger(this._Quarter,dos);
+						writeInteger(this.Quarter,dos);
 					
 					// Integer
 				
-						writeInteger(this._Month,dos);
+						writeInteger(this.Month,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayofMonth,dos);
+						writeInteger(this.DayofMonth,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayOfWeek,dos);
+						writeInteger(this.DayOfWeek,dos);
 					
 					// String
 				
-						writeString(this._FlightDate,dos);
+						writeString(this.FlightDate,dos);
 					
 					// String
 				
-						writeString(this._Marketing_Airline_Network,dos);
+						writeString(this.Marketing_Airline_Network,dos);
 					
 					// String
 				
-						writeString(this._Operated_or_Branded_Code_Share_Partners,dos);
+						writeString(this.Operated_or_Branded_Code_Share_Partners,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Marketing_Airline,dos);
+						writeInteger(this.DOT_ID_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Number_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Operating_Airline,dos);
+						writeString(this.IATA_Code_Marketing_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Operating_Airline,dos);
+						writeInteger(this.Flight_Number_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Operating_Airline,dos);
+						writeString(this.Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Tail_Number,dos);
+						writeString(this.DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Flight_Number_Operating_Airline,dos);
+						writeString(this.IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportID,dos);
+						writeInteger(this.DOT_ID_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.IATA_Code_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.Tail_Number,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportSeqID,dos);
+						writeInteger(this.Flight_Number_Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginCityMarketID,dos);
-					
-					// String
-				
-						writeString(this._Origin,dos);
-					
-					// String
-				
-						writeString(this._OriginCityName,dos);
-					
-					// String
-				
-						writeString(this._OriginState,dos);
-					
-					// String
-				
-						writeString(this._OriginStateFips,dos);
-					
-					// String
-				
-						writeString(this._OriginStateName,dos);
-					
-					// String
-				
-						writeString(this._OriginWac,dos);
+						writeInteger(this.OriginAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportID,dos);
+						writeInteger(this.OriginAirportSeqID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportSeqID,dos);
+						writeInteger(this.OriginCityMarketID,dos);
+					
+					// String
+				
+						writeString(this.Origin,dos);
+					
+					// String
+				
+						writeString(this.OriginCityName,dos);
+					
+					// String
+				
+						writeString(this.OriginState,dos);
+					
+					// String
+				
+						writeString(this.OriginStateFips,dos);
+					
+					// String
+				
+						writeString(this.OriginStateName,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestCityMarketID,dos);
+						writeInteger(this.OriginWac,dos);
 					
 					// Integer
 				
-						writeInteger(this._Dest,dos);
-					
-					// String
-				
-						writeString(this._DestCityName,dos);
-					
-					// String
-				
-						writeString(this._DestState,dos);
-					
-					// String
-				
-						writeString(this._DestStateFips,dos);
-					
-					// String
-				
-						writeString(this._DestStateName,dos);
-					
-					// String
-				
-						writeString(this._DestWac,dos);
-					
-					// String
-				
-						writeString(this._CRSDepTime,dos);
+						writeInteger(this.DestAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DepTime,dos);
+						writeInteger(this.DestAirportSeqID,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestCityMarketID,dos);
 					
 					// String
 				
-						writeString(this._DepDelay,dos);
+						writeString(this.Dest,dos);
 					
 					// String
 				
-						writeString(this._DepDelayMinutes,dos);
+						writeString(this.DestCityName,dos);
 					
 					// String
 				
-						writeString(this._DepDel15,dos);
+						writeString(this.DestState,dos);
 					
 					// String
 				
-						writeString(this._DepartureDelayGroups,dos);
+						writeString(this.DestStateFips,dos);
 					
 					// String
 				
-						writeString(this._DepTimeBlk,dos);
+						writeString(this.DestStateName,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestWac,dos);
 					
 					// String
 				
-						writeString(this._TaxiOut,dos);
+						writeString(this.CRSDepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOff,dos);
+						writeString(this.DepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOn,dos);
+						writeString(this.DepDelay,dos);
 					
 					// String
 				
-						writeString(this._TaxiIn,dos);
+						writeString(this.DepDelayMinutes,dos);
 					
 					// String
 				
-						writeString(this._CRSArrTime,dos);
+						writeString(this.DepDel15,dos);
 					
 					// String
 				
-						writeString(this._ArrTime,dos);
+						writeString(this.DepartureDelayGroups,dos);
 					
 					// String
 				
-						writeString(this._ArrDelay,dos);
+						writeString(this.DepTimeBlk,dos);
 					
 					// String
 				
-						writeString(this._ArrDelayMinutes,dos);
+						writeString(this.TaxiOut,dos);
 					
 					// String
 				
-						writeString(this._ArrDel15,dos);
+						writeString(this.WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._ArrivalDelayGroups,dos);
+						writeString(this.WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._ArrTimeBlk,dos);
+						writeString(this.TaxiIn,dos);
 					
 					// String
 				
-						writeString(this._Cancelled,dos);
+						writeString(this.CRSArrTime,dos);
 					
 					// String
 				
-						writeString(this._CancellationCode,dos);
+						writeString(this.ArrTime,dos);
+					
+					// String
+				
+						writeString(this.ArrDelay,dos);
+					
+					// String
+				
+						writeString(this.ArrDelayMinutes,dos);
+					
+					// String
+				
+						writeString(this.ArrDel15,dos);
+					
+					// String
+				
+						writeString(this.ArrivalDelayGroups,dos);
+					
+					// String
+				
+						writeString(this.ArrTimeBlk,dos);
 					
 					// Float
 				
-						if(this._Diverted == null) {
+						if(this.Cancelled == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._Diverted);
+           			    	dos.writeFloat(this.Cancelled);
 		            	}
 					
 					// String
 				
-						writeString(this._CRSElapsedTime,dos);
+						writeString(this.CancellationCode,dos);
 					
 					// Float
 				
-						if(this._ActualElapsedTime == null) {
+						if(this.Diverted == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._ActualElapsedTime);
+           			    	dos.writeFloat(this.Diverted);
 		            	}
 					
 					// Float
 				
-						if(this._AirTime == null) {
+						if(this.CRSElapsedTime == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._AirTime);
+           			    	dos.writeFloat(this.CRSElapsedTime);
 		            	}
 					
 					// String
 				
-						writeString(this._Flights,dos);
+						writeString(this.ActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Distance,dos);
+						writeString(this.AirTime,dos);
 					
 					// Float
 				
-						if(this._DistanceGroup == null) {
+						if(this.Flights == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._DistanceGroup);
+           			    	dos.writeFloat(this.Flights);
 		            	}
 					
 					// Float
 				
-						if(this._CarrierDelay == null) {
+						if(this.Distance == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._CarrierDelay);
+           			    	dos.writeFloat(this.Distance);
 		            	}
 					
 					// Integer
 				
-						writeInteger(this._WeatherDelay,dos);
+						writeInteger(this.DistanceGroup,dos);
 					
 					// String
 				
-						writeString(this._NASDelay,dos);
+						writeString(this.CarrierDelay,dos);
 					
 					// String
 				
-						writeString(this._SecurityDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
-						writeString(this._LateAircraftDelay,dos);
+						writeString(this.NASDelay,dos);
 					
 					// String
 				
-						writeString(this._FirstDepTime,dos);
+						writeString(this.SecurityDelay,dos);
 					
 					// String
 				
-						writeString(this._TotalAddGTime,dos);
+						writeString(this.LateAircraftDelay,dos);
 					
 					// String
 				
-						writeString(this._LongestAddGTime,dos);
+						writeString(this.FirstDepTime,dos);
 					
 					// String
 				
-						writeString(this._DivAirportLandings,dos);
+						writeString(this.TotalAddGTime,dos);
 					
 					// String
 				
-						writeString(this._DivReachedDest,dos);
+						writeString(this.LongestAddGTime,dos);
 					
 					// Integer
 				
-						writeInteger(this._DivActualElapsedTime,dos);
+						writeInteger(this.DivAirportLandings,dos);
 					
 					// String
 				
-						writeString(this._DivArrDelay,dos);
+						writeString(this.DivReachedDest,dos);
 					
 					// String
 				
-						writeString(this._DivDistance,dos);
+						writeString(this.DivActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Div1Airport,dos);
+						writeString(this.DivArrDelay,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportID,dos);
+						writeString(this.DivDistance,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportSeqID,dos);
+						writeString(this.Div1Airport,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOn,dos);
+						writeString(this.Div1AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div1TotalGTime,dos);
+						writeString(this.Div1AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div1LongestGTime,dos);
+						writeString(this.Div1WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOff,dos);
+						writeString(this.Div1TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div1TailNum,dos);
+						writeString(this.Div1LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2Airport,dos);
+						writeString(this.Div1WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportID,dos);
+						writeString(this.Div1TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportSeqID,dos);
+						writeString(this.Div2Airport,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOn,dos);
+						writeString(this.Div2AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div2TotalGTime,dos);
+						writeString(this.Div2AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div2LongestGTime,dos);
+						writeString(this.Div2WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOff,dos);
+						writeString(this.Div2TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2TailNum,dos);
+						writeString(this.Div2LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3Airport,dos);
+						writeString(this.Div2WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportID,dos);
+						writeString(this.Div2TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportSeqID,dos);
+						writeString(this.Div3Airport,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOn,dos);
+						writeString(this.Div3AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div3TotalGTime,dos);
+						writeString(this.Div3AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div3LongestGTime,dos);
+						writeString(this.Div3WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOff,dos);
+						writeString(this.Div3TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3TailNum,dos);
+						writeString(this.Div3LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4Airport,dos);
+						writeString(this.Div3WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportID,dos);
+						writeString(this.Div3TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportSeqID,dos);
+						writeString(this.Div4Airport,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOn,dos);
+						writeString(this.Div4AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div4TotalGTime,dos);
+						writeString(this.Div4AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div4LongestGTime,dos);
+						writeString(this.Div4WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOff,dos);
+						writeString(this.Div4TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4TailNum,dos);
+						writeString(this.Div4LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5Airport,dos);
+						writeString(this.Div4WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportID,dos);
+						writeString(this.Div4TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportSeqID,dos);
+						writeString(this.Div5Airport,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOn,dos);
+						writeString(this.Div5AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div5TotalGTime,dos);
+						writeString(this.Div5AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div5LongestGTime,dos);
+						writeString(this.Div5WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOff,dos);
+						writeString(this.Div5TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5TailNum,dos);
+						writeString(this.Div5LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Duplicate,dos);
+						writeString(this.Div5WheelsOff,dos);
+					
+					// String
+				
+						writeString(this.Div5TailNum,dos);
+					
+					// Character
+				
+						if(this.Duplicate == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeChar(this.Duplicate);
+		            	}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -2722,504 +2737,509 @@ public static class row3Struct implements routines.system.IPersistableRow<row3St
 		
 					// Integer
 				
-						writeInteger(this._Year,dos);
+						writeInteger(this.Year,dos);
 					
 					// Integer
 				
-						writeInteger(this._Quarter,dos);
+						writeInteger(this.Quarter,dos);
 					
 					// Integer
 				
-						writeInteger(this._Month,dos);
+						writeInteger(this.Month,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayofMonth,dos);
+						writeInteger(this.DayofMonth,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayOfWeek,dos);
+						writeInteger(this.DayOfWeek,dos);
 					
 					// String
 				
-						writeString(this._FlightDate,dos);
+						writeString(this.FlightDate,dos);
 					
 					// String
 				
-						writeString(this._Marketing_Airline_Network,dos);
+						writeString(this.Marketing_Airline_Network,dos);
 					
 					// String
 				
-						writeString(this._Operated_or_Branded_Code_Share_Partners,dos);
+						writeString(this.Operated_or_Branded_Code_Share_Partners,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Marketing_Airline,dos);
+						writeInteger(this.DOT_ID_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Number_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Operating_Airline,dos);
+						writeString(this.IATA_Code_Marketing_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Operating_Airline,dos);
+						writeInteger(this.Flight_Number_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Operating_Airline,dos);
+						writeString(this.Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Tail_Number,dos);
+						writeString(this.DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Flight_Number_Operating_Airline,dos);
+						writeString(this.IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportID,dos);
+						writeInteger(this.DOT_ID_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.IATA_Code_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.Tail_Number,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportSeqID,dos);
+						writeInteger(this.Flight_Number_Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginCityMarketID,dos);
-					
-					// String
-				
-						writeString(this._Origin,dos);
-					
-					// String
-				
-						writeString(this._OriginCityName,dos);
-					
-					// String
-				
-						writeString(this._OriginState,dos);
-					
-					// String
-				
-						writeString(this._OriginStateFips,dos);
-					
-					// String
-				
-						writeString(this._OriginStateName,dos);
-					
-					// String
-				
-						writeString(this._OriginWac,dos);
+						writeInteger(this.OriginAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportID,dos);
+						writeInteger(this.OriginAirportSeqID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportSeqID,dos);
+						writeInteger(this.OriginCityMarketID,dos);
+					
+					// String
+				
+						writeString(this.Origin,dos);
+					
+					// String
+				
+						writeString(this.OriginCityName,dos);
+					
+					// String
+				
+						writeString(this.OriginState,dos);
+					
+					// String
+				
+						writeString(this.OriginStateFips,dos);
+					
+					// String
+				
+						writeString(this.OriginStateName,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestCityMarketID,dos);
+						writeInteger(this.OriginWac,dos);
 					
 					// Integer
 				
-						writeInteger(this._Dest,dos);
-					
-					// String
-				
-						writeString(this._DestCityName,dos);
-					
-					// String
-				
-						writeString(this._DestState,dos);
-					
-					// String
-				
-						writeString(this._DestStateFips,dos);
-					
-					// String
-				
-						writeString(this._DestStateName,dos);
-					
-					// String
-				
-						writeString(this._DestWac,dos);
-					
-					// String
-				
-						writeString(this._CRSDepTime,dos);
+						writeInteger(this.DestAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DepTime,dos);
+						writeInteger(this.DestAirportSeqID,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestCityMarketID,dos);
 					
 					// String
 				
-						writeString(this._DepDelay,dos);
+						writeString(this.Dest,dos);
 					
 					// String
 				
-						writeString(this._DepDelayMinutes,dos);
+						writeString(this.DestCityName,dos);
 					
 					// String
 				
-						writeString(this._DepDel15,dos);
+						writeString(this.DestState,dos);
 					
 					// String
 				
-						writeString(this._DepartureDelayGroups,dos);
+						writeString(this.DestStateFips,dos);
 					
 					// String
 				
-						writeString(this._DepTimeBlk,dos);
+						writeString(this.DestStateName,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestWac,dos);
 					
 					// String
 				
-						writeString(this._TaxiOut,dos);
+						writeString(this.CRSDepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOff,dos);
+						writeString(this.DepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOn,dos);
+						writeString(this.DepDelay,dos);
 					
 					// String
 				
-						writeString(this._TaxiIn,dos);
+						writeString(this.DepDelayMinutes,dos);
 					
 					// String
 				
-						writeString(this._CRSArrTime,dos);
+						writeString(this.DepDel15,dos);
 					
 					// String
 				
-						writeString(this._ArrTime,dos);
+						writeString(this.DepartureDelayGroups,dos);
 					
 					// String
 				
-						writeString(this._ArrDelay,dos);
+						writeString(this.DepTimeBlk,dos);
 					
 					// String
 				
-						writeString(this._ArrDelayMinutes,dos);
+						writeString(this.TaxiOut,dos);
 					
 					// String
 				
-						writeString(this._ArrDel15,dos);
+						writeString(this.WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._ArrivalDelayGroups,dos);
+						writeString(this.WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._ArrTimeBlk,dos);
+						writeString(this.TaxiIn,dos);
 					
 					// String
 				
-						writeString(this._Cancelled,dos);
+						writeString(this.CRSArrTime,dos);
 					
 					// String
 				
-						writeString(this._CancellationCode,dos);
+						writeString(this.ArrTime,dos);
+					
+					// String
+				
+						writeString(this.ArrDelay,dos);
+					
+					// String
+				
+						writeString(this.ArrDelayMinutes,dos);
+					
+					// String
+				
+						writeString(this.ArrDel15,dos);
+					
+					// String
+				
+						writeString(this.ArrivalDelayGroups,dos);
+					
+					// String
+				
+						writeString(this.ArrTimeBlk,dos);
 					
 					// Float
 				
-						if(this._Diverted == null) {
+						if(this.Cancelled == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._Diverted);
+           			    	dos.writeFloat(this.Cancelled);
 		            	}
 					
 					// String
 				
-						writeString(this._CRSElapsedTime,dos);
+						writeString(this.CancellationCode,dos);
 					
 					// Float
 				
-						if(this._ActualElapsedTime == null) {
+						if(this.Diverted == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._ActualElapsedTime);
+           			    	dos.writeFloat(this.Diverted);
 		            	}
 					
 					// Float
 				
-						if(this._AirTime == null) {
+						if(this.CRSElapsedTime == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._AirTime);
+           			    	dos.writeFloat(this.CRSElapsedTime);
 		            	}
 					
 					// String
 				
-						writeString(this._Flights,dos);
+						writeString(this.ActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Distance,dos);
+						writeString(this.AirTime,dos);
 					
 					// Float
 				
-						if(this._DistanceGroup == null) {
+						if(this.Flights == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._DistanceGroup);
+           			    	dos.writeFloat(this.Flights);
 		            	}
 					
 					// Float
 				
-						if(this._CarrierDelay == null) {
+						if(this.Distance == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._CarrierDelay);
+           			    	dos.writeFloat(this.Distance);
 		            	}
 					
 					// Integer
 				
-						writeInteger(this._WeatherDelay,dos);
+						writeInteger(this.DistanceGroup,dos);
 					
 					// String
 				
-						writeString(this._NASDelay,dos);
+						writeString(this.CarrierDelay,dos);
 					
 					// String
 				
-						writeString(this._SecurityDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
-						writeString(this._LateAircraftDelay,dos);
+						writeString(this.NASDelay,dos);
 					
 					// String
 				
-						writeString(this._FirstDepTime,dos);
+						writeString(this.SecurityDelay,dos);
 					
 					// String
 				
-						writeString(this._TotalAddGTime,dos);
+						writeString(this.LateAircraftDelay,dos);
 					
 					// String
 				
-						writeString(this._LongestAddGTime,dos);
+						writeString(this.FirstDepTime,dos);
 					
 					// String
 				
-						writeString(this._DivAirportLandings,dos);
+						writeString(this.TotalAddGTime,dos);
 					
 					// String
 				
-						writeString(this._DivReachedDest,dos);
+						writeString(this.LongestAddGTime,dos);
 					
 					// Integer
 				
-						writeInteger(this._DivActualElapsedTime,dos);
+						writeInteger(this.DivAirportLandings,dos);
 					
 					// String
 				
-						writeString(this._DivArrDelay,dos);
+						writeString(this.DivReachedDest,dos);
 					
 					// String
 				
-						writeString(this._DivDistance,dos);
+						writeString(this.DivActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Div1Airport,dos);
+						writeString(this.DivArrDelay,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportID,dos);
+						writeString(this.DivDistance,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportSeqID,dos);
+						writeString(this.Div1Airport,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOn,dos);
+						writeString(this.Div1AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div1TotalGTime,dos);
+						writeString(this.Div1AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div1LongestGTime,dos);
+						writeString(this.Div1WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOff,dos);
+						writeString(this.Div1TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div1TailNum,dos);
+						writeString(this.Div1LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2Airport,dos);
+						writeString(this.Div1WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportID,dos);
+						writeString(this.Div1TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportSeqID,dos);
+						writeString(this.Div2Airport,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOn,dos);
+						writeString(this.Div2AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div2TotalGTime,dos);
+						writeString(this.Div2AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div2LongestGTime,dos);
+						writeString(this.Div2WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOff,dos);
+						writeString(this.Div2TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2TailNum,dos);
+						writeString(this.Div2LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3Airport,dos);
+						writeString(this.Div2WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportID,dos);
+						writeString(this.Div2TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportSeqID,dos);
+						writeString(this.Div3Airport,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOn,dos);
+						writeString(this.Div3AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div3TotalGTime,dos);
+						writeString(this.Div3AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div3LongestGTime,dos);
+						writeString(this.Div3WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOff,dos);
+						writeString(this.Div3TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3TailNum,dos);
+						writeString(this.Div3LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4Airport,dos);
+						writeString(this.Div3WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportID,dos);
+						writeString(this.Div3TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportSeqID,dos);
+						writeString(this.Div4Airport,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOn,dos);
+						writeString(this.Div4AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div4TotalGTime,dos);
+						writeString(this.Div4AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div4LongestGTime,dos);
+						writeString(this.Div4WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOff,dos);
+						writeString(this.Div4TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4TailNum,dos);
+						writeString(this.Div4LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5Airport,dos);
+						writeString(this.Div4WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportID,dos);
+						writeString(this.Div4TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportSeqID,dos);
+						writeString(this.Div5Airport,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOn,dos);
+						writeString(this.Div5AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div5TotalGTime,dos);
+						writeString(this.Div5AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div5LongestGTime,dos);
+						writeString(this.Div5WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOff,dos);
+						writeString(this.Div5TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5TailNum,dos);
+						writeString(this.Div5LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Duplicate,dos);
+						writeString(this.Div5WheelsOff,dos);
+					
+					// String
+				
+						writeString(this.Div5TailNum,dos);
+					
+					// Character
+				
+						if(this.Duplicate == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeChar(this.Duplicate);
+		            	}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -3234,125 +3254,125 @@ public static class row3Struct implements routines.system.IPersistableRow<row3St
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("_Year="+String.valueOf(_Year));
-		sb.append(",_Quarter="+String.valueOf(_Quarter));
-		sb.append(",_Month="+String.valueOf(_Month));
-		sb.append(",_DayofMonth="+String.valueOf(_DayofMonth));
-		sb.append(",_DayOfWeek="+String.valueOf(_DayOfWeek));
-		sb.append(",_FlightDate="+_FlightDate);
-		sb.append(",_Marketing_Airline_Network="+_Marketing_Airline_Network);
-		sb.append(",_Operated_or_Branded_Code_Share_Partners="+_Operated_or_Branded_Code_Share_Partners);
-		sb.append(",_DOT_ID_Marketing_Airline="+String.valueOf(_DOT_ID_Marketing_Airline));
-		sb.append(",_IATA_Code_Marketing_Airline="+_IATA_Code_Marketing_Airline);
-		sb.append(",_Flight_Number_Marketing_Airline="+_Flight_Number_Marketing_Airline);
-		sb.append(",_Originally_Scheduled_Code_Share_Airline="+_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_DOT_ID_Originally_Scheduled_Code_Share_Airline="+_DOT_ID_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_IATA_Code_Originally_Scheduled_Code_Share_Airline="+_IATA_Code_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_Flight_Num_Originally_Scheduled_Code_Share_Airline="+_Flight_Num_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_Operating_Airline="+_Operating_Airline);
-		sb.append(",_DOT_ID_Operating_Airline="+String.valueOf(_DOT_ID_Operating_Airline));
-		sb.append(",_IATA_Code_Operating_Airline="+_IATA_Code_Operating_Airline);
-		sb.append(",_Tail_Number="+_Tail_Number);
-		sb.append(",_Flight_Number_Operating_Airline="+_Flight_Number_Operating_Airline);
-		sb.append(",_OriginAirportID="+String.valueOf(_OriginAirportID));
-		sb.append(",_OriginAirportSeqID="+String.valueOf(_OriginAirportSeqID));
-		sb.append(",_OriginCityMarketID="+String.valueOf(_OriginCityMarketID));
-		sb.append(",_Origin="+_Origin);
-		sb.append(",_OriginCityName="+_OriginCityName);
-		sb.append(",_OriginState="+_OriginState);
-		sb.append(",_OriginStateFips="+_OriginStateFips);
-		sb.append(",_OriginStateName="+_OriginStateName);
-		sb.append(",_OriginWac="+_OriginWac);
-		sb.append(",_DestAirportID="+String.valueOf(_DestAirportID));
-		sb.append(",_DestAirportSeqID="+String.valueOf(_DestAirportSeqID));
-		sb.append(",_DestCityMarketID="+String.valueOf(_DestCityMarketID));
-		sb.append(",_Dest="+String.valueOf(_Dest));
-		sb.append(",_DestCityName="+_DestCityName);
-		sb.append(",_DestState="+_DestState);
-		sb.append(",_DestStateFips="+_DestStateFips);
-		sb.append(",_DestStateName="+_DestStateName);
-		sb.append(",_DestWac="+_DestWac);
-		sb.append(",_CRSDepTime="+_CRSDepTime);
-		sb.append(",_DepTime="+String.valueOf(_DepTime));
-		sb.append(",_DepDelay="+_DepDelay);
-		sb.append(",_DepDelayMinutes="+_DepDelayMinutes);
-		sb.append(",_DepDel15="+_DepDel15);
-		sb.append(",_DepartureDelayGroups="+_DepartureDelayGroups);
-		sb.append(",_DepTimeBlk="+_DepTimeBlk);
-		sb.append(",_TaxiOut="+_TaxiOut);
-		sb.append(",_WheelsOff="+_WheelsOff);
-		sb.append(",_WheelsOn="+_WheelsOn);
-		sb.append(",_TaxiIn="+_TaxiIn);
-		sb.append(",_CRSArrTime="+_CRSArrTime);
-		sb.append(",_ArrTime="+_ArrTime);
-		sb.append(",_ArrDelay="+_ArrDelay);
-		sb.append(",_ArrDelayMinutes="+_ArrDelayMinutes);
-		sb.append(",_ArrDel15="+_ArrDel15);
-		sb.append(",_ArrivalDelayGroups="+_ArrivalDelayGroups);
-		sb.append(",_ArrTimeBlk="+_ArrTimeBlk);
-		sb.append(",_Cancelled="+_Cancelled);
-		sb.append(",_CancellationCode="+_CancellationCode);
-		sb.append(",_Diverted="+String.valueOf(_Diverted));
-		sb.append(",_CRSElapsedTime="+_CRSElapsedTime);
-		sb.append(",_ActualElapsedTime="+String.valueOf(_ActualElapsedTime));
-		sb.append(",_AirTime="+String.valueOf(_AirTime));
-		sb.append(",_Flights="+_Flights);
-		sb.append(",_Distance="+_Distance);
-		sb.append(",_DistanceGroup="+String.valueOf(_DistanceGroup));
-		sb.append(",_CarrierDelay="+String.valueOf(_CarrierDelay));
-		sb.append(",_WeatherDelay="+String.valueOf(_WeatherDelay));
-		sb.append(",_NASDelay="+_NASDelay);
-		sb.append(",_SecurityDelay="+_SecurityDelay);
-		sb.append(",_LateAircraftDelay="+_LateAircraftDelay);
-		sb.append(",_FirstDepTime="+_FirstDepTime);
-		sb.append(",_TotalAddGTime="+_TotalAddGTime);
-		sb.append(",_LongestAddGTime="+_LongestAddGTime);
-		sb.append(",_DivAirportLandings="+_DivAirportLandings);
-		sb.append(",_DivReachedDest="+_DivReachedDest);
-		sb.append(",_DivActualElapsedTime="+String.valueOf(_DivActualElapsedTime));
-		sb.append(",_DivArrDelay="+_DivArrDelay);
-		sb.append(",_DivDistance="+_DivDistance);
-		sb.append(",_Div1Airport="+_Div1Airport);
-		sb.append(",_Div1AirportID="+_Div1AirportID);
-		sb.append(",_Div1AirportSeqID="+_Div1AirportSeqID);
-		sb.append(",_Div1WheelsOn="+_Div1WheelsOn);
-		sb.append(",_Div1TotalGTime="+_Div1TotalGTime);
-		sb.append(",_Div1LongestGTime="+_Div1LongestGTime);
-		sb.append(",_Div1WheelsOff="+_Div1WheelsOff);
-		sb.append(",_Div1TailNum="+_Div1TailNum);
-		sb.append(",_Div2Airport="+_Div2Airport);
-		sb.append(",_Div2AirportID="+_Div2AirportID);
-		sb.append(",_Div2AirportSeqID="+_Div2AirportSeqID);
-		sb.append(",_Div2WheelsOn="+_Div2WheelsOn);
-		sb.append(",_Div2TotalGTime="+_Div2TotalGTime);
-		sb.append(",_Div2LongestGTime="+_Div2LongestGTime);
-		sb.append(",_Div2WheelsOff="+_Div2WheelsOff);
-		sb.append(",_Div2TailNum="+_Div2TailNum);
-		sb.append(",_Div3Airport="+_Div3Airport);
-		sb.append(",_Div3AirportID="+_Div3AirportID);
-		sb.append(",_Div3AirportSeqID="+_Div3AirportSeqID);
-		sb.append(",_Div3WheelsOn="+_Div3WheelsOn);
-		sb.append(",_Div3TotalGTime="+_Div3TotalGTime);
-		sb.append(",_Div3LongestGTime="+_Div3LongestGTime);
-		sb.append(",_Div3WheelsOff="+_Div3WheelsOff);
-		sb.append(",_Div3TailNum="+_Div3TailNum);
-		sb.append(",_Div4Airport="+_Div4Airport);
-		sb.append(",_Div4AirportID="+_Div4AirportID);
-		sb.append(",_Div4AirportSeqID="+_Div4AirportSeqID);
-		sb.append(",_Div4WheelsOn="+_Div4WheelsOn);
-		sb.append(",_Div4TotalGTime="+_Div4TotalGTime);
-		sb.append(",_Div4LongestGTime="+_Div4LongestGTime);
-		sb.append(",_Div4WheelsOff="+_Div4WheelsOff);
-		sb.append(",_Div4TailNum="+_Div4TailNum);
-		sb.append(",_Div5Airport="+_Div5Airport);
-		sb.append(",_Div5AirportID="+_Div5AirportID);
-		sb.append(",_Div5AirportSeqID="+_Div5AirportSeqID);
-		sb.append(",_Div5WheelsOn="+_Div5WheelsOn);
-		sb.append(",_Div5TotalGTime="+_Div5TotalGTime);
-		sb.append(",_Div5LongestGTime="+_Div5LongestGTime);
-		sb.append(",_Div5WheelsOff="+_Div5WheelsOff);
-		sb.append(",_Div5TailNum="+_Div5TailNum);
-		sb.append(",_Duplicate="+_Duplicate);
+		sb.append("Year="+String.valueOf(Year));
+		sb.append(",Quarter="+String.valueOf(Quarter));
+		sb.append(",Month="+String.valueOf(Month));
+		sb.append(",DayofMonth="+String.valueOf(DayofMonth));
+		sb.append(",DayOfWeek="+String.valueOf(DayOfWeek));
+		sb.append(",FlightDate="+FlightDate);
+		sb.append(",Marketing_Airline_Network="+Marketing_Airline_Network);
+		sb.append(",Operated_or_Branded_Code_Share_Partners="+Operated_or_Branded_Code_Share_Partners);
+		sb.append(",DOT_ID_Marketing_Airline="+String.valueOf(DOT_ID_Marketing_Airline));
+		sb.append(",IATA_Code_Marketing_Airline="+IATA_Code_Marketing_Airline);
+		sb.append(",Flight_Number_Marketing_Airline="+String.valueOf(Flight_Number_Marketing_Airline));
+		sb.append(",Originally_Scheduled_Code_Share_Airline="+Originally_Scheduled_Code_Share_Airline);
+		sb.append(",DOT_ID_Originally_Scheduled_Code_Share_Airline="+DOT_ID_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",IATA_Code_Originally_Scheduled_Code_Share_Airline="+IATA_Code_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",Flight_Num_Originally_Scheduled_Code_Share_Airline="+Flight_Num_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",Operating_Airline="+Operating_Airline);
+		sb.append(",DOT_ID_Operating_Airline="+String.valueOf(DOT_ID_Operating_Airline));
+		sb.append(",IATA_Code_Operating_Airline="+IATA_Code_Operating_Airline);
+		sb.append(",Tail_Number="+Tail_Number);
+		sb.append(",Flight_Number_Operating_Airline="+String.valueOf(Flight_Number_Operating_Airline));
+		sb.append(",OriginAirportID="+String.valueOf(OriginAirportID));
+		sb.append(",OriginAirportSeqID="+String.valueOf(OriginAirportSeqID));
+		sb.append(",OriginCityMarketID="+String.valueOf(OriginCityMarketID));
+		sb.append(",Origin="+Origin);
+		sb.append(",OriginCityName="+OriginCityName);
+		sb.append(",OriginState="+OriginState);
+		sb.append(",OriginStateFips="+OriginStateFips);
+		sb.append(",OriginStateName="+OriginStateName);
+		sb.append(",OriginWac="+String.valueOf(OriginWac));
+		sb.append(",DestAirportID="+String.valueOf(DestAirportID));
+		sb.append(",DestAirportSeqID="+String.valueOf(DestAirportSeqID));
+		sb.append(",DestCityMarketID="+String.valueOf(DestCityMarketID));
+		sb.append(",Dest="+Dest);
+		sb.append(",DestCityName="+DestCityName);
+		sb.append(",DestState="+DestState);
+		sb.append(",DestStateFips="+DestStateFips);
+		sb.append(",DestStateName="+DestStateName);
+		sb.append(",DestWac="+String.valueOf(DestWac));
+		sb.append(",CRSDepTime="+CRSDepTime);
+		sb.append(",DepTime="+DepTime);
+		sb.append(",DepDelay="+DepDelay);
+		sb.append(",DepDelayMinutes="+DepDelayMinutes);
+		sb.append(",DepDel15="+DepDel15);
+		sb.append(",DepartureDelayGroups="+DepartureDelayGroups);
+		sb.append(",DepTimeBlk="+DepTimeBlk);
+		sb.append(",TaxiOut="+TaxiOut);
+		sb.append(",WheelsOff="+WheelsOff);
+		sb.append(",WheelsOn="+WheelsOn);
+		sb.append(",TaxiIn="+TaxiIn);
+		sb.append(",CRSArrTime="+CRSArrTime);
+		sb.append(",ArrTime="+ArrTime);
+		sb.append(",ArrDelay="+ArrDelay);
+		sb.append(",ArrDelayMinutes="+ArrDelayMinutes);
+		sb.append(",ArrDel15="+ArrDel15);
+		sb.append(",ArrivalDelayGroups="+ArrivalDelayGroups);
+		sb.append(",ArrTimeBlk="+ArrTimeBlk);
+		sb.append(",Cancelled="+String.valueOf(Cancelled));
+		sb.append(",CancellationCode="+CancellationCode);
+		sb.append(",Diverted="+String.valueOf(Diverted));
+		sb.append(",CRSElapsedTime="+String.valueOf(CRSElapsedTime));
+		sb.append(",ActualElapsedTime="+ActualElapsedTime);
+		sb.append(",AirTime="+AirTime);
+		sb.append(",Flights="+String.valueOf(Flights));
+		sb.append(",Distance="+String.valueOf(Distance));
+		sb.append(",DistanceGroup="+String.valueOf(DistanceGroup));
+		sb.append(",CarrierDelay="+CarrierDelay);
+		sb.append(",WeatherDelay="+WeatherDelay);
+		sb.append(",NASDelay="+NASDelay);
+		sb.append(",SecurityDelay="+SecurityDelay);
+		sb.append(",LateAircraftDelay="+LateAircraftDelay);
+		sb.append(",FirstDepTime="+FirstDepTime);
+		sb.append(",TotalAddGTime="+TotalAddGTime);
+		sb.append(",LongestAddGTime="+LongestAddGTime);
+		sb.append(",DivAirportLandings="+String.valueOf(DivAirportLandings));
+		sb.append(",DivReachedDest="+DivReachedDest);
+		sb.append(",DivActualElapsedTime="+DivActualElapsedTime);
+		sb.append(",DivArrDelay="+DivArrDelay);
+		sb.append(",DivDistance="+DivDistance);
+		sb.append(",Div1Airport="+Div1Airport);
+		sb.append(",Div1AirportID="+Div1AirportID);
+		sb.append(",Div1AirportSeqID="+Div1AirportSeqID);
+		sb.append(",Div1WheelsOn="+Div1WheelsOn);
+		sb.append(",Div1TotalGTime="+Div1TotalGTime);
+		sb.append(",Div1LongestGTime="+Div1LongestGTime);
+		sb.append(",Div1WheelsOff="+Div1WheelsOff);
+		sb.append(",Div1TailNum="+Div1TailNum);
+		sb.append(",Div2Airport="+Div2Airport);
+		sb.append(",Div2AirportID="+Div2AirportID);
+		sb.append(",Div2AirportSeqID="+Div2AirportSeqID);
+		sb.append(",Div2WheelsOn="+Div2WheelsOn);
+		sb.append(",Div2TotalGTime="+Div2TotalGTime);
+		sb.append(",Div2LongestGTime="+Div2LongestGTime);
+		sb.append(",Div2WheelsOff="+Div2WheelsOff);
+		sb.append(",Div2TailNum="+Div2TailNum);
+		sb.append(",Div3Airport="+Div3Airport);
+		sb.append(",Div3AirportID="+Div3AirportID);
+		sb.append(",Div3AirportSeqID="+Div3AirportSeqID);
+		sb.append(",Div3WheelsOn="+Div3WheelsOn);
+		sb.append(",Div3TotalGTime="+Div3TotalGTime);
+		sb.append(",Div3LongestGTime="+Div3LongestGTime);
+		sb.append(",Div3WheelsOff="+Div3WheelsOff);
+		sb.append(",Div3TailNum="+Div3TailNum);
+		sb.append(",Div4Airport="+Div4Airport);
+		sb.append(",Div4AirportID="+Div4AirportID);
+		sb.append(",Div4AirportSeqID="+Div4AirportSeqID);
+		sb.append(",Div4WheelsOn="+Div4WheelsOn);
+		sb.append(",Div4TotalGTime="+Div4TotalGTime);
+		sb.append(",Div4LongestGTime="+Div4LongestGTime);
+		sb.append(",Div4WheelsOff="+Div4WheelsOff);
+		sb.append(",Div4TailNum="+Div4TailNum);
+		sb.append(",Div5Airport="+Div5Airport);
+		sb.append(",Div5AirportID="+Div5AirportID);
+		sb.append(",Div5AirportSeqID="+Div5AirportSeqID);
+		sb.append(",Div5WheelsOn="+Div5WheelsOn);
+		sb.append(",Div5TotalGTime="+Div5TotalGTime);
+		sb.append(",Div5LongestGTime="+Div5LongestGTime);
+		sb.append(",Div5WheelsOff="+Div5WheelsOff);
+		sb.append(",Div5TailNum="+Div5TailNum);
+		sb.append(",Duplicate="+String.valueOf(Duplicate));
 	    sb.append("]");
 
 	    return sb.toString();
@@ -3398,718 +3418,718 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
     static byte[] commonByteArray_PARAVOLAR_DimOrigin = new byte[0];
 
 	
-			    public Integer _Year;
+			    public Integer Year;
 
-				public Integer get_Year () {
-					return this._Year;
+				public Integer getYear () {
+					return this.Year;
 				}
 				
-			    public Integer _Quarter;
+			    public Integer Quarter;
 
-				public Integer get_Quarter () {
-					return this._Quarter;
+				public Integer getQuarter () {
+					return this.Quarter;
 				}
 				
-			    public Integer _Month;
+			    public Integer Month;
 
-				public Integer get_Month () {
-					return this._Month;
+				public Integer getMonth () {
+					return this.Month;
 				}
 				
-			    public Integer _DayofMonth;
+			    public Integer DayofMonth;
 
-				public Integer get_DayofMonth () {
-					return this._DayofMonth;
+				public Integer getDayofMonth () {
+					return this.DayofMonth;
 				}
 				
-			    public Integer _DayOfWeek;
+			    public Integer DayOfWeek;
 
-				public Integer get_DayOfWeek () {
-					return this._DayOfWeek;
+				public Integer getDayOfWeek () {
+					return this.DayOfWeek;
 				}
 				
-			    public String _FlightDate;
+			    public String FlightDate;
 
-				public String get_FlightDate () {
-					return this._FlightDate;
+				public String getFlightDate () {
+					return this.FlightDate;
 				}
 				
-			    public String _Marketing_Airline_Network;
+			    public String Marketing_Airline_Network;
 
-				public String get_Marketing_Airline_Network () {
-					return this._Marketing_Airline_Network;
+				public String getMarketing_Airline_Network () {
+					return this.Marketing_Airline_Network;
 				}
 				
-			    public String _Operated_or_Branded_Code_Share_Partners;
+			    public String Operated_or_Branded_Code_Share_Partners;
 
-				public String get_Operated_or_Branded_Code_Share_Partners () {
-					return this._Operated_or_Branded_Code_Share_Partners;
+				public String getOperated_or_Branded_Code_Share_Partners () {
+					return this.Operated_or_Branded_Code_Share_Partners;
 				}
 				
-			    public Integer _DOT_ID_Marketing_Airline;
+			    public Integer DOT_ID_Marketing_Airline;
 
-				public Integer get_DOT_ID_Marketing_Airline () {
-					return this._DOT_ID_Marketing_Airline;
+				public Integer getDOT_ID_Marketing_Airline () {
+					return this.DOT_ID_Marketing_Airline;
 				}
 				
-			    public String _IATA_Code_Marketing_Airline;
+			    public String IATA_Code_Marketing_Airline;
 
-				public String get_IATA_Code_Marketing_Airline () {
-					return this._IATA_Code_Marketing_Airline;
+				public String getIATA_Code_Marketing_Airline () {
+					return this.IATA_Code_Marketing_Airline;
 				}
 				
-			    public String _Flight_Number_Marketing_Airline;
+			    public Integer Flight_Number_Marketing_Airline;
 
-				public String get_Flight_Number_Marketing_Airline () {
-					return this._Flight_Number_Marketing_Airline;
+				public Integer getFlight_Number_Marketing_Airline () {
+					return this.Flight_Number_Marketing_Airline;
 				}
 				
-			    public String _Originally_Scheduled_Code_Share_Airline;
+			    public String Originally_Scheduled_Code_Share_Airline;
 
-				public String get_Originally_Scheduled_Code_Share_Airline () {
-					return this._Originally_Scheduled_Code_Share_Airline;
+				public String getOriginally_Scheduled_Code_Share_Airline () {
+					return this.Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _DOT_ID_Originally_Scheduled_Code_Share_Airline;
+			    public String DOT_ID_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_DOT_ID_Originally_Scheduled_Code_Share_Airline () {
-					return this._DOT_ID_Originally_Scheduled_Code_Share_Airline;
+				public String getDOT_ID_Originally_Scheduled_Code_Share_Airline () {
+					return this.DOT_ID_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _IATA_Code_Originally_Scheduled_Code_Share_Airline;
+			    public String IATA_Code_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_IATA_Code_Originally_Scheduled_Code_Share_Airline () {
-					return this._IATA_Code_Originally_Scheduled_Code_Share_Airline;
+				public String getIATA_Code_Originally_Scheduled_Code_Share_Airline () {
+					return this.IATA_Code_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _Flight_Num_Originally_Scheduled_Code_Share_Airline;
+			    public String Flight_Num_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_Flight_Num_Originally_Scheduled_Code_Share_Airline () {
-					return this._Flight_Num_Originally_Scheduled_Code_Share_Airline;
+				public String getFlight_Num_Originally_Scheduled_Code_Share_Airline () {
+					return this.Flight_Num_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _Operating_Airline;
+			    public String Operating_Airline;
 
-				public String get_Operating_Airline () {
-					return this._Operating_Airline;
+				public String getOperating_Airline () {
+					return this.Operating_Airline;
 				}
 				
-			    public Integer _DOT_ID_Operating_Airline;
+			    public Integer DOT_ID_Operating_Airline;
 
-				public Integer get_DOT_ID_Operating_Airline () {
-					return this._DOT_ID_Operating_Airline;
+				public Integer getDOT_ID_Operating_Airline () {
+					return this.DOT_ID_Operating_Airline;
 				}
 				
-			    public String _IATA_Code_Operating_Airline;
+			    public String IATA_Code_Operating_Airline;
 
-				public String get_IATA_Code_Operating_Airline () {
-					return this._IATA_Code_Operating_Airline;
+				public String getIATA_Code_Operating_Airline () {
+					return this.IATA_Code_Operating_Airline;
 				}
 				
-			    public String _Tail_Number;
+			    public String Tail_Number;
 
-				public String get_Tail_Number () {
-					return this._Tail_Number;
+				public String getTail_Number () {
+					return this.Tail_Number;
 				}
 				
-			    public String _Flight_Number_Operating_Airline;
+			    public Integer Flight_Number_Operating_Airline;
 
-				public String get_Flight_Number_Operating_Airline () {
-					return this._Flight_Number_Operating_Airline;
+				public Integer getFlight_Number_Operating_Airline () {
+					return this.Flight_Number_Operating_Airline;
 				}
 				
-			    public Integer _OriginAirportID;
+			    public Integer OriginAirportID;
 
-				public Integer get_OriginAirportID () {
-					return this._OriginAirportID;
+				public Integer getOriginAirportID () {
+					return this.OriginAirportID;
 				}
 				
-			    public Integer _OriginAirportSeqID;
+			    public Integer OriginAirportSeqID;
 
-				public Integer get_OriginAirportSeqID () {
-					return this._OriginAirportSeqID;
+				public Integer getOriginAirportSeqID () {
+					return this.OriginAirportSeqID;
 				}
 				
-			    public Integer _OriginCityMarketID;
+			    public Integer OriginCityMarketID;
 
-				public Integer get_OriginCityMarketID () {
-					return this._OriginCityMarketID;
+				public Integer getOriginCityMarketID () {
+					return this.OriginCityMarketID;
 				}
 				
-			    public String _Origin;
+			    public String Origin;
 
-				public String get_Origin () {
-					return this._Origin;
+				public String getOrigin () {
+					return this.Origin;
 				}
 				
-			    public String _OriginCityName;
+			    public String OriginCityName;
 
-				public String get_OriginCityName () {
-					return this._OriginCityName;
+				public String getOriginCityName () {
+					return this.OriginCityName;
 				}
 				
-			    public String _OriginState;
+			    public String OriginState;
 
-				public String get_OriginState () {
-					return this._OriginState;
+				public String getOriginState () {
+					return this.OriginState;
 				}
 				
-			    public String _OriginStateFips;
+			    public String OriginStateFips;
 
-				public String get_OriginStateFips () {
-					return this._OriginStateFips;
+				public String getOriginStateFips () {
+					return this.OriginStateFips;
 				}
 				
-			    public String _OriginStateName;
+			    public String OriginStateName;
 
-				public String get_OriginStateName () {
-					return this._OriginStateName;
+				public String getOriginStateName () {
+					return this.OriginStateName;
 				}
 				
-			    public String _OriginWac;
+			    public Integer OriginWac;
 
-				public String get_OriginWac () {
-					return this._OriginWac;
+				public Integer getOriginWac () {
+					return this.OriginWac;
 				}
 				
-			    public Integer _DestAirportID;
+			    public Integer DestAirportID;
 
-				public Integer get_DestAirportID () {
-					return this._DestAirportID;
+				public Integer getDestAirportID () {
+					return this.DestAirportID;
 				}
 				
-			    public Integer _DestAirportSeqID;
+			    public Integer DestAirportSeqID;
 
-				public Integer get_DestAirportSeqID () {
-					return this._DestAirportSeqID;
+				public Integer getDestAirportSeqID () {
+					return this.DestAirportSeqID;
 				}
 				
-			    public Integer _DestCityMarketID;
+			    public Integer DestCityMarketID;
 
-				public Integer get_DestCityMarketID () {
-					return this._DestCityMarketID;
+				public Integer getDestCityMarketID () {
+					return this.DestCityMarketID;
 				}
 				
-			    public Integer _Dest;
+			    public String Dest;
 
-				public Integer get_Dest () {
-					return this._Dest;
+				public String getDest () {
+					return this.Dest;
 				}
 				
-			    public String _DestCityName;
+			    public String DestCityName;
 
-				public String get_DestCityName () {
-					return this._DestCityName;
+				public String getDestCityName () {
+					return this.DestCityName;
 				}
 				
-			    public String _DestState;
+			    public String DestState;
 
-				public String get_DestState () {
-					return this._DestState;
+				public String getDestState () {
+					return this.DestState;
 				}
 				
-			    public String _DestStateFips;
+			    public String DestStateFips;
 
-				public String get_DestStateFips () {
-					return this._DestStateFips;
+				public String getDestStateFips () {
+					return this.DestStateFips;
 				}
 				
-			    public String _DestStateName;
+			    public String DestStateName;
 
-				public String get_DestStateName () {
-					return this._DestStateName;
+				public String getDestStateName () {
+					return this.DestStateName;
 				}
 				
-			    public String _DestWac;
+			    public Integer DestWac;
 
-				public String get_DestWac () {
-					return this._DestWac;
+				public Integer getDestWac () {
+					return this.DestWac;
 				}
 				
-			    public String _CRSDepTime;
+			    public String CRSDepTime;
 
-				public String get_CRSDepTime () {
-					return this._CRSDepTime;
+				public String getCRSDepTime () {
+					return this.CRSDepTime;
 				}
 				
-			    public Integer _DepTime;
+			    public String DepTime;
 
-				public Integer get_DepTime () {
-					return this._DepTime;
+				public String getDepTime () {
+					return this.DepTime;
 				}
 				
-			    public String _DepDelay;
+			    public String DepDelay;
 
-				public String get_DepDelay () {
-					return this._DepDelay;
+				public String getDepDelay () {
+					return this.DepDelay;
 				}
 				
-			    public String _DepDelayMinutes;
+			    public String DepDelayMinutes;
 
-				public String get_DepDelayMinutes () {
-					return this._DepDelayMinutes;
+				public String getDepDelayMinutes () {
+					return this.DepDelayMinutes;
 				}
 				
-			    public String _DepDel15;
+			    public String DepDel15;
 
-				public String get_DepDel15 () {
-					return this._DepDel15;
+				public String getDepDel15 () {
+					return this.DepDel15;
 				}
 				
-			    public String _DepartureDelayGroups;
+			    public String DepartureDelayGroups;
 
-				public String get_DepartureDelayGroups () {
-					return this._DepartureDelayGroups;
+				public String getDepartureDelayGroups () {
+					return this.DepartureDelayGroups;
 				}
 				
-			    public String _DepTimeBlk;
+			    public String DepTimeBlk;
 
-				public String get_DepTimeBlk () {
-					return this._DepTimeBlk;
+				public String getDepTimeBlk () {
+					return this.DepTimeBlk;
 				}
 				
-			    public String _TaxiOut;
+			    public String TaxiOut;
 
-				public String get_TaxiOut () {
-					return this._TaxiOut;
+				public String getTaxiOut () {
+					return this.TaxiOut;
 				}
 				
-			    public String _WheelsOff;
+			    public String WheelsOff;
 
-				public String get_WheelsOff () {
-					return this._WheelsOff;
+				public String getWheelsOff () {
+					return this.WheelsOff;
 				}
 				
-			    public String _WheelsOn;
+			    public String WheelsOn;
 
-				public String get_WheelsOn () {
-					return this._WheelsOn;
+				public String getWheelsOn () {
+					return this.WheelsOn;
 				}
 				
-			    public String _TaxiIn;
+			    public String TaxiIn;
 
-				public String get_TaxiIn () {
-					return this._TaxiIn;
+				public String getTaxiIn () {
+					return this.TaxiIn;
 				}
 				
-			    public String _CRSArrTime;
+			    public String CRSArrTime;
 
-				public String get_CRSArrTime () {
-					return this._CRSArrTime;
+				public String getCRSArrTime () {
+					return this.CRSArrTime;
 				}
 				
-			    public String _ArrTime;
+			    public String ArrTime;
 
-				public String get_ArrTime () {
-					return this._ArrTime;
+				public String getArrTime () {
+					return this.ArrTime;
 				}
 				
-			    public String _ArrDelay;
+			    public String ArrDelay;
 
-				public String get_ArrDelay () {
-					return this._ArrDelay;
+				public String getArrDelay () {
+					return this.ArrDelay;
 				}
 				
-			    public String _ArrDelayMinutes;
+			    public String ArrDelayMinutes;
 
-				public String get_ArrDelayMinutes () {
-					return this._ArrDelayMinutes;
+				public String getArrDelayMinutes () {
+					return this.ArrDelayMinutes;
 				}
 				
-			    public String _ArrDel15;
+			    public String ArrDel15;
 
-				public String get_ArrDel15 () {
-					return this._ArrDel15;
+				public String getArrDel15 () {
+					return this.ArrDel15;
 				}
 				
-			    public String _ArrivalDelayGroups;
+			    public String ArrivalDelayGroups;
 
-				public String get_ArrivalDelayGroups () {
-					return this._ArrivalDelayGroups;
+				public String getArrivalDelayGroups () {
+					return this.ArrivalDelayGroups;
 				}
 				
-			    public String _ArrTimeBlk;
+			    public String ArrTimeBlk;
 
-				public String get_ArrTimeBlk () {
-					return this._ArrTimeBlk;
+				public String getArrTimeBlk () {
+					return this.ArrTimeBlk;
 				}
 				
-			    public String _Cancelled;
+			    public Float Cancelled;
 
-				public String get_Cancelled () {
-					return this._Cancelled;
+				public Float getCancelled () {
+					return this.Cancelled;
 				}
 				
-			    public String _CancellationCode;
+			    public String CancellationCode;
 
-				public String get_CancellationCode () {
-					return this._CancellationCode;
+				public String getCancellationCode () {
+					return this.CancellationCode;
 				}
 				
-			    public Float _Diverted;
+			    public Float Diverted;
 
-				public Float get_Diverted () {
-					return this._Diverted;
+				public Float getDiverted () {
+					return this.Diverted;
 				}
 				
-			    public String _CRSElapsedTime;
+			    public Float CRSElapsedTime;
 
-				public String get_CRSElapsedTime () {
-					return this._CRSElapsedTime;
+				public Float getCRSElapsedTime () {
+					return this.CRSElapsedTime;
 				}
 				
-			    public Float _ActualElapsedTime;
+			    public String ActualElapsedTime;
 
-				public Float get_ActualElapsedTime () {
-					return this._ActualElapsedTime;
+				public String getActualElapsedTime () {
+					return this.ActualElapsedTime;
 				}
 				
-			    public Float _AirTime;
+			    public String AirTime;
 
-				public Float get_AirTime () {
-					return this._AirTime;
+				public String getAirTime () {
+					return this.AirTime;
 				}
 				
-			    public String _Flights;
+			    public Float Flights;
 
-				public String get_Flights () {
-					return this._Flights;
+				public Float getFlights () {
+					return this.Flights;
 				}
 				
-			    public String _Distance;
+			    public Float Distance;
 
-				public String get_Distance () {
-					return this._Distance;
+				public Float getDistance () {
+					return this.Distance;
 				}
 				
-			    public Float _DistanceGroup;
+			    public Integer DistanceGroup;
 
-				public Float get_DistanceGroup () {
-					return this._DistanceGroup;
+				public Integer getDistanceGroup () {
+					return this.DistanceGroup;
 				}
 				
-			    public Float _CarrierDelay;
+			    public String CarrierDelay;
 
-				public Float get_CarrierDelay () {
-					return this._CarrierDelay;
+				public String getCarrierDelay () {
+					return this.CarrierDelay;
 				}
 				
-			    public Integer _WeatherDelay;
+			    public String WeatherDelay;
 
-				public Integer get_WeatherDelay () {
-					return this._WeatherDelay;
+				public String getWeatherDelay () {
+					return this.WeatherDelay;
 				}
 				
-			    public String _NASDelay;
+			    public String NASDelay;
 
-				public String get_NASDelay () {
-					return this._NASDelay;
+				public String getNASDelay () {
+					return this.NASDelay;
 				}
 				
-			    public String _SecurityDelay;
+			    public String SecurityDelay;
 
-				public String get_SecurityDelay () {
-					return this._SecurityDelay;
+				public String getSecurityDelay () {
+					return this.SecurityDelay;
 				}
 				
-			    public String _LateAircraftDelay;
+			    public String LateAircraftDelay;
 
-				public String get_LateAircraftDelay () {
-					return this._LateAircraftDelay;
+				public String getLateAircraftDelay () {
+					return this.LateAircraftDelay;
 				}
 				
-			    public String _FirstDepTime;
+			    public String FirstDepTime;
 
-				public String get_FirstDepTime () {
-					return this._FirstDepTime;
+				public String getFirstDepTime () {
+					return this.FirstDepTime;
 				}
 				
-			    public String _TotalAddGTime;
+			    public String TotalAddGTime;
 
-				public String get_TotalAddGTime () {
-					return this._TotalAddGTime;
+				public String getTotalAddGTime () {
+					return this.TotalAddGTime;
 				}
 				
-			    public String _LongestAddGTime;
+			    public String LongestAddGTime;
 
-				public String get_LongestAddGTime () {
-					return this._LongestAddGTime;
+				public String getLongestAddGTime () {
+					return this.LongestAddGTime;
 				}
 				
-			    public String _DivAirportLandings;
+			    public Integer DivAirportLandings;
 
-				public String get_DivAirportLandings () {
-					return this._DivAirportLandings;
+				public Integer getDivAirportLandings () {
+					return this.DivAirportLandings;
 				}
 				
-			    public String _DivReachedDest;
+			    public String DivReachedDest;
 
-				public String get_DivReachedDest () {
-					return this._DivReachedDest;
+				public String getDivReachedDest () {
+					return this.DivReachedDest;
 				}
 				
-			    public Integer _DivActualElapsedTime;
+			    public String DivActualElapsedTime;
 
-				public Integer get_DivActualElapsedTime () {
-					return this._DivActualElapsedTime;
+				public String getDivActualElapsedTime () {
+					return this.DivActualElapsedTime;
 				}
 				
-			    public String _DivArrDelay;
+			    public String DivArrDelay;
 
-				public String get_DivArrDelay () {
-					return this._DivArrDelay;
+				public String getDivArrDelay () {
+					return this.DivArrDelay;
 				}
 				
-			    public String _DivDistance;
+			    public String DivDistance;
 
-				public String get_DivDistance () {
-					return this._DivDistance;
+				public String getDivDistance () {
+					return this.DivDistance;
 				}
 				
-			    public String _Div1Airport;
+			    public String Div1Airport;
 
-				public String get_Div1Airport () {
-					return this._Div1Airport;
+				public String getDiv1Airport () {
+					return this.Div1Airport;
 				}
 				
-			    public String _Div1AirportID;
+			    public String Div1AirportID;
 
-				public String get_Div1AirportID () {
-					return this._Div1AirportID;
+				public String getDiv1AirportID () {
+					return this.Div1AirportID;
 				}
 				
-			    public String _Div1AirportSeqID;
+			    public String Div1AirportSeqID;
 
-				public String get_Div1AirportSeqID () {
-					return this._Div1AirportSeqID;
+				public String getDiv1AirportSeqID () {
+					return this.Div1AirportSeqID;
 				}
 				
-			    public String _Div1WheelsOn;
+			    public String Div1WheelsOn;
 
-				public String get_Div1WheelsOn () {
-					return this._Div1WheelsOn;
+				public String getDiv1WheelsOn () {
+					return this.Div1WheelsOn;
 				}
 				
-			    public String _Div1TotalGTime;
+			    public String Div1TotalGTime;
 
-				public String get_Div1TotalGTime () {
-					return this._Div1TotalGTime;
+				public String getDiv1TotalGTime () {
+					return this.Div1TotalGTime;
 				}
 				
-			    public String _Div1LongestGTime;
+			    public String Div1LongestGTime;
 
-				public String get_Div1LongestGTime () {
-					return this._Div1LongestGTime;
+				public String getDiv1LongestGTime () {
+					return this.Div1LongestGTime;
 				}
 				
-			    public String _Div1WheelsOff;
+			    public String Div1WheelsOff;
 
-				public String get_Div1WheelsOff () {
-					return this._Div1WheelsOff;
+				public String getDiv1WheelsOff () {
+					return this.Div1WheelsOff;
 				}
 				
-			    public String _Div1TailNum;
+			    public String Div1TailNum;
 
-				public String get_Div1TailNum () {
-					return this._Div1TailNum;
+				public String getDiv1TailNum () {
+					return this.Div1TailNum;
 				}
 				
-			    public String _Div2Airport;
+			    public String Div2Airport;
 
-				public String get_Div2Airport () {
-					return this._Div2Airport;
+				public String getDiv2Airport () {
+					return this.Div2Airport;
 				}
 				
-			    public String _Div2AirportID;
+			    public String Div2AirportID;
 
-				public String get_Div2AirportID () {
-					return this._Div2AirportID;
+				public String getDiv2AirportID () {
+					return this.Div2AirportID;
 				}
 				
-			    public String _Div2AirportSeqID;
+			    public String Div2AirportSeqID;
 
-				public String get_Div2AirportSeqID () {
-					return this._Div2AirportSeqID;
+				public String getDiv2AirportSeqID () {
+					return this.Div2AirportSeqID;
 				}
 				
-			    public String _Div2WheelsOn;
+			    public String Div2WheelsOn;
 
-				public String get_Div2WheelsOn () {
-					return this._Div2WheelsOn;
+				public String getDiv2WheelsOn () {
+					return this.Div2WheelsOn;
 				}
 				
-			    public String _Div2TotalGTime;
+			    public String Div2TotalGTime;
 
-				public String get_Div2TotalGTime () {
-					return this._Div2TotalGTime;
+				public String getDiv2TotalGTime () {
+					return this.Div2TotalGTime;
 				}
 				
-			    public String _Div2LongestGTime;
+			    public String Div2LongestGTime;
 
-				public String get_Div2LongestGTime () {
-					return this._Div2LongestGTime;
+				public String getDiv2LongestGTime () {
+					return this.Div2LongestGTime;
 				}
 				
-			    public String _Div2WheelsOff;
+			    public String Div2WheelsOff;
 
-				public String get_Div2WheelsOff () {
-					return this._Div2WheelsOff;
+				public String getDiv2WheelsOff () {
+					return this.Div2WheelsOff;
 				}
 				
-			    public String _Div2TailNum;
+			    public String Div2TailNum;
 
-				public String get_Div2TailNum () {
-					return this._Div2TailNum;
+				public String getDiv2TailNum () {
+					return this.Div2TailNum;
 				}
 				
-			    public String _Div3Airport;
+			    public String Div3Airport;
 
-				public String get_Div3Airport () {
-					return this._Div3Airport;
+				public String getDiv3Airport () {
+					return this.Div3Airport;
 				}
 				
-			    public String _Div3AirportID;
+			    public String Div3AirportID;
 
-				public String get_Div3AirportID () {
-					return this._Div3AirportID;
+				public String getDiv3AirportID () {
+					return this.Div3AirportID;
 				}
 				
-			    public String _Div3AirportSeqID;
+			    public String Div3AirportSeqID;
 
-				public String get_Div3AirportSeqID () {
-					return this._Div3AirportSeqID;
+				public String getDiv3AirportSeqID () {
+					return this.Div3AirportSeqID;
 				}
 				
-			    public String _Div3WheelsOn;
+			    public String Div3WheelsOn;
 
-				public String get_Div3WheelsOn () {
-					return this._Div3WheelsOn;
+				public String getDiv3WheelsOn () {
+					return this.Div3WheelsOn;
 				}
 				
-			    public String _Div3TotalGTime;
+			    public String Div3TotalGTime;
 
-				public String get_Div3TotalGTime () {
-					return this._Div3TotalGTime;
+				public String getDiv3TotalGTime () {
+					return this.Div3TotalGTime;
 				}
 				
-			    public String _Div3LongestGTime;
+			    public String Div3LongestGTime;
 
-				public String get_Div3LongestGTime () {
-					return this._Div3LongestGTime;
+				public String getDiv3LongestGTime () {
+					return this.Div3LongestGTime;
 				}
 				
-			    public String _Div3WheelsOff;
+			    public String Div3WheelsOff;
 
-				public String get_Div3WheelsOff () {
-					return this._Div3WheelsOff;
+				public String getDiv3WheelsOff () {
+					return this.Div3WheelsOff;
 				}
 				
-			    public String _Div3TailNum;
+			    public String Div3TailNum;
 
-				public String get_Div3TailNum () {
-					return this._Div3TailNum;
+				public String getDiv3TailNum () {
+					return this.Div3TailNum;
 				}
 				
-			    public String _Div4Airport;
+			    public String Div4Airport;
 
-				public String get_Div4Airport () {
-					return this._Div4Airport;
+				public String getDiv4Airport () {
+					return this.Div4Airport;
 				}
 				
-			    public String _Div4AirportID;
+			    public String Div4AirportID;
 
-				public String get_Div4AirportID () {
-					return this._Div4AirportID;
+				public String getDiv4AirportID () {
+					return this.Div4AirportID;
 				}
 				
-			    public String _Div4AirportSeqID;
+			    public String Div4AirportSeqID;
 
-				public String get_Div4AirportSeqID () {
-					return this._Div4AirportSeqID;
+				public String getDiv4AirportSeqID () {
+					return this.Div4AirportSeqID;
 				}
 				
-			    public String _Div4WheelsOn;
+			    public String Div4WheelsOn;
 
-				public String get_Div4WheelsOn () {
-					return this._Div4WheelsOn;
+				public String getDiv4WheelsOn () {
+					return this.Div4WheelsOn;
 				}
 				
-			    public String _Div4TotalGTime;
+			    public String Div4TotalGTime;
 
-				public String get_Div4TotalGTime () {
-					return this._Div4TotalGTime;
+				public String getDiv4TotalGTime () {
+					return this.Div4TotalGTime;
 				}
 				
-			    public String _Div4LongestGTime;
+			    public String Div4LongestGTime;
 
-				public String get_Div4LongestGTime () {
-					return this._Div4LongestGTime;
+				public String getDiv4LongestGTime () {
+					return this.Div4LongestGTime;
 				}
 				
-			    public String _Div4WheelsOff;
+			    public String Div4WheelsOff;
 
-				public String get_Div4WheelsOff () {
-					return this._Div4WheelsOff;
+				public String getDiv4WheelsOff () {
+					return this.Div4WheelsOff;
 				}
 				
-			    public String _Div4TailNum;
+			    public String Div4TailNum;
 
-				public String get_Div4TailNum () {
-					return this._Div4TailNum;
+				public String getDiv4TailNum () {
+					return this.Div4TailNum;
 				}
 				
-			    public String _Div5Airport;
+			    public String Div5Airport;
 
-				public String get_Div5Airport () {
-					return this._Div5Airport;
+				public String getDiv5Airport () {
+					return this.Div5Airport;
 				}
 				
-			    public String _Div5AirportID;
+			    public String Div5AirportID;
 
-				public String get_Div5AirportID () {
-					return this._Div5AirportID;
+				public String getDiv5AirportID () {
+					return this.Div5AirportID;
 				}
 				
-			    public String _Div5AirportSeqID;
+			    public String Div5AirportSeqID;
 
-				public String get_Div5AirportSeqID () {
-					return this._Div5AirportSeqID;
+				public String getDiv5AirportSeqID () {
+					return this.Div5AirportSeqID;
 				}
 				
-			    public String _Div5WheelsOn;
+			    public String Div5WheelsOn;
 
-				public String get_Div5WheelsOn () {
-					return this._Div5WheelsOn;
+				public String getDiv5WheelsOn () {
+					return this.Div5WheelsOn;
 				}
 				
-			    public String _Div5TotalGTime;
+			    public String Div5TotalGTime;
 
-				public String get_Div5TotalGTime () {
-					return this._Div5TotalGTime;
+				public String getDiv5TotalGTime () {
+					return this.Div5TotalGTime;
 				}
 				
-			    public String _Div5LongestGTime;
+			    public String Div5LongestGTime;
 
-				public String get_Div5LongestGTime () {
-					return this._Div5LongestGTime;
+				public String getDiv5LongestGTime () {
+					return this.Div5LongestGTime;
 				}
 				
-			    public String _Div5WheelsOff;
+			    public String Div5WheelsOff;
 
-				public String get_Div5WheelsOff () {
-					return this._Div5WheelsOff;
+				public String getDiv5WheelsOff () {
+					return this.Div5WheelsOff;
 				}
 				
-			    public String _Div5TailNum;
+			    public String Div5TailNum;
 
-				public String get_Div5TailNum () {
-					return this._Div5TailNum;
+				public String getDiv5TailNum () {
+					return this.Div5TailNum;
 				}
 				
-			    public String _Duplicate;
+			    public Character Duplicate;
 
-				public String get_Duplicate () {
-					return this._Duplicate;
+				public Character getDuplicate () {
+					return this.Duplicate;
 				}
 				
 
@@ -4224,268 +4244,273 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 
         		int length = 0;
 		
-						this._Year = readInteger(dis);
+						this.Year = readInteger(dis);
 					
-						this._Quarter = readInteger(dis);
+						this.Quarter = readInteger(dis);
 					
-						this._Month = readInteger(dis);
+						this.Month = readInteger(dis);
 					
-						this._DayofMonth = readInteger(dis);
+						this.DayofMonth = readInteger(dis);
 					
-						this._DayOfWeek = readInteger(dis);
+						this.DayOfWeek = readInteger(dis);
 					
-					this._FlightDate = readString(dis);
+					this.FlightDate = readString(dis);
 					
-					this._Marketing_Airline_Network = readString(dis);
+					this.Marketing_Airline_Network = readString(dis);
 					
-					this._Operated_or_Branded_Code_Share_Partners = readString(dis);
+					this.Operated_or_Branded_Code_Share_Partners = readString(dis);
 					
-						this._DOT_ID_Marketing_Airline = readInteger(dis);
+						this.DOT_ID_Marketing_Airline = readInteger(dis);
 					
-					this._IATA_Code_Marketing_Airline = readString(dis);
+					this.IATA_Code_Marketing_Airline = readString(dis);
 					
-					this._Flight_Number_Marketing_Airline = readString(dis);
+						this.Flight_Number_Marketing_Airline = readInteger(dis);
 					
-					this._Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Operating_Airline = readString(dis);
+					this.Operating_Airline = readString(dis);
 					
-						this._DOT_ID_Operating_Airline = readInteger(dis);
+						this.DOT_ID_Operating_Airline = readInteger(dis);
 					
-					this._IATA_Code_Operating_Airline = readString(dis);
+					this.IATA_Code_Operating_Airline = readString(dis);
 					
-					this._Tail_Number = readString(dis);
+					this.Tail_Number = readString(dis);
 					
-					this._Flight_Number_Operating_Airline = readString(dis);
+						this.Flight_Number_Operating_Airline = readInteger(dis);
 					
-						this._OriginAirportID = readInteger(dis);
+						this.OriginAirportID = readInteger(dis);
 					
-						this._OriginAirportSeqID = readInteger(dis);
+						this.OriginAirportSeqID = readInteger(dis);
 					
-						this._OriginCityMarketID = readInteger(dis);
+						this.OriginCityMarketID = readInteger(dis);
 					
-					this._Origin = readString(dis);
+					this.Origin = readString(dis);
 					
-					this._OriginCityName = readString(dis);
+					this.OriginCityName = readString(dis);
 					
-					this._OriginState = readString(dis);
+					this.OriginState = readString(dis);
 					
-					this._OriginStateFips = readString(dis);
+					this.OriginStateFips = readString(dis);
 					
-					this._OriginStateName = readString(dis);
+					this.OriginStateName = readString(dis);
 					
-					this._OriginWac = readString(dis);
+						this.OriginWac = readInteger(dis);
 					
-						this._DestAirportID = readInteger(dis);
+						this.DestAirportID = readInteger(dis);
 					
-						this._DestAirportSeqID = readInteger(dis);
+						this.DestAirportSeqID = readInteger(dis);
 					
-						this._DestCityMarketID = readInteger(dis);
+						this.DestCityMarketID = readInteger(dis);
 					
-						this._Dest = readInteger(dis);
+					this.Dest = readString(dis);
 					
-					this._DestCityName = readString(dis);
+					this.DestCityName = readString(dis);
 					
-					this._DestState = readString(dis);
+					this.DestState = readString(dis);
 					
-					this._DestStateFips = readString(dis);
+					this.DestStateFips = readString(dis);
 					
-					this._DestStateName = readString(dis);
+					this.DestStateName = readString(dis);
 					
-					this._DestWac = readString(dis);
+						this.DestWac = readInteger(dis);
 					
-					this._CRSDepTime = readString(dis);
+					this.CRSDepTime = readString(dis);
 					
-						this._DepTime = readInteger(dis);
+					this.DepTime = readString(dis);
 					
-					this._DepDelay = readString(dis);
+					this.DepDelay = readString(dis);
 					
-					this._DepDelayMinutes = readString(dis);
+					this.DepDelayMinutes = readString(dis);
 					
-					this._DepDel15 = readString(dis);
+					this.DepDel15 = readString(dis);
 					
-					this._DepartureDelayGroups = readString(dis);
+					this.DepartureDelayGroups = readString(dis);
 					
-					this._DepTimeBlk = readString(dis);
+					this.DepTimeBlk = readString(dis);
 					
-					this._TaxiOut = readString(dis);
+					this.TaxiOut = readString(dis);
 					
-					this._WheelsOff = readString(dis);
+					this.WheelsOff = readString(dis);
 					
-					this._WheelsOn = readString(dis);
+					this.WheelsOn = readString(dis);
 					
-					this._TaxiIn = readString(dis);
+					this.TaxiIn = readString(dis);
 					
-					this._CRSArrTime = readString(dis);
+					this.CRSArrTime = readString(dis);
 					
-					this._ArrTime = readString(dis);
+					this.ArrTime = readString(dis);
 					
-					this._ArrDelay = readString(dis);
+					this.ArrDelay = readString(dis);
 					
-					this._ArrDelayMinutes = readString(dis);
+					this.ArrDelayMinutes = readString(dis);
 					
-					this._ArrDel15 = readString(dis);
+					this.ArrDel15 = readString(dis);
 					
-					this._ArrivalDelayGroups = readString(dis);
+					this.ArrivalDelayGroups = readString(dis);
 					
-					this._ArrTimeBlk = readString(dis);
-					
-					this._Cancelled = readString(dis);
-					
-					this._CancellationCode = readString(dis);
+					this.ArrTimeBlk = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._Diverted = null;
+           	    			this.Cancelled = null;
            				} else {
-           			    	this._Diverted = dis.readFloat();
+           			    	this.Cancelled = dis.readFloat();
            				}
 					
-					this._CRSElapsedTime = readString(dis);
+					this.CancellationCode = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._ActualElapsedTime = null;
+           	    			this.Diverted = null;
            				} else {
-           			    	this._ActualElapsedTime = dis.readFloat();
+           			    	this.Diverted = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._AirTime = null;
+           	    			this.CRSElapsedTime = null;
            				} else {
-           			    	this._AirTime = dis.readFloat();
+           			    	this.CRSElapsedTime = dis.readFloat();
            				}
 					
-					this._Flights = readString(dis);
+					this.ActualElapsedTime = readString(dis);
 					
-					this._Distance = readString(dis);
+					this.AirTime = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._DistanceGroup = null;
+           	    			this.Flights = null;
            				} else {
-           			    	this._DistanceGroup = dis.readFloat();
+           			    	this.Flights = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._CarrierDelay = null;
+           	    			this.Distance = null;
            				} else {
-           			    	this._CarrierDelay = dis.readFloat();
+           			    	this.Distance = dis.readFloat();
            				}
 					
-						this._WeatherDelay = readInteger(dis);
+						this.DistanceGroup = readInteger(dis);
 					
-					this._NASDelay = readString(dis);
+					this.CarrierDelay = readString(dis);
 					
-					this._SecurityDelay = readString(dis);
+					this.WeatherDelay = readString(dis);
 					
-					this._LateAircraftDelay = readString(dis);
+					this.NASDelay = readString(dis);
 					
-					this._FirstDepTime = readString(dis);
+					this.SecurityDelay = readString(dis);
 					
-					this._TotalAddGTime = readString(dis);
+					this.LateAircraftDelay = readString(dis);
 					
-					this._LongestAddGTime = readString(dis);
+					this.FirstDepTime = readString(dis);
 					
-					this._DivAirportLandings = readString(dis);
+					this.TotalAddGTime = readString(dis);
 					
-					this._DivReachedDest = readString(dis);
+					this.LongestAddGTime = readString(dis);
 					
-						this._DivActualElapsedTime = readInteger(dis);
+						this.DivAirportLandings = readInteger(dis);
 					
-					this._DivArrDelay = readString(dis);
+					this.DivReachedDest = readString(dis);
 					
-					this._DivDistance = readString(dis);
+					this.DivActualElapsedTime = readString(dis);
 					
-					this._Div1Airport = readString(dis);
+					this.DivArrDelay = readString(dis);
 					
-					this._Div1AirportID = readString(dis);
+					this.DivDistance = readString(dis);
 					
-					this._Div1AirportSeqID = readString(dis);
+					this.Div1Airport = readString(dis);
 					
-					this._Div1WheelsOn = readString(dis);
+					this.Div1AirportID = readString(dis);
 					
-					this._Div1TotalGTime = readString(dis);
+					this.Div1AirportSeqID = readString(dis);
 					
-					this._Div1LongestGTime = readString(dis);
+					this.Div1WheelsOn = readString(dis);
 					
-					this._Div1WheelsOff = readString(dis);
+					this.Div1TotalGTime = readString(dis);
 					
-					this._Div1TailNum = readString(dis);
+					this.Div1LongestGTime = readString(dis);
 					
-					this._Div2Airport = readString(dis);
+					this.Div1WheelsOff = readString(dis);
 					
-					this._Div2AirportID = readString(dis);
+					this.Div1TailNum = readString(dis);
 					
-					this._Div2AirportSeqID = readString(dis);
+					this.Div2Airport = readString(dis);
 					
-					this._Div2WheelsOn = readString(dis);
+					this.Div2AirportID = readString(dis);
 					
-					this._Div2TotalGTime = readString(dis);
+					this.Div2AirportSeqID = readString(dis);
 					
-					this._Div2LongestGTime = readString(dis);
+					this.Div2WheelsOn = readString(dis);
 					
-					this._Div2WheelsOff = readString(dis);
+					this.Div2TotalGTime = readString(dis);
 					
-					this._Div2TailNum = readString(dis);
+					this.Div2LongestGTime = readString(dis);
 					
-					this._Div3Airport = readString(dis);
+					this.Div2WheelsOff = readString(dis);
 					
-					this._Div3AirportID = readString(dis);
+					this.Div2TailNum = readString(dis);
 					
-					this._Div3AirportSeqID = readString(dis);
+					this.Div3Airport = readString(dis);
 					
-					this._Div3WheelsOn = readString(dis);
+					this.Div3AirportID = readString(dis);
 					
-					this._Div3TotalGTime = readString(dis);
+					this.Div3AirportSeqID = readString(dis);
 					
-					this._Div3LongestGTime = readString(dis);
+					this.Div3WheelsOn = readString(dis);
 					
-					this._Div3WheelsOff = readString(dis);
+					this.Div3TotalGTime = readString(dis);
 					
-					this._Div3TailNum = readString(dis);
+					this.Div3LongestGTime = readString(dis);
 					
-					this._Div4Airport = readString(dis);
+					this.Div3WheelsOff = readString(dis);
 					
-					this._Div4AirportID = readString(dis);
+					this.Div3TailNum = readString(dis);
 					
-					this._Div4AirportSeqID = readString(dis);
+					this.Div4Airport = readString(dis);
 					
-					this._Div4WheelsOn = readString(dis);
+					this.Div4AirportID = readString(dis);
 					
-					this._Div4TotalGTime = readString(dis);
+					this.Div4AirportSeqID = readString(dis);
 					
-					this._Div4LongestGTime = readString(dis);
+					this.Div4WheelsOn = readString(dis);
 					
-					this._Div4WheelsOff = readString(dis);
+					this.Div4TotalGTime = readString(dis);
 					
-					this._Div4TailNum = readString(dis);
+					this.Div4LongestGTime = readString(dis);
 					
-					this._Div5Airport = readString(dis);
+					this.Div4WheelsOff = readString(dis);
 					
-					this._Div5AirportID = readString(dis);
+					this.Div4TailNum = readString(dis);
 					
-					this._Div5AirportSeqID = readString(dis);
+					this.Div5Airport = readString(dis);
 					
-					this._Div5WheelsOn = readString(dis);
+					this.Div5AirportID = readString(dis);
 					
-					this._Div5TotalGTime = readString(dis);
+					this.Div5AirportSeqID = readString(dis);
 					
-					this._Div5LongestGTime = readString(dis);
+					this.Div5WheelsOn = readString(dis);
 					
-					this._Div5WheelsOff = readString(dis);
+					this.Div5TotalGTime = readString(dis);
 					
-					this._Div5TailNum = readString(dis);
+					this.Div5LongestGTime = readString(dis);
 					
-					this._Duplicate = readString(dis);
+					this.Div5WheelsOff = readString(dis);
+					
+					this.Div5TailNum = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Duplicate = null;
+           				} else {
+           			    	this.Duplicate = dis.readChar();
+           				}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -4509,268 +4534,273 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 
         		int length = 0;
 		
-						this._Year = readInteger(dis);
+						this.Year = readInteger(dis);
 					
-						this._Quarter = readInteger(dis);
+						this.Quarter = readInteger(dis);
 					
-						this._Month = readInteger(dis);
+						this.Month = readInteger(dis);
 					
-						this._DayofMonth = readInteger(dis);
+						this.DayofMonth = readInteger(dis);
 					
-						this._DayOfWeek = readInteger(dis);
+						this.DayOfWeek = readInteger(dis);
 					
-					this._FlightDate = readString(dis);
+					this.FlightDate = readString(dis);
 					
-					this._Marketing_Airline_Network = readString(dis);
+					this.Marketing_Airline_Network = readString(dis);
 					
-					this._Operated_or_Branded_Code_Share_Partners = readString(dis);
+					this.Operated_or_Branded_Code_Share_Partners = readString(dis);
 					
-						this._DOT_ID_Marketing_Airline = readInteger(dis);
+						this.DOT_ID_Marketing_Airline = readInteger(dis);
 					
-					this._IATA_Code_Marketing_Airline = readString(dis);
+					this.IATA_Code_Marketing_Airline = readString(dis);
 					
-					this._Flight_Number_Marketing_Airline = readString(dis);
+						this.Flight_Number_Marketing_Airline = readInteger(dis);
 					
-					this._Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Operating_Airline = readString(dis);
+					this.Operating_Airline = readString(dis);
 					
-						this._DOT_ID_Operating_Airline = readInteger(dis);
+						this.DOT_ID_Operating_Airline = readInteger(dis);
 					
-					this._IATA_Code_Operating_Airline = readString(dis);
+					this.IATA_Code_Operating_Airline = readString(dis);
 					
-					this._Tail_Number = readString(dis);
+					this.Tail_Number = readString(dis);
 					
-					this._Flight_Number_Operating_Airline = readString(dis);
+						this.Flight_Number_Operating_Airline = readInteger(dis);
 					
-						this._OriginAirportID = readInteger(dis);
+						this.OriginAirportID = readInteger(dis);
 					
-						this._OriginAirportSeqID = readInteger(dis);
+						this.OriginAirportSeqID = readInteger(dis);
 					
-						this._OriginCityMarketID = readInteger(dis);
+						this.OriginCityMarketID = readInteger(dis);
 					
-					this._Origin = readString(dis);
+					this.Origin = readString(dis);
 					
-					this._OriginCityName = readString(dis);
+					this.OriginCityName = readString(dis);
 					
-					this._OriginState = readString(dis);
+					this.OriginState = readString(dis);
 					
-					this._OriginStateFips = readString(dis);
+					this.OriginStateFips = readString(dis);
 					
-					this._OriginStateName = readString(dis);
+					this.OriginStateName = readString(dis);
 					
-					this._OriginWac = readString(dis);
+						this.OriginWac = readInteger(dis);
 					
-						this._DestAirportID = readInteger(dis);
+						this.DestAirportID = readInteger(dis);
 					
-						this._DestAirportSeqID = readInteger(dis);
+						this.DestAirportSeqID = readInteger(dis);
 					
-						this._DestCityMarketID = readInteger(dis);
+						this.DestCityMarketID = readInteger(dis);
 					
-						this._Dest = readInteger(dis);
+					this.Dest = readString(dis);
 					
-					this._DestCityName = readString(dis);
+					this.DestCityName = readString(dis);
 					
-					this._DestState = readString(dis);
+					this.DestState = readString(dis);
 					
-					this._DestStateFips = readString(dis);
+					this.DestStateFips = readString(dis);
 					
-					this._DestStateName = readString(dis);
+					this.DestStateName = readString(dis);
 					
-					this._DestWac = readString(dis);
+						this.DestWac = readInteger(dis);
 					
-					this._CRSDepTime = readString(dis);
+					this.CRSDepTime = readString(dis);
 					
-						this._DepTime = readInteger(dis);
+					this.DepTime = readString(dis);
 					
-					this._DepDelay = readString(dis);
+					this.DepDelay = readString(dis);
 					
-					this._DepDelayMinutes = readString(dis);
+					this.DepDelayMinutes = readString(dis);
 					
-					this._DepDel15 = readString(dis);
+					this.DepDel15 = readString(dis);
 					
-					this._DepartureDelayGroups = readString(dis);
+					this.DepartureDelayGroups = readString(dis);
 					
-					this._DepTimeBlk = readString(dis);
+					this.DepTimeBlk = readString(dis);
 					
-					this._TaxiOut = readString(dis);
+					this.TaxiOut = readString(dis);
 					
-					this._WheelsOff = readString(dis);
+					this.WheelsOff = readString(dis);
 					
-					this._WheelsOn = readString(dis);
+					this.WheelsOn = readString(dis);
 					
-					this._TaxiIn = readString(dis);
+					this.TaxiIn = readString(dis);
 					
-					this._CRSArrTime = readString(dis);
+					this.CRSArrTime = readString(dis);
 					
-					this._ArrTime = readString(dis);
+					this.ArrTime = readString(dis);
 					
-					this._ArrDelay = readString(dis);
+					this.ArrDelay = readString(dis);
 					
-					this._ArrDelayMinutes = readString(dis);
+					this.ArrDelayMinutes = readString(dis);
 					
-					this._ArrDel15 = readString(dis);
+					this.ArrDel15 = readString(dis);
 					
-					this._ArrivalDelayGroups = readString(dis);
+					this.ArrivalDelayGroups = readString(dis);
 					
-					this._ArrTimeBlk = readString(dis);
-					
-					this._Cancelled = readString(dis);
-					
-					this._CancellationCode = readString(dis);
+					this.ArrTimeBlk = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._Diverted = null;
+           	    			this.Cancelled = null;
            				} else {
-           			    	this._Diverted = dis.readFloat();
+           			    	this.Cancelled = dis.readFloat();
            				}
 					
-					this._CRSElapsedTime = readString(dis);
+					this.CancellationCode = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._ActualElapsedTime = null;
+           	    			this.Diverted = null;
            				} else {
-           			    	this._ActualElapsedTime = dis.readFloat();
+           			    	this.Diverted = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._AirTime = null;
+           	    			this.CRSElapsedTime = null;
            				} else {
-           			    	this._AirTime = dis.readFloat();
+           			    	this.CRSElapsedTime = dis.readFloat();
            				}
 					
-					this._Flights = readString(dis);
+					this.ActualElapsedTime = readString(dis);
 					
-					this._Distance = readString(dis);
+					this.AirTime = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._DistanceGroup = null;
+           	    			this.Flights = null;
            				} else {
-           			    	this._DistanceGroup = dis.readFloat();
+           			    	this.Flights = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._CarrierDelay = null;
+           	    			this.Distance = null;
            				} else {
-           			    	this._CarrierDelay = dis.readFloat();
+           			    	this.Distance = dis.readFloat();
            				}
 					
-						this._WeatherDelay = readInteger(dis);
+						this.DistanceGroup = readInteger(dis);
 					
-					this._NASDelay = readString(dis);
+					this.CarrierDelay = readString(dis);
 					
-					this._SecurityDelay = readString(dis);
+					this.WeatherDelay = readString(dis);
 					
-					this._LateAircraftDelay = readString(dis);
+					this.NASDelay = readString(dis);
 					
-					this._FirstDepTime = readString(dis);
+					this.SecurityDelay = readString(dis);
 					
-					this._TotalAddGTime = readString(dis);
+					this.LateAircraftDelay = readString(dis);
 					
-					this._LongestAddGTime = readString(dis);
+					this.FirstDepTime = readString(dis);
 					
-					this._DivAirportLandings = readString(dis);
+					this.TotalAddGTime = readString(dis);
 					
-					this._DivReachedDest = readString(dis);
+					this.LongestAddGTime = readString(dis);
 					
-						this._DivActualElapsedTime = readInteger(dis);
+						this.DivAirportLandings = readInteger(dis);
 					
-					this._DivArrDelay = readString(dis);
+					this.DivReachedDest = readString(dis);
 					
-					this._DivDistance = readString(dis);
+					this.DivActualElapsedTime = readString(dis);
 					
-					this._Div1Airport = readString(dis);
+					this.DivArrDelay = readString(dis);
 					
-					this._Div1AirportID = readString(dis);
+					this.DivDistance = readString(dis);
 					
-					this._Div1AirportSeqID = readString(dis);
+					this.Div1Airport = readString(dis);
 					
-					this._Div1WheelsOn = readString(dis);
+					this.Div1AirportID = readString(dis);
 					
-					this._Div1TotalGTime = readString(dis);
+					this.Div1AirportSeqID = readString(dis);
 					
-					this._Div1LongestGTime = readString(dis);
+					this.Div1WheelsOn = readString(dis);
 					
-					this._Div1WheelsOff = readString(dis);
+					this.Div1TotalGTime = readString(dis);
 					
-					this._Div1TailNum = readString(dis);
+					this.Div1LongestGTime = readString(dis);
 					
-					this._Div2Airport = readString(dis);
+					this.Div1WheelsOff = readString(dis);
 					
-					this._Div2AirportID = readString(dis);
+					this.Div1TailNum = readString(dis);
 					
-					this._Div2AirportSeqID = readString(dis);
+					this.Div2Airport = readString(dis);
 					
-					this._Div2WheelsOn = readString(dis);
+					this.Div2AirportID = readString(dis);
 					
-					this._Div2TotalGTime = readString(dis);
+					this.Div2AirportSeqID = readString(dis);
 					
-					this._Div2LongestGTime = readString(dis);
+					this.Div2WheelsOn = readString(dis);
 					
-					this._Div2WheelsOff = readString(dis);
+					this.Div2TotalGTime = readString(dis);
 					
-					this._Div2TailNum = readString(dis);
+					this.Div2LongestGTime = readString(dis);
 					
-					this._Div3Airport = readString(dis);
+					this.Div2WheelsOff = readString(dis);
 					
-					this._Div3AirportID = readString(dis);
+					this.Div2TailNum = readString(dis);
 					
-					this._Div3AirportSeqID = readString(dis);
+					this.Div3Airport = readString(dis);
 					
-					this._Div3WheelsOn = readString(dis);
+					this.Div3AirportID = readString(dis);
 					
-					this._Div3TotalGTime = readString(dis);
+					this.Div3AirportSeqID = readString(dis);
 					
-					this._Div3LongestGTime = readString(dis);
+					this.Div3WheelsOn = readString(dis);
 					
-					this._Div3WheelsOff = readString(dis);
+					this.Div3TotalGTime = readString(dis);
 					
-					this._Div3TailNum = readString(dis);
+					this.Div3LongestGTime = readString(dis);
 					
-					this._Div4Airport = readString(dis);
+					this.Div3WheelsOff = readString(dis);
 					
-					this._Div4AirportID = readString(dis);
+					this.Div3TailNum = readString(dis);
 					
-					this._Div4AirportSeqID = readString(dis);
+					this.Div4Airport = readString(dis);
 					
-					this._Div4WheelsOn = readString(dis);
+					this.Div4AirportID = readString(dis);
 					
-					this._Div4TotalGTime = readString(dis);
+					this.Div4AirportSeqID = readString(dis);
 					
-					this._Div4LongestGTime = readString(dis);
+					this.Div4WheelsOn = readString(dis);
 					
-					this._Div4WheelsOff = readString(dis);
+					this.Div4TotalGTime = readString(dis);
 					
-					this._Div4TailNum = readString(dis);
+					this.Div4LongestGTime = readString(dis);
 					
-					this._Div5Airport = readString(dis);
+					this.Div4WheelsOff = readString(dis);
 					
-					this._Div5AirportID = readString(dis);
+					this.Div4TailNum = readString(dis);
 					
-					this._Div5AirportSeqID = readString(dis);
+					this.Div5Airport = readString(dis);
 					
-					this._Div5WheelsOn = readString(dis);
+					this.Div5AirportID = readString(dis);
 					
-					this._Div5TotalGTime = readString(dis);
+					this.Div5AirportSeqID = readString(dis);
 					
-					this._Div5LongestGTime = readString(dis);
+					this.Div5WheelsOn = readString(dis);
 					
-					this._Div5WheelsOff = readString(dis);
+					this.Div5TotalGTime = readString(dis);
 					
-					this._Div5TailNum = readString(dis);
+					this.Div5LongestGTime = readString(dis);
 					
-					this._Duplicate = readString(dis);
+					this.Div5WheelsOff = readString(dis);
+					
+					this.Div5TailNum = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Duplicate = null;
+           				} else {
+           			    	this.Duplicate = dis.readChar();
+           				}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -4792,504 +4822,509 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 		
 					// Integer
 				
-						writeInteger(this._Year,dos);
+						writeInteger(this.Year,dos);
 					
 					// Integer
 				
-						writeInteger(this._Quarter,dos);
+						writeInteger(this.Quarter,dos);
 					
 					// Integer
 				
-						writeInteger(this._Month,dos);
+						writeInteger(this.Month,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayofMonth,dos);
+						writeInteger(this.DayofMonth,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayOfWeek,dos);
+						writeInteger(this.DayOfWeek,dos);
 					
 					// String
 				
-						writeString(this._FlightDate,dos);
+						writeString(this.FlightDate,dos);
 					
 					// String
 				
-						writeString(this._Marketing_Airline_Network,dos);
+						writeString(this.Marketing_Airline_Network,dos);
 					
 					// String
 				
-						writeString(this._Operated_or_Branded_Code_Share_Partners,dos);
+						writeString(this.Operated_or_Branded_Code_Share_Partners,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Marketing_Airline,dos);
+						writeInteger(this.DOT_ID_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Number_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Operating_Airline,dos);
+						writeString(this.IATA_Code_Marketing_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Operating_Airline,dos);
+						writeInteger(this.Flight_Number_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Operating_Airline,dos);
+						writeString(this.Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Tail_Number,dos);
+						writeString(this.DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Flight_Number_Operating_Airline,dos);
+						writeString(this.IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportID,dos);
+						writeInteger(this.DOT_ID_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.IATA_Code_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.Tail_Number,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportSeqID,dos);
+						writeInteger(this.Flight_Number_Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginCityMarketID,dos);
-					
-					// String
-				
-						writeString(this._Origin,dos);
-					
-					// String
-				
-						writeString(this._OriginCityName,dos);
-					
-					// String
-				
-						writeString(this._OriginState,dos);
-					
-					// String
-				
-						writeString(this._OriginStateFips,dos);
-					
-					// String
-				
-						writeString(this._OriginStateName,dos);
-					
-					// String
-				
-						writeString(this._OriginWac,dos);
+						writeInteger(this.OriginAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportID,dos);
+						writeInteger(this.OriginAirportSeqID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportSeqID,dos);
+						writeInteger(this.OriginCityMarketID,dos);
+					
+					// String
+				
+						writeString(this.Origin,dos);
+					
+					// String
+				
+						writeString(this.OriginCityName,dos);
+					
+					// String
+				
+						writeString(this.OriginState,dos);
+					
+					// String
+				
+						writeString(this.OriginStateFips,dos);
+					
+					// String
+				
+						writeString(this.OriginStateName,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestCityMarketID,dos);
+						writeInteger(this.OriginWac,dos);
 					
 					// Integer
 				
-						writeInteger(this._Dest,dos);
-					
-					// String
-				
-						writeString(this._DestCityName,dos);
-					
-					// String
-				
-						writeString(this._DestState,dos);
-					
-					// String
-				
-						writeString(this._DestStateFips,dos);
-					
-					// String
-				
-						writeString(this._DestStateName,dos);
-					
-					// String
-				
-						writeString(this._DestWac,dos);
-					
-					// String
-				
-						writeString(this._CRSDepTime,dos);
+						writeInteger(this.DestAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DepTime,dos);
+						writeInteger(this.DestAirportSeqID,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestCityMarketID,dos);
 					
 					// String
 				
-						writeString(this._DepDelay,dos);
+						writeString(this.Dest,dos);
 					
 					// String
 				
-						writeString(this._DepDelayMinutes,dos);
+						writeString(this.DestCityName,dos);
 					
 					// String
 				
-						writeString(this._DepDel15,dos);
+						writeString(this.DestState,dos);
 					
 					// String
 				
-						writeString(this._DepartureDelayGroups,dos);
+						writeString(this.DestStateFips,dos);
 					
 					// String
 				
-						writeString(this._DepTimeBlk,dos);
+						writeString(this.DestStateName,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestWac,dos);
 					
 					// String
 				
-						writeString(this._TaxiOut,dos);
+						writeString(this.CRSDepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOff,dos);
+						writeString(this.DepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOn,dos);
+						writeString(this.DepDelay,dos);
 					
 					// String
 				
-						writeString(this._TaxiIn,dos);
+						writeString(this.DepDelayMinutes,dos);
 					
 					// String
 				
-						writeString(this._CRSArrTime,dos);
+						writeString(this.DepDel15,dos);
 					
 					// String
 				
-						writeString(this._ArrTime,dos);
+						writeString(this.DepartureDelayGroups,dos);
 					
 					// String
 				
-						writeString(this._ArrDelay,dos);
+						writeString(this.DepTimeBlk,dos);
 					
 					// String
 				
-						writeString(this._ArrDelayMinutes,dos);
+						writeString(this.TaxiOut,dos);
 					
 					// String
 				
-						writeString(this._ArrDel15,dos);
+						writeString(this.WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._ArrivalDelayGroups,dos);
+						writeString(this.WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._ArrTimeBlk,dos);
+						writeString(this.TaxiIn,dos);
 					
 					// String
 				
-						writeString(this._Cancelled,dos);
+						writeString(this.CRSArrTime,dos);
 					
 					// String
 				
-						writeString(this._CancellationCode,dos);
+						writeString(this.ArrTime,dos);
+					
+					// String
+				
+						writeString(this.ArrDelay,dos);
+					
+					// String
+				
+						writeString(this.ArrDelayMinutes,dos);
+					
+					// String
+				
+						writeString(this.ArrDel15,dos);
+					
+					// String
+				
+						writeString(this.ArrivalDelayGroups,dos);
+					
+					// String
+				
+						writeString(this.ArrTimeBlk,dos);
 					
 					// Float
 				
-						if(this._Diverted == null) {
+						if(this.Cancelled == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._Diverted);
+           			    	dos.writeFloat(this.Cancelled);
 		            	}
 					
 					// String
 				
-						writeString(this._CRSElapsedTime,dos);
+						writeString(this.CancellationCode,dos);
 					
 					// Float
 				
-						if(this._ActualElapsedTime == null) {
+						if(this.Diverted == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._ActualElapsedTime);
+           			    	dos.writeFloat(this.Diverted);
 		            	}
 					
 					// Float
 				
-						if(this._AirTime == null) {
+						if(this.CRSElapsedTime == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._AirTime);
+           			    	dos.writeFloat(this.CRSElapsedTime);
 		            	}
 					
 					// String
 				
-						writeString(this._Flights,dos);
+						writeString(this.ActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Distance,dos);
+						writeString(this.AirTime,dos);
 					
 					// Float
 				
-						if(this._DistanceGroup == null) {
+						if(this.Flights == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._DistanceGroup);
+           			    	dos.writeFloat(this.Flights);
 		            	}
 					
 					// Float
 				
-						if(this._CarrierDelay == null) {
+						if(this.Distance == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._CarrierDelay);
+           			    	dos.writeFloat(this.Distance);
 		            	}
 					
 					// Integer
 				
-						writeInteger(this._WeatherDelay,dos);
+						writeInteger(this.DistanceGroup,dos);
 					
 					// String
 				
-						writeString(this._NASDelay,dos);
+						writeString(this.CarrierDelay,dos);
 					
 					// String
 				
-						writeString(this._SecurityDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
-						writeString(this._LateAircraftDelay,dos);
+						writeString(this.NASDelay,dos);
 					
 					// String
 				
-						writeString(this._FirstDepTime,dos);
+						writeString(this.SecurityDelay,dos);
 					
 					// String
 				
-						writeString(this._TotalAddGTime,dos);
+						writeString(this.LateAircraftDelay,dos);
 					
 					// String
 				
-						writeString(this._LongestAddGTime,dos);
+						writeString(this.FirstDepTime,dos);
 					
 					// String
 				
-						writeString(this._DivAirportLandings,dos);
+						writeString(this.TotalAddGTime,dos);
 					
 					// String
 				
-						writeString(this._DivReachedDest,dos);
+						writeString(this.LongestAddGTime,dos);
 					
 					// Integer
 				
-						writeInteger(this._DivActualElapsedTime,dos);
+						writeInteger(this.DivAirportLandings,dos);
 					
 					// String
 				
-						writeString(this._DivArrDelay,dos);
+						writeString(this.DivReachedDest,dos);
 					
 					// String
 				
-						writeString(this._DivDistance,dos);
+						writeString(this.DivActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Div1Airport,dos);
+						writeString(this.DivArrDelay,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportID,dos);
+						writeString(this.DivDistance,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportSeqID,dos);
+						writeString(this.Div1Airport,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOn,dos);
+						writeString(this.Div1AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div1TotalGTime,dos);
+						writeString(this.Div1AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div1LongestGTime,dos);
+						writeString(this.Div1WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOff,dos);
+						writeString(this.Div1TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div1TailNum,dos);
+						writeString(this.Div1LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2Airport,dos);
+						writeString(this.Div1WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportID,dos);
+						writeString(this.Div1TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportSeqID,dos);
+						writeString(this.Div2Airport,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOn,dos);
+						writeString(this.Div2AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div2TotalGTime,dos);
+						writeString(this.Div2AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div2LongestGTime,dos);
+						writeString(this.Div2WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOff,dos);
+						writeString(this.Div2TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2TailNum,dos);
+						writeString(this.Div2LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3Airport,dos);
+						writeString(this.Div2WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportID,dos);
+						writeString(this.Div2TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportSeqID,dos);
+						writeString(this.Div3Airport,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOn,dos);
+						writeString(this.Div3AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div3TotalGTime,dos);
+						writeString(this.Div3AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div3LongestGTime,dos);
+						writeString(this.Div3WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOff,dos);
+						writeString(this.Div3TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3TailNum,dos);
+						writeString(this.Div3LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4Airport,dos);
+						writeString(this.Div3WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportID,dos);
+						writeString(this.Div3TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportSeqID,dos);
+						writeString(this.Div4Airport,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOn,dos);
+						writeString(this.Div4AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div4TotalGTime,dos);
+						writeString(this.Div4AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div4LongestGTime,dos);
+						writeString(this.Div4WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOff,dos);
+						writeString(this.Div4TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4TailNum,dos);
+						writeString(this.Div4LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5Airport,dos);
+						writeString(this.Div4WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportID,dos);
+						writeString(this.Div4TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportSeqID,dos);
+						writeString(this.Div5Airport,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOn,dos);
+						writeString(this.Div5AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div5TotalGTime,dos);
+						writeString(this.Div5AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div5LongestGTime,dos);
+						writeString(this.Div5WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOff,dos);
+						writeString(this.Div5TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5TailNum,dos);
+						writeString(this.Div5LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Duplicate,dos);
+						writeString(this.Div5WheelsOff,dos);
+					
+					// String
+				
+						writeString(this.Div5TailNum,dos);
+					
+					// Character
+				
+						if(this.Duplicate == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeChar(this.Duplicate);
+		            	}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -5304,504 +5339,509 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 		
 					// Integer
 				
-						writeInteger(this._Year,dos);
+						writeInteger(this.Year,dos);
 					
 					// Integer
 				
-						writeInteger(this._Quarter,dos);
+						writeInteger(this.Quarter,dos);
 					
 					// Integer
 				
-						writeInteger(this._Month,dos);
+						writeInteger(this.Month,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayofMonth,dos);
+						writeInteger(this.DayofMonth,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayOfWeek,dos);
+						writeInteger(this.DayOfWeek,dos);
 					
 					// String
 				
-						writeString(this._FlightDate,dos);
+						writeString(this.FlightDate,dos);
 					
 					// String
 				
-						writeString(this._Marketing_Airline_Network,dos);
+						writeString(this.Marketing_Airline_Network,dos);
 					
 					// String
 				
-						writeString(this._Operated_or_Branded_Code_Share_Partners,dos);
+						writeString(this.Operated_or_Branded_Code_Share_Partners,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Marketing_Airline,dos);
+						writeInteger(this.DOT_ID_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Number_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Operating_Airline,dos);
+						writeString(this.IATA_Code_Marketing_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Operating_Airline,dos);
+						writeInteger(this.Flight_Number_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Operating_Airline,dos);
+						writeString(this.Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Tail_Number,dos);
+						writeString(this.DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Flight_Number_Operating_Airline,dos);
+						writeString(this.IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportID,dos);
+						writeInteger(this.DOT_ID_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.IATA_Code_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.Tail_Number,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportSeqID,dos);
+						writeInteger(this.Flight_Number_Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginCityMarketID,dos);
-					
-					// String
-				
-						writeString(this._Origin,dos);
-					
-					// String
-				
-						writeString(this._OriginCityName,dos);
-					
-					// String
-				
-						writeString(this._OriginState,dos);
-					
-					// String
-				
-						writeString(this._OriginStateFips,dos);
-					
-					// String
-				
-						writeString(this._OriginStateName,dos);
-					
-					// String
-				
-						writeString(this._OriginWac,dos);
+						writeInteger(this.OriginAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportID,dos);
+						writeInteger(this.OriginAirportSeqID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportSeqID,dos);
+						writeInteger(this.OriginCityMarketID,dos);
+					
+					// String
+				
+						writeString(this.Origin,dos);
+					
+					// String
+				
+						writeString(this.OriginCityName,dos);
+					
+					// String
+				
+						writeString(this.OriginState,dos);
+					
+					// String
+				
+						writeString(this.OriginStateFips,dos);
+					
+					// String
+				
+						writeString(this.OriginStateName,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestCityMarketID,dos);
+						writeInteger(this.OriginWac,dos);
 					
 					// Integer
 				
-						writeInteger(this._Dest,dos);
-					
-					// String
-				
-						writeString(this._DestCityName,dos);
-					
-					// String
-				
-						writeString(this._DestState,dos);
-					
-					// String
-				
-						writeString(this._DestStateFips,dos);
-					
-					// String
-				
-						writeString(this._DestStateName,dos);
-					
-					// String
-				
-						writeString(this._DestWac,dos);
-					
-					// String
-				
-						writeString(this._CRSDepTime,dos);
+						writeInteger(this.DestAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DepTime,dos);
+						writeInteger(this.DestAirportSeqID,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestCityMarketID,dos);
 					
 					// String
 				
-						writeString(this._DepDelay,dos);
+						writeString(this.Dest,dos);
 					
 					// String
 				
-						writeString(this._DepDelayMinutes,dos);
+						writeString(this.DestCityName,dos);
 					
 					// String
 				
-						writeString(this._DepDel15,dos);
+						writeString(this.DestState,dos);
 					
 					// String
 				
-						writeString(this._DepartureDelayGroups,dos);
+						writeString(this.DestStateFips,dos);
 					
 					// String
 				
-						writeString(this._DepTimeBlk,dos);
+						writeString(this.DestStateName,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestWac,dos);
 					
 					// String
 				
-						writeString(this._TaxiOut,dos);
+						writeString(this.CRSDepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOff,dos);
+						writeString(this.DepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOn,dos);
+						writeString(this.DepDelay,dos);
 					
 					// String
 				
-						writeString(this._TaxiIn,dos);
+						writeString(this.DepDelayMinutes,dos);
 					
 					// String
 				
-						writeString(this._CRSArrTime,dos);
+						writeString(this.DepDel15,dos);
 					
 					// String
 				
-						writeString(this._ArrTime,dos);
+						writeString(this.DepartureDelayGroups,dos);
 					
 					// String
 				
-						writeString(this._ArrDelay,dos);
+						writeString(this.DepTimeBlk,dos);
 					
 					// String
 				
-						writeString(this._ArrDelayMinutes,dos);
+						writeString(this.TaxiOut,dos);
 					
 					// String
 				
-						writeString(this._ArrDel15,dos);
+						writeString(this.WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._ArrivalDelayGroups,dos);
+						writeString(this.WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._ArrTimeBlk,dos);
+						writeString(this.TaxiIn,dos);
 					
 					// String
 				
-						writeString(this._Cancelled,dos);
+						writeString(this.CRSArrTime,dos);
 					
 					// String
 				
-						writeString(this._CancellationCode,dos);
+						writeString(this.ArrTime,dos);
+					
+					// String
+				
+						writeString(this.ArrDelay,dos);
+					
+					// String
+				
+						writeString(this.ArrDelayMinutes,dos);
+					
+					// String
+				
+						writeString(this.ArrDel15,dos);
+					
+					// String
+				
+						writeString(this.ArrivalDelayGroups,dos);
+					
+					// String
+				
+						writeString(this.ArrTimeBlk,dos);
 					
 					// Float
 				
-						if(this._Diverted == null) {
+						if(this.Cancelled == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._Diverted);
+           			    	dos.writeFloat(this.Cancelled);
 		            	}
 					
 					// String
 				
-						writeString(this._CRSElapsedTime,dos);
+						writeString(this.CancellationCode,dos);
 					
 					// Float
 				
-						if(this._ActualElapsedTime == null) {
+						if(this.Diverted == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._ActualElapsedTime);
+           			    	dos.writeFloat(this.Diverted);
 		            	}
 					
 					// Float
 				
-						if(this._AirTime == null) {
+						if(this.CRSElapsedTime == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._AirTime);
+           			    	dos.writeFloat(this.CRSElapsedTime);
 		            	}
 					
 					// String
 				
-						writeString(this._Flights,dos);
+						writeString(this.ActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Distance,dos);
+						writeString(this.AirTime,dos);
 					
 					// Float
 				
-						if(this._DistanceGroup == null) {
+						if(this.Flights == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._DistanceGroup);
+           			    	dos.writeFloat(this.Flights);
 		            	}
 					
 					// Float
 				
-						if(this._CarrierDelay == null) {
+						if(this.Distance == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._CarrierDelay);
+           			    	dos.writeFloat(this.Distance);
 		            	}
 					
 					// Integer
 				
-						writeInteger(this._WeatherDelay,dos);
+						writeInteger(this.DistanceGroup,dos);
 					
 					// String
 				
-						writeString(this._NASDelay,dos);
+						writeString(this.CarrierDelay,dos);
 					
 					// String
 				
-						writeString(this._SecurityDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
-						writeString(this._LateAircraftDelay,dos);
+						writeString(this.NASDelay,dos);
 					
 					// String
 				
-						writeString(this._FirstDepTime,dos);
+						writeString(this.SecurityDelay,dos);
 					
 					// String
 				
-						writeString(this._TotalAddGTime,dos);
+						writeString(this.LateAircraftDelay,dos);
 					
 					// String
 				
-						writeString(this._LongestAddGTime,dos);
+						writeString(this.FirstDepTime,dos);
 					
 					// String
 				
-						writeString(this._DivAirportLandings,dos);
+						writeString(this.TotalAddGTime,dos);
 					
 					// String
 				
-						writeString(this._DivReachedDest,dos);
+						writeString(this.LongestAddGTime,dos);
 					
 					// Integer
 				
-						writeInteger(this._DivActualElapsedTime,dos);
+						writeInteger(this.DivAirportLandings,dos);
 					
 					// String
 				
-						writeString(this._DivArrDelay,dos);
+						writeString(this.DivReachedDest,dos);
 					
 					// String
 				
-						writeString(this._DivDistance,dos);
+						writeString(this.DivActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Div1Airport,dos);
+						writeString(this.DivArrDelay,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportID,dos);
+						writeString(this.DivDistance,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportSeqID,dos);
+						writeString(this.Div1Airport,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOn,dos);
+						writeString(this.Div1AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div1TotalGTime,dos);
+						writeString(this.Div1AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div1LongestGTime,dos);
+						writeString(this.Div1WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOff,dos);
+						writeString(this.Div1TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div1TailNum,dos);
+						writeString(this.Div1LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2Airport,dos);
+						writeString(this.Div1WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportID,dos);
+						writeString(this.Div1TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportSeqID,dos);
+						writeString(this.Div2Airport,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOn,dos);
+						writeString(this.Div2AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div2TotalGTime,dos);
+						writeString(this.Div2AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div2LongestGTime,dos);
+						writeString(this.Div2WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOff,dos);
+						writeString(this.Div2TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2TailNum,dos);
+						writeString(this.Div2LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3Airport,dos);
+						writeString(this.Div2WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportID,dos);
+						writeString(this.Div2TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportSeqID,dos);
+						writeString(this.Div3Airport,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOn,dos);
+						writeString(this.Div3AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div3TotalGTime,dos);
+						writeString(this.Div3AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div3LongestGTime,dos);
+						writeString(this.Div3WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOff,dos);
+						writeString(this.Div3TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3TailNum,dos);
+						writeString(this.Div3LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4Airport,dos);
+						writeString(this.Div3WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportID,dos);
+						writeString(this.Div3TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportSeqID,dos);
+						writeString(this.Div4Airport,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOn,dos);
+						writeString(this.Div4AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div4TotalGTime,dos);
+						writeString(this.Div4AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div4LongestGTime,dos);
+						writeString(this.Div4WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOff,dos);
+						writeString(this.Div4TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4TailNum,dos);
+						writeString(this.Div4LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5Airport,dos);
+						writeString(this.Div4WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportID,dos);
+						writeString(this.Div4TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportSeqID,dos);
+						writeString(this.Div5Airport,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOn,dos);
+						writeString(this.Div5AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div5TotalGTime,dos);
+						writeString(this.Div5AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div5LongestGTime,dos);
+						writeString(this.Div5WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOff,dos);
+						writeString(this.Div5TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5TailNum,dos);
+						writeString(this.Div5LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Duplicate,dos);
+						writeString(this.Div5WheelsOff,dos);
+					
+					// String
+				
+						writeString(this.Div5TailNum,dos);
+					
+					// Character
+				
+						if(this.Duplicate == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeChar(this.Duplicate);
+		            	}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -5816,125 +5856,125 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("_Year="+String.valueOf(_Year));
-		sb.append(",_Quarter="+String.valueOf(_Quarter));
-		sb.append(",_Month="+String.valueOf(_Month));
-		sb.append(",_DayofMonth="+String.valueOf(_DayofMonth));
-		sb.append(",_DayOfWeek="+String.valueOf(_DayOfWeek));
-		sb.append(",_FlightDate="+_FlightDate);
-		sb.append(",_Marketing_Airline_Network="+_Marketing_Airline_Network);
-		sb.append(",_Operated_or_Branded_Code_Share_Partners="+_Operated_or_Branded_Code_Share_Partners);
-		sb.append(",_DOT_ID_Marketing_Airline="+String.valueOf(_DOT_ID_Marketing_Airline));
-		sb.append(",_IATA_Code_Marketing_Airline="+_IATA_Code_Marketing_Airline);
-		sb.append(",_Flight_Number_Marketing_Airline="+_Flight_Number_Marketing_Airline);
-		sb.append(",_Originally_Scheduled_Code_Share_Airline="+_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_DOT_ID_Originally_Scheduled_Code_Share_Airline="+_DOT_ID_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_IATA_Code_Originally_Scheduled_Code_Share_Airline="+_IATA_Code_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_Flight_Num_Originally_Scheduled_Code_Share_Airline="+_Flight_Num_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_Operating_Airline="+_Operating_Airline);
-		sb.append(",_DOT_ID_Operating_Airline="+String.valueOf(_DOT_ID_Operating_Airline));
-		sb.append(",_IATA_Code_Operating_Airline="+_IATA_Code_Operating_Airline);
-		sb.append(",_Tail_Number="+_Tail_Number);
-		sb.append(",_Flight_Number_Operating_Airline="+_Flight_Number_Operating_Airline);
-		sb.append(",_OriginAirportID="+String.valueOf(_OriginAirportID));
-		sb.append(",_OriginAirportSeqID="+String.valueOf(_OriginAirportSeqID));
-		sb.append(",_OriginCityMarketID="+String.valueOf(_OriginCityMarketID));
-		sb.append(",_Origin="+_Origin);
-		sb.append(",_OriginCityName="+_OriginCityName);
-		sb.append(",_OriginState="+_OriginState);
-		sb.append(",_OriginStateFips="+_OriginStateFips);
-		sb.append(",_OriginStateName="+_OriginStateName);
-		sb.append(",_OriginWac="+_OriginWac);
-		sb.append(",_DestAirportID="+String.valueOf(_DestAirportID));
-		sb.append(",_DestAirportSeqID="+String.valueOf(_DestAirportSeqID));
-		sb.append(",_DestCityMarketID="+String.valueOf(_DestCityMarketID));
-		sb.append(",_Dest="+String.valueOf(_Dest));
-		sb.append(",_DestCityName="+_DestCityName);
-		sb.append(",_DestState="+_DestState);
-		sb.append(",_DestStateFips="+_DestStateFips);
-		sb.append(",_DestStateName="+_DestStateName);
-		sb.append(",_DestWac="+_DestWac);
-		sb.append(",_CRSDepTime="+_CRSDepTime);
-		sb.append(",_DepTime="+String.valueOf(_DepTime));
-		sb.append(",_DepDelay="+_DepDelay);
-		sb.append(",_DepDelayMinutes="+_DepDelayMinutes);
-		sb.append(",_DepDel15="+_DepDel15);
-		sb.append(",_DepartureDelayGroups="+_DepartureDelayGroups);
-		sb.append(",_DepTimeBlk="+_DepTimeBlk);
-		sb.append(",_TaxiOut="+_TaxiOut);
-		sb.append(",_WheelsOff="+_WheelsOff);
-		sb.append(",_WheelsOn="+_WheelsOn);
-		sb.append(",_TaxiIn="+_TaxiIn);
-		sb.append(",_CRSArrTime="+_CRSArrTime);
-		sb.append(",_ArrTime="+_ArrTime);
-		sb.append(",_ArrDelay="+_ArrDelay);
-		sb.append(",_ArrDelayMinutes="+_ArrDelayMinutes);
-		sb.append(",_ArrDel15="+_ArrDel15);
-		sb.append(",_ArrivalDelayGroups="+_ArrivalDelayGroups);
-		sb.append(",_ArrTimeBlk="+_ArrTimeBlk);
-		sb.append(",_Cancelled="+_Cancelled);
-		sb.append(",_CancellationCode="+_CancellationCode);
-		sb.append(",_Diverted="+String.valueOf(_Diverted));
-		sb.append(",_CRSElapsedTime="+_CRSElapsedTime);
-		sb.append(",_ActualElapsedTime="+String.valueOf(_ActualElapsedTime));
-		sb.append(",_AirTime="+String.valueOf(_AirTime));
-		sb.append(",_Flights="+_Flights);
-		sb.append(",_Distance="+_Distance);
-		sb.append(",_DistanceGroup="+String.valueOf(_DistanceGroup));
-		sb.append(",_CarrierDelay="+String.valueOf(_CarrierDelay));
-		sb.append(",_WeatherDelay="+String.valueOf(_WeatherDelay));
-		sb.append(",_NASDelay="+_NASDelay);
-		sb.append(",_SecurityDelay="+_SecurityDelay);
-		sb.append(",_LateAircraftDelay="+_LateAircraftDelay);
-		sb.append(",_FirstDepTime="+_FirstDepTime);
-		sb.append(",_TotalAddGTime="+_TotalAddGTime);
-		sb.append(",_LongestAddGTime="+_LongestAddGTime);
-		sb.append(",_DivAirportLandings="+_DivAirportLandings);
-		sb.append(",_DivReachedDest="+_DivReachedDest);
-		sb.append(",_DivActualElapsedTime="+String.valueOf(_DivActualElapsedTime));
-		sb.append(",_DivArrDelay="+_DivArrDelay);
-		sb.append(",_DivDistance="+_DivDistance);
-		sb.append(",_Div1Airport="+_Div1Airport);
-		sb.append(",_Div1AirportID="+_Div1AirportID);
-		sb.append(",_Div1AirportSeqID="+_Div1AirportSeqID);
-		sb.append(",_Div1WheelsOn="+_Div1WheelsOn);
-		sb.append(",_Div1TotalGTime="+_Div1TotalGTime);
-		sb.append(",_Div1LongestGTime="+_Div1LongestGTime);
-		sb.append(",_Div1WheelsOff="+_Div1WheelsOff);
-		sb.append(",_Div1TailNum="+_Div1TailNum);
-		sb.append(",_Div2Airport="+_Div2Airport);
-		sb.append(",_Div2AirportID="+_Div2AirportID);
-		sb.append(",_Div2AirportSeqID="+_Div2AirportSeqID);
-		sb.append(",_Div2WheelsOn="+_Div2WheelsOn);
-		sb.append(",_Div2TotalGTime="+_Div2TotalGTime);
-		sb.append(",_Div2LongestGTime="+_Div2LongestGTime);
-		sb.append(",_Div2WheelsOff="+_Div2WheelsOff);
-		sb.append(",_Div2TailNum="+_Div2TailNum);
-		sb.append(",_Div3Airport="+_Div3Airport);
-		sb.append(",_Div3AirportID="+_Div3AirportID);
-		sb.append(",_Div3AirportSeqID="+_Div3AirportSeqID);
-		sb.append(",_Div3WheelsOn="+_Div3WheelsOn);
-		sb.append(",_Div3TotalGTime="+_Div3TotalGTime);
-		sb.append(",_Div3LongestGTime="+_Div3LongestGTime);
-		sb.append(",_Div3WheelsOff="+_Div3WheelsOff);
-		sb.append(",_Div3TailNum="+_Div3TailNum);
-		sb.append(",_Div4Airport="+_Div4Airport);
-		sb.append(",_Div4AirportID="+_Div4AirportID);
-		sb.append(",_Div4AirportSeqID="+_Div4AirportSeqID);
-		sb.append(",_Div4WheelsOn="+_Div4WheelsOn);
-		sb.append(",_Div4TotalGTime="+_Div4TotalGTime);
-		sb.append(",_Div4LongestGTime="+_Div4LongestGTime);
-		sb.append(",_Div4WheelsOff="+_Div4WheelsOff);
-		sb.append(",_Div4TailNum="+_Div4TailNum);
-		sb.append(",_Div5Airport="+_Div5Airport);
-		sb.append(",_Div5AirportID="+_Div5AirportID);
-		sb.append(",_Div5AirportSeqID="+_Div5AirportSeqID);
-		sb.append(",_Div5WheelsOn="+_Div5WheelsOn);
-		sb.append(",_Div5TotalGTime="+_Div5TotalGTime);
-		sb.append(",_Div5LongestGTime="+_Div5LongestGTime);
-		sb.append(",_Div5WheelsOff="+_Div5WheelsOff);
-		sb.append(",_Div5TailNum="+_Div5TailNum);
-		sb.append(",_Duplicate="+_Duplicate);
+		sb.append("Year="+String.valueOf(Year));
+		sb.append(",Quarter="+String.valueOf(Quarter));
+		sb.append(",Month="+String.valueOf(Month));
+		sb.append(",DayofMonth="+String.valueOf(DayofMonth));
+		sb.append(",DayOfWeek="+String.valueOf(DayOfWeek));
+		sb.append(",FlightDate="+FlightDate);
+		sb.append(",Marketing_Airline_Network="+Marketing_Airline_Network);
+		sb.append(",Operated_or_Branded_Code_Share_Partners="+Operated_or_Branded_Code_Share_Partners);
+		sb.append(",DOT_ID_Marketing_Airline="+String.valueOf(DOT_ID_Marketing_Airline));
+		sb.append(",IATA_Code_Marketing_Airline="+IATA_Code_Marketing_Airline);
+		sb.append(",Flight_Number_Marketing_Airline="+String.valueOf(Flight_Number_Marketing_Airline));
+		sb.append(",Originally_Scheduled_Code_Share_Airline="+Originally_Scheduled_Code_Share_Airline);
+		sb.append(",DOT_ID_Originally_Scheduled_Code_Share_Airline="+DOT_ID_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",IATA_Code_Originally_Scheduled_Code_Share_Airline="+IATA_Code_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",Flight_Num_Originally_Scheduled_Code_Share_Airline="+Flight_Num_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",Operating_Airline="+Operating_Airline);
+		sb.append(",DOT_ID_Operating_Airline="+String.valueOf(DOT_ID_Operating_Airline));
+		sb.append(",IATA_Code_Operating_Airline="+IATA_Code_Operating_Airline);
+		sb.append(",Tail_Number="+Tail_Number);
+		sb.append(",Flight_Number_Operating_Airline="+String.valueOf(Flight_Number_Operating_Airline));
+		sb.append(",OriginAirportID="+String.valueOf(OriginAirportID));
+		sb.append(",OriginAirportSeqID="+String.valueOf(OriginAirportSeqID));
+		sb.append(",OriginCityMarketID="+String.valueOf(OriginCityMarketID));
+		sb.append(",Origin="+Origin);
+		sb.append(",OriginCityName="+OriginCityName);
+		sb.append(",OriginState="+OriginState);
+		sb.append(",OriginStateFips="+OriginStateFips);
+		sb.append(",OriginStateName="+OriginStateName);
+		sb.append(",OriginWac="+String.valueOf(OriginWac));
+		sb.append(",DestAirportID="+String.valueOf(DestAirportID));
+		sb.append(",DestAirportSeqID="+String.valueOf(DestAirportSeqID));
+		sb.append(",DestCityMarketID="+String.valueOf(DestCityMarketID));
+		sb.append(",Dest="+Dest);
+		sb.append(",DestCityName="+DestCityName);
+		sb.append(",DestState="+DestState);
+		sb.append(",DestStateFips="+DestStateFips);
+		sb.append(",DestStateName="+DestStateName);
+		sb.append(",DestWac="+String.valueOf(DestWac));
+		sb.append(",CRSDepTime="+CRSDepTime);
+		sb.append(",DepTime="+DepTime);
+		sb.append(",DepDelay="+DepDelay);
+		sb.append(",DepDelayMinutes="+DepDelayMinutes);
+		sb.append(",DepDel15="+DepDel15);
+		sb.append(",DepartureDelayGroups="+DepartureDelayGroups);
+		sb.append(",DepTimeBlk="+DepTimeBlk);
+		sb.append(",TaxiOut="+TaxiOut);
+		sb.append(",WheelsOff="+WheelsOff);
+		sb.append(",WheelsOn="+WheelsOn);
+		sb.append(",TaxiIn="+TaxiIn);
+		sb.append(",CRSArrTime="+CRSArrTime);
+		sb.append(",ArrTime="+ArrTime);
+		sb.append(",ArrDelay="+ArrDelay);
+		sb.append(",ArrDelayMinutes="+ArrDelayMinutes);
+		sb.append(",ArrDel15="+ArrDel15);
+		sb.append(",ArrivalDelayGroups="+ArrivalDelayGroups);
+		sb.append(",ArrTimeBlk="+ArrTimeBlk);
+		sb.append(",Cancelled="+String.valueOf(Cancelled));
+		sb.append(",CancellationCode="+CancellationCode);
+		sb.append(",Diverted="+String.valueOf(Diverted));
+		sb.append(",CRSElapsedTime="+String.valueOf(CRSElapsedTime));
+		sb.append(",ActualElapsedTime="+ActualElapsedTime);
+		sb.append(",AirTime="+AirTime);
+		sb.append(",Flights="+String.valueOf(Flights));
+		sb.append(",Distance="+String.valueOf(Distance));
+		sb.append(",DistanceGroup="+String.valueOf(DistanceGroup));
+		sb.append(",CarrierDelay="+CarrierDelay);
+		sb.append(",WeatherDelay="+WeatherDelay);
+		sb.append(",NASDelay="+NASDelay);
+		sb.append(",SecurityDelay="+SecurityDelay);
+		sb.append(",LateAircraftDelay="+LateAircraftDelay);
+		sb.append(",FirstDepTime="+FirstDepTime);
+		sb.append(",TotalAddGTime="+TotalAddGTime);
+		sb.append(",LongestAddGTime="+LongestAddGTime);
+		sb.append(",DivAirportLandings="+String.valueOf(DivAirportLandings));
+		sb.append(",DivReachedDest="+DivReachedDest);
+		sb.append(",DivActualElapsedTime="+DivActualElapsedTime);
+		sb.append(",DivArrDelay="+DivArrDelay);
+		sb.append(",DivDistance="+DivDistance);
+		sb.append(",Div1Airport="+Div1Airport);
+		sb.append(",Div1AirportID="+Div1AirportID);
+		sb.append(",Div1AirportSeqID="+Div1AirportSeqID);
+		sb.append(",Div1WheelsOn="+Div1WheelsOn);
+		sb.append(",Div1TotalGTime="+Div1TotalGTime);
+		sb.append(",Div1LongestGTime="+Div1LongestGTime);
+		sb.append(",Div1WheelsOff="+Div1WheelsOff);
+		sb.append(",Div1TailNum="+Div1TailNum);
+		sb.append(",Div2Airport="+Div2Airport);
+		sb.append(",Div2AirportID="+Div2AirportID);
+		sb.append(",Div2AirportSeqID="+Div2AirportSeqID);
+		sb.append(",Div2WheelsOn="+Div2WheelsOn);
+		sb.append(",Div2TotalGTime="+Div2TotalGTime);
+		sb.append(",Div2LongestGTime="+Div2LongestGTime);
+		sb.append(",Div2WheelsOff="+Div2WheelsOff);
+		sb.append(",Div2TailNum="+Div2TailNum);
+		sb.append(",Div3Airport="+Div3Airport);
+		sb.append(",Div3AirportID="+Div3AirportID);
+		sb.append(",Div3AirportSeqID="+Div3AirportSeqID);
+		sb.append(",Div3WheelsOn="+Div3WheelsOn);
+		sb.append(",Div3TotalGTime="+Div3TotalGTime);
+		sb.append(",Div3LongestGTime="+Div3LongestGTime);
+		sb.append(",Div3WheelsOff="+Div3WheelsOff);
+		sb.append(",Div3TailNum="+Div3TailNum);
+		sb.append(",Div4Airport="+Div4Airport);
+		sb.append(",Div4AirportID="+Div4AirportID);
+		sb.append(",Div4AirportSeqID="+Div4AirportSeqID);
+		sb.append(",Div4WheelsOn="+Div4WheelsOn);
+		sb.append(",Div4TotalGTime="+Div4TotalGTime);
+		sb.append(",Div4LongestGTime="+Div4LongestGTime);
+		sb.append(",Div4WheelsOff="+Div4WheelsOff);
+		sb.append(",Div4TailNum="+Div4TailNum);
+		sb.append(",Div5Airport="+Div5Airport);
+		sb.append(",Div5AirportID="+Div5AirportID);
+		sb.append(",Div5AirportSeqID="+Div5AirportSeqID);
+		sb.append(",Div5WheelsOn="+Div5WheelsOn);
+		sb.append(",Div5TotalGTime="+Div5TotalGTime);
+		sb.append(",Div5LongestGTime="+Div5LongestGTime);
+		sb.append(",Div5WheelsOff="+Div5WheelsOff);
+		sb.append(",Div5TailNum="+Div5TailNum);
+		sb.append(",Duplicate="+String.valueOf(Duplicate));
 	    sb.append("]");
 
 	    return sb.toString();
@@ -5980,718 +6020,718 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
     static byte[] commonByteArray_PARAVOLAR_DimOrigin = new byte[0];
 
 	
-			    public Integer _Year;
+			    public Integer Year;
 
-				public Integer get_Year () {
-					return this._Year;
+				public Integer getYear () {
+					return this.Year;
 				}
 				
-			    public Integer _Quarter;
+			    public Integer Quarter;
 
-				public Integer get_Quarter () {
-					return this._Quarter;
+				public Integer getQuarter () {
+					return this.Quarter;
 				}
 				
-			    public Integer _Month;
+			    public Integer Month;
 
-				public Integer get_Month () {
-					return this._Month;
+				public Integer getMonth () {
+					return this.Month;
 				}
 				
-			    public Integer _DayofMonth;
+			    public Integer DayofMonth;
 
-				public Integer get_DayofMonth () {
-					return this._DayofMonth;
+				public Integer getDayofMonth () {
+					return this.DayofMonth;
 				}
 				
-			    public Integer _DayOfWeek;
+			    public Integer DayOfWeek;
 
-				public Integer get_DayOfWeek () {
-					return this._DayOfWeek;
+				public Integer getDayOfWeek () {
+					return this.DayOfWeek;
 				}
 				
-			    public String _FlightDate;
+			    public String FlightDate;
 
-				public String get_FlightDate () {
-					return this._FlightDate;
+				public String getFlightDate () {
+					return this.FlightDate;
 				}
 				
-			    public String _Marketing_Airline_Network;
+			    public String Marketing_Airline_Network;
 
-				public String get_Marketing_Airline_Network () {
-					return this._Marketing_Airline_Network;
+				public String getMarketing_Airline_Network () {
+					return this.Marketing_Airline_Network;
 				}
 				
-			    public String _Operated_or_Branded_Code_Share_Partners;
+			    public String Operated_or_Branded_Code_Share_Partners;
 
-				public String get_Operated_or_Branded_Code_Share_Partners () {
-					return this._Operated_or_Branded_Code_Share_Partners;
+				public String getOperated_or_Branded_Code_Share_Partners () {
+					return this.Operated_or_Branded_Code_Share_Partners;
 				}
 				
-			    public Integer _DOT_ID_Marketing_Airline;
+			    public Integer DOT_ID_Marketing_Airline;
 
-				public Integer get_DOT_ID_Marketing_Airline () {
-					return this._DOT_ID_Marketing_Airline;
+				public Integer getDOT_ID_Marketing_Airline () {
+					return this.DOT_ID_Marketing_Airline;
 				}
 				
-			    public String _IATA_Code_Marketing_Airline;
+			    public String IATA_Code_Marketing_Airline;
 
-				public String get_IATA_Code_Marketing_Airline () {
-					return this._IATA_Code_Marketing_Airline;
+				public String getIATA_Code_Marketing_Airline () {
+					return this.IATA_Code_Marketing_Airline;
 				}
 				
-			    public String _Flight_Number_Marketing_Airline;
+			    public Integer Flight_Number_Marketing_Airline;
 
-				public String get_Flight_Number_Marketing_Airline () {
-					return this._Flight_Number_Marketing_Airline;
+				public Integer getFlight_Number_Marketing_Airline () {
+					return this.Flight_Number_Marketing_Airline;
 				}
 				
-			    public String _Originally_Scheduled_Code_Share_Airline;
+			    public String Originally_Scheduled_Code_Share_Airline;
 
-				public String get_Originally_Scheduled_Code_Share_Airline () {
-					return this._Originally_Scheduled_Code_Share_Airline;
+				public String getOriginally_Scheduled_Code_Share_Airline () {
+					return this.Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _DOT_ID_Originally_Scheduled_Code_Share_Airline;
+			    public String DOT_ID_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_DOT_ID_Originally_Scheduled_Code_Share_Airline () {
-					return this._DOT_ID_Originally_Scheduled_Code_Share_Airline;
+				public String getDOT_ID_Originally_Scheduled_Code_Share_Airline () {
+					return this.DOT_ID_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _IATA_Code_Originally_Scheduled_Code_Share_Airline;
+			    public String IATA_Code_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_IATA_Code_Originally_Scheduled_Code_Share_Airline () {
-					return this._IATA_Code_Originally_Scheduled_Code_Share_Airline;
+				public String getIATA_Code_Originally_Scheduled_Code_Share_Airline () {
+					return this.IATA_Code_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _Flight_Num_Originally_Scheduled_Code_Share_Airline;
+			    public String Flight_Num_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_Flight_Num_Originally_Scheduled_Code_Share_Airline () {
-					return this._Flight_Num_Originally_Scheduled_Code_Share_Airline;
+				public String getFlight_Num_Originally_Scheduled_Code_Share_Airline () {
+					return this.Flight_Num_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _Operating_Airline;
+			    public String Operating_Airline;
 
-				public String get_Operating_Airline () {
-					return this._Operating_Airline;
+				public String getOperating_Airline () {
+					return this.Operating_Airline;
 				}
 				
-			    public Integer _DOT_ID_Operating_Airline;
+			    public Integer DOT_ID_Operating_Airline;
 
-				public Integer get_DOT_ID_Operating_Airline () {
-					return this._DOT_ID_Operating_Airline;
+				public Integer getDOT_ID_Operating_Airline () {
+					return this.DOT_ID_Operating_Airline;
 				}
 				
-			    public String _IATA_Code_Operating_Airline;
+			    public String IATA_Code_Operating_Airline;
 
-				public String get_IATA_Code_Operating_Airline () {
-					return this._IATA_Code_Operating_Airline;
+				public String getIATA_Code_Operating_Airline () {
+					return this.IATA_Code_Operating_Airline;
 				}
 				
-			    public String _Tail_Number;
+			    public String Tail_Number;
 
-				public String get_Tail_Number () {
-					return this._Tail_Number;
+				public String getTail_Number () {
+					return this.Tail_Number;
 				}
 				
-			    public String _Flight_Number_Operating_Airline;
+			    public Integer Flight_Number_Operating_Airline;
 
-				public String get_Flight_Number_Operating_Airline () {
-					return this._Flight_Number_Operating_Airline;
+				public Integer getFlight_Number_Operating_Airline () {
+					return this.Flight_Number_Operating_Airline;
 				}
 				
-			    public Integer _OriginAirportID;
+			    public Integer OriginAirportID;
 
-				public Integer get_OriginAirportID () {
-					return this._OriginAirportID;
+				public Integer getOriginAirportID () {
+					return this.OriginAirportID;
 				}
 				
-			    public Integer _OriginAirportSeqID;
+			    public Integer OriginAirportSeqID;
 
-				public Integer get_OriginAirportSeqID () {
-					return this._OriginAirportSeqID;
+				public Integer getOriginAirportSeqID () {
+					return this.OriginAirportSeqID;
 				}
 				
-			    public Integer _OriginCityMarketID;
+			    public Integer OriginCityMarketID;
 
-				public Integer get_OriginCityMarketID () {
-					return this._OriginCityMarketID;
+				public Integer getOriginCityMarketID () {
+					return this.OriginCityMarketID;
 				}
 				
-			    public String _Origin;
+			    public String Origin;
 
-				public String get_Origin () {
-					return this._Origin;
+				public String getOrigin () {
+					return this.Origin;
 				}
 				
-			    public String _OriginCityName;
+			    public String OriginCityName;
 
-				public String get_OriginCityName () {
-					return this._OriginCityName;
+				public String getOriginCityName () {
+					return this.OriginCityName;
 				}
 				
-			    public String _OriginState;
+			    public String OriginState;
 
-				public String get_OriginState () {
-					return this._OriginState;
+				public String getOriginState () {
+					return this.OriginState;
 				}
 				
-			    public String _OriginStateFips;
+			    public String OriginStateFips;
 
-				public String get_OriginStateFips () {
-					return this._OriginStateFips;
+				public String getOriginStateFips () {
+					return this.OriginStateFips;
 				}
 				
-			    public String _OriginStateName;
+			    public String OriginStateName;
 
-				public String get_OriginStateName () {
-					return this._OriginStateName;
+				public String getOriginStateName () {
+					return this.OriginStateName;
 				}
 				
-			    public String _OriginWac;
+			    public Integer OriginWac;
 
-				public String get_OriginWac () {
-					return this._OriginWac;
+				public Integer getOriginWac () {
+					return this.OriginWac;
 				}
 				
-			    public Integer _DestAirportID;
+			    public Integer DestAirportID;
 
-				public Integer get_DestAirportID () {
-					return this._DestAirportID;
+				public Integer getDestAirportID () {
+					return this.DestAirportID;
 				}
 				
-			    public Integer _DestAirportSeqID;
+			    public Integer DestAirportSeqID;
 
-				public Integer get_DestAirportSeqID () {
-					return this._DestAirportSeqID;
+				public Integer getDestAirportSeqID () {
+					return this.DestAirportSeqID;
 				}
 				
-			    public Integer _DestCityMarketID;
+			    public Integer DestCityMarketID;
 
-				public Integer get_DestCityMarketID () {
-					return this._DestCityMarketID;
+				public Integer getDestCityMarketID () {
+					return this.DestCityMarketID;
 				}
 				
-			    public Integer _Dest;
+			    public String Dest;
 
-				public Integer get_Dest () {
-					return this._Dest;
+				public String getDest () {
+					return this.Dest;
 				}
 				
-			    public String _DestCityName;
+			    public String DestCityName;
 
-				public String get_DestCityName () {
-					return this._DestCityName;
+				public String getDestCityName () {
+					return this.DestCityName;
 				}
 				
-			    public String _DestState;
+			    public String DestState;
 
-				public String get_DestState () {
-					return this._DestState;
+				public String getDestState () {
+					return this.DestState;
 				}
 				
-			    public String _DestStateFips;
+			    public String DestStateFips;
 
-				public String get_DestStateFips () {
-					return this._DestStateFips;
+				public String getDestStateFips () {
+					return this.DestStateFips;
 				}
 				
-			    public String _DestStateName;
+			    public String DestStateName;
 
-				public String get_DestStateName () {
-					return this._DestStateName;
+				public String getDestStateName () {
+					return this.DestStateName;
 				}
 				
-			    public String _DestWac;
+			    public Integer DestWac;
 
-				public String get_DestWac () {
-					return this._DestWac;
+				public Integer getDestWac () {
+					return this.DestWac;
 				}
 				
-			    public String _CRSDepTime;
+			    public String CRSDepTime;
 
-				public String get_CRSDepTime () {
-					return this._CRSDepTime;
+				public String getCRSDepTime () {
+					return this.CRSDepTime;
 				}
 				
-			    public Integer _DepTime;
+			    public String DepTime;
 
-				public Integer get_DepTime () {
-					return this._DepTime;
+				public String getDepTime () {
+					return this.DepTime;
 				}
 				
-			    public String _DepDelay;
+			    public String DepDelay;
 
-				public String get_DepDelay () {
-					return this._DepDelay;
+				public String getDepDelay () {
+					return this.DepDelay;
 				}
 				
-			    public String _DepDelayMinutes;
+			    public String DepDelayMinutes;
 
-				public String get_DepDelayMinutes () {
-					return this._DepDelayMinutes;
+				public String getDepDelayMinutes () {
+					return this.DepDelayMinutes;
 				}
 				
-			    public String _DepDel15;
+			    public String DepDel15;
 
-				public String get_DepDel15 () {
-					return this._DepDel15;
+				public String getDepDel15 () {
+					return this.DepDel15;
 				}
 				
-			    public String _DepartureDelayGroups;
+			    public String DepartureDelayGroups;
 
-				public String get_DepartureDelayGroups () {
-					return this._DepartureDelayGroups;
+				public String getDepartureDelayGroups () {
+					return this.DepartureDelayGroups;
 				}
 				
-			    public String _DepTimeBlk;
+			    public String DepTimeBlk;
 
-				public String get_DepTimeBlk () {
-					return this._DepTimeBlk;
+				public String getDepTimeBlk () {
+					return this.DepTimeBlk;
 				}
 				
-			    public String _TaxiOut;
+			    public String TaxiOut;
 
-				public String get_TaxiOut () {
-					return this._TaxiOut;
+				public String getTaxiOut () {
+					return this.TaxiOut;
 				}
 				
-			    public String _WheelsOff;
+			    public String WheelsOff;
 
-				public String get_WheelsOff () {
-					return this._WheelsOff;
+				public String getWheelsOff () {
+					return this.WheelsOff;
 				}
 				
-			    public String _WheelsOn;
+			    public String WheelsOn;
 
-				public String get_WheelsOn () {
-					return this._WheelsOn;
+				public String getWheelsOn () {
+					return this.WheelsOn;
 				}
 				
-			    public String _TaxiIn;
+			    public String TaxiIn;
 
-				public String get_TaxiIn () {
-					return this._TaxiIn;
+				public String getTaxiIn () {
+					return this.TaxiIn;
 				}
 				
-			    public String _CRSArrTime;
+			    public String CRSArrTime;
 
-				public String get_CRSArrTime () {
-					return this._CRSArrTime;
+				public String getCRSArrTime () {
+					return this.CRSArrTime;
 				}
 				
-			    public String _ArrTime;
+			    public String ArrTime;
 
-				public String get_ArrTime () {
-					return this._ArrTime;
+				public String getArrTime () {
+					return this.ArrTime;
 				}
 				
-			    public String _ArrDelay;
+			    public String ArrDelay;
 
-				public String get_ArrDelay () {
-					return this._ArrDelay;
+				public String getArrDelay () {
+					return this.ArrDelay;
 				}
 				
-			    public String _ArrDelayMinutes;
+			    public String ArrDelayMinutes;
 
-				public String get_ArrDelayMinutes () {
-					return this._ArrDelayMinutes;
+				public String getArrDelayMinutes () {
+					return this.ArrDelayMinutes;
 				}
 				
-			    public String _ArrDel15;
+			    public String ArrDel15;
 
-				public String get_ArrDel15 () {
-					return this._ArrDel15;
+				public String getArrDel15 () {
+					return this.ArrDel15;
 				}
 				
-			    public String _ArrivalDelayGroups;
+			    public String ArrivalDelayGroups;
 
-				public String get_ArrivalDelayGroups () {
-					return this._ArrivalDelayGroups;
+				public String getArrivalDelayGroups () {
+					return this.ArrivalDelayGroups;
 				}
 				
-			    public String _ArrTimeBlk;
+			    public String ArrTimeBlk;
 
-				public String get_ArrTimeBlk () {
-					return this._ArrTimeBlk;
+				public String getArrTimeBlk () {
+					return this.ArrTimeBlk;
 				}
 				
-			    public String _Cancelled;
+			    public Float Cancelled;
 
-				public String get_Cancelled () {
-					return this._Cancelled;
+				public Float getCancelled () {
+					return this.Cancelled;
 				}
 				
-			    public String _CancellationCode;
+			    public String CancellationCode;
 
-				public String get_CancellationCode () {
-					return this._CancellationCode;
+				public String getCancellationCode () {
+					return this.CancellationCode;
 				}
 				
-			    public Float _Diverted;
+			    public Float Diverted;
 
-				public Float get_Diverted () {
-					return this._Diverted;
+				public Float getDiverted () {
+					return this.Diverted;
 				}
 				
-			    public String _CRSElapsedTime;
+			    public Float CRSElapsedTime;
 
-				public String get_CRSElapsedTime () {
-					return this._CRSElapsedTime;
+				public Float getCRSElapsedTime () {
+					return this.CRSElapsedTime;
 				}
 				
-			    public Float _ActualElapsedTime;
+			    public String ActualElapsedTime;
 
-				public Float get_ActualElapsedTime () {
-					return this._ActualElapsedTime;
+				public String getActualElapsedTime () {
+					return this.ActualElapsedTime;
 				}
 				
-			    public Float _AirTime;
+			    public String AirTime;
 
-				public Float get_AirTime () {
-					return this._AirTime;
+				public String getAirTime () {
+					return this.AirTime;
 				}
 				
-			    public String _Flights;
+			    public Float Flights;
 
-				public String get_Flights () {
-					return this._Flights;
+				public Float getFlights () {
+					return this.Flights;
 				}
 				
-			    public String _Distance;
+			    public Float Distance;
 
-				public String get_Distance () {
-					return this._Distance;
+				public Float getDistance () {
+					return this.Distance;
 				}
 				
-			    public Float _DistanceGroup;
+			    public Integer DistanceGroup;
 
-				public Float get_DistanceGroup () {
-					return this._DistanceGroup;
+				public Integer getDistanceGroup () {
+					return this.DistanceGroup;
 				}
 				
-			    public Float _CarrierDelay;
+			    public String CarrierDelay;
 
-				public Float get_CarrierDelay () {
-					return this._CarrierDelay;
+				public String getCarrierDelay () {
+					return this.CarrierDelay;
 				}
 				
-			    public Integer _WeatherDelay;
+			    public String WeatherDelay;
 
-				public Integer get_WeatherDelay () {
-					return this._WeatherDelay;
+				public String getWeatherDelay () {
+					return this.WeatherDelay;
 				}
 				
-			    public String _NASDelay;
+			    public String NASDelay;
 
-				public String get_NASDelay () {
-					return this._NASDelay;
+				public String getNASDelay () {
+					return this.NASDelay;
 				}
 				
-			    public String _SecurityDelay;
+			    public String SecurityDelay;
 
-				public String get_SecurityDelay () {
-					return this._SecurityDelay;
+				public String getSecurityDelay () {
+					return this.SecurityDelay;
 				}
 				
-			    public String _LateAircraftDelay;
+			    public String LateAircraftDelay;
 
-				public String get_LateAircraftDelay () {
-					return this._LateAircraftDelay;
+				public String getLateAircraftDelay () {
+					return this.LateAircraftDelay;
 				}
 				
-			    public String _FirstDepTime;
+			    public String FirstDepTime;
 
-				public String get_FirstDepTime () {
-					return this._FirstDepTime;
+				public String getFirstDepTime () {
+					return this.FirstDepTime;
 				}
 				
-			    public String _TotalAddGTime;
+			    public String TotalAddGTime;
 
-				public String get_TotalAddGTime () {
-					return this._TotalAddGTime;
+				public String getTotalAddGTime () {
+					return this.TotalAddGTime;
 				}
 				
-			    public String _LongestAddGTime;
+			    public String LongestAddGTime;
 
-				public String get_LongestAddGTime () {
-					return this._LongestAddGTime;
+				public String getLongestAddGTime () {
+					return this.LongestAddGTime;
 				}
 				
-			    public String _DivAirportLandings;
+			    public Integer DivAirportLandings;
 
-				public String get_DivAirportLandings () {
-					return this._DivAirportLandings;
+				public Integer getDivAirportLandings () {
+					return this.DivAirportLandings;
 				}
 				
-			    public String _DivReachedDest;
+			    public String DivReachedDest;
 
-				public String get_DivReachedDest () {
-					return this._DivReachedDest;
+				public String getDivReachedDest () {
+					return this.DivReachedDest;
 				}
 				
-			    public Integer _DivActualElapsedTime;
+			    public String DivActualElapsedTime;
 
-				public Integer get_DivActualElapsedTime () {
-					return this._DivActualElapsedTime;
+				public String getDivActualElapsedTime () {
+					return this.DivActualElapsedTime;
 				}
 				
-			    public String _DivArrDelay;
+			    public String DivArrDelay;
 
-				public String get_DivArrDelay () {
-					return this._DivArrDelay;
+				public String getDivArrDelay () {
+					return this.DivArrDelay;
 				}
 				
-			    public String _DivDistance;
+			    public String DivDistance;
 
-				public String get_DivDistance () {
-					return this._DivDistance;
+				public String getDivDistance () {
+					return this.DivDistance;
 				}
 				
-			    public String _Div1Airport;
+			    public String Div1Airport;
 
-				public String get_Div1Airport () {
-					return this._Div1Airport;
+				public String getDiv1Airport () {
+					return this.Div1Airport;
 				}
 				
-			    public String _Div1AirportID;
+			    public String Div1AirportID;
 
-				public String get_Div1AirportID () {
-					return this._Div1AirportID;
+				public String getDiv1AirportID () {
+					return this.Div1AirportID;
 				}
 				
-			    public String _Div1AirportSeqID;
+			    public String Div1AirportSeqID;
 
-				public String get_Div1AirportSeqID () {
-					return this._Div1AirportSeqID;
+				public String getDiv1AirportSeqID () {
+					return this.Div1AirportSeqID;
 				}
 				
-			    public String _Div1WheelsOn;
+			    public String Div1WheelsOn;
 
-				public String get_Div1WheelsOn () {
-					return this._Div1WheelsOn;
+				public String getDiv1WheelsOn () {
+					return this.Div1WheelsOn;
 				}
 				
-			    public String _Div1TotalGTime;
+			    public String Div1TotalGTime;
 
-				public String get_Div1TotalGTime () {
-					return this._Div1TotalGTime;
+				public String getDiv1TotalGTime () {
+					return this.Div1TotalGTime;
 				}
 				
-			    public String _Div1LongestGTime;
+			    public String Div1LongestGTime;
 
-				public String get_Div1LongestGTime () {
-					return this._Div1LongestGTime;
+				public String getDiv1LongestGTime () {
+					return this.Div1LongestGTime;
 				}
 				
-			    public String _Div1WheelsOff;
+			    public String Div1WheelsOff;
 
-				public String get_Div1WheelsOff () {
-					return this._Div1WheelsOff;
+				public String getDiv1WheelsOff () {
+					return this.Div1WheelsOff;
 				}
 				
-			    public String _Div1TailNum;
+			    public String Div1TailNum;
 
-				public String get_Div1TailNum () {
-					return this._Div1TailNum;
+				public String getDiv1TailNum () {
+					return this.Div1TailNum;
 				}
 				
-			    public String _Div2Airport;
+			    public String Div2Airport;
 
-				public String get_Div2Airport () {
-					return this._Div2Airport;
+				public String getDiv2Airport () {
+					return this.Div2Airport;
 				}
 				
-			    public String _Div2AirportID;
+			    public String Div2AirportID;
 
-				public String get_Div2AirportID () {
-					return this._Div2AirportID;
+				public String getDiv2AirportID () {
+					return this.Div2AirportID;
 				}
 				
-			    public String _Div2AirportSeqID;
+			    public String Div2AirportSeqID;
 
-				public String get_Div2AirportSeqID () {
-					return this._Div2AirportSeqID;
+				public String getDiv2AirportSeqID () {
+					return this.Div2AirportSeqID;
 				}
 				
-			    public String _Div2WheelsOn;
+			    public String Div2WheelsOn;
 
-				public String get_Div2WheelsOn () {
-					return this._Div2WheelsOn;
+				public String getDiv2WheelsOn () {
+					return this.Div2WheelsOn;
 				}
 				
-			    public String _Div2TotalGTime;
+			    public String Div2TotalGTime;
 
-				public String get_Div2TotalGTime () {
-					return this._Div2TotalGTime;
+				public String getDiv2TotalGTime () {
+					return this.Div2TotalGTime;
 				}
 				
-			    public String _Div2LongestGTime;
+			    public String Div2LongestGTime;
 
-				public String get_Div2LongestGTime () {
-					return this._Div2LongestGTime;
+				public String getDiv2LongestGTime () {
+					return this.Div2LongestGTime;
 				}
 				
-			    public String _Div2WheelsOff;
+			    public String Div2WheelsOff;
 
-				public String get_Div2WheelsOff () {
-					return this._Div2WheelsOff;
+				public String getDiv2WheelsOff () {
+					return this.Div2WheelsOff;
 				}
 				
-			    public String _Div2TailNum;
+			    public String Div2TailNum;
 
-				public String get_Div2TailNum () {
-					return this._Div2TailNum;
+				public String getDiv2TailNum () {
+					return this.Div2TailNum;
 				}
 				
-			    public String _Div3Airport;
+			    public String Div3Airport;
 
-				public String get_Div3Airport () {
-					return this._Div3Airport;
+				public String getDiv3Airport () {
+					return this.Div3Airport;
 				}
 				
-			    public String _Div3AirportID;
+			    public String Div3AirportID;
 
-				public String get_Div3AirportID () {
-					return this._Div3AirportID;
+				public String getDiv3AirportID () {
+					return this.Div3AirportID;
 				}
 				
-			    public String _Div3AirportSeqID;
+			    public String Div3AirportSeqID;
 
-				public String get_Div3AirportSeqID () {
-					return this._Div3AirportSeqID;
+				public String getDiv3AirportSeqID () {
+					return this.Div3AirportSeqID;
 				}
 				
-			    public String _Div3WheelsOn;
+			    public String Div3WheelsOn;
 
-				public String get_Div3WheelsOn () {
-					return this._Div3WheelsOn;
+				public String getDiv3WheelsOn () {
+					return this.Div3WheelsOn;
 				}
 				
-			    public String _Div3TotalGTime;
+			    public String Div3TotalGTime;
 
-				public String get_Div3TotalGTime () {
-					return this._Div3TotalGTime;
+				public String getDiv3TotalGTime () {
+					return this.Div3TotalGTime;
 				}
 				
-			    public String _Div3LongestGTime;
+			    public String Div3LongestGTime;
 
-				public String get_Div3LongestGTime () {
-					return this._Div3LongestGTime;
+				public String getDiv3LongestGTime () {
+					return this.Div3LongestGTime;
 				}
 				
-			    public String _Div3WheelsOff;
+			    public String Div3WheelsOff;
 
-				public String get_Div3WheelsOff () {
-					return this._Div3WheelsOff;
+				public String getDiv3WheelsOff () {
+					return this.Div3WheelsOff;
 				}
 				
-			    public String _Div3TailNum;
+			    public String Div3TailNum;
 
-				public String get_Div3TailNum () {
-					return this._Div3TailNum;
+				public String getDiv3TailNum () {
+					return this.Div3TailNum;
 				}
 				
-			    public String _Div4Airport;
+			    public String Div4Airport;
 
-				public String get_Div4Airport () {
-					return this._Div4Airport;
+				public String getDiv4Airport () {
+					return this.Div4Airport;
 				}
 				
-			    public String _Div4AirportID;
+			    public String Div4AirportID;
 
-				public String get_Div4AirportID () {
-					return this._Div4AirportID;
+				public String getDiv4AirportID () {
+					return this.Div4AirportID;
 				}
 				
-			    public String _Div4AirportSeqID;
+			    public String Div4AirportSeqID;
 
-				public String get_Div4AirportSeqID () {
-					return this._Div4AirportSeqID;
+				public String getDiv4AirportSeqID () {
+					return this.Div4AirportSeqID;
 				}
 				
-			    public String _Div4WheelsOn;
+			    public String Div4WheelsOn;
 
-				public String get_Div4WheelsOn () {
-					return this._Div4WheelsOn;
+				public String getDiv4WheelsOn () {
+					return this.Div4WheelsOn;
 				}
 				
-			    public String _Div4TotalGTime;
+			    public String Div4TotalGTime;
 
-				public String get_Div4TotalGTime () {
-					return this._Div4TotalGTime;
+				public String getDiv4TotalGTime () {
+					return this.Div4TotalGTime;
 				}
 				
-			    public String _Div4LongestGTime;
+			    public String Div4LongestGTime;
 
-				public String get_Div4LongestGTime () {
-					return this._Div4LongestGTime;
+				public String getDiv4LongestGTime () {
+					return this.Div4LongestGTime;
 				}
 				
-			    public String _Div4WheelsOff;
+			    public String Div4WheelsOff;
 
-				public String get_Div4WheelsOff () {
-					return this._Div4WheelsOff;
+				public String getDiv4WheelsOff () {
+					return this.Div4WheelsOff;
 				}
 				
-			    public String _Div4TailNum;
+			    public String Div4TailNum;
 
-				public String get_Div4TailNum () {
-					return this._Div4TailNum;
+				public String getDiv4TailNum () {
+					return this.Div4TailNum;
 				}
 				
-			    public String _Div5Airport;
+			    public String Div5Airport;
 
-				public String get_Div5Airport () {
-					return this._Div5Airport;
+				public String getDiv5Airport () {
+					return this.Div5Airport;
 				}
 				
-			    public String _Div5AirportID;
+			    public String Div5AirportID;
 
-				public String get_Div5AirportID () {
-					return this._Div5AirportID;
+				public String getDiv5AirportID () {
+					return this.Div5AirportID;
 				}
 				
-			    public String _Div5AirportSeqID;
+			    public String Div5AirportSeqID;
 
-				public String get_Div5AirportSeqID () {
-					return this._Div5AirportSeqID;
+				public String getDiv5AirportSeqID () {
+					return this.Div5AirportSeqID;
 				}
 				
-			    public String _Div5WheelsOn;
+			    public String Div5WheelsOn;
 
-				public String get_Div5WheelsOn () {
-					return this._Div5WheelsOn;
+				public String getDiv5WheelsOn () {
+					return this.Div5WheelsOn;
 				}
 				
-			    public String _Div5TotalGTime;
+			    public String Div5TotalGTime;
 
-				public String get_Div5TotalGTime () {
-					return this._Div5TotalGTime;
+				public String getDiv5TotalGTime () {
+					return this.Div5TotalGTime;
 				}
 				
-			    public String _Div5LongestGTime;
+			    public String Div5LongestGTime;
 
-				public String get_Div5LongestGTime () {
-					return this._Div5LongestGTime;
+				public String getDiv5LongestGTime () {
+					return this.Div5LongestGTime;
 				}
 				
-			    public String _Div5WheelsOff;
+			    public String Div5WheelsOff;
 
-				public String get_Div5WheelsOff () {
-					return this._Div5WheelsOff;
+				public String getDiv5WheelsOff () {
+					return this.Div5WheelsOff;
 				}
 				
-			    public String _Div5TailNum;
+			    public String Div5TailNum;
 
-				public String get_Div5TailNum () {
-					return this._Div5TailNum;
+				public String getDiv5TailNum () {
+					return this.Div5TailNum;
 				}
 				
-			    public String _Duplicate;
+			    public Character Duplicate;
 
-				public String get_Duplicate () {
-					return this._Duplicate;
+				public Character getDuplicate () {
+					return this.Duplicate;
 				}
 				
 
@@ -6806,268 +6846,273 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 
         		int length = 0;
 		
-						this._Year = readInteger(dis);
+						this.Year = readInteger(dis);
 					
-						this._Quarter = readInteger(dis);
+						this.Quarter = readInteger(dis);
 					
-						this._Month = readInteger(dis);
+						this.Month = readInteger(dis);
 					
-						this._DayofMonth = readInteger(dis);
+						this.DayofMonth = readInteger(dis);
 					
-						this._DayOfWeek = readInteger(dis);
+						this.DayOfWeek = readInteger(dis);
 					
-					this._FlightDate = readString(dis);
+					this.FlightDate = readString(dis);
 					
-					this._Marketing_Airline_Network = readString(dis);
+					this.Marketing_Airline_Network = readString(dis);
 					
-					this._Operated_or_Branded_Code_Share_Partners = readString(dis);
+					this.Operated_or_Branded_Code_Share_Partners = readString(dis);
 					
-						this._DOT_ID_Marketing_Airline = readInteger(dis);
+						this.DOT_ID_Marketing_Airline = readInteger(dis);
 					
-					this._IATA_Code_Marketing_Airline = readString(dis);
+					this.IATA_Code_Marketing_Airline = readString(dis);
 					
-					this._Flight_Number_Marketing_Airline = readString(dis);
+						this.Flight_Number_Marketing_Airline = readInteger(dis);
 					
-					this._Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Operating_Airline = readString(dis);
+					this.Operating_Airline = readString(dis);
 					
-						this._DOT_ID_Operating_Airline = readInteger(dis);
+						this.DOT_ID_Operating_Airline = readInteger(dis);
 					
-					this._IATA_Code_Operating_Airline = readString(dis);
+					this.IATA_Code_Operating_Airline = readString(dis);
 					
-					this._Tail_Number = readString(dis);
+					this.Tail_Number = readString(dis);
 					
-					this._Flight_Number_Operating_Airline = readString(dis);
+						this.Flight_Number_Operating_Airline = readInteger(dis);
 					
-						this._OriginAirportID = readInteger(dis);
+						this.OriginAirportID = readInteger(dis);
 					
-						this._OriginAirportSeqID = readInteger(dis);
+						this.OriginAirportSeqID = readInteger(dis);
 					
-						this._OriginCityMarketID = readInteger(dis);
+						this.OriginCityMarketID = readInteger(dis);
 					
-					this._Origin = readString(dis);
+					this.Origin = readString(dis);
 					
-					this._OriginCityName = readString(dis);
+					this.OriginCityName = readString(dis);
 					
-					this._OriginState = readString(dis);
+					this.OriginState = readString(dis);
 					
-					this._OriginStateFips = readString(dis);
+					this.OriginStateFips = readString(dis);
 					
-					this._OriginStateName = readString(dis);
+					this.OriginStateName = readString(dis);
 					
-					this._OriginWac = readString(dis);
+						this.OriginWac = readInteger(dis);
 					
-						this._DestAirportID = readInteger(dis);
+						this.DestAirportID = readInteger(dis);
 					
-						this._DestAirportSeqID = readInteger(dis);
+						this.DestAirportSeqID = readInteger(dis);
 					
-						this._DestCityMarketID = readInteger(dis);
+						this.DestCityMarketID = readInteger(dis);
 					
-						this._Dest = readInteger(dis);
+					this.Dest = readString(dis);
 					
-					this._DestCityName = readString(dis);
+					this.DestCityName = readString(dis);
 					
-					this._DestState = readString(dis);
+					this.DestState = readString(dis);
 					
-					this._DestStateFips = readString(dis);
+					this.DestStateFips = readString(dis);
 					
-					this._DestStateName = readString(dis);
+					this.DestStateName = readString(dis);
 					
-					this._DestWac = readString(dis);
+						this.DestWac = readInteger(dis);
 					
-					this._CRSDepTime = readString(dis);
+					this.CRSDepTime = readString(dis);
 					
-						this._DepTime = readInteger(dis);
+					this.DepTime = readString(dis);
 					
-					this._DepDelay = readString(dis);
+					this.DepDelay = readString(dis);
 					
-					this._DepDelayMinutes = readString(dis);
+					this.DepDelayMinutes = readString(dis);
 					
-					this._DepDel15 = readString(dis);
+					this.DepDel15 = readString(dis);
 					
-					this._DepartureDelayGroups = readString(dis);
+					this.DepartureDelayGroups = readString(dis);
 					
-					this._DepTimeBlk = readString(dis);
+					this.DepTimeBlk = readString(dis);
 					
-					this._TaxiOut = readString(dis);
+					this.TaxiOut = readString(dis);
 					
-					this._WheelsOff = readString(dis);
+					this.WheelsOff = readString(dis);
 					
-					this._WheelsOn = readString(dis);
+					this.WheelsOn = readString(dis);
 					
-					this._TaxiIn = readString(dis);
+					this.TaxiIn = readString(dis);
 					
-					this._CRSArrTime = readString(dis);
+					this.CRSArrTime = readString(dis);
 					
-					this._ArrTime = readString(dis);
+					this.ArrTime = readString(dis);
 					
-					this._ArrDelay = readString(dis);
+					this.ArrDelay = readString(dis);
 					
-					this._ArrDelayMinutes = readString(dis);
+					this.ArrDelayMinutes = readString(dis);
 					
-					this._ArrDel15 = readString(dis);
+					this.ArrDel15 = readString(dis);
 					
-					this._ArrivalDelayGroups = readString(dis);
+					this.ArrivalDelayGroups = readString(dis);
 					
-					this._ArrTimeBlk = readString(dis);
-					
-					this._Cancelled = readString(dis);
-					
-					this._CancellationCode = readString(dis);
+					this.ArrTimeBlk = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._Diverted = null;
+           	    			this.Cancelled = null;
            				} else {
-           			    	this._Diverted = dis.readFloat();
+           			    	this.Cancelled = dis.readFloat();
            				}
 					
-					this._CRSElapsedTime = readString(dis);
+					this.CancellationCode = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._ActualElapsedTime = null;
+           	    			this.Diverted = null;
            				} else {
-           			    	this._ActualElapsedTime = dis.readFloat();
+           			    	this.Diverted = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._AirTime = null;
+           	    			this.CRSElapsedTime = null;
            				} else {
-           			    	this._AirTime = dis.readFloat();
+           			    	this.CRSElapsedTime = dis.readFloat();
            				}
 					
-					this._Flights = readString(dis);
+					this.ActualElapsedTime = readString(dis);
 					
-					this._Distance = readString(dis);
+					this.AirTime = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._DistanceGroup = null;
+           	    			this.Flights = null;
            				} else {
-           			    	this._DistanceGroup = dis.readFloat();
+           			    	this.Flights = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._CarrierDelay = null;
+           	    			this.Distance = null;
            				} else {
-           			    	this._CarrierDelay = dis.readFloat();
+           			    	this.Distance = dis.readFloat();
            				}
 					
-						this._WeatherDelay = readInteger(dis);
+						this.DistanceGroup = readInteger(dis);
 					
-					this._NASDelay = readString(dis);
+					this.CarrierDelay = readString(dis);
 					
-					this._SecurityDelay = readString(dis);
+					this.WeatherDelay = readString(dis);
 					
-					this._LateAircraftDelay = readString(dis);
+					this.NASDelay = readString(dis);
 					
-					this._FirstDepTime = readString(dis);
+					this.SecurityDelay = readString(dis);
 					
-					this._TotalAddGTime = readString(dis);
+					this.LateAircraftDelay = readString(dis);
 					
-					this._LongestAddGTime = readString(dis);
+					this.FirstDepTime = readString(dis);
 					
-					this._DivAirportLandings = readString(dis);
+					this.TotalAddGTime = readString(dis);
 					
-					this._DivReachedDest = readString(dis);
+					this.LongestAddGTime = readString(dis);
 					
-						this._DivActualElapsedTime = readInteger(dis);
+						this.DivAirportLandings = readInteger(dis);
 					
-					this._DivArrDelay = readString(dis);
+					this.DivReachedDest = readString(dis);
 					
-					this._DivDistance = readString(dis);
+					this.DivActualElapsedTime = readString(dis);
 					
-					this._Div1Airport = readString(dis);
+					this.DivArrDelay = readString(dis);
 					
-					this._Div1AirportID = readString(dis);
+					this.DivDistance = readString(dis);
 					
-					this._Div1AirportSeqID = readString(dis);
+					this.Div1Airport = readString(dis);
 					
-					this._Div1WheelsOn = readString(dis);
+					this.Div1AirportID = readString(dis);
 					
-					this._Div1TotalGTime = readString(dis);
+					this.Div1AirportSeqID = readString(dis);
 					
-					this._Div1LongestGTime = readString(dis);
+					this.Div1WheelsOn = readString(dis);
 					
-					this._Div1WheelsOff = readString(dis);
+					this.Div1TotalGTime = readString(dis);
 					
-					this._Div1TailNum = readString(dis);
+					this.Div1LongestGTime = readString(dis);
 					
-					this._Div2Airport = readString(dis);
+					this.Div1WheelsOff = readString(dis);
 					
-					this._Div2AirportID = readString(dis);
+					this.Div1TailNum = readString(dis);
 					
-					this._Div2AirportSeqID = readString(dis);
+					this.Div2Airport = readString(dis);
 					
-					this._Div2WheelsOn = readString(dis);
+					this.Div2AirportID = readString(dis);
 					
-					this._Div2TotalGTime = readString(dis);
+					this.Div2AirportSeqID = readString(dis);
 					
-					this._Div2LongestGTime = readString(dis);
+					this.Div2WheelsOn = readString(dis);
 					
-					this._Div2WheelsOff = readString(dis);
+					this.Div2TotalGTime = readString(dis);
 					
-					this._Div2TailNum = readString(dis);
+					this.Div2LongestGTime = readString(dis);
 					
-					this._Div3Airport = readString(dis);
+					this.Div2WheelsOff = readString(dis);
 					
-					this._Div3AirportID = readString(dis);
+					this.Div2TailNum = readString(dis);
 					
-					this._Div3AirportSeqID = readString(dis);
+					this.Div3Airport = readString(dis);
 					
-					this._Div3WheelsOn = readString(dis);
+					this.Div3AirportID = readString(dis);
 					
-					this._Div3TotalGTime = readString(dis);
+					this.Div3AirportSeqID = readString(dis);
 					
-					this._Div3LongestGTime = readString(dis);
+					this.Div3WheelsOn = readString(dis);
 					
-					this._Div3WheelsOff = readString(dis);
+					this.Div3TotalGTime = readString(dis);
 					
-					this._Div3TailNum = readString(dis);
+					this.Div3LongestGTime = readString(dis);
 					
-					this._Div4Airport = readString(dis);
+					this.Div3WheelsOff = readString(dis);
 					
-					this._Div4AirportID = readString(dis);
+					this.Div3TailNum = readString(dis);
 					
-					this._Div4AirportSeqID = readString(dis);
+					this.Div4Airport = readString(dis);
 					
-					this._Div4WheelsOn = readString(dis);
+					this.Div4AirportID = readString(dis);
 					
-					this._Div4TotalGTime = readString(dis);
+					this.Div4AirportSeqID = readString(dis);
 					
-					this._Div4LongestGTime = readString(dis);
+					this.Div4WheelsOn = readString(dis);
 					
-					this._Div4WheelsOff = readString(dis);
+					this.Div4TotalGTime = readString(dis);
 					
-					this._Div4TailNum = readString(dis);
+					this.Div4LongestGTime = readString(dis);
 					
-					this._Div5Airport = readString(dis);
+					this.Div4WheelsOff = readString(dis);
 					
-					this._Div5AirportID = readString(dis);
+					this.Div4TailNum = readString(dis);
 					
-					this._Div5AirportSeqID = readString(dis);
+					this.Div5Airport = readString(dis);
 					
-					this._Div5WheelsOn = readString(dis);
+					this.Div5AirportID = readString(dis);
 					
-					this._Div5TotalGTime = readString(dis);
+					this.Div5AirportSeqID = readString(dis);
 					
-					this._Div5LongestGTime = readString(dis);
+					this.Div5WheelsOn = readString(dis);
 					
-					this._Div5WheelsOff = readString(dis);
+					this.Div5TotalGTime = readString(dis);
 					
-					this._Div5TailNum = readString(dis);
+					this.Div5LongestGTime = readString(dis);
 					
-					this._Duplicate = readString(dis);
+					this.Div5WheelsOff = readString(dis);
+					
+					this.Div5TailNum = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Duplicate = null;
+           				} else {
+           			    	this.Duplicate = dis.readChar();
+           				}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -7091,268 +7136,273 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 
         		int length = 0;
 		
-						this._Year = readInteger(dis);
+						this.Year = readInteger(dis);
 					
-						this._Quarter = readInteger(dis);
+						this.Quarter = readInteger(dis);
 					
-						this._Month = readInteger(dis);
+						this.Month = readInteger(dis);
 					
-						this._DayofMonth = readInteger(dis);
+						this.DayofMonth = readInteger(dis);
 					
-						this._DayOfWeek = readInteger(dis);
+						this.DayOfWeek = readInteger(dis);
 					
-					this._FlightDate = readString(dis);
+					this.FlightDate = readString(dis);
 					
-					this._Marketing_Airline_Network = readString(dis);
+					this.Marketing_Airline_Network = readString(dis);
 					
-					this._Operated_or_Branded_Code_Share_Partners = readString(dis);
+					this.Operated_or_Branded_Code_Share_Partners = readString(dis);
 					
-						this._DOT_ID_Marketing_Airline = readInteger(dis);
+						this.DOT_ID_Marketing_Airline = readInteger(dis);
 					
-					this._IATA_Code_Marketing_Airline = readString(dis);
+					this.IATA_Code_Marketing_Airline = readString(dis);
 					
-					this._Flight_Number_Marketing_Airline = readString(dis);
+						this.Flight_Number_Marketing_Airline = readInteger(dis);
 					
-					this._Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Operating_Airline = readString(dis);
+					this.Operating_Airline = readString(dis);
 					
-						this._DOT_ID_Operating_Airline = readInteger(dis);
+						this.DOT_ID_Operating_Airline = readInteger(dis);
 					
-					this._IATA_Code_Operating_Airline = readString(dis);
+					this.IATA_Code_Operating_Airline = readString(dis);
 					
-					this._Tail_Number = readString(dis);
+					this.Tail_Number = readString(dis);
 					
-					this._Flight_Number_Operating_Airline = readString(dis);
+						this.Flight_Number_Operating_Airline = readInteger(dis);
 					
-						this._OriginAirportID = readInteger(dis);
+						this.OriginAirportID = readInteger(dis);
 					
-						this._OriginAirportSeqID = readInteger(dis);
+						this.OriginAirportSeqID = readInteger(dis);
 					
-						this._OriginCityMarketID = readInteger(dis);
+						this.OriginCityMarketID = readInteger(dis);
 					
-					this._Origin = readString(dis);
+					this.Origin = readString(dis);
 					
-					this._OriginCityName = readString(dis);
+					this.OriginCityName = readString(dis);
 					
-					this._OriginState = readString(dis);
+					this.OriginState = readString(dis);
 					
-					this._OriginStateFips = readString(dis);
+					this.OriginStateFips = readString(dis);
 					
-					this._OriginStateName = readString(dis);
+					this.OriginStateName = readString(dis);
 					
-					this._OriginWac = readString(dis);
+						this.OriginWac = readInteger(dis);
 					
-						this._DestAirportID = readInteger(dis);
+						this.DestAirportID = readInteger(dis);
 					
-						this._DestAirportSeqID = readInteger(dis);
+						this.DestAirportSeqID = readInteger(dis);
 					
-						this._DestCityMarketID = readInteger(dis);
+						this.DestCityMarketID = readInteger(dis);
 					
-						this._Dest = readInteger(dis);
+					this.Dest = readString(dis);
 					
-					this._DestCityName = readString(dis);
+					this.DestCityName = readString(dis);
 					
-					this._DestState = readString(dis);
+					this.DestState = readString(dis);
 					
-					this._DestStateFips = readString(dis);
+					this.DestStateFips = readString(dis);
 					
-					this._DestStateName = readString(dis);
+					this.DestStateName = readString(dis);
 					
-					this._DestWac = readString(dis);
+						this.DestWac = readInteger(dis);
 					
-					this._CRSDepTime = readString(dis);
+					this.CRSDepTime = readString(dis);
 					
-						this._DepTime = readInteger(dis);
+					this.DepTime = readString(dis);
 					
-					this._DepDelay = readString(dis);
+					this.DepDelay = readString(dis);
 					
-					this._DepDelayMinutes = readString(dis);
+					this.DepDelayMinutes = readString(dis);
 					
-					this._DepDel15 = readString(dis);
+					this.DepDel15 = readString(dis);
 					
-					this._DepartureDelayGroups = readString(dis);
+					this.DepartureDelayGroups = readString(dis);
 					
-					this._DepTimeBlk = readString(dis);
+					this.DepTimeBlk = readString(dis);
 					
-					this._TaxiOut = readString(dis);
+					this.TaxiOut = readString(dis);
 					
-					this._WheelsOff = readString(dis);
+					this.WheelsOff = readString(dis);
 					
-					this._WheelsOn = readString(dis);
+					this.WheelsOn = readString(dis);
 					
-					this._TaxiIn = readString(dis);
+					this.TaxiIn = readString(dis);
 					
-					this._CRSArrTime = readString(dis);
+					this.CRSArrTime = readString(dis);
 					
-					this._ArrTime = readString(dis);
+					this.ArrTime = readString(dis);
 					
-					this._ArrDelay = readString(dis);
+					this.ArrDelay = readString(dis);
 					
-					this._ArrDelayMinutes = readString(dis);
+					this.ArrDelayMinutes = readString(dis);
 					
-					this._ArrDel15 = readString(dis);
+					this.ArrDel15 = readString(dis);
 					
-					this._ArrivalDelayGroups = readString(dis);
+					this.ArrivalDelayGroups = readString(dis);
 					
-					this._ArrTimeBlk = readString(dis);
-					
-					this._Cancelled = readString(dis);
-					
-					this._CancellationCode = readString(dis);
+					this.ArrTimeBlk = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._Diverted = null;
+           	    			this.Cancelled = null;
            				} else {
-           			    	this._Diverted = dis.readFloat();
+           			    	this.Cancelled = dis.readFloat();
            				}
 					
-					this._CRSElapsedTime = readString(dis);
+					this.CancellationCode = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._ActualElapsedTime = null;
+           	    			this.Diverted = null;
            				} else {
-           			    	this._ActualElapsedTime = dis.readFloat();
+           			    	this.Diverted = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._AirTime = null;
+           	    			this.CRSElapsedTime = null;
            				} else {
-           			    	this._AirTime = dis.readFloat();
+           			    	this.CRSElapsedTime = dis.readFloat();
            				}
 					
-					this._Flights = readString(dis);
+					this.ActualElapsedTime = readString(dis);
 					
-					this._Distance = readString(dis);
+					this.AirTime = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._DistanceGroup = null;
+           	    			this.Flights = null;
            				} else {
-           			    	this._DistanceGroup = dis.readFloat();
+           			    	this.Flights = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._CarrierDelay = null;
+           	    			this.Distance = null;
            				} else {
-           			    	this._CarrierDelay = dis.readFloat();
+           			    	this.Distance = dis.readFloat();
            				}
 					
-						this._WeatherDelay = readInteger(dis);
+						this.DistanceGroup = readInteger(dis);
 					
-					this._NASDelay = readString(dis);
+					this.CarrierDelay = readString(dis);
 					
-					this._SecurityDelay = readString(dis);
+					this.WeatherDelay = readString(dis);
 					
-					this._LateAircraftDelay = readString(dis);
+					this.NASDelay = readString(dis);
 					
-					this._FirstDepTime = readString(dis);
+					this.SecurityDelay = readString(dis);
 					
-					this._TotalAddGTime = readString(dis);
+					this.LateAircraftDelay = readString(dis);
 					
-					this._LongestAddGTime = readString(dis);
+					this.FirstDepTime = readString(dis);
 					
-					this._DivAirportLandings = readString(dis);
+					this.TotalAddGTime = readString(dis);
 					
-					this._DivReachedDest = readString(dis);
+					this.LongestAddGTime = readString(dis);
 					
-						this._DivActualElapsedTime = readInteger(dis);
+						this.DivAirportLandings = readInteger(dis);
 					
-					this._DivArrDelay = readString(dis);
+					this.DivReachedDest = readString(dis);
 					
-					this._DivDistance = readString(dis);
+					this.DivActualElapsedTime = readString(dis);
 					
-					this._Div1Airport = readString(dis);
+					this.DivArrDelay = readString(dis);
 					
-					this._Div1AirportID = readString(dis);
+					this.DivDistance = readString(dis);
 					
-					this._Div1AirportSeqID = readString(dis);
+					this.Div1Airport = readString(dis);
 					
-					this._Div1WheelsOn = readString(dis);
+					this.Div1AirportID = readString(dis);
 					
-					this._Div1TotalGTime = readString(dis);
+					this.Div1AirportSeqID = readString(dis);
 					
-					this._Div1LongestGTime = readString(dis);
+					this.Div1WheelsOn = readString(dis);
 					
-					this._Div1WheelsOff = readString(dis);
+					this.Div1TotalGTime = readString(dis);
 					
-					this._Div1TailNum = readString(dis);
+					this.Div1LongestGTime = readString(dis);
 					
-					this._Div2Airport = readString(dis);
+					this.Div1WheelsOff = readString(dis);
 					
-					this._Div2AirportID = readString(dis);
+					this.Div1TailNum = readString(dis);
 					
-					this._Div2AirportSeqID = readString(dis);
+					this.Div2Airport = readString(dis);
 					
-					this._Div2WheelsOn = readString(dis);
+					this.Div2AirportID = readString(dis);
 					
-					this._Div2TotalGTime = readString(dis);
+					this.Div2AirportSeqID = readString(dis);
 					
-					this._Div2LongestGTime = readString(dis);
+					this.Div2WheelsOn = readString(dis);
 					
-					this._Div2WheelsOff = readString(dis);
+					this.Div2TotalGTime = readString(dis);
 					
-					this._Div2TailNum = readString(dis);
+					this.Div2LongestGTime = readString(dis);
 					
-					this._Div3Airport = readString(dis);
+					this.Div2WheelsOff = readString(dis);
 					
-					this._Div3AirportID = readString(dis);
+					this.Div2TailNum = readString(dis);
 					
-					this._Div3AirportSeqID = readString(dis);
+					this.Div3Airport = readString(dis);
 					
-					this._Div3WheelsOn = readString(dis);
+					this.Div3AirportID = readString(dis);
 					
-					this._Div3TotalGTime = readString(dis);
+					this.Div3AirportSeqID = readString(dis);
 					
-					this._Div3LongestGTime = readString(dis);
+					this.Div3WheelsOn = readString(dis);
 					
-					this._Div3WheelsOff = readString(dis);
+					this.Div3TotalGTime = readString(dis);
 					
-					this._Div3TailNum = readString(dis);
+					this.Div3LongestGTime = readString(dis);
 					
-					this._Div4Airport = readString(dis);
+					this.Div3WheelsOff = readString(dis);
 					
-					this._Div4AirportID = readString(dis);
+					this.Div3TailNum = readString(dis);
 					
-					this._Div4AirportSeqID = readString(dis);
+					this.Div4Airport = readString(dis);
 					
-					this._Div4WheelsOn = readString(dis);
+					this.Div4AirportID = readString(dis);
 					
-					this._Div4TotalGTime = readString(dis);
+					this.Div4AirportSeqID = readString(dis);
 					
-					this._Div4LongestGTime = readString(dis);
+					this.Div4WheelsOn = readString(dis);
 					
-					this._Div4WheelsOff = readString(dis);
+					this.Div4TotalGTime = readString(dis);
 					
-					this._Div4TailNum = readString(dis);
+					this.Div4LongestGTime = readString(dis);
 					
-					this._Div5Airport = readString(dis);
+					this.Div4WheelsOff = readString(dis);
 					
-					this._Div5AirportID = readString(dis);
+					this.Div4TailNum = readString(dis);
 					
-					this._Div5AirportSeqID = readString(dis);
+					this.Div5Airport = readString(dis);
 					
-					this._Div5WheelsOn = readString(dis);
+					this.Div5AirportID = readString(dis);
 					
-					this._Div5TotalGTime = readString(dis);
+					this.Div5AirportSeqID = readString(dis);
 					
-					this._Div5LongestGTime = readString(dis);
+					this.Div5WheelsOn = readString(dis);
 					
-					this._Div5WheelsOff = readString(dis);
+					this.Div5TotalGTime = readString(dis);
 					
-					this._Div5TailNum = readString(dis);
+					this.Div5LongestGTime = readString(dis);
 					
-					this._Duplicate = readString(dis);
+					this.Div5WheelsOff = readString(dis);
+					
+					this.Div5TailNum = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Duplicate = null;
+           				} else {
+           			    	this.Duplicate = dis.readChar();
+           				}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -7374,504 +7424,509 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 		
 					// Integer
 				
-						writeInteger(this._Year,dos);
+						writeInteger(this.Year,dos);
 					
 					// Integer
 				
-						writeInteger(this._Quarter,dos);
+						writeInteger(this.Quarter,dos);
 					
 					// Integer
 				
-						writeInteger(this._Month,dos);
+						writeInteger(this.Month,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayofMonth,dos);
+						writeInteger(this.DayofMonth,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayOfWeek,dos);
+						writeInteger(this.DayOfWeek,dos);
 					
 					// String
 				
-						writeString(this._FlightDate,dos);
+						writeString(this.FlightDate,dos);
 					
 					// String
 				
-						writeString(this._Marketing_Airline_Network,dos);
+						writeString(this.Marketing_Airline_Network,dos);
 					
 					// String
 				
-						writeString(this._Operated_or_Branded_Code_Share_Partners,dos);
+						writeString(this.Operated_or_Branded_Code_Share_Partners,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Marketing_Airline,dos);
+						writeInteger(this.DOT_ID_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Number_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Operating_Airline,dos);
+						writeString(this.IATA_Code_Marketing_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Operating_Airline,dos);
+						writeInteger(this.Flight_Number_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Operating_Airline,dos);
+						writeString(this.Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Tail_Number,dos);
+						writeString(this.DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Flight_Number_Operating_Airline,dos);
+						writeString(this.IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportID,dos);
+						writeInteger(this.DOT_ID_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.IATA_Code_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.Tail_Number,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportSeqID,dos);
+						writeInteger(this.Flight_Number_Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginCityMarketID,dos);
-					
-					// String
-				
-						writeString(this._Origin,dos);
-					
-					// String
-				
-						writeString(this._OriginCityName,dos);
-					
-					// String
-				
-						writeString(this._OriginState,dos);
-					
-					// String
-				
-						writeString(this._OriginStateFips,dos);
-					
-					// String
-				
-						writeString(this._OriginStateName,dos);
-					
-					// String
-				
-						writeString(this._OriginWac,dos);
+						writeInteger(this.OriginAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportID,dos);
+						writeInteger(this.OriginAirportSeqID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportSeqID,dos);
+						writeInteger(this.OriginCityMarketID,dos);
+					
+					// String
+				
+						writeString(this.Origin,dos);
+					
+					// String
+				
+						writeString(this.OriginCityName,dos);
+					
+					// String
+				
+						writeString(this.OriginState,dos);
+					
+					// String
+				
+						writeString(this.OriginStateFips,dos);
+					
+					// String
+				
+						writeString(this.OriginStateName,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestCityMarketID,dos);
+						writeInteger(this.OriginWac,dos);
 					
 					// Integer
 				
-						writeInteger(this._Dest,dos);
-					
-					// String
-				
-						writeString(this._DestCityName,dos);
-					
-					// String
-				
-						writeString(this._DestState,dos);
-					
-					// String
-				
-						writeString(this._DestStateFips,dos);
-					
-					// String
-				
-						writeString(this._DestStateName,dos);
-					
-					// String
-				
-						writeString(this._DestWac,dos);
-					
-					// String
-				
-						writeString(this._CRSDepTime,dos);
+						writeInteger(this.DestAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DepTime,dos);
+						writeInteger(this.DestAirportSeqID,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestCityMarketID,dos);
 					
 					// String
 				
-						writeString(this._DepDelay,dos);
+						writeString(this.Dest,dos);
 					
 					// String
 				
-						writeString(this._DepDelayMinutes,dos);
+						writeString(this.DestCityName,dos);
 					
 					// String
 				
-						writeString(this._DepDel15,dos);
+						writeString(this.DestState,dos);
 					
 					// String
 				
-						writeString(this._DepartureDelayGroups,dos);
+						writeString(this.DestStateFips,dos);
 					
 					// String
 				
-						writeString(this._DepTimeBlk,dos);
+						writeString(this.DestStateName,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestWac,dos);
 					
 					// String
 				
-						writeString(this._TaxiOut,dos);
+						writeString(this.CRSDepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOff,dos);
+						writeString(this.DepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOn,dos);
+						writeString(this.DepDelay,dos);
 					
 					// String
 				
-						writeString(this._TaxiIn,dos);
+						writeString(this.DepDelayMinutes,dos);
 					
 					// String
 				
-						writeString(this._CRSArrTime,dos);
+						writeString(this.DepDel15,dos);
 					
 					// String
 				
-						writeString(this._ArrTime,dos);
+						writeString(this.DepartureDelayGroups,dos);
 					
 					// String
 				
-						writeString(this._ArrDelay,dos);
+						writeString(this.DepTimeBlk,dos);
 					
 					// String
 				
-						writeString(this._ArrDelayMinutes,dos);
+						writeString(this.TaxiOut,dos);
 					
 					// String
 				
-						writeString(this._ArrDel15,dos);
+						writeString(this.WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._ArrivalDelayGroups,dos);
+						writeString(this.WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._ArrTimeBlk,dos);
+						writeString(this.TaxiIn,dos);
 					
 					// String
 				
-						writeString(this._Cancelled,dos);
+						writeString(this.CRSArrTime,dos);
 					
 					// String
 				
-						writeString(this._CancellationCode,dos);
+						writeString(this.ArrTime,dos);
+					
+					// String
+				
+						writeString(this.ArrDelay,dos);
+					
+					// String
+				
+						writeString(this.ArrDelayMinutes,dos);
+					
+					// String
+				
+						writeString(this.ArrDel15,dos);
+					
+					// String
+				
+						writeString(this.ArrivalDelayGroups,dos);
+					
+					// String
+				
+						writeString(this.ArrTimeBlk,dos);
 					
 					// Float
 				
-						if(this._Diverted == null) {
+						if(this.Cancelled == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._Diverted);
+           			    	dos.writeFloat(this.Cancelled);
 		            	}
 					
 					// String
 				
-						writeString(this._CRSElapsedTime,dos);
+						writeString(this.CancellationCode,dos);
 					
 					// Float
 				
-						if(this._ActualElapsedTime == null) {
+						if(this.Diverted == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._ActualElapsedTime);
+           			    	dos.writeFloat(this.Diverted);
 		            	}
 					
 					// Float
 				
-						if(this._AirTime == null) {
+						if(this.CRSElapsedTime == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._AirTime);
+           			    	dos.writeFloat(this.CRSElapsedTime);
 		            	}
 					
 					// String
 				
-						writeString(this._Flights,dos);
+						writeString(this.ActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Distance,dos);
+						writeString(this.AirTime,dos);
 					
 					// Float
 				
-						if(this._DistanceGroup == null) {
+						if(this.Flights == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._DistanceGroup);
+           			    	dos.writeFloat(this.Flights);
 		            	}
 					
 					// Float
 				
-						if(this._CarrierDelay == null) {
+						if(this.Distance == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._CarrierDelay);
+           			    	dos.writeFloat(this.Distance);
 		            	}
 					
 					// Integer
 				
-						writeInteger(this._WeatherDelay,dos);
+						writeInteger(this.DistanceGroup,dos);
 					
 					// String
 				
-						writeString(this._NASDelay,dos);
+						writeString(this.CarrierDelay,dos);
 					
 					// String
 				
-						writeString(this._SecurityDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
-						writeString(this._LateAircraftDelay,dos);
+						writeString(this.NASDelay,dos);
 					
 					// String
 				
-						writeString(this._FirstDepTime,dos);
+						writeString(this.SecurityDelay,dos);
 					
 					// String
 				
-						writeString(this._TotalAddGTime,dos);
+						writeString(this.LateAircraftDelay,dos);
 					
 					// String
 				
-						writeString(this._LongestAddGTime,dos);
+						writeString(this.FirstDepTime,dos);
 					
 					// String
 				
-						writeString(this._DivAirportLandings,dos);
+						writeString(this.TotalAddGTime,dos);
 					
 					// String
 				
-						writeString(this._DivReachedDest,dos);
+						writeString(this.LongestAddGTime,dos);
 					
 					// Integer
 				
-						writeInteger(this._DivActualElapsedTime,dos);
+						writeInteger(this.DivAirportLandings,dos);
 					
 					// String
 				
-						writeString(this._DivArrDelay,dos);
+						writeString(this.DivReachedDest,dos);
 					
 					// String
 				
-						writeString(this._DivDistance,dos);
+						writeString(this.DivActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Div1Airport,dos);
+						writeString(this.DivArrDelay,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportID,dos);
+						writeString(this.DivDistance,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportSeqID,dos);
+						writeString(this.Div1Airport,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOn,dos);
+						writeString(this.Div1AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div1TotalGTime,dos);
+						writeString(this.Div1AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div1LongestGTime,dos);
+						writeString(this.Div1WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOff,dos);
+						writeString(this.Div1TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div1TailNum,dos);
+						writeString(this.Div1LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2Airport,dos);
+						writeString(this.Div1WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportID,dos);
+						writeString(this.Div1TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportSeqID,dos);
+						writeString(this.Div2Airport,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOn,dos);
+						writeString(this.Div2AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div2TotalGTime,dos);
+						writeString(this.Div2AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div2LongestGTime,dos);
+						writeString(this.Div2WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOff,dos);
+						writeString(this.Div2TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2TailNum,dos);
+						writeString(this.Div2LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3Airport,dos);
+						writeString(this.Div2WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportID,dos);
+						writeString(this.Div2TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportSeqID,dos);
+						writeString(this.Div3Airport,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOn,dos);
+						writeString(this.Div3AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div3TotalGTime,dos);
+						writeString(this.Div3AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div3LongestGTime,dos);
+						writeString(this.Div3WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOff,dos);
+						writeString(this.Div3TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3TailNum,dos);
+						writeString(this.Div3LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4Airport,dos);
+						writeString(this.Div3WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportID,dos);
+						writeString(this.Div3TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportSeqID,dos);
+						writeString(this.Div4Airport,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOn,dos);
+						writeString(this.Div4AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div4TotalGTime,dos);
+						writeString(this.Div4AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div4LongestGTime,dos);
+						writeString(this.Div4WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOff,dos);
+						writeString(this.Div4TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4TailNum,dos);
+						writeString(this.Div4LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5Airport,dos);
+						writeString(this.Div4WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportID,dos);
+						writeString(this.Div4TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportSeqID,dos);
+						writeString(this.Div5Airport,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOn,dos);
+						writeString(this.Div5AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div5TotalGTime,dos);
+						writeString(this.Div5AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div5LongestGTime,dos);
+						writeString(this.Div5WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOff,dos);
+						writeString(this.Div5TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5TailNum,dos);
+						writeString(this.Div5LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Duplicate,dos);
+						writeString(this.Div5WheelsOff,dos);
+					
+					// String
+				
+						writeString(this.Div5TailNum,dos);
+					
+					// Character
+				
+						if(this.Duplicate == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeChar(this.Duplicate);
+		            	}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -7886,504 +7941,509 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 		
 					// Integer
 				
-						writeInteger(this._Year,dos);
+						writeInteger(this.Year,dos);
 					
 					// Integer
 				
-						writeInteger(this._Quarter,dos);
+						writeInteger(this.Quarter,dos);
 					
 					// Integer
 				
-						writeInteger(this._Month,dos);
+						writeInteger(this.Month,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayofMonth,dos);
+						writeInteger(this.DayofMonth,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayOfWeek,dos);
+						writeInteger(this.DayOfWeek,dos);
 					
 					// String
 				
-						writeString(this._FlightDate,dos);
+						writeString(this.FlightDate,dos);
 					
 					// String
 				
-						writeString(this._Marketing_Airline_Network,dos);
+						writeString(this.Marketing_Airline_Network,dos);
 					
 					// String
 				
-						writeString(this._Operated_or_Branded_Code_Share_Partners,dos);
+						writeString(this.Operated_or_Branded_Code_Share_Partners,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Marketing_Airline,dos);
+						writeInteger(this.DOT_ID_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Number_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Operating_Airline,dos);
+						writeString(this.IATA_Code_Marketing_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Operating_Airline,dos);
+						writeInteger(this.Flight_Number_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Operating_Airline,dos);
+						writeString(this.Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Tail_Number,dos);
+						writeString(this.DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Flight_Number_Operating_Airline,dos);
+						writeString(this.IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportID,dos);
+						writeInteger(this.DOT_ID_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.IATA_Code_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.Tail_Number,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportSeqID,dos);
+						writeInteger(this.Flight_Number_Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginCityMarketID,dos);
-					
-					// String
-				
-						writeString(this._Origin,dos);
-					
-					// String
-				
-						writeString(this._OriginCityName,dos);
-					
-					// String
-				
-						writeString(this._OriginState,dos);
-					
-					// String
-				
-						writeString(this._OriginStateFips,dos);
-					
-					// String
-				
-						writeString(this._OriginStateName,dos);
-					
-					// String
-				
-						writeString(this._OriginWac,dos);
+						writeInteger(this.OriginAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportID,dos);
+						writeInteger(this.OriginAirportSeqID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportSeqID,dos);
+						writeInteger(this.OriginCityMarketID,dos);
+					
+					// String
+				
+						writeString(this.Origin,dos);
+					
+					// String
+				
+						writeString(this.OriginCityName,dos);
+					
+					// String
+				
+						writeString(this.OriginState,dos);
+					
+					// String
+				
+						writeString(this.OriginStateFips,dos);
+					
+					// String
+				
+						writeString(this.OriginStateName,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestCityMarketID,dos);
+						writeInteger(this.OriginWac,dos);
 					
 					// Integer
 				
-						writeInteger(this._Dest,dos);
-					
-					// String
-				
-						writeString(this._DestCityName,dos);
-					
-					// String
-				
-						writeString(this._DestState,dos);
-					
-					// String
-				
-						writeString(this._DestStateFips,dos);
-					
-					// String
-				
-						writeString(this._DestStateName,dos);
-					
-					// String
-				
-						writeString(this._DestWac,dos);
-					
-					// String
-				
-						writeString(this._CRSDepTime,dos);
+						writeInteger(this.DestAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DepTime,dos);
+						writeInteger(this.DestAirportSeqID,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestCityMarketID,dos);
 					
 					// String
 				
-						writeString(this._DepDelay,dos);
+						writeString(this.Dest,dos);
 					
 					// String
 				
-						writeString(this._DepDelayMinutes,dos);
+						writeString(this.DestCityName,dos);
 					
 					// String
 				
-						writeString(this._DepDel15,dos);
+						writeString(this.DestState,dos);
 					
 					// String
 				
-						writeString(this._DepartureDelayGroups,dos);
+						writeString(this.DestStateFips,dos);
 					
 					// String
 				
-						writeString(this._DepTimeBlk,dos);
+						writeString(this.DestStateName,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestWac,dos);
 					
 					// String
 				
-						writeString(this._TaxiOut,dos);
+						writeString(this.CRSDepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOff,dos);
+						writeString(this.DepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOn,dos);
+						writeString(this.DepDelay,dos);
 					
 					// String
 				
-						writeString(this._TaxiIn,dos);
+						writeString(this.DepDelayMinutes,dos);
 					
 					// String
 				
-						writeString(this._CRSArrTime,dos);
+						writeString(this.DepDel15,dos);
 					
 					// String
 				
-						writeString(this._ArrTime,dos);
+						writeString(this.DepartureDelayGroups,dos);
 					
 					// String
 				
-						writeString(this._ArrDelay,dos);
+						writeString(this.DepTimeBlk,dos);
 					
 					// String
 				
-						writeString(this._ArrDelayMinutes,dos);
+						writeString(this.TaxiOut,dos);
 					
 					// String
 				
-						writeString(this._ArrDel15,dos);
+						writeString(this.WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._ArrivalDelayGroups,dos);
+						writeString(this.WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._ArrTimeBlk,dos);
+						writeString(this.TaxiIn,dos);
 					
 					// String
 				
-						writeString(this._Cancelled,dos);
+						writeString(this.CRSArrTime,dos);
 					
 					// String
 				
-						writeString(this._CancellationCode,dos);
+						writeString(this.ArrTime,dos);
+					
+					// String
+				
+						writeString(this.ArrDelay,dos);
+					
+					// String
+				
+						writeString(this.ArrDelayMinutes,dos);
+					
+					// String
+				
+						writeString(this.ArrDel15,dos);
+					
+					// String
+				
+						writeString(this.ArrivalDelayGroups,dos);
+					
+					// String
+				
+						writeString(this.ArrTimeBlk,dos);
 					
 					// Float
 				
-						if(this._Diverted == null) {
+						if(this.Cancelled == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._Diverted);
+           			    	dos.writeFloat(this.Cancelled);
 		            	}
 					
 					// String
 				
-						writeString(this._CRSElapsedTime,dos);
+						writeString(this.CancellationCode,dos);
 					
 					// Float
 				
-						if(this._ActualElapsedTime == null) {
+						if(this.Diverted == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._ActualElapsedTime);
+           			    	dos.writeFloat(this.Diverted);
 		            	}
 					
 					// Float
 				
-						if(this._AirTime == null) {
+						if(this.CRSElapsedTime == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._AirTime);
+           			    	dos.writeFloat(this.CRSElapsedTime);
 		            	}
 					
 					// String
 				
-						writeString(this._Flights,dos);
+						writeString(this.ActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Distance,dos);
+						writeString(this.AirTime,dos);
 					
 					// Float
 				
-						if(this._DistanceGroup == null) {
+						if(this.Flights == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._DistanceGroup);
+           			    	dos.writeFloat(this.Flights);
 		            	}
 					
 					// Float
 				
-						if(this._CarrierDelay == null) {
+						if(this.Distance == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._CarrierDelay);
+           			    	dos.writeFloat(this.Distance);
 		            	}
 					
 					// Integer
 				
-						writeInteger(this._WeatherDelay,dos);
+						writeInteger(this.DistanceGroup,dos);
 					
 					// String
 				
-						writeString(this._NASDelay,dos);
+						writeString(this.CarrierDelay,dos);
 					
 					// String
 				
-						writeString(this._SecurityDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
-						writeString(this._LateAircraftDelay,dos);
+						writeString(this.NASDelay,dos);
 					
 					// String
 				
-						writeString(this._FirstDepTime,dos);
+						writeString(this.SecurityDelay,dos);
 					
 					// String
 				
-						writeString(this._TotalAddGTime,dos);
+						writeString(this.LateAircraftDelay,dos);
 					
 					// String
 				
-						writeString(this._LongestAddGTime,dos);
+						writeString(this.FirstDepTime,dos);
 					
 					// String
 				
-						writeString(this._DivAirportLandings,dos);
+						writeString(this.TotalAddGTime,dos);
 					
 					// String
 				
-						writeString(this._DivReachedDest,dos);
+						writeString(this.LongestAddGTime,dos);
 					
 					// Integer
 				
-						writeInteger(this._DivActualElapsedTime,dos);
+						writeInteger(this.DivAirportLandings,dos);
 					
 					// String
 				
-						writeString(this._DivArrDelay,dos);
+						writeString(this.DivReachedDest,dos);
 					
 					// String
 				
-						writeString(this._DivDistance,dos);
+						writeString(this.DivActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Div1Airport,dos);
+						writeString(this.DivArrDelay,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportID,dos);
+						writeString(this.DivDistance,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportSeqID,dos);
+						writeString(this.Div1Airport,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOn,dos);
+						writeString(this.Div1AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div1TotalGTime,dos);
+						writeString(this.Div1AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div1LongestGTime,dos);
+						writeString(this.Div1WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOff,dos);
+						writeString(this.Div1TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div1TailNum,dos);
+						writeString(this.Div1LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2Airport,dos);
+						writeString(this.Div1WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportID,dos);
+						writeString(this.Div1TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportSeqID,dos);
+						writeString(this.Div2Airport,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOn,dos);
+						writeString(this.Div2AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div2TotalGTime,dos);
+						writeString(this.Div2AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div2LongestGTime,dos);
+						writeString(this.Div2WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOff,dos);
+						writeString(this.Div2TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2TailNum,dos);
+						writeString(this.Div2LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3Airport,dos);
+						writeString(this.Div2WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportID,dos);
+						writeString(this.Div2TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportSeqID,dos);
+						writeString(this.Div3Airport,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOn,dos);
+						writeString(this.Div3AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div3TotalGTime,dos);
+						writeString(this.Div3AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div3LongestGTime,dos);
+						writeString(this.Div3WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOff,dos);
+						writeString(this.Div3TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3TailNum,dos);
+						writeString(this.Div3LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4Airport,dos);
+						writeString(this.Div3WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportID,dos);
+						writeString(this.Div3TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportSeqID,dos);
+						writeString(this.Div4Airport,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOn,dos);
+						writeString(this.Div4AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div4TotalGTime,dos);
+						writeString(this.Div4AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div4LongestGTime,dos);
+						writeString(this.Div4WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOff,dos);
+						writeString(this.Div4TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4TailNum,dos);
+						writeString(this.Div4LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5Airport,dos);
+						writeString(this.Div4WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportID,dos);
+						writeString(this.Div4TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportSeqID,dos);
+						writeString(this.Div5Airport,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOn,dos);
+						writeString(this.Div5AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div5TotalGTime,dos);
+						writeString(this.Div5AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div5LongestGTime,dos);
+						writeString(this.Div5WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOff,dos);
+						writeString(this.Div5TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5TailNum,dos);
+						writeString(this.Div5LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Duplicate,dos);
+						writeString(this.Div5WheelsOff,dos);
+					
+					// String
+				
+						writeString(this.Div5TailNum,dos);
+					
+					// Character
+				
+						if(this.Duplicate == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeChar(this.Duplicate);
+		            	}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -8398,125 +8458,125 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("_Year="+String.valueOf(_Year));
-		sb.append(",_Quarter="+String.valueOf(_Quarter));
-		sb.append(",_Month="+String.valueOf(_Month));
-		sb.append(",_DayofMonth="+String.valueOf(_DayofMonth));
-		sb.append(",_DayOfWeek="+String.valueOf(_DayOfWeek));
-		sb.append(",_FlightDate="+_FlightDate);
-		sb.append(",_Marketing_Airline_Network="+_Marketing_Airline_Network);
-		sb.append(",_Operated_or_Branded_Code_Share_Partners="+_Operated_or_Branded_Code_Share_Partners);
-		sb.append(",_DOT_ID_Marketing_Airline="+String.valueOf(_DOT_ID_Marketing_Airline));
-		sb.append(",_IATA_Code_Marketing_Airline="+_IATA_Code_Marketing_Airline);
-		sb.append(",_Flight_Number_Marketing_Airline="+_Flight_Number_Marketing_Airline);
-		sb.append(",_Originally_Scheduled_Code_Share_Airline="+_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_DOT_ID_Originally_Scheduled_Code_Share_Airline="+_DOT_ID_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_IATA_Code_Originally_Scheduled_Code_Share_Airline="+_IATA_Code_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_Flight_Num_Originally_Scheduled_Code_Share_Airline="+_Flight_Num_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_Operating_Airline="+_Operating_Airline);
-		sb.append(",_DOT_ID_Operating_Airline="+String.valueOf(_DOT_ID_Operating_Airline));
-		sb.append(",_IATA_Code_Operating_Airline="+_IATA_Code_Operating_Airline);
-		sb.append(",_Tail_Number="+_Tail_Number);
-		sb.append(",_Flight_Number_Operating_Airline="+_Flight_Number_Operating_Airline);
-		sb.append(",_OriginAirportID="+String.valueOf(_OriginAirportID));
-		sb.append(",_OriginAirportSeqID="+String.valueOf(_OriginAirportSeqID));
-		sb.append(",_OriginCityMarketID="+String.valueOf(_OriginCityMarketID));
-		sb.append(",_Origin="+_Origin);
-		sb.append(",_OriginCityName="+_OriginCityName);
-		sb.append(",_OriginState="+_OriginState);
-		sb.append(",_OriginStateFips="+_OriginStateFips);
-		sb.append(",_OriginStateName="+_OriginStateName);
-		sb.append(",_OriginWac="+_OriginWac);
-		sb.append(",_DestAirportID="+String.valueOf(_DestAirportID));
-		sb.append(",_DestAirportSeqID="+String.valueOf(_DestAirportSeqID));
-		sb.append(",_DestCityMarketID="+String.valueOf(_DestCityMarketID));
-		sb.append(",_Dest="+String.valueOf(_Dest));
-		sb.append(",_DestCityName="+_DestCityName);
-		sb.append(",_DestState="+_DestState);
-		sb.append(",_DestStateFips="+_DestStateFips);
-		sb.append(",_DestStateName="+_DestStateName);
-		sb.append(",_DestWac="+_DestWac);
-		sb.append(",_CRSDepTime="+_CRSDepTime);
-		sb.append(",_DepTime="+String.valueOf(_DepTime));
-		sb.append(",_DepDelay="+_DepDelay);
-		sb.append(",_DepDelayMinutes="+_DepDelayMinutes);
-		sb.append(",_DepDel15="+_DepDel15);
-		sb.append(",_DepartureDelayGroups="+_DepartureDelayGroups);
-		sb.append(",_DepTimeBlk="+_DepTimeBlk);
-		sb.append(",_TaxiOut="+_TaxiOut);
-		sb.append(",_WheelsOff="+_WheelsOff);
-		sb.append(",_WheelsOn="+_WheelsOn);
-		sb.append(",_TaxiIn="+_TaxiIn);
-		sb.append(",_CRSArrTime="+_CRSArrTime);
-		sb.append(",_ArrTime="+_ArrTime);
-		sb.append(",_ArrDelay="+_ArrDelay);
-		sb.append(",_ArrDelayMinutes="+_ArrDelayMinutes);
-		sb.append(",_ArrDel15="+_ArrDel15);
-		sb.append(",_ArrivalDelayGroups="+_ArrivalDelayGroups);
-		sb.append(",_ArrTimeBlk="+_ArrTimeBlk);
-		sb.append(",_Cancelled="+_Cancelled);
-		sb.append(",_CancellationCode="+_CancellationCode);
-		sb.append(",_Diverted="+String.valueOf(_Diverted));
-		sb.append(",_CRSElapsedTime="+_CRSElapsedTime);
-		sb.append(",_ActualElapsedTime="+String.valueOf(_ActualElapsedTime));
-		sb.append(",_AirTime="+String.valueOf(_AirTime));
-		sb.append(",_Flights="+_Flights);
-		sb.append(",_Distance="+_Distance);
-		sb.append(",_DistanceGroup="+String.valueOf(_DistanceGroup));
-		sb.append(",_CarrierDelay="+String.valueOf(_CarrierDelay));
-		sb.append(",_WeatherDelay="+String.valueOf(_WeatherDelay));
-		sb.append(",_NASDelay="+_NASDelay);
-		sb.append(",_SecurityDelay="+_SecurityDelay);
-		sb.append(",_LateAircraftDelay="+_LateAircraftDelay);
-		sb.append(",_FirstDepTime="+_FirstDepTime);
-		sb.append(",_TotalAddGTime="+_TotalAddGTime);
-		sb.append(",_LongestAddGTime="+_LongestAddGTime);
-		sb.append(",_DivAirportLandings="+_DivAirportLandings);
-		sb.append(",_DivReachedDest="+_DivReachedDest);
-		sb.append(",_DivActualElapsedTime="+String.valueOf(_DivActualElapsedTime));
-		sb.append(",_DivArrDelay="+_DivArrDelay);
-		sb.append(",_DivDistance="+_DivDistance);
-		sb.append(",_Div1Airport="+_Div1Airport);
-		sb.append(",_Div1AirportID="+_Div1AirportID);
-		sb.append(",_Div1AirportSeqID="+_Div1AirportSeqID);
-		sb.append(",_Div1WheelsOn="+_Div1WheelsOn);
-		sb.append(",_Div1TotalGTime="+_Div1TotalGTime);
-		sb.append(",_Div1LongestGTime="+_Div1LongestGTime);
-		sb.append(",_Div1WheelsOff="+_Div1WheelsOff);
-		sb.append(",_Div1TailNum="+_Div1TailNum);
-		sb.append(",_Div2Airport="+_Div2Airport);
-		sb.append(",_Div2AirportID="+_Div2AirportID);
-		sb.append(",_Div2AirportSeqID="+_Div2AirportSeqID);
-		sb.append(",_Div2WheelsOn="+_Div2WheelsOn);
-		sb.append(",_Div2TotalGTime="+_Div2TotalGTime);
-		sb.append(",_Div2LongestGTime="+_Div2LongestGTime);
-		sb.append(",_Div2WheelsOff="+_Div2WheelsOff);
-		sb.append(",_Div2TailNum="+_Div2TailNum);
-		sb.append(",_Div3Airport="+_Div3Airport);
-		sb.append(",_Div3AirportID="+_Div3AirportID);
-		sb.append(",_Div3AirportSeqID="+_Div3AirportSeqID);
-		sb.append(",_Div3WheelsOn="+_Div3WheelsOn);
-		sb.append(",_Div3TotalGTime="+_Div3TotalGTime);
-		sb.append(",_Div3LongestGTime="+_Div3LongestGTime);
-		sb.append(",_Div3WheelsOff="+_Div3WheelsOff);
-		sb.append(",_Div3TailNum="+_Div3TailNum);
-		sb.append(",_Div4Airport="+_Div4Airport);
-		sb.append(",_Div4AirportID="+_Div4AirportID);
-		sb.append(",_Div4AirportSeqID="+_Div4AirportSeqID);
-		sb.append(",_Div4WheelsOn="+_Div4WheelsOn);
-		sb.append(",_Div4TotalGTime="+_Div4TotalGTime);
-		sb.append(",_Div4LongestGTime="+_Div4LongestGTime);
-		sb.append(",_Div4WheelsOff="+_Div4WheelsOff);
-		sb.append(",_Div4TailNum="+_Div4TailNum);
-		sb.append(",_Div5Airport="+_Div5Airport);
-		sb.append(",_Div5AirportID="+_Div5AirportID);
-		sb.append(",_Div5AirportSeqID="+_Div5AirportSeqID);
-		sb.append(",_Div5WheelsOn="+_Div5WheelsOn);
-		sb.append(",_Div5TotalGTime="+_Div5TotalGTime);
-		sb.append(",_Div5LongestGTime="+_Div5LongestGTime);
-		sb.append(",_Div5WheelsOff="+_Div5WheelsOff);
-		sb.append(",_Div5TailNum="+_Div5TailNum);
-		sb.append(",_Duplicate="+_Duplicate);
+		sb.append("Year="+String.valueOf(Year));
+		sb.append(",Quarter="+String.valueOf(Quarter));
+		sb.append(",Month="+String.valueOf(Month));
+		sb.append(",DayofMonth="+String.valueOf(DayofMonth));
+		sb.append(",DayOfWeek="+String.valueOf(DayOfWeek));
+		sb.append(",FlightDate="+FlightDate);
+		sb.append(",Marketing_Airline_Network="+Marketing_Airline_Network);
+		sb.append(",Operated_or_Branded_Code_Share_Partners="+Operated_or_Branded_Code_Share_Partners);
+		sb.append(",DOT_ID_Marketing_Airline="+String.valueOf(DOT_ID_Marketing_Airline));
+		sb.append(",IATA_Code_Marketing_Airline="+IATA_Code_Marketing_Airline);
+		sb.append(",Flight_Number_Marketing_Airline="+String.valueOf(Flight_Number_Marketing_Airline));
+		sb.append(",Originally_Scheduled_Code_Share_Airline="+Originally_Scheduled_Code_Share_Airline);
+		sb.append(",DOT_ID_Originally_Scheduled_Code_Share_Airline="+DOT_ID_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",IATA_Code_Originally_Scheduled_Code_Share_Airline="+IATA_Code_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",Flight_Num_Originally_Scheduled_Code_Share_Airline="+Flight_Num_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",Operating_Airline="+Operating_Airline);
+		sb.append(",DOT_ID_Operating_Airline="+String.valueOf(DOT_ID_Operating_Airline));
+		sb.append(",IATA_Code_Operating_Airline="+IATA_Code_Operating_Airline);
+		sb.append(",Tail_Number="+Tail_Number);
+		sb.append(",Flight_Number_Operating_Airline="+String.valueOf(Flight_Number_Operating_Airline));
+		sb.append(",OriginAirportID="+String.valueOf(OriginAirportID));
+		sb.append(",OriginAirportSeqID="+String.valueOf(OriginAirportSeqID));
+		sb.append(",OriginCityMarketID="+String.valueOf(OriginCityMarketID));
+		sb.append(",Origin="+Origin);
+		sb.append(",OriginCityName="+OriginCityName);
+		sb.append(",OriginState="+OriginState);
+		sb.append(",OriginStateFips="+OriginStateFips);
+		sb.append(",OriginStateName="+OriginStateName);
+		sb.append(",OriginWac="+String.valueOf(OriginWac));
+		sb.append(",DestAirportID="+String.valueOf(DestAirportID));
+		sb.append(",DestAirportSeqID="+String.valueOf(DestAirportSeqID));
+		sb.append(",DestCityMarketID="+String.valueOf(DestCityMarketID));
+		sb.append(",Dest="+Dest);
+		sb.append(",DestCityName="+DestCityName);
+		sb.append(",DestState="+DestState);
+		sb.append(",DestStateFips="+DestStateFips);
+		sb.append(",DestStateName="+DestStateName);
+		sb.append(",DestWac="+String.valueOf(DestWac));
+		sb.append(",CRSDepTime="+CRSDepTime);
+		sb.append(",DepTime="+DepTime);
+		sb.append(",DepDelay="+DepDelay);
+		sb.append(",DepDelayMinutes="+DepDelayMinutes);
+		sb.append(",DepDel15="+DepDel15);
+		sb.append(",DepartureDelayGroups="+DepartureDelayGroups);
+		sb.append(",DepTimeBlk="+DepTimeBlk);
+		sb.append(",TaxiOut="+TaxiOut);
+		sb.append(",WheelsOff="+WheelsOff);
+		sb.append(",WheelsOn="+WheelsOn);
+		sb.append(",TaxiIn="+TaxiIn);
+		sb.append(",CRSArrTime="+CRSArrTime);
+		sb.append(",ArrTime="+ArrTime);
+		sb.append(",ArrDelay="+ArrDelay);
+		sb.append(",ArrDelayMinutes="+ArrDelayMinutes);
+		sb.append(",ArrDel15="+ArrDel15);
+		sb.append(",ArrivalDelayGroups="+ArrivalDelayGroups);
+		sb.append(",ArrTimeBlk="+ArrTimeBlk);
+		sb.append(",Cancelled="+String.valueOf(Cancelled));
+		sb.append(",CancellationCode="+CancellationCode);
+		sb.append(",Diverted="+String.valueOf(Diverted));
+		sb.append(",CRSElapsedTime="+String.valueOf(CRSElapsedTime));
+		sb.append(",ActualElapsedTime="+ActualElapsedTime);
+		sb.append(",AirTime="+AirTime);
+		sb.append(",Flights="+String.valueOf(Flights));
+		sb.append(",Distance="+String.valueOf(Distance));
+		sb.append(",DistanceGroup="+String.valueOf(DistanceGroup));
+		sb.append(",CarrierDelay="+CarrierDelay);
+		sb.append(",WeatherDelay="+WeatherDelay);
+		sb.append(",NASDelay="+NASDelay);
+		sb.append(",SecurityDelay="+SecurityDelay);
+		sb.append(",LateAircraftDelay="+LateAircraftDelay);
+		sb.append(",FirstDepTime="+FirstDepTime);
+		sb.append(",TotalAddGTime="+TotalAddGTime);
+		sb.append(",LongestAddGTime="+LongestAddGTime);
+		sb.append(",DivAirportLandings="+String.valueOf(DivAirportLandings));
+		sb.append(",DivReachedDest="+DivReachedDest);
+		sb.append(",DivActualElapsedTime="+DivActualElapsedTime);
+		sb.append(",DivArrDelay="+DivArrDelay);
+		sb.append(",DivDistance="+DivDistance);
+		sb.append(",Div1Airport="+Div1Airport);
+		sb.append(",Div1AirportID="+Div1AirportID);
+		sb.append(",Div1AirportSeqID="+Div1AirportSeqID);
+		sb.append(",Div1WheelsOn="+Div1WheelsOn);
+		sb.append(",Div1TotalGTime="+Div1TotalGTime);
+		sb.append(",Div1LongestGTime="+Div1LongestGTime);
+		sb.append(",Div1WheelsOff="+Div1WheelsOff);
+		sb.append(",Div1TailNum="+Div1TailNum);
+		sb.append(",Div2Airport="+Div2Airport);
+		sb.append(",Div2AirportID="+Div2AirportID);
+		sb.append(",Div2AirportSeqID="+Div2AirportSeqID);
+		sb.append(",Div2WheelsOn="+Div2WheelsOn);
+		sb.append(",Div2TotalGTime="+Div2TotalGTime);
+		sb.append(",Div2LongestGTime="+Div2LongestGTime);
+		sb.append(",Div2WheelsOff="+Div2WheelsOff);
+		sb.append(",Div2TailNum="+Div2TailNum);
+		sb.append(",Div3Airport="+Div3Airport);
+		sb.append(",Div3AirportID="+Div3AirportID);
+		sb.append(",Div3AirportSeqID="+Div3AirportSeqID);
+		sb.append(",Div3WheelsOn="+Div3WheelsOn);
+		sb.append(",Div3TotalGTime="+Div3TotalGTime);
+		sb.append(",Div3LongestGTime="+Div3LongestGTime);
+		sb.append(",Div3WheelsOff="+Div3WheelsOff);
+		sb.append(",Div3TailNum="+Div3TailNum);
+		sb.append(",Div4Airport="+Div4Airport);
+		sb.append(",Div4AirportID="+Div4AirportID);
+		sb.append(",Div4AirportSeqID="+Div4AirportSeqID);
+		sb.append(",Div4WheelsOn="+Div4WheelsOn);
+		sb.append(",Div4TotalGTime="+Div4TotalGTime);
+		sb.append(",Div4LongestGTime="+Div4LongestGTime);
+		sb.append(",Div4WheelsOff="+Div4WheelsOff);
+		sb.append(",Div4TailNum="+Div4TailNum);
+		sb.append(",Div5Airport="+Div5Airport);
+		sb.append(",Div5AirportID="+Div5AirportID);
+		sb.append(",Div5AirportSeqID="+Div5AirportSeqID);
+		sb.append(",Div5WheelsOn="+Div5WheelsOn);
+		sb.append(",Div5TotalGTime="+Div5TotalGTime);
+		sb.append(",Div5LongestGTime="+Div5LongestGTime);
+		sb.append(",Div5WheelsOff="+Div5WheelsOff);
+		sb.append(",Div5TailNum="+Div5TailNum);
+		sb.append(",Duplicate="+String.valueOf(Duplicate));
 	    sb.append("]");
 
 	    return sb.toString();
@@ -8640,14 +8700,106 @@ String fileName_tFileOutputDelimited_2 = "";
     boolean isFileGenerated_tFileOutputDelimited_2 = true;
     java.io.File filetFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
     globalMap.put("tFileOutputDelimited_2_FILE_NAME",fileName_tFileOutputDelimited_2);
+                String[] headColutFileOutputDelimited_2=new String[8];
+            class CSVBasicSet_tFileOutputDelimited_2{
+                private char field_Delim;
+                private char row_Delim;
+                private char escape;
+                private char textEnclosure;
+                private boolean useCRLFRecordDelimiter;
+
+                public boolean isUseCRLFRecordDelimiter() {
+                    return useCRLFRecordDelimiter;
+                }
+
+                public void setFieldSeparator(String fieldSep) throws IllegalArgumentException{
+                    char field_Delim_tFileOutputDelimited_2[] = null;
+
+                    //support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'.
+                    if (fieldSep.length() > 0 ){
+                        field_Delim_tFileOutputDelimited_2 = fieldSep.toCharArray();
+                    }else {
+                        throw new IllegalArgumentException("Field Separator must be assigned a char.");
+                    }
+                    this.field_Delim = field_Delim_tFileOutputDelimited_2[0];
+                }
+
+                public char getFieldDelim(){
+                    if(this.field_Delim==0){
+                        setFieldSeparator(",");
+                    }
+                    return this.field_Delim;
+                }
+
+                public void setRowSeparator(String rowSep){
+                    if("\r\n".equals(rowSep)) {
+                        useCRLFRecordDelimiter = true;
+                        return;
+                    }
+                    char row_DelimtFileOutputDelimited_2[] = null;
+
+                    //support passing value (property: Row Separator) by 'context.rs' or 'globalMap.get("rs")'.
+                    if (rowSep.length() > 0 ){
+                        row_DelimtFileOutputDelimited_2 = rowSep.toCharArray();
+                    }else {
+                        throw new IllegalArgumentException("Row Separator must be assigned a char.");
+                    }
+                    this.row_Delim = row_DelimtFileOutputDelimited_2[0];
+                }
+
+                public char getRowDelim(){
+                    if(this.row_Delim==0){
+                        setRowSeparator("\n");
+                    }
+                    return this.row_Delim;
+                }
+
+                public void setEscapeAndTextEnclosure(String strEscape, String strTextEnclosure) throws IllegalArgumentException{
+                    if(strEscape.length() <= 0 ){
+                        throw new IllegalArgumentException("Escape Char must be assigned a char.");
+                    }
+
+                    if ("".equals(strTextEnclosure)) strTextEnclosure = "\0";
+                    char textEnclosure_tFileOutputDelimited_2[] = null;
+
+                    if(strTextEnclosure.length() > 0 ){
+                        textEnclosure_tFileOutputDelimited_2 = strTextEnclosure.toCharArray();
+                    }else {
+                        throw new IllegalArgumentException("Text Enclosure must be assigned a char.");
+                    }
+
+                    this.textEnclosure = textEnclosure_tFileOutputDelimited_2[0];
+
+                    if(("\\").equals(strEscape)){
+                        this.escape = '\\';
+                    }else if(strEscape.equals(strTextEnclosure)){
+                        this.escape = this.textEnclosure;
+                    } else {
+                        //the default escape mode is double escape
+                        this.escape = this.textEnclosure;
+                    }
+
+
+                }
+
+                public char getEscapeChar(){
+                    return (char)this.escape;
+                }
+
+                public char getTextEnclosure(){
+                    return this.textEnclosure;
+                }
+            }
+
             int nb_line_tFileOutputDelimited_2 = 0;
-            int splitedFileNo_tFileOutputDelimited_2 = 0;
+            int splitedFileNo_tFileOutputDelimited_2 =0;
             int currentRow_tFileOutputDelimited_2 = 0;
 
-            final String OUT_DELIM_tFileOutputDelimited_2 = /** Start field tFileOutputDelimited_2:FIELDSEPARATOR */";"/** End field tFileOutputDelimited_2:FIELDSEPARATOR */;
 
-            final String OUT_DELIM_ROWSEP_tFileOutputDelimited_2 = /** Start field tFileOutputDelimited_2:ROWSEPARATOR */"\n"/** End field tFileOutputDelimited_2:ROWSEPARATOR */;
-
+            CSVBasicSet_tFileOutputDelimited_2 csvSettings_tFileOutputDelimited_2 = new CSVBasicSet_tFileOutputDelimited_2();
+            csvSettings_tFileOutputDelimited_2.setFieldSeparator(",");
+            csvSettings_tFileOutputDelimited_2.setRowSeparator("\n");
+            csvSettings_tFileOutputDelimited_2.setEscapeAndTextEnclosure("\"","\"");
                     //create directory only if not exists
                     if(directory_tFileOutputDelimited_2 != null && directory_tFileOutputDelimited_2.trim().length() != 0) {
                         java.io.File dir_tFileOutputDelimited_2 = new java.io.File(directory_tFileOutputDelimited_2);
@@ -8655,38 +8807,37 @@ String fileName_tFileOutputDelimited_2 = "";
                             dir_tFileOutputDelimited_2.mkdirs();
                         }
                     }
+                            com.talend.csv.CSVWriter CsvWritertFileOutputDelimited_2 = null;
 
-                        //routines.system.Row
-                        java.io.Writer outtFileOutputDelimited_2 = null;
-
-                        java.io.File fileToDelete_tFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
-                        if(fileToDelete_tFileOutputDelimited_2.exists()) {
-                            fileToDelete_tFileOutputDelimited_2.delete();
+                            java.io.File fileToDelete_tFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
+                            if(fileToDelete_tFileOutputDelimited_2.exists()) {
+                                fileToDelete_tFileOutputDelimited_2.delete();
+                            }
+                            CsvWritertFileOutputDelimited_2 = new com.talend.csv.CSVWriter(new java.io.BufferedWriter(new java.io.OutputStreamWriter(
+                            new java.io.FileOutputStream(fileName_tFileOutputDelimited_2, false), "ISO-8859-15")));
+                            CsvWritertFileOutputDelimited_2.setSeparator(csvSettings_tFileOutputDelimited_2.getFieldDelim());
+                    if(!csvSettings_tFileOutputDelimited_2.isUseCRLFRecordDelimiter() && csvSettings_tFileOutputDelimited_2.getRowDelim()!='\r' && csvSettings_tFileOutputDelimited_2.getRowDelim()!='\n') {
+                        CsvWritertFileOutputDelimited_2.setLineEnd(""+csvSettings_tFileOutputDelimited_2.getRowDelim());
+                    }
+                        if(filetFileOutputDelimited_2.length()==0){
+                                    headColutFileOutputDelimited_2[0]="originId";
+                                    headColutFileOutputDelimited_2[1]="originKey";
+                                    headColutFileOutputDelimited_2[2]="originAirportSeqId";
+                                    headColutFileOutputDelimited_2[3]="airportCode";
+                                    headColutFileOutputDelimited_2[4]="cityName";
+                                    headColutFileOutputDelimited_2[5]="stateCode";
+                                    headColutFileOutputDelimited_2[6]="stateName";
+                                    headColutFileOutputDelimited_2[7]="worldAreaCode";
+                            CsvWritertFileOutputDelimited_2.writeNext(headColutFileOutputDelimited_2);
+                            CsvWritertFileOutputDelimited_2.flush();
                         }
-                        outtFileOutputDelimited_2 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
-                        new java.io.FileOutputStream(fileName_tFileOutputDelimited_2, false),"ISO-8859-15"));
-                                    if(filetFileOutputDelimited_2.length()==0){
-                                        outtFileOutputDelimited_2.write("originId");
-                                            outtFileOutputDelimited_2.write(OUT_DELIM_tFileOutputDelimited_2);
-                                        outtFileOutputDelimited_2.write("originKey");
-                                            outtFileOutputDelimited_2.write(OUT_DELIM_tFileOutputDelimited_2);
-                                        outtFileOutputDelimited_2.write("originAirportSeqId");
-                                            outtFileOutputDelimited_2.write(OUT_DELIM_tFileOutputDelimited_2);
-                                        outtFileOutputDelimited_2.write("airportCode");
-                                            outtFileOutputDelimited_2.write(OUT_DELIM_tFileOutputDelimited_2);
-                                        outtFileOutputDelimited_2.write("cityName");
-                                            outtFileOutputDelimited_2.write(OUT_DELIM_tFileOutputDelimited_2);
-                                        outtFileOutputDelimited_2.write("stateCode");
-                                            outtFileOutputDelimited_2.write(OUT_DELIM_tFileOutputDelimited_2);
-                                        outtFileOutputDelimited_2.write("stateName");
-                                            outtFileOutputDelimited_2.write(OUT_DELIM_tFileOutputDelimited_2);
-                                        outtFileOutputDelimited_2.write("worldAreaCode");
-                                        outtFileOutputDelimited_2.write(OUT_DELIM_ROWSEP_tFileOutputDelimited_2);
-                                        outtFileOutputDelimited_2.flush();
-                                    }
+                CsvWritertFileOutputDelimited_2.setEscapeChar(csvSettings_tFileOutputDelimited_2.getEscapeChar());
+                CsvWritertFileOutputDelimited_2.setQuoteChar(csvSettings_tFileOutputDelimited_2.getTextEnclosure());
+                CsvWritertFileOutputDelimited_2.setQuoteStatus(com.talend.csv.CSVWriter.QuoteStatus.FORCE);
 
 
-        resourceMap.put("out_tFileOutputDelimited_2", outtFileOutputDelimited_2);
+
+    resourceMap.put("CsvWriter_tFileOutputDelimited_2", CsvWritertFileOutputDelimited_2);
 resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
 
  
@@ -9839,608 +9990,608 @@ dimensionStruct dimension_tmp = new dimensionStruct();
         }
         Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
         util_tLogRow_1.setTableName("tLogRow_1");
-        util_tLogRow_1.addRow(new String[]{"_Year","_Quarter","_Month","_DayofMonth","_DayOfWeek","_FlightDate","_Marketing_Airline_Network","_Operated_or_Branded_Code_Share_Partners","_DOT_ID_Marketing_Airline","_IATA_Code_Marketing_Airline","_Flight_Number_Marketing_Airline","_Originally_Scheduled_Code_Share_Airline","_DOT_ID_Originally_Scheduled_Code_Share_Airline","_IATA_Code_Originally_Scheduled_Code_Share_Airline","_Flight_Num_Originally_Scheduled_Code_Share_Airline","_Operating_Airline","_DOT_ID_Operating_Airline","_IATA_Code_Operating_Airline","_Tail_Number","_Flight_Number_Operating_Airline","_OriginAirportID","_OriginAirportSeqID","_OriginCityMarketID","_Origin","_OriginCityName","_OriginState","_OriginStateFips","_OriginStateName","_OriginWac","_DestAirportID","_DestAirportSeqID","_DestCityMarketID","_Dest","_DestCityName","_DestState","_DestStateFips","_DestStateName","_DestWac","_CRSDepTime","_DepTime","_DepDelay","_DepDelayMinutes","_DepDel15","_DepartureDelayGroups","_DepTimeBlk","_TaxiOut","_WheelsOff","_WheelsOn","_TaxiIn","_CRSArrTime","_ArrTime","_ArrDelay","_ArrDelayMinutes","_ArrDel15","_ArrivalDelayGroups","_ArrTimeBlk","_Cancelled","_CancellationCode","_Diverted","_CRSElapsedTime","_ActualElapsedTime","_AirTime","_Flights","_Distance","_DistanceGroup","_CarrierDelay","_WeatherDelay","_NASDelay","_SecurityDelay","_LateAircraftDelay","_FirstDepTime","_TotalAddGTime","_LongestAddGTime","_DivAirportLandings","_DivReachedDest","_DivActualElapsedTime","_DivArrDelay","_DivDistance","_Div1Airport","_Div1AirportID","_Div1AirportSeqID","_Div1WheelsOn","_Div1TotalGTime","_Div1LongestGTime","_Div1WheelsOff","_Div1TailNum","_Div2Airport","_Div2AirportID","_Div2AirportSeqID","_Div2WheelsOn","_Div2TotalGTime","_Div2LongestGTime","_Div2WheelsOff","_Div2TailNum","_Div3Airport","_Div3AirportID","_Div3AirportSeqID","_Div3WheelsOn","_Div3TotalGTime","_Div3LongestGTime","_Div3WheelsOff","_Div3TailNum","_Div4Airport","_Div4AirportID","_Div4AirportSeqID","_Div4WheelsOn","_Div4TotalGTime","_Div4LongestGTime","_Div4WheelsOff","_Div4TailNum","_Div5Airport","_Div5AirportID","_Div5AirportSeqID","_Div5WheelsOn","_Div5TotalGTime","_Div5LongestGTime","_Div5WheelsOff","_Div5TailNum","_Duplicate",});        
+        util_tLogRow_1.addRow(new String[]{"Year","Quarter","Month","DayofMonth","DayOfWeek","FlightDate","Marketing_Airline_Network","Operated_or_Branded_Code_Share_Partners","DOT_ID_Marketing_Airline","IATA_Code_Marketing_Airline","Flight_Number_Marketing_Airline","Originally_Scheduled_Code_Share_Airline","DOT_ID_Originally_Scheduled_Code_Share_Airline","IATA_Code_Originally_Scheduled_Code_Share_Airline","Flight_Num_Originally_Scheduled_Code_Share_Airline","Operating_Airline","DOT_ID_Operating_Airline","IATA_Code_Operating_Airline","Tail_Number","Flight_Number_Operating_Airline","OriginAirportID","OriginAirportSeqID","OriginCityMarketID","Origin","OriginCityName","OriginState","OriginStateFips","OriginStateName","OriginWac","DestAirportID","DestAirportSeqID","DestCityMarketID","Dest","DestCityName","DestState","DestStateFips","DestStateName","DestWac","CRSDepTime","DepTime","DepDelay","DepDelayMinutes","DepDel15","DepartureDelayGroups","DepTimeBlk","TaxiOut","WheelsOff","WheelsOn","TaxiIn","CRSArrTime","ArrTime","ArrDelay","ArrDelayMinutes","ArrDel15","ArrivalDelayGroups","ArrTimeBlk","Cancelled","CancellationCode","Diverted","CRSElapsedTime","ActualElapsedTime","AirTime","Flights","Distance","DistanceGroup","CarrierDelay","WeatherDelay","NASDelay","SecurityDelay","LateAircraftDelay","FirstDepTime","TotalAddGTime","LongestAddGTime","DivAirportLandings","DivReachedDest","DivActualElapsedTime","DivArrDelay","DivDistance","Div1Airport","Div1AirportID","Div1AirportSeqID","Div1WheelsOn","Div1TotalGTime","Div1LongestGTime","Div1WheelsOff","Div1TailNum","Div2Airport","Div2AirportID","Div2AirportSeqID","Div2WheelsOn","Div2TotalGTime","Div2LongestGTime","Div2WheelsOff","Div2TailNum","Div3Airport","Div3AirportID","Div3AirportSeqID","Div3WheelsOn","Div3TotalGTime","Div3LongestGTime","Div3WheelsOff","Div3TailNum","Div4Airport","Div4AirportID","Div4AirportSeqID","Div4WheelsOn","Div4TotalGTime","Div4LongestGTime","Div4WheelsOff","Div4TailNum","Div5Airport","Div5AirportID","Div5AirportSeqID","Div5WheelsOn","Div5TotalGTime","Div5LongestGTime","Div5WheelsOff","Div5TailNum","Duplicate",});        
  		StringBuilder strBuffer_tLogRow_1 = null;
 		int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
 
 				class LogRowUtil_tLogRow_1{
 						public void putTableVerticalValue_0(final row2Struct row2,String[] row_tLogRow_1){   				
-	    					if(row2._Year != null) { //              
+	    					if(row2.Year != null) { //              
                  				row_tLogRow_1[0]=    						    
-				                String.valueOf(row2._Year)			
+				                String.valueOf(row2.Year)			
 					          ;	
 	    					} //   				
-	    					if(row2._Quarter != null) { //              
+	    					if(row2.Quarter != null) { //              
                  				row_tLogRow_1[1]=    						    
-				                String.valueOf(row2._Quarter)			
+				                String.valueOf(row2.Quarter)			
 					          ;	
 	    					} //   				
-	    					if(row2._Month != null) { //              
+	    					if(row2.Month != null) { //              
                  				row_tLogRow_1[2]=    						    
-				                String.valueOf(row2._Month)			
+				                String.valueOf(row2.Month)			
 					          ;	
 	    					} //   				
-	    					if(row2._DayofMonth != null) { //              
+	    					if(row2.DayofMonth != null) { //              
                  				row_tLogRow_1[3]=    						    
-				                String.valueOf(row2._DayofMonth)			
+				                String.valueOf(row2.DayofMonth)			
 					          ;	
 	    					} //   				
-	    					if(row2._DayOfWeek != null) { //              
+	    					if(row2.DayOfWeek != null) { //              
                  				row_tLogRow_1[4]=    						    
-				                String.valueOf(row2._DayOfWeek)			
+				                String.valueOf(row2.DayOfWeek)			
 					          ;	
 	    					} //   				
-	    					if(row2._FlightDate != null) { //              
+	    					if(row2.FlightDate != null) { //              
                  				row_tLogRow_1[5]=    						    
-				                String.valueOf(row2._FlightDate)			
+				                String.valueOf(row2.FlightDate)			
 					          ;	
 	    					} //   				
-	    					if(row2._Marketing_Airline_Network != null) { //              
+	    					if(row2.Marketing_Airline_Network != null) { //              
                  				row_tLogRow_1[6]=    						    
-				                String.valueOf(row2._Marketing_Airline_Network)			
+				                String.valueOf(row2.Marketing_Airline_Network)			
 					          ;	
 	    					} //   				
-	    					if(row2._Operated_or_Branded_Code_Share_Partners != null) { //              
+	    					if(row2.Operated_or_Branded_Code_Share_Partners != null) { //              
                  				row_tLogRow_1[7]=    						    
-				                String.valueOf(row2._Operated_or_Branded_Code_Share_Partners)			
+				                String.valueOf(row2.Operated_or_Branded_Code_Share_Partners)			
 					          ;	
 	    					} //   				
-	    					if(row2._DOT_ID_Marketing_Airline != null) { //              
+	    					if(row2.DOT_ID_Marketing_Airline != null) { //              
                  				row_tLogRow_1[8]=    						    
-				                String.valueOf(row2._DOT_ID_Marketing_Airline)			
+				                String.valueOf(row2.DOT_ID_Marketing_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._IATA_Code_Marketing_Airline != null) { //              
+	    					if(row2.IATA_Code_Marketing_Airline != null) { //              
                  				row_tLogRow_1[9]=    						    
-				                String.valueOf(row2._IATA_Code_Marketing_Airline)			
+				                String.valueOf(row2.IATA_Code_Marketing_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._Flight_Number_Marketing_Airline != null) { //              
+	    					if(row2.Flight_Number_Marketing_Airline != null) { //              
                  				row_tLogRow_1[10]=    						    
-				                String.valueOf(row2._Flight_Number_Marketing_Airline)			
+				                String.valueOf(row2.Flight_Number_Marketing_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._Originally_Scheduled_Code_Share_Airline != null) { //              
+	    					if(row2.Originally_Scheduled_Code_Share_Airline != null) { //              
                  				row_tLogRow_1[11]=    						    
-				                String.valueOf(row2._Originally_Scheduled_Code_Share_Airline)			
+				                String.valueOf(row2.Originally_Scheduled_Code_Share_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._DOT_ID_Originally_Scheduled_Code_Share_Airline != null) { //              
+	    					if(row2.DOT_ID_Originally_Scheduled_Code_Share_Airline != null) { //              
                  				row_tLogRow_1[12]=    						    
-				                String.valueOf(row2._DOT_ID_Originally_Scheduled_Code_Share_Airline)			
+				                String.valueOf(row2.DOT_ID_Originally_Scheduled_Code_Share_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._IATA_Code_Originally_Scheduled_Code_Share_Airline != null) { //              
+	    					if(row2.IATA_Code_Originally_Scheduled_Code_Share_Airline != null) { //              
                  				row_tLogRow_1[13]=    						    
-				                String.valueOf(row2._IATA_Code_Originally_Scheduled_Code_Share_Airline)			
+				                String.valueOf(row2.IATA_Code_Originally_Scheduled_Code_Share_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._Flight_Num_Originally_Scheduled_Code_Share_Airline != null) { //              
+	    					if(row2.Flight_Num_Originally_Scheduled_Code_Share_Airline != null) { //              
                  				row_tLogRow_1[14]=    						    
-				                String.valueOf(row2._Flight_Num_Originally_Scheduled_Code_Share_Airline)			
+				                String.valueOf(row2.Flight_Num_Originally_Scheduled_Code_Share_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._Operating_Airline != null) { //              
+	    					if(row2.Operating_Airline != null) { //              
                  				row_tLogRow_1[15]=    						    
-				                String.valueOf(row2._Operating_Airline)			
+				                String.valueOf(row2.Operating_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._DOT_ID_Operating_Airline != null) { //              
+	    					if(row2.DOT_ID_Operating_Airline != null) { //              
                  				row_tLogRow_1[16]=    						    
-				                String.valueOf(row2._DOT_ID_Operating_Airline)			
+				                String.valueOf(row2.DOT_ID_Operating_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._IATA_Code_Operating_Airline != null) { //              
+	    					if(row2.IATA_Code_Operating_Airline != null) { //              
                  				row_tLogRow_1[17]=    						    
-				                String.valueOf(row2._IATA_Code_Operating_Airline)			
+				                String.valueOf(row2.IATA_Code_Operating_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._Tail_Number != null) { //              
+	    					if(row2.Tail_Number != null) { //              
                  				row_tLogRow_1[18]=    						    
-				                String.valueOf(row2._Tail_Number)			
+				                String.valueOf(row2.Tail_Number)			
 					          ;	
 	    					} //   				
-	    					if(row2._Flight_Number_Operating_Airline != null) { //              
+	    					if(row2.Flight_Number_Operating_Airline != null) { //              
                  				row_tLogRow_1[19]=    						    
-				                String.valueOf(row2._Flight_Number_Operating_Airline)			
+				                String.valueOf(row2.Flight_Number_Operating_Airline)			
 					          ;	
 	    					} //   				
-	    					if(row2._OriginAirportID != null) { //              
+	    					if(row2.OriginAirportID != null) { //              
                  				row_tLogRow_1[20]=    						    
-				                String.valueOf(row2._OriginAirportID)			
+				                String.valueOf(row2.OriginAirportID)			
 					          ;	
 	    					} //   				
-	    					if(row2._OriginAirportSeqID != null) { //              
+	    					if(row2.OriginAirportSeqID != null) { //              
                  				row_tLogRow_1[21]=    						    
-				                String.valueOf(row2._OriginAirportSeqID)			
+				                String.valueOf(row2.OriginAirportSeqID)			
 					          ;	
 	    					} //   				
-	    					if(row2._OriginCityMarketID != null) { //              
+	    					if(row2.OriginCityMarketID != null) { //              
                  				row_tLogRow_1[22]=    						    
-				                String.valueOf(row2._OriginCityMarketID)			
+				                String.valueOf(row2.OriginCityMarketID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Origin != null) { //              
+	    					if(row2.Origin != null) { //              
                  				row_tLogRow_1[23]=    						    
-				                String.valueOf(row2._Origin)			
+				                String.valueOf(row2.Origin)			
 					          ;	
 	    					} //   				
-	    					if(row2._OriginCityName != null) { //              
+	    					if(row2.OriginCityName != null) { //              
                  				row_tLogRow_1[24]=    						    
-				                String.valueOf(row2._OriginCityName)			
+				                String.valueOf(row2.OriginCityName)			
 					          ;	
 	    					} //   				
-	    					if(row2._OriginState != null) { //              
+	    					if(row2.OriginState != null) { //              
                  				row_tLogRow_1[25]=    						    
-				                String.valueOf(row2._OriginState)			
+				                String.valueOf(row2.OriginState)			
 					          ;	
 	    					} //   				
-	    					if(row2._OriginStateFips != null) { //              
+	    					if(row2.OriginStateFips != null) { //              
                  				row_tLogRow_1[26]=    						    
-				                String.valueOf(row2._OriginStateFips)			
+				                String.valueOf(row2.OriginStateFips)			
 					          ;	
 	    					} //   				
-	    					if(row2._OriginStateName != null) { //              
+	    					if(row2.OriginStateName != null) { //              
                  				row_tLogRow_1[27]=    						    
-				                String.valueOf(row2._OriginStateName)			
+				                String.valueOf(row2.OriginStateName)			
 					          ;	
 	    					} //   				
-	    					if(row2._OriginWac != null) { //              
+	    					if(row2.OriginWac != null) { //              
                  				row_tLogRow_1[28]=    						    
-				                String.valueOf(row2._OriginWac)			
+				                String.valueOf(row2.OriginWac)			
 					          ;	
 	    					} //   				
-	    					if(row2._DestAirportID != null) { //              
+	    					if(row2.DestAirportID != null) { //              
                  				row_tLogRow_1[29]=    						    
-				                String.valueOf(row2._DestAirportID)			
+				                String.valueOf(row2.DestAirportID)			
 					          ;	
 	    					} //   				
-	    					if(row2._DestAirportSeqID != null) { //              
+	    					if(row2.DestAirportSeqID != null) { //              
                  				row_tLogRow_1[30]=    						    
-				                String.valueOf(row2._DestAirportSeqID)			
+				                String.valueOf(row2.DestAirportSeqID)			
 					          ;	
 	    					} //   				
-	    					if(row2._DestCityMarketID != null) { //              
+	    					if(row2.DestCityMarketID != null) { //              
                  				row_tLogRow_1[31]=    						    
-				                String.valueOf(row2._DestCityMarketID)			
+				                String.valueOf(row2.DestCityMarketID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Dest != null) { //              
+	    					if(row2.Dest != null) { //              
                  				row_tLogRow_1[32]=    						    
-				                String.valueOf(row2._Dest)			
+				                String.valueOf(row2.Dest)			
 					          ;	
 	    					} //   				
-	    					if(row2._DestCityName != null) { //              
+	    					if(row2.DestCityName != null) { //              
                  				row_tLogRow_1[33]=    						    
-				                String.valueOf(row2._DestCityName)			
+				                String.valueOf(row2.DestCityName)			
 					          ;	
 	    					} //   				
-	    					if(row2._DestState != null) { //              
+	    					if(row2.DestState != null) { //              
                  				row_tLogRow_1[34]=    						    
-				                String.valueOf(row2._DestState)			
+				                String.valueOf(row2.DestState)			
 					          ;	
 	    					} //   				
-	    					if(row2._DestStateFips != null) { //              
+	    					if(row2.DestStateFips != null) { //              
                  				row_tLogRow_1[35]=    						    
-				                String.valueOf(row2._DestStateFips)			
+				                String.valueOf(row2.DestStateFips)			
 					          ;	
 	    					} //   				
-	    					if(row2._DestStateName != null) { //              
+	    					if(row2.DestStateName != null) { //              
                  				row_tLogRow_1[36]=    						    
-				                String.valueOf(row2._DestStateName)			
+				                String.valueOf(row2.DestStateName)			
 					          ;	
 	    					} //   				
-	    					if(row2._DestWac != null) { //              
+	    					if(row2.DestWac != null) { //              
                  				row_tLogRow_1[37]=    						    
-				                String.valueOf(row2._DestWac)			
+				                String.valueOf(row2.DestWac)			
 					          ;	
 	    					} //   				
-	    					if(row2._CRSDepTime != null) { //              
+	    					if(row2.CRSDepTime != null) { //              
                  				row_tLogRow_1[38]=    						    
-				                String.valueOf(row2._CRSDepTime)			
+				                String.valueOf(row2.CRSDepTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._DepTime != null) { //              
+	    					if(row2.DepTime != null) { //              
                  				row_tLogRow_1[39]=    						    
-				                String.valueOf(row2._DepTime)			
+				                String.valueOf(row2.DepTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._DepDelay != null) { //              
+	    					if(row2.DepDelay != null) { //              
                  				row_tLogRow_1[40]=    						    
-				                String.valueOf(row2._DepDelay)			
+				                String.valueOf(row2.DepDelay)			
 					          ;	
 	    					} //   				
-	    					if(row2._DepDelayMinutes != null) { //              
+	    					if(row2.DepDelayMinutes != null) { //              
                  				row_tLogRow_1[41]=    						    
-				                String.valueOf(row2._DepDelayMinutes)			
+				                String.valueOf(row2.DepDelayMinutes)			
 					          ;	
 	    					} //   				
-	    					if(row2._DepDel15 != null) { //              
+	    					if(row2.DepDel15 != null) { //              
                  				row_tLogRow_1[42]=    						    
-				                String.valueOf(row2._DepDel15)			
+				                String.valueOf(row2.DepDel15)			
 					          ;	
 	    					} //   				
-	    					if(row2._DepartureDelayGroups != null) { //              
+	    					if(row2.DepartureDelayGroups != null) { //              
                  				row_tLogRow_1[43]=    						    
-				                String.valueOf(row2._DepartureDelayGroups)			
+				                String.valueOf(row2.DepartureDelayGroups)			
 					          ;	
 	    					} //   				
-	    					if(row2._DepTimeBlk != null) { //              
+	    					if(row2.DepTimeBlk != null) { //              
                  				row_tLogRow_1[44]=    						    
-				                String.valueOf(row2._DepTimeBlk)			
+				                String.valueOf(row2.DepTimeBlk)			
 					          ;	
 	    					} //   				
-	    					if(row2._TaxiOut != null) { //              
+	    					if(row2.TaxiOut != null) { //              
                  				row_tLogRow_1[45]=    						    
-				                String.valueOf(row2._TaxiOut)			
+				                String.valueOf(row2.TaxiOut)			
 					          ;	
 	    					} //   				
-	    					if(row2._WheelsOff != null) { //              
+	    					if(row2.WheelsOff != null) { //              
                  				row_tLogRow_1[46]=    						    
-				                String.valueOf(row2._WheelsOff)			
+				                String.valueOf(row2.WheelsOff)			
 					          ;	
 	    					} //   				
-	    					if(row2._WheelsOn != null) { //              
+	    					if(row2.WheelsOn != null) { //              
                  				row_tLogRow_1[47]=    						    
-				                String.valueOf(row2._WheelsOn)			
+				                String.valueOf(row2.WheelsOn)			
 					          ;	
 	    					} //   				
-	    					if(row2._TaxiIn != null) { //              
+	    					if(row2.TaxiIn != null) { //              
                  				row_tLogRow_1[48]=    						    
-				                String.valueOf(row2._TaxiIn)			
+				                String.valueOf(row2.TaxiIn)			
 					          ;	
 	    					} //   				
-	    					if(row2._CRSArrTime != null) { //              
+	    					if(row2.CRSArrTime != null) { //              
                  				row_tLogRow_1[49]=    						    
-				                String.valueOf(row2._CRSArrTime)			
+				                String.valueOf(row2.CRSArrTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._ArrTime != null) { //              
+	    					if(row2.ArrTime != null) { //              
                  				row_tLogRow_1[50]=    						    
-				                String.valueOf(row2._ArrTime)			
+				                String.valueOf(row2.ArrTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._ArrDelay != null) { //              
+	    					if(row2.ArrDelay != null) { //              
                  				row_tLogRow_1[51]=    						    
-				                String.valueOf(row2._ArrDelay)			
+				                String.valueOf(row2.ArrDelay)			
 					          ;	
 	    					} //   				
-	    					if(row2._ArrDelayMinutes != null) { //              
+	    					if(row2.ArrDelayMinutes != null) { //              
                  				row_tLogRow_1[52]=    						    
-				                String.valueOf(row2._ArrDelayMinutes)			
+				                String.valueOf(row2.ArrDelayMinutes)			
 					          ;	
 	    					} //   				
-	    					if(row2._ArrDel15 != null) { //              
+	    					if(row2.ArrDel15 != null) { //              
                  				row_tLogRow_1[53]=    						    
-				                String.valueOf(row2._ArrDel15)			
+				                String.valueOf(row2.ArrDel15)			
 					          ;	
 	    					} //   				
-	    					if(row2._ArrivalDelayGroups != null) { //              
+	    					if(row2.ArrivalDelayGroups != null) { //              
                  				row_tLogRow_1[54]=    						    
-				                String.valueOf(row2._ArrivalDelayGroups)			
+				                String.valueOf(row2.ArrivalDelayGroups)			
 					          ;	
 	    					} //   				
-	    					if(row2._ArrTimeBlk != null) { //              
+	    					if(row2.ArrTimeBlk != null) { //              
                  				row_tLogRow_1[55]=    						    
-				                String.valueOf(row2._ArrTimeBlk)			
+				                String.valueOf(row2.ArrTimeBlk)			
 					          ;	
 	    					} //   				
-	    					if(row2._Cancelled != null) { //              
-                 				row_tLogRow_1[56]=    						    
-				                String.valueOf(row2._Cancelled)			
+	    					if(row2.Cancelled != null) { //              
+                 				row_tLogRow_1[56]=    						
+								FormatterUtils.formatUnwithE(row2.Cancelled)
 					          ;	
 	    					} //   				
-	    					if(row2._CancellationCode != null) { //              
+	    					if(row2.CancellationCode != null) { //              
                  				row_tLogRow_1[57]=    						    
-				                String.valueOf(row2._CancellationCode)			
+				                String.valueOf(row2.CancellationCode)			
 					          ;	
 	    					} //   				
-	    					if(row2._Diverted != null) { //              
+	    					if(row2.Diverted != null) { //              
                  				row_tLogRow_1[58]=    						
-								FormatterUtils.formatUnwithE(row2._Diverted)
+								FormatterUtils.formatUnwithE(row2.Diverted)
 					          ;	
 	    					} //   				
-	    					if(row2._CRSElapsedTime != null) { //              
-                 				row_tLogRow_1[59]=    						    
-				                String.valueOf(row2._CRSElapsedTime)			
+	    					if(row2.CRSElapsedTime != null) { //              
+                 				row_tLogRow_1[59]=    						
+								FormatterUtils.formatUnwithE(row2.CRSElapsedTime)
 					          ;	
 	    					} //   				
-	    					if(row2._ActualElapsedTime != null) { //              
-                 				row_tLogRow_1[60]=    						
-								FormatterUtils.formatUnwithE(row2._ActualElapsedTime)
+	    					if(row2.ActualElapsedTime != null) { //              
+                 				row_tLogRow_1[60]=    						    
+				                String.valueOf(row2.ActualElapsedTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._AirTime != null) { //              
-                 				row_tLogRow_1[61]=    						
-								FormatterUtils.formatUnwithE(row2._AirTime)
+	    					if(row2.AirTime != null) { //              
+                 				row_tLogRow_1[61]=    						    
+				                String.valueOf(row2.AirTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._Flights != null) { //              
-                 				row_tLogRow_1[62]=    						    
-				                String.valueOf(row2._Flights)			
+	    					if(row2.Flights != null) { //              
+                 				row_tLogRow_1[62]=    						
+								FormatterUtils.formatUnwithE(row2.Flights)
 					          ;	
 	    					} //   				
-	    					if(row2._Distance != null) { //              
-                 				row_tLogRow_1[63]=    						    
-				                String.valueOf(row2._Distance)			
+	    					if(row2.Distance != null) { //              
+                 				row_tLogRow_1[63]=    						
+								FormatterUtils.formatUnwithE(row2.Distance)
 					          ;	
 	    					} //   				
-	    					if(row2._DistanceGroup != null) { //              
-                 				row_tLogRow_1[64]=    						
-								FormatterUtils.formatUnwithE(row2._DistanceGroup)
+	    					if(row2.DistanceGroup != null) { //              
+                 				row_tLogRow_1[64]=    						    
+				                String.valueOf(row2.DistanceGroup)			
 					          ;	
 	    					} //   				
-	    					if(row2._CarrierDelay != null) { //              
-                 				row_tLogRow_1[65]=    						
-								FormatterUtils.formatUnwithE(row2._CarrierDelay)
+	    					if(row2.CarrierDelay != null) { //              
+                 				row_tLogRow_1[65]=    						    
+				                String.valueOf(row2.CarrierDelay)			
 					          ;	
 	    					} //   				
-	    					if(row2._WeatherDelay != null) { //              
+	    					if(row2.WeatherDelay != null) { //              
                  				row_tLogRow_1[66]=    						    
-				                String.valueOf(row2._WeatherDelay)			
+				                String.valueOf(row2.WeatherDelay)			
 					          ;	
 	    					} //   				
-	    					if(row2._NASDelay != null) { //              
+	    					if(row2.NASDelay != null) { //              
                  				row_tLogRow_1[67]=    						    
-				                String.valueOf(row2._NASDelay)			
+				                String.valueOf(row2.NASDelay)			
 					          ;	
 	    					} //   				
-	    					if(row2._SecurityDelay != null) { //              
+	    					if(row2.SecurityDelay != null) { //              
                  				row_tLogRow_1[68]=    						    
-				                String.valueOf(row2._SecurityDelay)			
+				                String.valueOf(row2.SecurityDelay)			
 					          ;	
 	    					} //   				
-	    					if(row2._LateAircraftDelay != null) { //              
+	    					if(row2.LateAircraftDelay != null) { //              
                  				row_tLogRow_1[69]=    						    
-				                String.valueOf(row2._LateAircraftDelay)			
+				                String.valueOf(row2.LateAircraftDelay)			
 					          ;	
 	    					} //   				
-	    					if(row2._FirstDepTime != null) { //              
+	    					if(row2.FirstDepTime != null) { //              
                  				row_tLogRow_1[70]=    						    
-				                String.valueOf(row2._FirstDepTime)			
+				                String.valueOf(row2.FirstDepTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._TotalAddGTime != null) { //              
+	    					if(row2.TotalAddGTime != null) { //              
                  				row_tLogRow_1[71]=    						    
-				                String.valueOf(row2._TotalAddGTime)			
+				                String.valueOf(row2.TotalAddGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._LongestAddGTime != null) { //              
+	    					if(row2.LongestAddGTime != null) { //              
                  				row_tLogRow_1[72]=    						    
-				                String.valueOf(row2._LongestAddGTime)			
+				                String.valueOf(row2.LongestAddGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._DivAirportLandings != null) { //              
+	    					if(row2.DivAirportLandings != null) { //              
                  				row_tLogRow_1[73]=    						    
-				                String.valueOf(row2._DivAirportLandings)			
+				                String.valueOf(row2.DivAirportLandings)			
 					          ;	
 	    					} //   				
-	    					if(row2._DivReachedDest != null) { //              
+	    					if(row2.DivReachedDest != null) { //              
                  				row_tLogRow_1[74]=    						    
-				                String.valueOf(row2._DivReachedDest)			
+				                String.valueOf(row2.DivReachedDest)			
 					          ;	
 	    					} //   				
-	    					if(row2._DivActualElapsedTime != null) { //              
+	    					if(row2.DivActualElapsedTime != null) { //              
                  				row_tLogRow_1[75]=    						    
-				                String.valueOf(row2._DivActualElapsedTime)			
+				                String.valueOf(row2.DivActualElapsedTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._DivArrDelay != null) { //              
+	    					if(row2.DivArrDelay != null) { //              
                  				row_tLogRow_1[76]=    						    
-				                String.valueOf(row2._DivArrDelay)			
+				                String.valueOf(row2.DivArrDelay)			
 					          ;	
 	    					} //   				
-	    					if(row2._DivDistance != null) { //              
+	    					if(row2.DivDistance != null) { //              
                  				row_tLogRow_1[77]=    						    
-				                String.valueOf(row2._DivDistance)			
+				                String.valueOf(row2.DivDistance)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div1Airport != null) { //              
+	    					if(row2.Div1Airport != null) { //              
                  				row_tLogRow_1[78]=    						    
-				                String.valueOf(row2._Div1Airport)			
+				                String.valueOf(row2.Div1Airport)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div1AirportID != null) { //              
+	    					if(row2.Div1AirportID != null) { //              
                  				row_tLogRow_1[79]=    						    
-				                String.valueOf(row2._Div1AirportID)			
+				                String.valueOf(row2.Div1AirportID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div1AirportSeqID != null) { //              
+	    					if(row2.Div1AirportSeqID != null) { //              
                  				row_tLogRow_1[80]=    						    
-				                String.valueOf(row2._Div1AirportSeqID)			
+				                String.valueOf(row2.Div1AirportSeqID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div1WheelsOn != null) { //              
+	    					if(row2.Div1WheelsOn != null) { //              
                  				row_tLogRow_1[81]=    						    
-				                String.valueOf(row2._Div1WheelsOn)			
+				                String.valueOf(row2.Div1WheelsOn)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div1TotalGTime != null) { //              
+	    					if(row2.Div1TotalGTime != null) { //              
                  				row_tLogRow_1[82]=    						    
-				                String.valueOf(row2._Div1TotalGTime)			
+				                String.valueOf(row2.Div1TotalGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div1LongestGTime != null) { //              
+	    					if(row2.Div1LongestGTime != null) { //              
                  				row_tLogRow_1[83]=    						    
-				                String.valueOf(row2._Div1LongestGTime)			
+				                String.valueOf(row2.Div1LongestGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div1WheelsOff != null) { //              
+	    					if(row2.Div1WheelsOff != null) { //              
                  				row_tLogRow_1[84]=    						    
-				                String.valueOf(row2._Div1WheelsOff)			
+				                String.valueOf(row2.Div1WheelsOff)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div1TailNum != null) { //              
+	    					if(row2.Div1TailNum != null) { //              
                  				row_tLogRow_1[85]=    						    
-				                String.valueOf(row2._Div1TailNum)			
+				                String.valueOf(row2.Div1TailNum)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div2Airport != null) { //              
+	    					if(row2.Div2Airport != null) { //              
                  				row_tLogRow_1[86]=    						    
-				                String.valueOf(row2._Div2Airport)			
+				                String.valueOf(row2.Div2Airport)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div2AirportID != null) { //              
+	    					if(row2.Div2AirportID != null) { //              
                  				row_tLogRow_1[87]=    						    
-				                String.valueOf(row2._Div2AirportID)			
+				                String.valueOf(row2.Div2AirportID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div2AirportSeqID != null) { //              
+	    					if(row2.Div2AirportSeqID != null) { //              
                  				row_tLogRow_1[88]=    						    
-				                String.valueOf(row2._Div2AirportSeqID)			
+				                String.valueOf(row2.Div2AirportSeqID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div2WheelsOn != null) { //              
+	    					if(row2.Div2WheelsOn != null) { //              
                  				row_tLogRow_1[89]=    						    
-				                String.valueOf(row2._Div2WheelsOn)			
+				                String.valueOf(row2.Div2WheelsOn)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div2TotalGTime != null) { //              
+	    					if(row2.Div2TotalGTime != null) { //              
                  				row_tLogRow_1[90]=    						    
-				                String.valueOf(row2._Div2TotalGTime)			
+				                String.valueOf(row2.Div2TotalGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div2LongestGTime != null) { //              
+	    					if(row2.Div2LongestGTime != null) { //              
                  				row_tLogRow_1[91]=    						    
-				                String.valueOf(row2._Div2LongestGTime)			
+				                String.valueOf(row2.Div2LongestGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div2WheelsOff != null) { //              
+	    					if(row2.Div2WheelsOff != null) { //              
                  				row_tLogRow_1[92]=    						    
-				                String.valueOf(row2._Div2WheelsOff)			
+				                String.valueOf(row2.Div2WheelsOff)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div2TailNum != null) { //              
+	    					if(row2.Div2TailNum != null) { //              
                  				row_tLogRow_1[93]=    						    
-				                String.valueOf(row2._Div2TailNum)			
+				                String.valueOf(row2.Div2TailNum)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div3Airport != null) { //              
+	    					if(row2.Div3Airport != null) { //              
                  				row_tLogRow_1[94]=    						    
-				                String.valueOf(row2._Div3Airport)			
+				                String.valueOf(row2.Div3Airport)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div3AirportID != null) { //              
+	    					if(row2.Div3AirportID != null) { //              
                  				row_tLogRow_1[95]=    						    
-				                String.valueOf(row2._Div3AirportID)			
+				                String.valueOf(row2.Div3AirportID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div3AirportSeqID != null) { //              
+	    					if(row2.Div3AirportSeqID != null) { //              
                  				row_tLogRow_1[96]=    						    
-				                String.valueOf(row2._Div3AirportSeqID)			
+				                String.valueOf(row2.Div3AirportSeqID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div3WheelsOn != null) { //              
+	    					if(row2.Div3WheelsOn != null) { //              
                  				row_tLogRow_1[97]=    						    
-				                String.valueOf(row2._Div3WheelsOn)			
+				                String.valueOf(row2.Div3WheelsOn)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div3TotalGTime != null) { //              
+	    					if(row2.Div3TotalGTime != null) { //              
                  				row_tLogRow_1[98]=    						    
-				                String.valueOf(row2._Div3TotalGTime)			
+				                String.valueOf(row2.Div3TotalGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div3LongestGTime != null) { //              
+	    					if(row2.Div3LongestGTime != null) { //              
                  				row_tLogRow_1[99]=    						    
-				                String.valueOf(row2._Div3LongestGTime)			
+				                String.valueOf(row2.Div3LongestGTime)			
 					          ;	
 	    					} //
 						}
 						public void putTableVerticalValue_1(final row2Struct row2,String[] row_tLogRow_1){   				
-	    					if(row2._Div3WheelsOff != null) { //              
+	    					if(row2.Div3WheelsOff != null) { //              
                  				row_tLogRow_1[100]=    						    
-				                String.valueOf(row2._Div3WheelsOff)			
+				                String.valueOf(row2.Div3WheelsOff)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div3TailNum != null) { //              
+	    					if(row2.Div3TailNum != null) { //              
                  				row_tLogRow_1[101]=    						    
-				                String.valueOf(row2._Div3TailNum)			
+				                String.valueOf(row2.Div3TailNum)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div4Airport != null) { //              
+	    					if(row2.Div4Airport != null) { //              
                  				row_tLogRow_1[102]=    						    
-				                String.valueOf(row2._Div4Airport)			
+				                String.valueOf(row2.Div4Airport)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div4AirportID != null) { //              
+	    					if(row2.Div4AirportID != null) { //              
                  				row_tLogRow_1[103]=    						    
-				                String.valueOf(row2._Div4AirportID)			
+				                String.valueOf(row2.Div4AirportID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div4AirportSeqID != null) { //              
+	    					if(row2.Div4AirportSeqID != null) { //              
                  				row_tLogRow_1[104]=    						    
-				                String.valueOf(row2._Div4AirportSeqID)			
+				                String.valueOf(row2.Div4AirportSeqID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div4WheelsOn != null) { //              
+	    					if(row2.Div4WheelsOn != null) { //              
                  				row_tLogRow_1[105]=    						    
-				                String.valueOf(row2._Div4WheelsOn)			
+				                String.valueOf(row2.Div4WheelsOn)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div4TotalGTime != null) { //              
+	    					if(row2.Div4TotalGTime != null) { //              
                  				row_tLogRow_1[106]=    						    
-				                String.valueOf(row2._Div4TotalGTime)			
+				                String.valueOf(row2.Div4TotalGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div4LongestGTime != null) { //              
+	    					if(row2.Div4LongestGTime != null) { //              
                  				row_tLogRow_1[107]=    						    
-				                String.valueOf(row2._Div4LongestGTime)			
+				                String.valueOf(row2.Div4LongestGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div4WheelsOff != null) { //              
+	    					if(row2.Div4WheelsOff != null) { //              
                  				row_tLogRow_1[108]=    						    
-				                String.valueOf(row2._Div4WheelsOff)			
+				                String.valueOf(row2.Div4WheelsOff)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div4TailNum != null) { //              
+	    					if(row2.Div4TailNum != null) { //              
                  				row_tLogRow_1[109]=    						    
-				                String.valueOf(row2._Div4TailNum)			
+				                String.valueOf(row2.Div4TailNum)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div5Airport != null) { //              
+	    					if(row2.Div5Airport != null) { //              
                  				row_tLogRow_1[110]=    						    
-				                String.valueOf(row2._Div5Airport)			
+				                String.valueOf(row2.Div5Airport)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div5AirportID != null) { //              
+	    					if(row2.Div5AirportID != null) { //              
                  				row_tLogRow_1[111]=    						    
-				                String.valueOf(row2._Div5AirportID)			
+				                String.valueOf(row2.Div5AirportID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div5AirportSeqID != null) { //              
+	    					if(row2.Div5AirportSeqID != null) { //              
                  				row_tLogRow_1[112]=    						    
-				                String.valueOf(row2._Div5AirportSeqID)			
+				                String.valueOf(row2.Div5AirportSeqID)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div5WheelsOn != null) { //              
+	    					if(row2.Div5WheelsOn != null) { //              
                  				row_tLogRow_1[113]=    						    
-				                String.valueOf(row2._Div5WheelsOn)			
+				                String.valueOf(row2.Div5WheelsOn)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div5TotalGTime != null) { //              
+	    					if(row2.Div5TotalGTime != null) { //              
                  				row_tLogRow_1[114]=    						    
-				                String.valueOf(row2._Div5TotalGTime)			
+				                String.valueOf(row2.Div5TotalGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div5LongestGTime != null) { //              
+	    					if(row2.Div5LongestGTime != null) { //              
                  				row_tLogRow_1[115]=    						    
-				                String.valueOf(row2._Div5LongestGTime)			
+				                String.valueOf(row2.Div5LongestGTime)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div5WheelsOff != null) { //              
+	    					if(row2.Div5WheelsOff != null) { //              
                  				row_tLogRow_1[116]=    						    
-				                String.valueOf(row2._Div5WheelsOff)			
+				                String.valueOf(row2.Div5WheelsOff)			
 					          ;	
 	    					} //   				
-	    					if(row2._Div5TailNum != null) { //              
+	    					if(row2.Div5TailNum != null) { //              
                  				row_tLogRow_1[117]=    						    
-				                String.valueOf(row2._Div5TailNum)			
+				                String.valueOf(row2.Div5TailNum)			
 					          ;	
 	    					} //   				
-	    					if(row2._Duplicate != null) { //              
+	    					if(row2.Duplicate != null) { //              
                  				row_tLogRow_1[118]=    						    
-				                String.valueOf(row2._Duplicate)			
+				                String.valueOf(row2.Duplicate)			
 					          ;	
 	    					} //
 						}
@@ -10490,7 +10641,7 @@ dimensionStruct dimension_tmp = new dimensionStruct();
 		    public boolean hashCodeDirty = true;
 	
 	        
-					Integer _OriginAirportID;        
+					Integer OriginAirportID;        
 	        
 		    @Override
 			public int hashCode() {
@@ -10498,7 +10649,7 @@ dimensionStruct dimension_tmp = new dimensionStruct();
 					final int prime = PRIME;
 					int result = DEFAULT_HASHCODE;
 			
-								result = prime * result + ((this._OriginAirportID == null) ? 0 : this._OriginAirportID.hashCode());
+								result = prime * result + ((this.OriginAirportID == null) ? 0 : this.OriginAirportID.hashCode());
 								
 		    		this.hashCode = result;
 		    		this.hashCodeDirty = false;		
@@ -10513,11 +10664,11 @@ dimensionStruct dimension_tmp = new dimensionStruct();
 				if (getClass() != obj.getClass()) return false;
 				final KeyStruct_tUniqRow_1 other = (KeyStruct_tUniqRow_1) obj;
 				
-									if (this._OriginAirportID == null) {
-										if (other._OriginAirportID != null) 
+									if (this.OriginAirportID == null) {
+										if (other.OriginAirportID != null) 
 											return false;
 								
-									} else if (!this._OriginAirportID.equals(other._OriginAirportID))
+									} else if (!this.OriginAirportID.equals(other.OriginAirportID))
 								 
 										return false;
 								
@@ -10573,1042 +10724,3380 @@ java.util.Set<KeyStruct_tUniqRow_1> keystUniqRow_1 = new java.util.HashSet<KeySt
 	
 				class RowHelper_tFileInputDelimited_1{
 				
-					public void valueToConn_0(org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
+					public void valueToConn_0(String[] rowtFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
 						
-				int columnIndexWithD_tFileInputDelimited_1 = 0;
-				
-					String temp = ""; 
-				
-					columnIndexWithD_tFileInputDelimited_1 = 0;
+				char fieldSeparator_tFileInputDelimited_1_ListType[] = null;
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_1_ListType = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+				if(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])){//empty line when row separator is '\n'
 					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+							row1.Year = null;
+					
+							row1.Quarter = null;
+					
+							row1.Month = null;
+					
+							row1.DayofMonth = null;
+					
+							row1.DayOfWeek = null;
+					
+							row1.FlightDate = null;
+					
+							row1.Marketing_Airline_Network = null;
+					
+							row1.Operated_or_Branded_Code_Share_Partners = null;
+					
+							row1.DOT_ID_Marketing_Airline = null;
+					
+							row1.IATA_Code_Marketing_Airline = null;
+					
+							row1.Flight_Number_Marketing_Airline = null;
+					
+							row1.Originally_Scheduled_Code_Share_Airline = null;
+					
+							row1.DOT_ID_Originally_Scheduled_Code_Share_Airline = null;
+					
+							row1.IATA_Code_Originally_Scheduled_Code_Share_Airline = null;
+					
+							row1.Flight_Num_Originally_Scheduled_Code_Share_Airline = null;
+					
+							row1.Operating_Airline = null;
+					
+							row1.DOT_ID_Operating_Airline = null;
+					
+							row1.IATA_Code_Operating_Airline = null;
+					
+							row1.Tail_Number = null;
+					
+							row1.Flight_Number_Operating_Airline = null;
+					
+							row1.OriginAirportID = null;
+					
+							row1.OriginAirportSeqID = null;
+					
+							row1.OriginCityMarketID = null;
+					
+							row1.Origin = null;
+					
+							row1.OriginCityName = null;
+					
+							row1.OriginState = null;
+					
+							row1.OriginStateFips = null;
+					
+							row1.OriginStateName = null;
+					
+							row1.OriginWac = null;
+					
+							row1.DestAirportID = null;
+					
+							row1.DestAirportSeqID = null;
+					
+							row1.DestCityMarketID = null;
+					
+							row1.Dest = null;
+					
+							row1.DestCityName = null;
+					
+							row1.DestState = null;
+					
+							row1.DestStateFips = null;
+					
+							row1.DestStateName = null;
+					
+							row1.DestWac = null;
+					
+							row1.CRSDepTime = null;
+					
+							row1.DepTime = null;
+					
+							row1.DepDelay = null;
+					
+							row1.DepDelayMinutes = null;
+					
+							row1.DepDel15 = null;
+					
+							row1.DepartureDelayGroups = null;
+					
+							row1.DepTimeBlk = null;
+					
+							row1.TaxiOut = null;
+					
+							row1.WheelsOff = null;
+					
+							row1.WheelsOn = null;
+					
+							row1.TaxiIn = null;
+					
+							row1.CRSArrTime = null;
+					
+							row1.ArrTime = null;
+					
+							row1.ArrDelay = null;
+					
+							row1.ArrDelayMinutes = null;
+					
+							row1.ArrDel15 = null;
+					
+							row1.ArrivalDelayGroups = null;
+					
+							row1.ArrTimeBlk = null;
+					
+							row1.Cancelled = null;
+					
+							row1.CancellationCode = null;
+					
+							row1.Diverted = null;
+					
+							row1.CRSElapsedTime = null;
+					
+							row1.ActualElapsedTime = null;
+					
+							row1.AirTime = null;
+					
+							row1.Flights = null;
+					
+							row1.Distance = null;
+					
+							row1.DistanceGroup = null;
+					
+							row1.CarrierDelay = null;
+					
+							row1.WeatherDelay = null;
+					
+							row1.NASDelay = null;
+					
+							row1.SecurityDelay = null;
+					
+							row1.LateAircraftDelay = null;
+					
+							row1.FirstDepTime = null;
+					
+							row1.TotalAddGTime = null;
+					
+							row1.LongestAddGTime = null;
+					
+							row1.DivAirportLandings = null;
+					
+							row1.DivReachedDest = null;
+					
+							row1.DivActualElapsedTime = null;
+					
+							row1.DivArrDelay = null;
+					
+							row1.DivDistance = null;
+					
+							row1.Div1Airport = null;
+					
+							row1.Div1AirportID = null;
+					
+							row1.Div1AirportSeqID = null;
+					
+							row1.Div1WheelsOn = null;
+					
+							row1.Div1TotalGTime = null;
+					
+							row1.Div1LongestGTime = null;
+					
+							row1.Div1WheelsOff = null;
+					
+							row1.Div1TailNum = null;
+					
+							row1.Div2Airport = null;
+					
+							row1.Div2AirportID = null;
+					
+							row1.Div2AirportSeqID = null;
+					
+							row1.Div2WheelsOn = null;
+					
+							row1.Div2TotalGTime = null;
+					
+							row1.Div2LongestGTime = null;
+					
+							row1.Div2WheelsOff = null;
+					
+							row1.Div2TailNum = null;
+					
+							row1.Div3Airport = null;
+					
+							row1.Div3AirportID = null;
+					
+							row1.Div3AirportSeqID = null;
+					
+							row1.Div3WheelsOn = null;
+					
+							row1.Div3TotalGTime = null;
+					
+							row1.Div3LongestGTime = null;
+					
+				}else{
+					
+	                int columnIndexWithD_tFileInputDelimited_1 = 0; //Column Index 
+	                
+						columnIndexWithD_tFileInputDelimited_1 = 0;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._Year = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Year = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_Year", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Year", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Year = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._Year = null;
-								
+						
+						}else{
+						
 							
+								row1.Year = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 1;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 1;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._Quarter = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Quarter = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_Quarter", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Quarter", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Quarter = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._Quarter = null;
-								
+						
+						}else{
+						
 							
+								row1.Quarter = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 2;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 2;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._Month = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Month = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_Month", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Month", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Month = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._Month = null;
-								
+						
+						}else{
+						
 							
+								row1.Month = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 3;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 3;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._DayofMonth = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DayofMonth = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DayofMonth", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DayofMonth", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DayofMonth = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DayofMonth = null;
-								
+						
+						}else{
+						
 							
+								row1.DayofMonth = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 4;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 4;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._DayOfWeek = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DayOfWeek = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DayOfWeek", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DayOfWeek", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DayOfWeek = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DayOfWeek = null;
-								
+						
+						}else{
+						
 							
+								row1.DayOfWeek = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 5;
-					
-							row1._FlightDate = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 6;
-					
-							row1._Marketing_Airline_Network = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 7;
 					
-							row1._Operated_or_Branded_Code_Share_Partners = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 5;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 8;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.FlightDate = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.FlightDate = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 6;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Marketing_Airline_Network = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Marketing_Airline_Network = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 7;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Operated_or_Branded_Code_Share_Partners = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Operated_or_Branded_Code_Share_Partners = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 8;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._DOT_ID_Marketing_Airline = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DOT_ID_Marketing_Airline = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DOT_ID_Marketing_Airline", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DOT_ID_Marketing_Airline", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DOT_ID_Marketing_Airline = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DOT_ID_Marketing_Airline = null;
-								
+						
+						}else{
+						
 							
+								row1.DOT_ID_Marketing_Airline = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 9;
-					
-							row1._IATA_Code_Marketing_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 10;
-					
-							row1._Flight_Number_Marketing_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 11;
 					
-							row1._Originally_Scheduled_Code_Share_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 9;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 12;
-					
-							row1._DOT_ID_Originally_Scheduled_Code_Share_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 13;
-					
-							row1._IATA_Code_Originally_Scheduled_Code_Share_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 14;
-					
-							row1._Flight_Num_Originally_Scheduled_Code_Share_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 15;
-					
-							row1._Operating_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 16;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
 							
-								try {
+									row1.IATA_Code_Marketing_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.IATA_Code_Marketing_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 10;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._DOT_ID_Operating_Airline = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Flight_Number_Marketing_Airline = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DOT_ID_Operating_Airline", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Flight_Number_Marketing_Airline", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Flight_Number_Marketing_Airline = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DOT_ID_Operating_Airline = null;
-								
+						
+						}else{
+						
 							
+								row1.Flight_Number_Marketing_Airline = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 17;
-					
-							row1._IATA_Code_Operating_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 18;
-					
-							row1._Tail_Number = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 19;
 					
-							row1._Flight_Number_Operating_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 11;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 20;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.Originally_Scheduled_Code_Share_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Originally_Scheduled_Code_Share_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 12;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DOT_ID_Originally_Scheduled_Code_Share_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DOT_ID_Originally_Scheduled_Code_Share_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 13;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.IATA_Code_Originally_Scheduled_Code_Share_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.IATA_Code_Originally_Scheduled_Code_Share_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 14;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Flight_Num_Originally_Scheduled_Code_Share_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Flight_Num_Originally_Scheduled_Code_Share_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 15;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Operating_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Operating_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 16;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._OriginAirportID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DOT_ID_Operating_Airline = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_OriginAirportID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DOT_ID_Operating_Airline", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DOT_ID_Operating_Airline = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._OriginAirportID = null;
-								
+						
+						}else{
+						
 							
+								row1.DOT_ID_Operating_Airline = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 21;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 17;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.IATA_Code_Operating_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.IATA_Code_Operating_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 18;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Tail_Number = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Tail_Number = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 19;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._OriginAirportSeqID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Flight_Number_Operating_Airline = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_OriginAirportSeqID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Flight_Number_Operating_Airline", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Flight_Number_Operating_Airline = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._OriginAirportSeqID = null;
-								
+						
+						}else{
+						
 							
+								row1.Flight_Number_Operating_Airline = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 22;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 20;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._OriginCityMarketID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.OriginAirportID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_OriginCityMarketID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"OriginAirportID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.OriginAirportID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._OriginCityMarketID = null;
-								
+						
+						}else{
+						
 							
+								row1.OriginAirportID = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 23;
-					
-							row1._Origin = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 24;
-					
-							row1._OriginCityName = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 25;
 					
-							row1._OriginState = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 21;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 26;
-					
-							row1._OriginStateFips = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 27;
-					
-							row1._OriginStateName = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 28;
-					
-							row1._OriginWac = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 29;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						
 							
-								try {
 								
-    								row1._DestAirportID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.OriginAirportSeqID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DestAirportID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"OriginAirportSeqID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.OriginAirportSeqID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DestAirportID = null;
-								
+						
+						}else{
+						
 							
+								row1.OriginAirportSeqID = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 30;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 22;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._DestAirportSeqID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.OriginCityMarketID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DestAirportSeqID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"OriginCityMarketID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.OriginCityMarketID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DestAirportSeqID = null;
-								
+						
+						}else{
+						
 							
+								row1.OriginCityMarketID = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 31;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 23;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.Origin = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Origin = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 24;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.OriginCityName = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.OriginCityName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 25;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.OriginState = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.OriginState = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 26;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.OriginStateFips = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.OriginStateFips = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 27;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.OriginStateName = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.OriginStateName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 28;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._DestCityMarketID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.OriginWac = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DestCityMarketID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"OriginWac", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.OriginWac = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DestCityMarketID = null;
-								
+						
+						}else{
+						
 							
+								row1.OriginWac = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 32;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 29;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._Dest = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DestAirportID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_Dest", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DestAirportID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DestAirportID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._Dest = null;
-								
+						
+						}else{
+						
 							
+								row1.DestAirportID = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 33;
-					
-							row1._DestCityName = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 34;
-					
-							row1._DestState = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 35;
 					
-							row1._DestStateFips = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 30;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 36;
-					
-							row1._DestStateName = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 37;
-					
-							row1._DestWac = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 38;
-					
-							row1._CRSDepTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 39;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						
 							
-								try {
 								
-    								row1._DepTime = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DestAirportSeqID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DepTime", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DestAirportSeqID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DestAirportSeqID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DepTime = null;
-								
+						
+						}else{
+						
 							
+								row1.DestAirportSeqID = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 40;
-					
-							row1._DepDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 41;
-					
-							row1._DepDelayMinutes = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 42;
 					
-							row1._DepDel15 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 31;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 43;
-					
-							row1._DepartureDelayGroups = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 44;
-					
-							row1._DepTimeBlk = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 45;
-					
-							row1._TaxiOut = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 46;
-					
-							row1._WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 47;
-					
-							row1._WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 48;
-					
-							row1._TaxiIn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 49;
-					
-							row1._CRSArrTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 50;
-					
-							row1._ArrTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 51;
-					
-							row1._ArrDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 52;
-					
-							row1._ArrDelayMinutes = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 53;
-					
-							row1._ArrDel15 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 54;
-					
-							row1._ArrivalDelayGroups = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 55;
-					
-							row1._ArrTimeBlk = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 56;
-					
-							row1._Cancelled = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 57;
-					
-							row1._CancellationCode = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 58;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
 							
-								try {
 								
-    								row1._Diverted = ParserUtils.parseTo_Float(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DestCityMarketID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_Diverted", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DestCityMarketID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DestCityMarketID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._Diverted = null;
-								
-							
-						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 59;
-					
-							row1._CRSElapsedTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 60;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						}else{
+						
 							
-								try {
+								row1.DestCityMarketID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 32;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Dest = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Dest = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 33;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DestCityName = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DestCityName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 34;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DestState = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DestState = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 35;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DestStateFips = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DestStateFips = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 36;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DestStateName = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DestStateName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 37;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._ActualElapsedTime = ParserUtils.parseTo_Float(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DestWac = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_ActualElapsedTime", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DestWac", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DestWac = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._ActualElapsedTime = null;
-								
+						
+						}else{
+						
 							
+								row1.DestWac = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 61;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 38;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.CRSDepTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.CRSDepTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 39;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 40;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepDelay = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 41;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepDelayMinutes = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepDelayMinutes = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 42;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepDel15 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepDel15 = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 43;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepartureDelayGroups = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepartureDelayGroups = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 44;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepTimeBlk = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepTimeBlk = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 45;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.TaxiOut = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.TaxiOut = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 46;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.WheelsOff = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 47;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.WheelsOn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 48;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.TaxiIn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.TaxiIn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 49;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.CRSArrTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.CRSArrTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 50;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 51;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrDelay = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 52;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrDelayMinutes = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrDelayMinutes = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 53;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrDel15 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrDel15 = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 54;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrivalDelayGroups = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrivalDelayGroups = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 55;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrTimeBlk = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrTimeBlk = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 56;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._AirTime = ParserUtils.parseTo_Float(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Cancelled = ParserUtils.parseTo_Float(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_AirTime", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Cancelled", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Cancelled = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._AirTime = null;
-								
+						
+						}else{
+						
 							
+								row1.Cancelled = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 62;
-					
-							row1._Flights = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 63;
-					
-							row1._Distance = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 64;
 					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 57;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.CancellationCode = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.CancellationCode = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 58;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._DistanceGroup = ParserUtils.parseTo_Float(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Diverted = ParserUtils.parseTo_Float(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DistanceGroup", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Diverted", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Diverted = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DistanceGroup = null;
-								
+						
+						}else{
+						
 							
+								row1.Diverted = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 65;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 59;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._CarrierDelay = ParserUtils.parseTo_Float(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.CRSElapsedTime = ParserUtils.parseTo_Float(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_CarrierDelay", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"CRSElapsedTime", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.CRSElapsedTime = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._CarrierDelay = null;
-								
+						
+						}else{
+						
 							
+								row1.CRSElapsedTime = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 66;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 60;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.ActualElapsedTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ActualElapsedTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 61;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.AirTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.AirTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 62;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._WeatherDelay = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Flights = ParserUtils.parseTo_Float(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_WeatherDelay", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Flights", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Flights = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._WeatherDelay = null;
-								
+						
+						}else{
+						
 							
+								row1.Flights = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 67;
-					
-							row1._NASDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 68;
-					
-							row1._SecurityDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 69;
 					
-							row1._LateAircraftDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 63;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 70;
-					
-							row1._FirstDepTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 71;
-					
-							row1._TotalAddGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 72;
-					
-							row1._LongestAddGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 73;
-					
-							row1._DivAirportLandings = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 74;
-					
-							row1._DivReachedDest = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 75;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
 							
-								try {
 								
-    								row1._DivActualElapsedTime = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Distance = ParserUtils.parseTo_Float(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DivActualElapsedTime", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Distance", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Distance = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DivActualElapsedTime = null;
-								
+						
+						}else{
+						
 							
+								row1.Distance = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 76;
-					
-							row1._DivArrDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 77;
-					
-							row1._DivDistance = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 78;
 					
-							row1._Div1Airport = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 64;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 79;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DistanceGroup = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DistanceGroup", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DistanceGroup = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row1.DistanceGroup = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1AirportID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 65;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 80;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.CarrierDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.CarrierDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1AirportSeqID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 66;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 81;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.WeatherDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.WeatherDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 67;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 82;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.NASDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.NASDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1TotalGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 68;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 83;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.SecurityDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.SecurityDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1LongestGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 69;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 84;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.LateAircraftDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.LateAircraftDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 70;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 85;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.FirstDepTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.FirstDepTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1TailNum = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 71;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 86;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.TotalAddGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.TotalAddGTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2Airport = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 72;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 87;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.LongestAddGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.LongestAddGTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2AirportID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 73;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 88;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DivAirportLandings = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DivAirportLandings", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DivAirportLandings = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row1.DivAirportLandings = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2AirportSeqID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 74;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 89;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DivReachedDest = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DivReachedDest = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 75;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 90;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DivActualElapsedTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DivActualElapsedTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2TotalGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 76;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 91;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DivArrDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DivArrDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2LongestGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 77;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 92;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DivDistance = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DivDistance = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 78;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 93;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1Airport = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1Airport = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2TailNum = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 79;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 94;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1AirportID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1AirportID = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3Airport = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 80;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 95;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1AirportSeqID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1AirportSeqID = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3AirportID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 81;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 96;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1WheelsOn = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3AirportSeqID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 82;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 97;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1TotalGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1TotalGTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 83;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 98;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1LongestGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1LongestGTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3TotalGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 84;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 99;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1WheelsOff = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3LongestGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 85;
 						
-				
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1TailNum = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1TailNum = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 86;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2Airport = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2Airport = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 87;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2AirportID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2AirportID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 88;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2AirportSeqID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2AirportSeqID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 89;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2WheelsOn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 90;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2TotalGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2TotalGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 91;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2LongestGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2LongestGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 92;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2WheelsOff = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 93;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2TailNum = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2TailNum = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 94;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3Airport = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3Airport = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 95;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3AirportID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3AirportID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 96;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3AirportSeqID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3AirportSeqID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 97;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3WheelsOn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 98;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3TotalGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3TotalGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 99;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3LongestGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3LongestGTime = null;
+							
+						
+						}
+						
+						
+					
+				}
 				
 					}
 					
-					public void valueToConn_1(org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
+					public void valueToConn_1(String[] rowtFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
 						
-				int columnIndexWithD_tFileInputDelimited_1 = 0;
-				
-					String temp = ""; 
-				
-					columnIndexWithD_tFileInputDelimited_1 = 100;
+				char fieldSeparator_tFileInputDelimited_1_ListType[] = null;
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_1_ListType = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+				if(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])){//empty line when row separator is '\n'
 					
-							row1._Div3WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 101;
+							row1.Div3WheelsOff = null;
 					
-							row1._Div3TailNum = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 102;
+							row1.Div3TailNum = null;
 					
-							row1._Div4Airport = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 103;
+							row1.Div4Airport = null;
 					
-							row1._Div4AirportID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 104;
+							row1.Div4AirportID = null;
 					
-							row1._Div4AirportSeqID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 105;
+							row1.Div4AirportSeqID = null;
 					
-							row1._Div4WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 106;
+							row1.Div4WheelsOn = null;
 					
-							row1._Div4TotalGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 107;
+							row1.Div4TotalGTime = null;
 					
-							row1._Div4LongestGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 108;
+							row1.Div4LongestGTime = null;
 					
-							row1._Div4WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 109;
+							row1.Div4WheelsOff = null;
 					
-							row1._Div4TailNum = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 110;
+							row1.Div4TailNum = null;
 					
-							row1._Div5Airport = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 111;
+							row1.Div5Airport = null;
 					
-							row1._Div5AirportID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 112;
+							row1.Div5AirportID = null;
 					
-							row1._Div5AirportSeqID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 113;
+							row1.Div5AirportSeqID = null;
 					
-							row1._Div5WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 114;
+							row1.Div5WheelsOn = null;
 					
-							row1._Div5TotalGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 115;
+							row1.Div5TotalGTime = null;
 					
-							row1._Div5LongestGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 116;
+							row1.Div5LongestGTime = null;
 					
-							row1._Div5WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 117;
+							row1.Div5WheelsOff = null;
 					
-							row1._Div5TailNum = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 118;
+							row1.Div5TailNum = null;
 					
-							row1._Duplicate = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row1.Duplicate = null;
+					
+				}else{
+					
+	                int columnIndexWithD_tFileInputDelimited_1 = 0; //Column Index 
+	                
+						columnIndexWithD_tFileInputDelimited_1 = 100;
 						
-				
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3WheelsOff = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 101;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3TailNum = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3TailNum = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 102;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4Airport = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4Airport = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 103;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4AirportID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4AirportID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 104;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4AirportSeqID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4AirportSeqID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 105;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4WheelsOn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 106;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4TotalGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4TotalGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 107;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4LongestGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4LongestGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 108;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4WheelsOff = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 109;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4TailNum = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4TailNum = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 110;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5Airport = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5Airport = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 111;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5AirportID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5AirportID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 112;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5AirportSeqID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5AirportSeqID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 113;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5WheelsOn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 114;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5TotalGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5TotalGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 115;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5LongestGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5LongestGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 116;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5WheelsOff = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 117;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5TailNum = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5TailNum = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 118;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Duplicate = ParserUtils.parseTo_Character(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Duplicate", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Duplicate = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row1.Duplicate = null;
+							
+						
+						}
+						
+						
+					
+				}
 				
 					}
 					
-					public void valueToConn(org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
+					public void valueToConn(String[] rowtFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
 				
-						valueToConn_0(fid_tFileInputDelimited_1,row1 );
+						valueToConn_0(rowtFileInputDelimited_1,row1 );
 					
-						valueToConn_1(fid_tFileInputDelimited_1,row1 );
+						valueToConn_1(rowtFileInputDelimited_1,row1 );
 					
 					}
 				
@@ -11616,60 +14105,171 @@ globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.get
 				RowHelper_tFileInputDelimited_1 rowHelper_tFileInputDelimited_1  = new RowHelper_tFileInputDelimited_1();
 			
 				int nb_line_tFileInputDelimited_1 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
-				int limit_tFileInputDelimited_1 = -1;
+				int footer_tFileInputDelimited_1 = 0;
+				int totalLinetFileInputDelimited_1 = 0;
+				int limittFileInputDelimited_1 = -1;
+				int lastLinetFileInputDelimited_1 = -1;	
+				
+				char fieldSeparator_tFileInputDelimited_1[] = null;
+				
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_1 = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+			
+				char rowSeparator_tFileInputDelimited_1[] = null;
+			
+				//support passing value (property: Row Separator) by 'context.rs' or 'globalMap.get("rs")'. 
+				if ( ((String)"\n").length() > 0 ){
+					rowSeparator_tFileInputDelimited_1 = ((String)"\n").toCharArray();
+				}else {
+					throw new IllegalArgumentException("Row Separator must be assigned a char."); 
+				}
+			
+				Object filename_tFileInputDelimited_1 = /** Start field tFileInputDelimited_1:FILENAME */"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/flightsStage.csv"/** End field tFileInputDelimited_1:FILENAME */;		
+				com.talend.csv.CSVReader csvReadertFileInputDelimited_1 = null;
+	
 				try{
 					
-						Object filename_tFileInputDelimited_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/flightsStage.csv";
-						if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
+						String[] rowtFileInputDelimited_1=null;
+						int currentLinetFileInputDelimited_1 = 0;
+	        			int outputLinetFileInputDelimited_1 = 0;
+						try {//TD110 begin
+							if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
 							
-			int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
-			if(footer_value_tFileInputDelimited_1 >0 || random_value_tFileInputDelimited_1 > 0){
-				throw new java.lang.Exception("When the input source is a stream,footer and random shouldn't be bigger than 0.");				
+			int footer_value_tFileInputDelimited_1 = 0;
+			if(footer_value_tFileInputDelimited_1 > 0){
+				throw new java.lang.Exception("When the input source is a stream,footer shouldn't be bigger than 0.");
 			}
 		
-						}
-						try {
-							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/flightsStage.csv", "ISO-8859-15",",","\n",true,1,0,
-									limit_tFileInputDelimited_1
-								,-1, false);
-						} catch(java.lang.Exception e) {
-globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
-							
-								
-								System.err.println(e.getMessage());
-							
-						}
+								csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_1, fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+							}else{
+								csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_1),fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+		        			}
 					
-				    
-					while (fid_tFileInputDelimited_1!=null && fid_tFileInputDelimited_1.nextRecord()) {
-						rowstate_tFileInputDelimited_1.reset();
+					
+					csvReadertFileInputDelimited_1.setTrimWhitespace(false);
+					if ( (rowSeparator_tFileInputDelimited_1[0] != '\n') && (rowSeparator_tFileInputDelimited_1[0] != '\r') )
+	        			csvReadertFileInputDelimited_1.setLineEnd(""+rowSeparator_tFileInputDelimited_1[0]);
 						
-			    						row1 = null;			
-												
-									boolean whetherReject_tFileInputDelimited_1 = false;
-									row1 = new row1Struct();
-									try {
-										
-			rowHelper_tFileInputDelimited_1.valueToConn(fid_tFileInputDelimited_1, row1 );
+	        				csvReadertFileInputDelimited_1.setQuoteChar('\"');
+						
+	            				//?????doesn't work for other escapeChar
+	            				//the default escape mode is double escape
+	            				csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
+							      
 		
-										
-										if(rowstate_tFileInputDelimited_1.getException()!=null) {
-											throw rowstate_tFileInputDelimited_1.getException();
-										}
-										
-										
+			
+						if(footer_tFileInputDelimited_1 > 0){
+						for(totalLinetFileInputDelimited_1=0;totalLinetFileInputDelimited_1 < 1; totalLinetFileInputDelimited_1++){
+							csvReadertFileInputDelimited_1.readNext();
+						}
+						csvReadertFileInputDelimited_1.setSkipEmptyRecords(true);
+			            while (csvReadertFileInputDelimited_1.readNext()) {
 							
-			    					} catch (java.lang.Exception e) {
+								rowtFileInputDelimited_1=csvReadertFileInputDelimited_1.getValues();
+								if(!(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0]))){//empty line when row separator is '\n'
+							
+	                
+	                		totalLinetFileInputDelimited_1++;
+	                
+							
+								}
+							
+	                
+			            }
+	            		int lastLineTemptFileInputDelimited_1 = totalLinetFileInputDelimited_1 - footer_tFileInputDelimited_1   < 0? 0 : totalLinetFileInputDelimited_1 - footer_tFileInputDelimited_1 ;
+	            		if(lastLinetFileInputDelimited_1 > 0){
+	                		lastLinetFileInputDelimited_1 = lastLinetFileInputDelimited_1 < lastLineTemptFileInputDelimited_1 ? lastLinetFileInputDelimited_1 : lastLineTemptFileInputDelimited_1; 
+	            		}else {
+	                		lastLinetFileInputDelimited_1 = lastLineTemptFileInputDelimited_1;
+	            		}
+	         
+			          	csvReadertFileInputDelimited_1.close();
+				        if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
+				 			csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_1, fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+		        		}else{
+							csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_1),fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+						}
+						csvReadertFileInputDelimited_1.setTrimWhitespace(false);
+						if ( (rowSeparator_tFileInputDelimited_1[0] != '\n') && (rowSeparator_tFileInputDelimited_1[0] != '\r') )	
+	        				csvReadertFileInputDelimited_1.setLineEnd(""+rowSeparator_tFileInputDelimited_1[0]);
+						
+							csvReadertFileInputDelimited_1.setQuoteChar('\"');
+						
+	        				//?????doesn't work for other escapeChar
+	        				//the default escape mode is double escape
+	        				csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
+							  
+	        		}
+	        
+			        if(limittFileInputDelimited_1 != 0){
+			        	for(currentLinetFileInputDelimited_1=0;currentLinetFileInputDelimited_1 < 1;currentLinetFileInputDelimited_1++){
+			        		csvReadertFileInputDelimited_1.readNext();
+			        	}
+			        }
+			        csvReadertFileInputDelimited_1.setSkipEmptyRecords(true);
+	        
+	    		} catch(java.lang.Exception e) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
-			        					whetherReject_tFileInputDelimited_1 = true;
-			        					
-			                					System.err.println(e.getMessage());
-			                					row1 = null;
-			                				
-										
-			    					}
+					
+						
+						System.err.println(e.getMessage());
+					
+	    		}//TD110 end
+	        
+			    
+	        	while ( limittFileInputDelimited_1 != 0 && csvReadertFileInputDelimited_1!=null && csvReadertFileInputDelimited_1.readNext() ) { 
+	        		rowstate_tFileInputDelimited_1.reset();
+	        
+		        	rowtFileInputDelimited_1=csvReadertFileInputDelimited_1.getValues();
+		        	
+					
+	        			if(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])){//empty line when row separator is '\n'
+	        				continue;
+	        			}
+					
+	        	
+	        	
+	        		currentLinetFileInputDelimited_1++;
+	            
+		            if(lastLinetFileInputDelimited_1 > -1 && currentLinetFileInputDelimited_1 > lastLinetFileInputDelimited_1) {
+		                break;
+	    	        }
+	        	    outputLinetFileInputDelimited_1++;
+	            	if (limittFileInputDelimited_1 > 0 && outputLinetFileInputDelimited_1 > limittFileInputDelimited_1) {
+	                	break;
+	            	}  
+	                                                                      
+					
+	    							row1 = null;			
 								
+								boolean whetherReject_tFileInputDelimited_1 = false;
+								row1 = new row1Struct();
+								try {			
+									
+			rowHelper_tFileInputDelimited_1.valueToConn(rowtFileInputDelimited_1, row1 );
+		
+									
+									if(rowstate_tFileInputDelimited_1.getException()!=null) {
+										throw rowstate_tFileInputDelimited_1.getException();
+									}
+									
+									
+	    						} catch (java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
+							        whetherReject_tFileInputDelimited_1 = true;
+        							
+                							System.err.println(e.getMessage());
+                							row1 = null;
+                						
+            							globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
+            							
+	    						}
+	
+							
 
  
 
@@ -11745,18 +14345,18 @@ if(row1 != null) {
 					}
 					
 row2 = null;			
-finder_tUniqRow_1._OriginAirportID = row1._OriginAirportID;	
+finder_tUniqRow_1.OriginAirportID = row1.OriginAirportID;	
 finder_tUniqRow_1.hashCodeDirty = true;
 if (!keystUniqRow_1.contains(finder_tUniqRow_1)) {
 		KeyStruct_tUniqRow_1 new_tUniqRow_1 = new KeyStruct_tUniqRow_1();
 
 		
-new_tUniqRow_1._OriginAirportID = row1._OriginAirportID;
+new_tUniqRow_1.OriginAirportID = row1.OriginAirportID;
 		
 		keystUniqRow_1.add(new_tUniqRow_1);if(row2 == null){ 
 	
 	row2 = new row2Struct();
-}row2._Year = row1._Year;			row2._Quarter = row1._Quarter;			row2._Month = row1._Month;			row2._DayofMonth = row1._DayofMonth;			row2._DayOfWeek = row1._DayOfWeek;			row2._FlightDate = row1._FlightDate;			row2._Marketing_Airline_Network = row1._Marketing_Airline_Network;			row2._Operated_or_Branded_Code_Share_Partners = row1._Operated_or_Branded_Code_Share_Partners;			row2._DOT_ID_Marketing_Airline = row1._DOT_ID_Marketing_Airline;			row2._IATA_Code_Marketing_Airline = row1._IATA_Code_Marketing_Airline;			row2._Flight_Number_Marketing_Airline = row1._Flight_Number_Marketing_Airline;			row2._Originally_Scheduled_Code_Share_Airline = row1._Originally_Scheduled_Code_Share_Airline;			row2._DOT_ID_Originally_Scheduled_Code_Share_Airline = row1._DOT_ID_Originally_Scheduled_Code_Share_Airline;			row2._IATA_Code_Originally_Scheduled_Code_Share_Airline = row1._IATA_Code_Originally_Scheduled_Code_Share_Airline;			row2._Flight_Num_Originally_Scheduled_Code_Share_Airline = row1._Flight_Num_Originally_Scheduled_Code_Share_Airline;			row2._Operating_Airline = row1._Operating_Airline;			row2._DOT_ID_Operating_Airline = row1._DOT_ID_Operating_Airline;			row2._IATA_Code_Operating_Airline = row1._IATA_Code_Operating_Airline;			row2._Tail_Number = row1._Tail_Number;			row2._Flight_Number_Operating_Airline = row1._Flight_Number_Operating_Airline;			row2._OriginAirportID = row1._OriginAirportID;			row2._OriginAirportSeqID = row1._OriginAirportSeqID;			row2._OriginCityMarketID = row1._OriginCityMarketID;			row2._Origin = row1._Origin;			row2._OriginCityName = row1._OriginCityName;			row2._OriginState = row1._OriginState;			row2._OriginStateFips = row1._OriginStateFips;			row2._OriginStateName = row1._OriginStateName;			row2._OriginWac = row1._OriginWac;			row2._DestAirportID = row1._DestAirportID;			row2._DestAirportSeqID = row1._DestAirportSeqID;			row2._DestCityMarketID = row1._DestCityMarketID;			row2._Dest = row1._Dest;			row2._DestCityName = row1._DestCityName;			row2._DestState = row1._DestState;			row2._DestStateFips = row1._DestStateFips;			row2._DestStateName = row1._DestStateName;			row2._DestWac = row1._DestWac;			row2._CRSDepTime = row1._CRSDepTime;			row2._DepTime = row1._DepTime;			row2._DepDelay = row1._DepDelay;			row2._DepDelayMinutes = row1._DepDelayMinutes;			row2._DepDel15 = row1._DepDel15;			row2._DepartureDelayGroups = row1._DepartureDelayGroups;			row2._DepTimeBlk = row1._DepTimeBlk;			row2._TaxiOut = row1._TaxiOut;			row2._WheelsOff = row1._WheelsOff;			row2._WheelsOn = row1._WheelsOn;			row2._TaxiIn = row1._TaxiIn;			row2._CRSArrTime = row1._CRSArrTime;			row2._ArrTime = row1._ArrTime;			row2._ArrDelay = row1._ArrDelay;			row2._ArrDelayMinutes = row1._ArrDelayMinutes;			row2._ArrDel15 = row1._ArrDel15;			row2._ArrivalDelayGroups = row1._ArrivalDelayGroups;			row2._ArrTimeBlk = row1._ArrTimeBlk;			row2._Cancelled = row1._Cancelled;			row2._CancellationCode = row1._CancellationCode;			row2._Diverted = row1._Diverted;			row2._CRSElapsedTime = row1._CRSElapsedTime;			row2._ActualElapsedTime = row1._ActualElapsedTime;			row2._AirTime = row1._AirTime;			row2._Flights = row1._Flights;			row2._Distance = row1._Distance;			row2._DistanceGroup = row1._DistanceGroup;			row2._CarrierDelay = row1._CarrierDelay;			row2._WeatherDelay = row1._WeatherDelay;			row2._NASDelay = row1._NASDelay;			row2._SecurityDelay = row1._SecurityDelay;			row2._LateAircraftDelay = row1._LateAircraftDelay;			row2._FirstDepTime = row1._FirstDepTime;			row2._TotalAddGTime = row1._TotalAddGTime;			row2._LongestAddGTime = row1._LongestAddGTime;			row2._DivAirportLandings = row1._DivAirportLandings;			row2._DivReachedDest = row1._DivReachedDest;			row2._DivActualElapsedTime = row1._DivActualElapsedTime;			row2._DivArrDelay = row1._DivArrDelay;			row2._DivDistance = row1._DivDistance;			row2._Div1Airport = row1._Div1Airport;			row2._Div1AirportID = row1._Div1AirportID;			row2._Div1AirportSeqID = row1._Div1AirportSeqID;			row2._Div1WheelsOn = row1._Div1WheelsOn;			row2._Div1TotalGTime = row1._Div1TotalGTime;			row2._Div1LongestGTime = row1._Div1LongestGTime;			row2._Div1WheelsOff = row1._Div1WheelsOff;			row2._Div1TailNum = row1._Div1TailNum;			row2._Div2Airport = row1._Div2Airport;			row2._Div2AirportID = row1._Div2AirportID;			row2._Div2AirportSeqID = row1._Div2AirportSeqID;			row2._Div2WheelsOn = row1._Div2WheelsOn;			row2._Div2TotalGTime = row1._Div2TotalGTime;			row2._Div2LongestGTime = row1._Div2LongestGTime;			row2._Div2WheelsOff = row1._Div2WheelsOff;			row2._Div2TailNum = row1._Div2TailNum;			row2._Div3Airport = row1._Div3Airport;			row2._Div3AirportID = row1._Div3AirportID;			row2._Div3AirportSeqID = row1._Div3AirportSeqID;			row2._Div3WheelsOn = row1._Div3WheelsOn;			row2._Div3TotalGTime = row1._Div3TotalGTime;			row2._Div3LongestGTime = row1._Div3LongestGTime;			row2._Div3WheelsOff = row1._Div3WheelsOff;			row2._Div3TailNum = row1._Div3TailNum;			row2._Div4Airport = row1._Div4Airport;			row2._Div4AirportID = row1._Div4AirportID;			row2._Div4AirportSeqID = row1._Div4AirportSeqID;			row2._Div4WheelsOn = row1._Div4WheelsOn;			row2._Div4TotalGTime = row1._Div4TotalGTime;			row2._Div4LongestGTime = row1._Div4LongestGTime;			row2._Div4WheelsOff = row1._Div4WheelsOff;			row2._Div4TailNum = row1._Div4TailNum;			row2._Div5Airport = row1._Div5Airport;			row2._Div5AirportID = row1._Div5AirportID;			row2._Div5AirportSeqID = row1._Div5AirportSeqID;			row2._Div5WheelsOn = row1._Div5WheelsOn;			row2._Div5TotalGTime = row1._Div5TotalGTime;			row2._Div5LongestGTime = row1._Div5LongestGTime;			row2._Div5WheelsOff = row1._Div5WheelsOff;			row2._Div5TailNum = row1._Div5TailNum;			row2._Duplicate = row1._Duplicate;					
+}row2.Year = row1.Year;			row2.Quarter = row1.Quarter;			row2.Month = row1.Month;			row2.DayofMonth = row1.DayofMonth;			row2.DayOfWeek = row1.DayOfWeek;			row2.FlightDate = row1.FlightDate;			row2.Marketing_Airline_Network = row1.Marketing_Airline_Network;			row2.Operated_or_Branded_Code_Share_Partners = row1.Operated_or_Branded_Code_Share_Partners;			row2.DOT_ID_Marketing_Airline = row1.DOT_ID_Marketing_Airline;			row2.IATA_Code_Marketing_Airline = row1.IATA_Code_Marketing_Airline;			row2.Flight_Number_Marketing_Airline = row1.Flight_Number_Marketing_Airline;			row2.Originally_Scheduled_Code_Share_Airline = row1.Originally_Scheduled_Code_Share_Airline;			row2.DOT_ID_Originally_Scheduled_Code_Share_Airline = row1.DOT_ID_Originally_Scheduled_Code_Share_Airline;			row2.IATA_Code_Originally_Scheduled_Code_Share_Airline = row1.IATA_Code_Originally_Scheduled_Code_Share_Airline;			row2.Flight_Num_Originally_Scheduled_Code_Share_Airline = row1.Flight_Num_Originally_Scheduled_Code_Share_Airline;			row2.Operating_Airline = row1.Operating_Airline;			row2.DOT_ID_Operating_Airline = row1.DOT_ID_Operating_Airline;			row2.IATA_Code_Operating_Airline = row1.IATA_Code_Operating_Airline;			row2.Tail_Number = row1.Tail_Number;			row2.Flight_Number_Operating_Airline = row1.Flight_Number_Operating_Airline;			row2.OriginAirportID = row1.OriginAirportID;			row2.OriginAirportSeqID = row1.OriginAirportSeqID;			row2.OriginCityMarketID = row1.OriginCityMarketID;			row2.Origin = row1.Origin;			row2.OriginCityName = row1.OriginCityName;			row2.OriginState = row1.OriginState;			row2.OriginStateFips = row1.OriginStateFips;			row2.OriginStateName = row1.OriginStateName;			row2.OriginWac = row1.OriginWac;			row2.DestAirportID = row1.DestAirportID;			row2.DestAirportSeqID = row1.DestAirportSeqID;			row2.DestCityMarketID = row1.DestCityMarketID;			row2.Dest = row1.Dest;			row2.DestCityName = row1.DestCityName;			row2.DestState = row1.DestState;			row2.DestStateFips = row1.DestStateFips;			row2.DestStateName = row1.DestStateName;			row2.DestWac = row1.DestWac;			row2.CRSDepTime = row1.CRSDepTime;			row2.DepTime = row1.DepTime;			row2.DepDelay = row1.DepDelay;			row2.DepDelayMinutes = row1.DepDelayMinutes;			row2.DepDel15 = row1.DepDel15;			row2.DepartureDelayGroups = row1.DepartureDelayGroups;			row2.DepTimeBlk = row1.DepTimeBlk;			row2.TaxiOut = row1.TaxiOut;			row2.WheelsOff = row1.WheelsOff;			row2.WheelsOn = row1.WheelsOn;			row2.TaxiIn = row1.TaxiIn;			row2.CRSArrTime = row1.CRSArrTime;			row2.ArrTime = row1.ArrTime;			row2.ArrDelay = row1.ArrDelay;			row2.ArrDelayMinutes = row1.ArrDelayMinutes;			row2.ArrDel15 = row1.ArrDel15;			row2.ArrivalDelayGroups = row1.ArrivalDelayGroups;			row2.ArrTimeBlk = row1.ArrTimeBlk;			row2.Cancelled = row1.Cancelled;			row2.CancellationCode = row1.CancellationCode;			row2.Diverted = row1.Diverted;			row2.CRSElapsedTime = row1.CRSElapsedTime;			row2.ActualElapsedTime = row1.ActualElapsedTime;			row2.AirTime = row1.AirTime;			row2.Flights = row1.Flights;			row2.Distance = row1.Distance;			row2.DistanceGroup = row1.DistanceGroup;			row2.CarrierDelay = row1.CarrierDelay;			row2.WeatherDelay = row1.WeatherDelay;			row2.NASDelay = row1.NASDelay;			row2.SecurityDelay = row1.SecurityDelay;			row2.LateAircraftDelay = row1.LateAircraftDelay;			row2.FirstDepTime = row1.FirstDepTime;			row2.TotalAddGTime = row1.TotalAddGTime;			row2.LongestAddGTime = row1.LongestAddGTime;			row2.DivAirportLandings = row1.DivAirportLandings;			row2.DivReachedDest = row1.DivReachedDest;			row2.DivActualElapsedTime = row1.DivActualElapsedTime;			row2.DivArrDelay = row1.DivArrDelay;			row2.DivDistance = row1.DivDistance;			row2.Div1Airport = row1.Div1Airport;			row2.Div1AirportID = row1.Div1AirportID;			row2.Div1AirportSeqID = row1.Div1AirportSeqID;			row2.Div1WheelsOn = row1.Div1WheelsOn;			row2.Div1TotalGTime = row1.Div1TotalGTime;			row2.Div1LongestGTime = row1.Div1LongestGTime;			row2.Div1WheelsOff = row1.Div1WheelsOff;			row2.Div1TailNum = row1.Div1TailNum;			row2.Div2Airport = row1.Div2Airport;			row2.Div2AirportID = row1.Div2AirportID;			row2.Div2AirportSeqID = row1.Div2AirportSeqID;			row2.Div2WheelsOn = row1.Div2WheelsOn;			row2.Div2TotalGTime = row1.Div2TotalGTime;			row2.Div2LongestGTime = row1.Div2LongestGTime;			row2.Div2WheelsOff = row1.Div2WheelsOff;			row2.Div2TailNum = row1.Div2TailNum;			row2.Div3Airport = row1.Div3Airport;			row2.Div3AirportID = row1.Div3AirportID;			row2.Div3AirportSeqID = row1.Div3AirportSeqID;			row2.Div3WheelsOn = row1.Div3WheelsOn;			row2.Div3TotalGTime = row1.Div3TotalGTime;			row2.Div3LongestGTime = row1.Div3LongestGTime;			row2.Div3WheelsOff = row1.Div3WheelsOff;			row2.Div3TailNum = row1.Div3TailNum;			row2.Div4Airport = row1.Div4Airport;			row2.Div4AirportID = row1.Div4AirportID;			row2.Div4AirportSeqID = row1.Div4AirportSeqID;			row2.Div4WheelsOn = row1.Div4WheelsOn;			row2.Div4TotalGTime = row1.Div4TotalGTime;			row2.Div4LongestGTime = row1.Div4LongestGTime;			row2.Div4WheelsOff = row1.Div4WheelsOff;			row2.Div4TailNum = row1.Div4TailNum;			row2.Div5Airport = row1.Div5Airport;			row2.Div5AirportID = row1.Div5AirportID;			row2.Div5AirportSeqID = row1.Div5AirportSeqID;			row2.Div5WheelsOn = row1.Div5WheelsOn;			row2.Div5TotalGTime = row1.Div5TotalGTime;			row2.Div5LongestGTime = row1.Div5LongestGTime;			row2.Div5WheelsOff = row1.Div5WheelsOff;			row2.Div5TailNum = row1.Div5TailNum;			row2.Duplicate = row1.Duplicate;					
 		nb_uniques_tUniqRow_1++;
 	} else {
 	  nb_duplicates_tUniqRow_1++;
@@ -11908,13 +14508,13 @@ dimension = null;
 
 // # Output table : 'dimension'
 dimension_tmp.originId = Numeric.sequence("OriginSeq", 1, 1) ;
-dimension_tmp.originKey =  row3._OriginAirportID ;
-dimension_tmp.originAirportSeqId =  row3._OriginAirportSeqID ;
-dimension_tmp.airportCode =  row3._Origin ;
-dimension_tmp.cityName =  row3._OriginCityName ;
-dimension_tmp.stateCode =  row3._OriginState ;
-dimension_tmp.stateName =  row3._OriginStateName ;
-dimension_tmp.worldAreaCode =  row3._OriginWac ;
+dimension_tmp.originKey = row3.OriginAirportID ;
+dimension_tmp.originAirportSeqId = row3.OriginAirportSeqID ;
+dimension_tmp.airportCode = row3.Origin ;
+dimension_tmp.cityName = row3.OriginCityName ;
+dimension_tmp.stateCode = row3.OriginState ;
+dimension_tmp.stateName = row3.OriginStateName ;
+dimension_tmp.worldAreaCode = row3.OriginWac ;
 dimension = dimension_tmp;
 // ###############################
 
@@ -11986,61 +14586,18 @@ if(dimension != null) {
 					
 
 
-                    StringBuilder sb_tFileOutputDelimited_2 = new StringBuilder();
-                            if(dimension.originId != null) {
-                        sb_tFileOutputDelimited_2.append(
-                            dimension.originId
-                        );
-                            }
-                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-                            if(dimension.originKey != null) {
-                        sb_tFileOutputDelimited_2.append(
-                            dimension.originKey
-                        );
-                            }
-                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-                            if(dimension.originAirportSeqId != null) {
-                        sb_tFileOutputDelimited_2.append(
-                            dimension.originAirportSeqId
-                        );
-                            }
-                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-                            if(dimension.airportCode != null) {
-                        sb_tFileOutputDelimited_2.append(
-                            dimension.airportCode
-                        );
-                            }
-                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-                            if(dimension.cityName != null) {
-                        sb_tFileOutputDelimited_2.append(
-                            dimension.cityName
-                        );
-                            }
-                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-                            if(dimension.stateCode != null) {
-                        sb_tFileOutputDelimited_2.append(
-                            dimension.stateCode
-                        );
-                            }
-                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-                            if(dimension.stateName != null) {
-                        sb_tFileOutputDelimited_2.append(
-                            dimension.stateName
-                        );
-                            }
-                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-                            if(dimension.worldAreaCode != null) {
-                        sb_tFileOutputDelimited_2.append(
-                            dimension.worldAreaCode
-                        );
-                            }
-                    sb_tFileOutputDelimited_2.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_2);
-
-
-                    nb_line_tFileOutputDelimited_2++;
-                    resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
-
-                        outtFileOutputDelimited_2.write(sb_tFileOutputDelimited_2.toString());
+                        String[] rowtFileOutputDelimited_2=new String[8];
+                            rowtFileOutputDelimited_2[0]=dimension.originId == null ? null : String.valueOf(dimension.originId);
+                            rowtFileOutputDelimited_2[1]=dimension.originKey == null ? null : String.valueOf(dimension.originKey);
+                            rowtFileOutputDelimited_2[2]=dimension.originAirportSeqId == null ? null : String.valueOf(dimension.originAirportSeqId);
+                            rowtFileOutputDelimited_2[3]=dimension.airportCode == null ? null : dimension.airportCode;
+                            rowtFileOutputDelimited_2[4]=dimension.cityName == null ? null : dimension.cityName;
+                            rowtFileOutputDelimited_2[5]=dimension.stateCode == null ? null : dimension.stateCode;
+                            rowtFileOutputDelimited_2[6]=dimension.stateName == null ? null : dimension.stateName;
+                            rowtFileOutputDelimited_2[7]=dimension.worldAreaCode == null ? null : String.valueOf(dimension.worldAreaCode);
+                nb_line_tFileOutputDelimited_2++;
+                resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
+                                       CsvWritertFileOutputDelimited_2.writeNext(rowtFileOutputDelimited_2);
 
 
 
@@ -12208,20 +14765,21 @@ if(dimension != null) {
 	
 
 
-
-            }
-            }finally{
-                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/flightsStage.csv") instanceof java.io.InputStream)){
-                	if(fid_tFileInputDelimited_1!=null){
-                		fid_tFileInputDelimited_1.close();
-                	}
-                }
-                if(fid_tFileInputDelimited_1!=null){
-                	globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
-					
-                }
+				nb_line_tFileInputDelimited_1++;
 			}
-			  
+			
+			}finally{
+    			if(!(filename_tFileInputDelimited_1 instanceof java.io.InputStream)){
+    				if(csvReadertFileInputDelimited_1!=null){
+    					csvReadertFileInputDelimited_1.close();
+    				}
+    			}
+    			if(csvReadertFileInputDelimited_1!=null){
+    				globalMap.put("tFileInputDelimited_1_NB_LINE",nb_line_tFileInputDelimited_1);
+    			}
+				
+			}
+						  
 
  
 
@@ -12373,13 +14931,13 @@ end_Hash.put("tMap_1", System.currentTimeMillis());
 
 		
 			
-					if(outtFileOutputDelimited_2!=null) {
-						outtFileOutputDelimited_2.flush();
-						outtFileOutputDelimited_2.close();
-					}
+		
 				
-				globalMap.put("tFileOutputDelimited_2_NB_LINE",nb_line_tFileOutputDelimited_2);
-				globalMap.put("tFileOutputDelimited_2_FILE_NAME",fileName_tFileOutputDelimited_2);
+					if(CsvWritertFileOutputDelimited_2!=null) {
+				    	CsvWritertFileOutputDelimited_2.close();
+				    }
+					
+		    	globalMap.put("tFileOutputDelimited_2_NB_LINE",nb_line_tFileOutputDelimited_2);
 			
 		
 		
@@ -12396,7 +14954,7 @@ ok_Hash.put("tFileOutputDelimited_2", true);
 end_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
 
 				if(execStat){   
-   	 				runStat.updateStatOnConnection("OnComponentOk1", 0, "ok");
+   	 				runStat.updateStatOnConnection("OnComponentOk3", 0, "ok");
 				}
 				tS3Connection_1Process(globalMap);
 
@@ -12539,13 +15097,13 @@ end_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
 		if(resourceMap.get("finish_tFileOutputDelimited_2") == null){ 
 			
 				
-						java.io.Writer outtFileOutputDelimited_2 = (java.io.Writer)resourceMap.get("out_tFileOutputDelimited_2");
-						if(outtFileOutputDelimited_2!=null) {
-							outtFileOutputDelimited_2.flush();
-							outtFileOutputDelimited_2.close();
-						}
+			
+					com.talend.csv.CSVWriter CsvWritertFileOutputDelimited_2 = (com.talend.csv.CSVWriter)resourceMap.get("CsvWriter_tFileOutputDelimited_2");
 					
-				
+						if(CsvWritertFileOutputDelimited_2!=null) {
+					    	CsvWritertFileOutputDelimited_2.close();
+					    }
+						
 			
 		}
 	
@@ -12629,7 +15187,7 @@ public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap
 	
 	
 	     
-	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:dNhYAI0y5w/x/QAQvzrACw6We00uf8tOos0MO4wlsNjIuvJYHGT4SFa7I12Zh/OMUl1EZ6LY1v5kFKNoMSB1c4FAxSw=");
+	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:oLZ7dhsp8ghUq5Wfz5ROy43jw/PqFip6BDKsAq6xTXH57QlVE1WWYn1gTe1kAtE3HWEYM2A0D1oaexFzZObTRvaYoPI=");
 
             com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials("AKIAVMNG53PSSPPWBSHA",decryptedPassword_tS3Connection_1);
             com.amazonaws.auth.AWSCredentialsProvider credentialsProvider_tS3Connection_1 = new com.amazonaws.auth.AWSStaticCredentialsProvider(credentials_tS3Connection_1);
@@ -13596,6 +16154,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     386078 characters generated by Talend Open Studio for Data Integration 
- *     on the November 6, 2022 at 9:35:47 PM CST
+ *     434216 characters generated by Talend Open Studio for Data Integration 
+ *     on the November 8, 2022 at 11:17:37 PM CST
  ************************************************************************************************/

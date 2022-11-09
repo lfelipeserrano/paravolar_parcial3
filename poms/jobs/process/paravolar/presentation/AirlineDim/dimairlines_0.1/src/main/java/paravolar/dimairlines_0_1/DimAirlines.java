@@ -990,14 +990,106 @@ String fileName_tFileOutputDelimited_1 = "";
     boolean isFileGenerated_tFileOutputDelimited_1 = true;
     java.io.File filetFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
     globalMap.put("tFileOutputDelimited_1_FILE_NAME",fileName_tFileOutputDelimited_1);
+                String[] headColutFileOutputDelimited_1=new String[3];
+            class CSVBasicSet_tFileOutputDelimited_1{
+                private char field_Delim;
+                private char row_Delim;
+                private char escape;
+                private char textEnclosure;
+                private boolean useCRLFRecordDelimiter;
+
+                public boolean isUseCRLFRecordDelimiter() {
+                    return useCRLFRecordDelimiter;
+                }
+
+                public void setFieldSeparator(String fieldSep) throws IllegalArgumentException{
+                    char field_Delim_tFileOutputDelimited_1[] = null;
+
+                    //support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'.
+                    if (fieldSep.length() > 0 ){
+                        field_Delim_tFileOutputDelimited_1 = fieldSep.toCharArray();
+                    }else {
+                        throw new IllegalArgumentException("Field Separator must be assigned a char.");
+                    }
+                    this.field_Delim = field_Delim_tFileOutputDelimited_1[0];
+                }
+
+                public char getFieldDelim(){
+                    if(this.field_Delim==0){
+                        setFieldSeparator(",");
+                    }
+                    return this.field_Delim;
+                }
+
+                public void setRowSeparator(String rowSep){
+                    if("\r\n".equals(rowSep)) {
+                        useCRLFRecordDelimiter = true;
+                        return;
+                    }
+                    char row_DelimtFileOutputDelimited_1[] = null;
+
+                    //support passing value (property: Row Separator) by 'context.rs' or 'globalMap.get("rs")'.
+                    if (rowSep.length() > 0 ){
+                        row_DelimtFileOutputDelimited_1 = rowSep.toCharArray();
+                    }else {
+                        throw new IllegalArgumentException("Row Separator must be assigned a char.");
+                    }
+                    this.row_Delim = row_DelimtFileOutputDelimited_1[0];
+                }
+
+                public char getRowDelim(){
+                    if(this.row_Delim==0){
+                        setRowSeparator("\n");
+                    }
+                    return this.row_Delim;
+                }
+
+                public void setEscapeAndTextEnclosure(String strEscape, String strTextEnclosure) throws IllegalArgumentException{
+                    if(strEscape.length() <= 0 ){
+                        throw new IllegalArgumentException("Escape Char must be assigned a char.");
+                    }
+
+                    if ("".equals(strTextEnclosure)) strTextEnclosure = "\0";
+                    char textEnclosure_tFileOutputDelimited_1[] = null;
+
+                    if(strTextEnclosure.length() > 0 ){
+                        textEnclosure_tFileOutputDelimited_1 = strTextEnclosure.toCharArray();
+                    }else {
+                        throw new IllegalArgumentException("Text Enclosure must be assigned a char.");
+                    }
+
+                    this.textEnclosure = textEnclosure_tFileOutputDelimited_1[0];
+
+                    if(("\\").equals(strEscape)){
+                        this.escape = '\\';
+                    }else if(strEscape.equals(strTextEnclosure)){
+                        this.escape = this.textEnclosure;
+                    } else {
+                        //the default escape mode is double escape
+                        this.escape = this.textEnclosure;
+                    }
+
+
+                }
+
+                public char getEscapeChar(){
+                    return (char)this.escape;
+                }
+
+                public char getTextEnclosure(){
+                    return this.textEnclosure;
+                }
+            }
+
             int nb_line_tFileOutputDelimited_1 = 0;
-            int splitedFileNo_tFileOutputDelimited_1 = 0;
+            int splitedFileNo_tFileOutputDelimited_1 =0;
             int currentRow_tFileOutputDelimited_1 = 0;
 
-            final String OUT_DELIM_tFileOutputDelimited_1 = /** Start field tFileOutputDelimited_1:FIELDSEPARATOR */";"/** End field tFileOutputDelimited_1:FIELDSEPARATOR */;
 
-            final String OUT_DELIM_ROWSEP_tFileOutputDelimited_1 = /** Start field tFileOutputDelimited_1:ROWSEPARATOR */"\n"/** End field tFileOutputDelimited_1:ROWSEPARATOR */;
-
+            CSVBasicSet_tFileOutputDelimited_1 csvSettings_tFileOutputDelimited_1 = new CSVBasicSet_tFileOutputDelimited_1();
+            csvSettings_tFileOutputDelimited_1.setFieldSeparator(",");
+            csvSettings_tFileOutputDelimited_1.setRowSeparator("\n");
+            csvSettings_tFileOutputDelimited_1.setEscapeAndTextEnclosure("\"","\"");
                     //create directory only if not exists
                     if(directory_tFileOutputDelimited_1 != null && directory_tFileOutputDelimited_1.trim().length() != 0) {
                         java.io.File dir_tFileOutputDelimited_1 = new java.io.File(directory_tFileOutputDelimited_1);
@@ -1005,28 +1097,32 @@ String fileName_tFileOutputDelimited_1 = "";
                             dir_tFileOutputDelimited_1.mkdirs();
                         }
                     }
+                            com.talend.csv.CSVWriter CsvWritertFileOutputDelimited_1 = null;
 
-                        //routines.system.Row
-                        java.io.Writer outtFileOutputDelimited_1 = null;
-
-                        java.io.File fileToDelete_tFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
-                        if(fileToDelete_tFileOutputDelimited_1.exists()) {
-                            fileToDelete_tFileOutputDelimited_1.delete();
+                            java.io.File fileToDelete_tFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
+                            if(fileToDelete_tFileOutputDelimited_1.exists()) {
+                                fileToDelete_tFileOutputDelimited_1.delete();
+                            }
+                            CsvWritertFileOutputDelimited_1 = new com.talend.csv.CSVWriter(new java.io.BufferedWriter(new java.io.OutputStreamWriter(
+                            new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false), "ISO-8859-15")));
+                            CsvWritertFileOutputDelimited_1.setSeparator(csvSettings_tFileOutputDelimited_1.getFieldDelim());
+                    if(!csvSettings_tFileOutputDelimited_1.isUseCRLFRecordDelimiter() && csvSettings_tFileOutputDelimited_1.getRowDelim()!='\r' && csvSettings_tFileOutputDelimited_1.getRowDelim()!='\n') {
+                        CsvWritertFileOutputDelimited_1.setLineEnd(""+csvSettings_tFileOutputDelimited_1.getRowDelim());
+                    }
+                        if(filetFileOutputDelimited_1.length()==0){
+                                    headColutFileOutputDelimited_1[0]="AirlineId";
+                                    headColutFileOutputDelimited_1[1]="Code";
+                                    headColutFileOutputDelimited_1[2]="Description";
+                            CsvWritertFileOutputDelimited_1.writeNext(headColutFileOutputDelimited_1);
+                            CsvWritertFileOutputDelimited_1.flush();
                         }
-                        outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
-                        new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false),"ISO-8859-15"));
-                                    if(filetFileOutputDelimited_1.length()==0){
-                                        outtFileOutputDelimited_1.write("AirlineId");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("Code");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("Description");
-                                        outtFileOutputDelimited_1.write(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.flush();
-                                    }
+                CsvWritertFileOutputDelimited_1.setEscapeChar(csvSettings_tFileOutputDelimited_1.getEscapeChar());
+                CsvWritertFileOutputDelimited_1.setQuoteChar(csvSettings_tFileOutputDelimited_1.getTextEnclosure());
+                CsvWritertFileOutputDelimited_1.setQuoteStatus(com.talend.csv.CSVWriter.QuoteStatus.FORCE);
 
 
-        resourceMap.put("out_tFileOutputDelimited_1", outtFileOutputDelimited_1);
+
+    resourceMap.put("CsvWriter_tFileOutputDelimited_1", CsvWritertFileOutputDelimited_1);
 resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
 
  
@@ -1134,71 +1230,232 @@ dimensionStruct dimension_tmp = new dimensionStruct();
 	
 	
 				int nb_line_tFileInputDelimited_1 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
-				int limit_tFileInputDelimited_1 = -1;
+				int footer_tFileInputDelimited_1 = 0;
+				int totalLinetFileInputDelimited_1 = 0;
+				int limittFileInputDelimited_1 = -1;
+				int lastLinetFileInputDelimited_1 = -1;	
+				
+				char fieldSeparator_tFileInputDelimited_1[] = null;
+				
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_1 = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+			
+				char rowSeparator_tFileInputDelimited_1[] = null;
+			
+				//support passing value (property: Row Separator) by 'context.rs' or 'globalMap.get("rs")'. 
+				if ( ((String)"\n").length() > 0 ){
+					rowSeparator_tFileInputDelimited_1 = ((String)"\n").toCharArray();
+				}else {
+					throw new IllegalArgumentException("Row Separator must be assigned a char."); 
+				}
+			
+				Object filename_tFileInputDelimited_1 = /** Start field tFileInputDelimited_1:FILENAME */"C:/Users/felip/Downloads/archive/Airlines.csv"/** End field tFileInputDelimited_1:FILENAME */;		
+				com.talend.csv.CSVReader csvReadertFileInputDelimited_1 = null;
+	
 				try{
 					
-						Object filename_tFileInputDelimited_1 = "C:/Users/felip/Downloads/airlines (1).csv";
-						if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
+						String[] rowtFileInputDelimited_1=null;
+						int currentLinetFileInputDelimited_1 = 0;
+	        			int outputLinetFileInputDelimited_1 = 0;
+						try {//TD110 begin
+							if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
 							
-			int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
-			if(footer_value_tFileInputDelimited_1 >0 || random_value_tFileInputDelimited_1 > 0){
-				throw new java.lang.Exception("When the input source is a stream,footer and random shouldn't be bigger than 0.");				
+			int footer_value_tFileInputDelimited_1 = 0;
+			if(footer_value_tFileInputDelimited_1 > 0){
+				throw new java.lang.Exception("When the input source is a stream,footer shouldn't be bigger than 0.");
 			}
 		
+								csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_1, fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+							}else{
+								csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_1),fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+		        			}
+					
+					
+					csvReadertFileInputDelimited_1.setTrimWhitespace(false);
+					if ( (rowSeparator_tFileInputDelimited_1[0] != '\n') && (rowSeparator_tFileInputDelimited_1[0] != '\r') )
+	        			csvReadertFileInputDelimited_1.setLineEnd(""+rowSeparator_tFileInputDelimited_1[0]);
+						
+	        				csvReadertFileInputDelimited_1.setQuoteChar('\"');
+						
+	            				//?????doesn't work for other escapeChar
+	            				//the default escape mode is double escape
+	            				csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
+							      
+		
+			
+						if(footer_tFileInputDelimited_1 > 0){
+						for(totalLinetFileInputDelimited_1=0;totalLinetFileInputDelimited_1 < 1; totalLinetFileInputDelimited_1++){
+							csvReadertFileInputDelimited_1.readNext();
 						}
-						try {
-							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited("C:/Users/felip/Downloads/airlines (1).csv", "ISO-8859-15",",","\n",true,1,0,
-									limit_tFileInputDelimited_1
-								,-1, false);
-						} catch(java.lang.Exception e) {
-globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
+						csvReadertFileInputDelimited_1.setSkipEmptyRecords(true);
+			            while (csvReadertFileInputDelimited_1.readNext()) {
 							
-								
-								System.err.println(e.getMessage());
+								rowtFileInputDelimited_1=csvReadertFileInputDelimited_1.getValues();
+								if(!(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0]))){//empty line when row separator is '\n'
 							
+	                
+	                		totalLinetFileInputDelimited_1++;
+	                
+							
+								}
+							
+	                
+			            }
+	            		int lastLineTemptFileInputDelimited_1 = totalLinetFileInputDelimited_1 - footer_tFileInputDelimited_1   < 0? 0 : totalLinetFileInputDelimited_1 - footer_tFileInputDelimited_1 ;
+	            		if(lastLinetFileInputDelimited_1 > 0){
+	                		lastLinetFileInputDelimited_1 = lastLinetFileInputDelimited_1 < lastLineTemptFileInputDelimited_1 ? lastLinetFileInputDelimited_1 : lastLineTemptFileInputDelimited_1; 
+	            		}else {
+	                		lastLinetFileInputDelimited_1 = lastLineTemptFileInputDelimited_1;
+	            		}
+	         
+			          	csvReadertFileInputDelimited_1.close();
+				        if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
+				 			csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_1, fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+		        		}else{
+							csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_1),fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
 						}
-					
-				    
-					while (fid_tFileInputDelimited_1!=null && fid_tFileInputDelimited_1.nextRecord()) {
-						rowstate_tFileInputDelimited_1.reset();
+						csvReadertFileInputDelimited_1.setTrimWhitespace(false);
+						if ( (rowSeparator_tFileInputDelimited_1[0] != '\n') && (rowSeparator_tFileInputDelimited_1[0] != '\r') )	
+	        				csvReadertFileInputDelimited_1.setLineEnd(""+rowSeparator_tFileInputDelimited_1[0]);
 						
-			    						row1 = null;			
-												
-									boolean whetherReject_tFileInputDelimited_1 = false;
-									row1 = new row1Struct();
-									try {
-										
-				int columnIndexWithD_tFileInputDelimited_1 = 0;
-				
-					columnIndexWithD_tFileInputDelimited_1 = 0;
-					
-							row1.Code = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							csvReadertFileInputDelimited_1.setQuoteChar('\"');
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 1;
-					
-							row1.Description = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-				
-										
-										if(rowstate_tFileInputDelimited_1.getException()!=null) {
-											throw rowstate_tFileInputDelimited_1.getException();
-										}
-										
-										
-							
-			    					} catch (java.lang.Exception e) {
+	        				//?????doesn't work for other escapeChar
+	        				//the default escape mode is double escape
+	        				csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
+							  
+	        		}
+	        
+			        if(limittFileInputDelimited_1 != 0){
+			        	for(currentLinetFileInputDelimited_1=0;currentLinetFileInputDelimited_1 < 1;currentLinetFileInputDelimited_1++){
+			        		csvReadertFileInputDelimited_1.readNext();
+			        	}
+			        }
+			        csvReadertFileInputDelimited_1.setSkipEmptyRecords(true);
+	        
+	    		} catch(java.lang.Exception e) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
-			        					whetherReject_tFileInputDelimited_1 = true;
-			        					
-			                					System.err.println(e.getMessage());
-			                					row1 = null;
-			                				
-										
-			    					}
+					
+						
+						System.err.println(e.getMessage());
+					
+	    		}//TD110 end
+	        
+			    
+	        	while ( limittFileInputDelimited_1 != 0 && csvReadertFileInputDelimited_1!=null && csvReadertFileInputDelimited_1.readNext() ) { 
+	        		rowstate_tFileInputDelimited_1.reset();
+	        
+		        	rowtFileInputDelimited_1=csvReadertFileInputDelimited_1.getValues();
+		        	
+					
+	        			if(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])){//empty line when row separator is '\n'
+	        				continue;
+	        			}
+					
+	        	
+	        	
+	        		currentLinetFileInputDelimited_1++;
+	            
+		            if(lastLinetFileInputDelimited_1 > -1 && currentLinetFileInputDelimited_1 > lastLinetFileInputDelimited_1) {
+		                break;
+	    	        }
+	        	    outputLinetFileInputDelimited_1++;
+	            	if (limittFileInputDelimited_1 > 0 && outputLinetFileInputDelimited_1 > limittFileInputDelimited_1) {
+	                	break;
+	            	}  
+	                                                                      
+					
+	    							row1 = null;			
 								
+								boolean whetherReject_tFileInputDelimited_1 = false;
+								row1 = new row1Struct();
+								try {			
+									
+				char fieldSeparator_tFileInputDelimited_1_ListType[] = null;
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_1_ListType = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+				if(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])){//empty line when row separator is '\n'
+					
+							row1.Code = null;
+					
+							row1.Description = null;
+					
+				}else{
+					
+	                int columnIndexWithD_tFileInputDelimited_1 = 0; //Column Index 
+	                
+						columnIndexWithD_tFileInputDelimited_1 = 0;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Code = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Code = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 1;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Description = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Description = null;
+							
+						
+						}
+						
+						
+					
+				}
+				
+									
+									if(rowstate_tFileInputDelimited_1.getException()!=null) {
+										throw rowstate_tFileInputDelimited_1.getException();
+									}
+									
+									
+	    						} catch (java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
+							        whetherReject_tFileInputDelimited_1 = true;
+        							
+                							System.err.println(e.getMessage());
+                							row1 = null;
+                						
+            							globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
+            							
+	    						}
+	
+							
 
  
 
@@ -1299,7 +1556,7 @@ dimension = null;
 
 // # Output table : 'dimension'
 dimension_tmp.AirlineId = Numeric.sequence("AirlineSeq", 1, 1) ;
-dimension_tmp.Code = '"' + row1.Code + '"' ;
+dimension_tmp.Code = row1.Code ;
 dimension_tmp.Description = row1.Description ;
 dimension = dimension_tmp;
 // ###############################
@@ -1372,31 +1629,13 @@ if(dimension != null) {
 					
 
 
-                    StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
-                            if(dimension.AirlineId != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            dimension.AirlineId
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(dimension.Code != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            dimension.Code
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(dimension.Description != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            dimension.Description
-                        );
-                            }
-                    sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
-
-
-                    nb_line_tFileOutputDelimited_1++;
-                    resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
-
-                        outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+                        String[] rowtFileOutputDelimited_1=new String[3];
+                            rowtFileOutputDelimited_1[0]=dimension.AirlineId == null ? null : String.valueOf(dimension.AirlineId);
+                            rowtFileOutputDelimited_1[1]=dimension.Code == null ? null : dimension.Code;
+                            rowtFileOutputDelimited_1[2]=dimension.Description == null ? null : dimension.Description;
+                nb_line_tFileOutputDelimited_1++;
+                resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+                                       CsvWritertFileOutputDelimited_1.writeNext(rowtFileOutputDelimited_1);
 
 
 
@@ -1515,20 +1754,21 @@ if(dimension != null) {
 	
 
 
-
-            }
-            }finally{
-                if(!((Object)("C:/Users/felip/Downloads/airlines (1).csv") instanceof java.io.InputStream)){
-                	if(fid_tFileInputDelimited_1!=null){
-                		fid_tFileInputDelimited_1.close();
-                	}
-                }
-                if(fid_tFileInputDelimited_1!=null){
-                	globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
-					
-                }
+				nb_line_tFileInputDelimited_1++;
 			}
-			  
+			
+			}finally{
+    			if(!(filename_tFileInputDelimited_1 instanceof java.io.InputStream)){
+    				if(csvReadertFileInputDelimited_1!=null){
+    					csvReadertFileInputDelimited_1.close();
+    				}
+    			}
+    			if(csvReadertFileInputDelimited_1!=null){
+    				globalMap.put("tFileInputDelimited_1_NB_LINE",nb_line_tFileInputDelimited_1);
+    			}
+				
+			}
+						  
 
  
 
@@ -1597,13 +1837,13 @@ end_Hash.put("tMap_1", System.currentTimeMillis());
 
 		
 			
-					if(outtFileOutputDelimited_1!=null) {
-						outtFileOutputDelimited_1.flush();
-						outtFileOutputDelimited_1.close();
-					}
+		
 				
-				globalMap.put("tFileOutputDelimited_1_NB_LINE",nb_line_tFileOutputDelimited_1);
-				globalMap.put("tFileOutputDelimited_1_FILE_NAME",fileName_tFileOutputDelimited_1);
+					if(CsvWritertFileOutputDelimited_1!=null) {
+				    	CsvWritertFileOutputDelimited_1.close();
+				    }
+					
+		    	globalMap.put("tFileOutputDelimited_1_NB_LINE",nb_line_tFileOutputDelimited_1);
 			
 		
 		
@@ -1620,7 +1860,7 @@ ok_Hash.put("tFileOutputDelimited_1", true);
 end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
 
 				if(execStat){   
-   	 				runStat.updateStatOnConnection("OnComponentOk1", 0, "ok");
+   	 				runStat.updateStatOnConnection("OnComponentOk3", 0, "ok");
 				}
 				tS3Connection_1Process(globalMap);
 
@@ -1715,13 +1955,13 @@ end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
 		if(resourceMap.get("finish_tFileOutputDelimited_1") == null){ 
 			
 				
-						java.io.Writer outtFileOutputDelimited_1 = (java.io.Writer)resourceMap.get("out_tFileOutputDelimited_1");
-						if(outtFileOutputDelimited_1!=null) {
-							outtFileOutputDelimited_1.flush();
-							outtFileOutputDelimited_1.close();
-						}
+			
+					com.talend.csv.CSVWriter CsvWritertFileOutputDelimited_1 = (com.talend.csv.CSVWriter)resourceMap.get("CsvWriter_tFileOutputDelimited_1");
 					
-				
+						if(CsvWritertFileOutputDelimited_1!=null) {
+					    	CsvWritertFileOutputDelimited_1.close();
+					    }
+						
 			
 		}
 	
@@ -1799,7 +2039,7 @@ public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap
 	
 	
 	     
-	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:zLRUfDQw0WjuqcFoB73CnwFW+V8QMil22LP1zT+bAr1x6+XSn8UgeaTBdAYLVZA3XEll9xwV9gn2azRdmUlkWHnLaRM=");
+	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:6YueQSRgGPMyYPWPxqBkU/tvLChAq++zh7xAjF/Ws8m73CJThi8sl8z8PaM9AbG2+ayW9G9FR4m7zaw3ddQ7N//1iBM=");
 
             com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials("AKIAVMNG53PSSPPWBSHA",decryptedPassword_tS3Connection_1);
             com.amazonaws.auth.AWSCredentialsProvider credentialsProvider_tS3Connection_1 = new com.amazonaws.auth.AWSStaticCredentialsProvider(credentials_tS3Connection_1);
@@ -2766,6 +3006,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     72882 characters generated by Talend Open Studio for Data Integration 
- *     on the November 6, 2022 at 9:35:46 PM CST
+ *     83407 characters generated by Talend Open Studio for Data Integration 
+ *     on the November 8, 2022 at 11:17:36 PM CST
  ************************************************************************************************/

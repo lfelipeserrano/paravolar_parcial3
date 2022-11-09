@@ -375,15 +375,6 @@ private class TalendException extends Exception {
 					tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 			}
 			
-			public void tAdvancedHash_row5_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
-				
-				end_Hash.put(errorComponent, System.currentTimeMillis());
-				
-				status = "failure";
-				
-					tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
-			}
-			
 			public void tAdvancedHash_row3_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 				
 				end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -394,6 +385,15 @@ private class TalendException extends Exception {
 			}
 			
 			public void tAdvancedHash_row4_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tAdvancedHash_row5_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 				
 				end_Hash.put(errorComponent, System.currentTimeMillis());
 				
@@ -443,9 +443,9 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 					return this.FlightId;
 				}
 				
-			    public String FlightNumber;
+			    public Integer FlightNumber;
 
-				public String getFlightNumber () {
+				public Integer getFlightNumber () {
 					return this.FlightNumber;
 				}
 				
@@ -485,15 +485,15 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 					return this.ArrDelay;
 				}
 				
-			    public Float CarrierDelay;
+			    public String CarrierDelay;
 
-				public Float getCarrierDelay () {
+				public String getCarrierDelay () {
 					return this.CarrierDelay;
 				}
 				
-			    public Integer WeatherDelay;
+			    public String WeatherDelay;
 
-				public Integer getWeatherDelay () {
+				public String getWeatherDelay () {
 					return this.WeatherDelay;
 				}
 				
@@ -515,9 +515,9 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 					return this.LateAircraftDelay;
 				}
 				
-			    public String Cancelled;
+			    public Float Cancelled;
 
-				public String getCancelled () {
+				public Float getCancelled () {
 					return this.Cancelled;
 				}
 				
@@ -702,7 +702,7 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 		
 						this.FlightId = readInteger(dis);
 					
-					this.FlightNumber = readString(dis);
+						this.FlightNumber = readInteger(dis);
 					
 						this.TimePeriodId = readInteger(dis);
 					
@@ -716,14 +716,9 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 					
 					this.ArrDelay = readString(dis);
 					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.CarrierDelay = null;
-           				} else {
-           			    	this.CarrierDelay = dis.readFloat();
-           				}
+					this.CarrierDelay = readString(dis);
 					
-						this.WeatherDelay = readInteger(dis);
+					this.WeatherDelay = readString(dis);
 					
 					this.NASDelay = readString(dis);
 					
@@ -731,7 +726,12 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 					
 					this.LateAircraftDelay = readString(dis);
 					
-					this.Cancelled = readString(dis);
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Cancelled = null;
+           				} else {
+           			    	this.Cancelled = dis.readFloat();
+           				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
@@ -764,7 +764,7 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 		
 						this.FlightId = readInteger(dis);
 					
-					this.FlightNumber = readString(dis);
+						this.FlightNumber = readInteger(dis);
 					
 						this.TimePeriodId = readInteger(dis);
 					
@@ -778,14 +778,9 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 					
 					this.ArrDelay = readString(dis);
 					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.CarrierDelay = null;
-           				} else {
-           			    	this.CarrierDelay = dis.readFloat();
-           				}
+					this.CarrierDelay = readString(dis);
 					
-						this.WeatherDelay = readInteger(dis);
+					this.WeatherDelay = readString(dis);
 					
 					this.NASDelay = readString(dis);
 					
@@ -793,7 +788,12 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 					
 					this.LateAircraftDelay = readString(dis);
 					
-					this.Cancelled = readString(dis);
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Cancelled = null;
+           				} else {
+           			    	this.Cancelled = dis.readFloat();
+           				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
@@ -824,9 +824,9 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 				
 						writeInteger(this.FlightId,dos);
 					
-					// String
+					// Integer
 				
-						writeString(this.FlightNumber,dos);
+						writeInteger(this.FlightNumber,dos);
 					
 					// Integer
 				
@@ -852,18 +852,13 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 				
 						writeString(this.ArrDelay,dos);
 					
-					// Float
+					// String
 				
-						if(this.CarrierDelay == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeFloat(this.CarrierDelay);
-		            	}
+						writeString(this.CarrierDelay,dos);
 					
-					// Integer
+					// String
 				
-						writeInteger(this.WeatherDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
@@ -877,9 +872,14 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 				
 						writeString(this.LateAircraftDelay,dos);
 					
-					// String
+					// Float
 				
-						writeString(this.Cancelled,dos);
+						if(this.Cancelled == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeFloat(this.Cancelled);
+		            	}
 					
 					// Float
 				
@@ -905,9 +905,9 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 				
 						writeInteger(this.FlightId,dos);
 					
-					// String
+					// Integer
 				
-						writeString(this.FlightNumber,dos);
+						writeInteger(this.FlightNumber,dos);
 					
 					// Integer
 				
@@ -933,18 +933,13 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 				
 						writeString(this.ArrDelay,dos);
 					
-					// Float
+					// String
 				
-						if(this.CarrierDelay == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeFloat(this.CarrierDelay);
-		            	}
+						writeString(this.CarrierDelay,dos);
 					
-					// Integer
+					// String
 				
-						writeInteger(this.WeatherDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
@@ -958,9 +953,14 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 				
 						writeString(this.LateAircraftDelay,dos);
 					
-					// String
+					// Float
 				
-						writeString(this.Cancelled,dos);
+						if(this.Cancelled == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeFloat(this.Cancelled);
+		            	}
 					
 					// Float
 				
@@ -985,19 +985,19 @@ public static class factStruct implements routines.system.IPersistableRow<factSt
 		sb.append(super.toString());
 		sb.append("[");
 		sb.append("FlightId="+String.valueOf(FlightId));
-		sb.append(",FlightNumber="+FlightNumber);
+		sb.append(",FlightNumber="+String.valueOf(FlightNumber));
 		sb.append(",TimePeriodId="+String.valueOf(TimePeriodId));
 		sb.append(",AirlineId="+String.valueOf(AirlineId));
 		sb.append(",OriginId="+String.valueOf(OriginId));
 		sb.append(",DestinationId="+String.valueOf(DestinationId));
 		sb.append(",DepDelay="+DepDelay);
 		sb.append(",ArrDelay="+ArrDelay);
-		sb.append(",CarrierDelay="+String.valueOf(CarrierDelay));
-		sb.append(",WeatherDelay="+String.valueOf(WeatherDelay));
+		sb.append(",CarrierDelay="+CarrierDelay);
+		sb.append(",WeatherDelay="+WeatherDelay);
 		sb.append(",NASDelay="+NASDelay);
 		sb.append(",SecurityDelay="+SecurityDelay);
 		sb.append(",LateAircraftDelay="+LateAircraftDelay);
-		sb.append(",Cancelled="+Cancelled);
+		sb.append(",Cancelled="+String.valueOf(Cancelled));
 		sb.append(",Diverted="+String.valueOf(Diverted));
 	    sb.append("]");
 
@@ -1050,718 +1050,718 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
     static byte[] commonByteArray_PARAVOLAR_FlightFact = new byte[0];
 
 	
-			    public Integer _Year;
+			    public Integer Year;
 
-				public Integer get_Year () {
-					return this._Year;
+				public Integer getYear () {
+					return this.Year;
 				}
 				
-			    public Integer _Quarter;
+			    public Integer Quarter;
 
-				public Integer get_Quarter () {
-					return this._Quarter;
+				public Integer getQuarter () {
+					return this.Quarter;
 				}
 				
-			    public Integer _Month;
+			    public Integer Month;
 
-				public Integer get_Month () {
-					return this._Month;
+				public Integer getMonth () {
+					return this.Month;
 				}
 				
-			    public Integer _DayofMonth;
+			    public Integer DayofMonth;
 
-				public Integer get_DayofMonth () {
-					return this._DayofMonth;
+				public Integer getDayofMonth () {
+					return this.DayofMonth;
 				}
 				
-			    public Integer _DayOfWeek;
+			    public Integer DayOfWeek;
 
-				public Integer get_DayOfWeek () {
-					return this._DayOfWeek;
+				public Integer getDayOfWeek () {
+					return this.DayOfWeek;
 				}
 				
-			    public String _FlightDate;
+			    public String FlightDate;
 
-				public String get_FlightDate () {
-					return this._FlightDate;
+				public String getFlightDate () {
+					return this.FlightDate;
 				}
 				
-			    public String _Marketing_Airline_Network;
+			    public String Marketing_Airline_Network;
 
-				public String get_Marketing_Airline_Network () {
-					return this._Marketing_Airline_Network;
+				public String getMarketing_Airline_Network () {
+					return this.Marketing_Airline_Network;
 				}
 				
-			    public String _Operated_or_Branded_Code_Share_Partners;
+			    public String Operated_or_Branded_Code_Share_Partners;
 
-				public String get_Operated_or_Branded_Code_Share_Partners () {
-					return this._Operated_or_Branded_Code_Share_Partners;
+				public String getOperated_or_Branded_Code_Share_Partners () {
+					return this.Operated_or_Branded_Code_Share_Partners;
 				}
 				
-			    public Integer _DOT_ID_Marketing_Airline;
+			    public Integer DOT_ID_Marketing_Airline;
 
-				public Integer get_DOT_ID_Marketing_Airline () {
-					return this._DOT_ID_Marketing_Airline;
+				public Integer getDOT_ID_Marketing_Airline () {
+					return this.DOT_ID_Marketing_Airline;
 				}
 				
-			    public String _IATA_Code_Marketing_Airline;
+			    public String IATA_Code_Marketing_Airline;
 
-				public String get_IATA_Code_Marketing_Airline () {
-					return this._IATA_Code_Marketing_Airline;
+				public String getIATA_Code_Marketing_Airline () {
+					return this.IATA_Code_Marketing_Airline;
 				}
 				
-			    public String _Flight_Number_Marketing_Airline;
+			    public Integer Flight_Number_Marketing_Airline;
 
-				public String get_Flight_Number_Marketing_Airline () {
-					return this._Flight_Number_Marketing_Airline;
+				public Integer getFlight_Number_Marketing_Airline () {
+					return this.Flight_Number_Marketing_Airline;
 				}
 				
-			    public String _Originally_Scheduled_Code_Share_Airline;
+			    public String Originally_Scheduled_Code_Share_Airline;
 
-				public String get_Originally_Scheduled_Code_Share_Airline () {
-					return this._Originally_Scheduled_Code_Share_Airline;
+				public String getOriginally_Scheduled_Code_Share_Airline () {
+					return this.Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _DOT_ID_Originally_Scheduled_Code_Share_Airline;
+			    public String DOT_ID_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_DOT_ID_Originally_Scheduled_Code_Share_Airline () {
-					return this._DOT_ID_Originally_Scheduled_Code_Share_Airline;
+				public String getDOT_ID_Originally_Scheduled_Code_Share_Airline () {
+					return this.DOT_ID_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _IATA_Code_Originally_Scheduled_Code_Share_Airline;
+			    public String IATA_Code_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_IATA_Code_Originally_Scheduled_Code_Share_Airline () {
-					return this._IATA_Code_Originally_Scheduled_Code_Share_Airline;
+				public String getIATA_Code_Originally_Scheduled_Code_Share_Airline () {
+					return this.IATA_Code_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _Flight_Num_Originally_Scheduled_Code_Share_Airline;
+			    public String Flight_Num_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_Flight_Num_Originally_Scheduled_Code_Share_Airline () {
-					return this._Flight_Num_Originally_Scheduled_Code_Share_Airline;
+				public String getFlight_Num_Originally_Scheduled_Code_Share_Airline () {
+					return this.Flight_Num_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _Operating_Airline;
+			    public String Operating_Airline;
 
-				public String get_Operating_Airline () {
-					return this._Operating_Airline;
+				public String getOperating_Airline () {
+					return this.Operating_Airline;
 				}
 				
-			    public Integer _DOT_ID_Operating_Airline;
+			    public Integer DOT_ID_Operating_Airline;
 
-				public Integer get_DOT_ID_Operating_Airline () {
-					return this._DOT_ID_Operating_Airline;
+				public Integer getDOT_ID_Operating_Airline () {
+					return this.DOT_ID_Operating_Airline;
 				}
 				
-			    public String _IATA_Code_Operating_Airline;
+			    public String IATA_Code_Operating_Airline;
 
-				public String get_IATA_Code_Operating_Airline () {
-					return this._IATA_Code_Operating_Airline;
+				public String getIATA_Code_Operating_Airline () {
+					return this.IATA_Code_Operating_Airline;
 				}
 				
-			    public String _Tail_Number;
+			    public String Tail_Number;
 
-				public String get_Tail_Number () {
-					return this._Tail_Number;
+				public String getTail_Number () {
+					return this.Tail_Number;
 				}
 				
-			    public String _Flight_Number_Operating_Airline;
+			    public Integer Flight_Number_Operating_Airline;
 
-				public String get_Flight_Number_Operating_Airline () {
-					return this._Flight_Number_Operating_Airline;
+				public Integer getFlight_Number_Operating_Airline () {
+					return this.Flight_Number_Operating_Airline;
 				}
 				
-			    public Integer _OriginAirportID;
+			    public Integer OriginAirportID;
 
-				public Integer get_OriginAirportID () {
-					return this._OriginAirportID;
+				public Integer getOriginAirportID () {
+					return this.OriginAirportID;
 				}
 				
-			    public Integer _OriginAirportSeqID;
+			    public Integer OriginAirportSeqID;
 
-				public Integer get_OriginAirportSeqID () {
-					return this._OriginAirportSeqID;
+				public Integer getOriginAirportSeqID () {
+					return this.OriginAirportSeqID;
 				}
 				
-			    public Integer _OriginCityMarketID;
+			    public Integer OriginCityMarketID;
 
-				public Integer get_OriginCityMarketID () {
-					return this._OriginCityMarketID;
+				public Integer getOriginCityMarketID () {
+					return this.OriginCityMarketID;
 				}
 				
-			    public String _Origin;
+			    public String Origin;
 
-				public String get_Origin () {
-					return this._Origin;
+				public String getOrigin () {
+					return this.Origin;
 				}
 				
-			    public String _OriginCityName;
+			    public String OriginCityName;
 
-				public String get_OriginCityName () {
-					return this._OriginCityName;
+				public String getOriginCityName () {
+					return this.OriginCityName;
 				}
 				
-			    public String _OriginState;
+			    public String OriginState;
 
-				public String get_OriginState () {
-					return this._OriginState;
+				public String getOriginState () {
+					return this.OriginState;
 				}
 				
-			    public String _OriginStateFips;
+			    public String OriginStateFips;
 
-				public String get_OriginStateFips () {
-					return this._OriginStateFips;
+				public String getOriginStateFips () {
+					return this.OriginStateFips;
 				}
 				
-			    public String _OriginStateName;
+			    public String OriginStateName;
 
-				public String get_OriginStateName () {
-					return this._OriginStateName;
+				public String getOriginStateName () {
+					return this.OriginStateName;
 				}
 				
-			    public String _OriginWac;
+			    public Integer OriginWac;
 
-				public String get_OriginWac () {
-					return this._OriginWac;
+				public Integer getOriginWac () {
+					return this.OriginWac;
 				}
 				
-			    public Integer _DestAirportID;
+			    public Integer DestAirportID;
 
-				public Integer get_DestAirportID () {
-					return this._DestAirportID;
+				public Integer getDestAirportID () {
+					return this.DestAirportID;
 				}
 				
-			    public Integer _DestAirportSeqID;
+			    public Integer DestAirportSeqID;
 
-				public Integer get_DestAirportSeqID () {
-					return this._DestAirportSeqID;
+				public Integer getDestAirportSeqID () {
+					return this.DestAirportSeqID;
 				}
 				
-			    public Integer _DestCityMarketID;
+			    public Integer DestCityMarketID;
 
-				public Integer get_DestCityMarketID () {
-					return this._DestCityMarketID;
+				public Integer getDestCityMarketID () {
+					return this.DestCityMarketID;
 				}
 				
-			    public Integer _Dest;
+			    public String Dest;
 
-				public Integer get_Dest () {
-					return this._Dest;
+				public String getDest () {
+					return this.Dest;
 				}
 				
-			    public String _DestCityName;
+			    public String DestCityName;
 
-				public String get_DestCityName () {
-					return this._DestCityName;
+				public String getDestCityName () {
+					return this.DestCityName;
 				}
 				
-			    public String _DestState;
+			    public String DestState;
 
-				public String get_DestState () {
-					return this._DestState;
+				public String getDestState () {
+					return this.DestState;
 				}
 				
-			    public String _DestStateFips;
+			    public String DestStateFips;
 
-				public String get_DestStateFips () {
-					return this._DestStateFips;
+				public String getDestStateFips () {
+					return this.DestStateFips;
 				}
 				
-			    public String _DestStateName;
+			    public String DestStateName;
 
-				public String get_DestStateName () {
-					return this._DestStateName;
+				public String getDestStateName () {
+					return this.DestStateName;
 				}
 				
-			    public String _DestWac;
+			    public Integer DestWac;
 
-				public String get_DestWac () {
-					return this._DestWac;
+				public Integer getDestWac () {
+					return this.DestWac;
 				}
 				
-			    public String _CRSDepTime;
+			    public String CRSDepTime;
 
-				public String get_CRSDepTime () {
-					return this._CRSDepTime;
+				public String getCRSDepTime () {
+					return this.CRSDepTime;
 				}
 				
-			    public Integer _DepTime;
+			    public String DepTime;
 
-				public Integer get_DepTime () {
-					return this._DepTime;
+				public String getDepTime () {
+					return this.DepTime;
 				}
 				
-			    public String _DepDelay;
+			    public String DepDelay;
 
-				public String get_DepDelay () {
-					return this._DepDelay;
+				public String getDepDelay () {
+					return this.DepDelay;
 				}
 				
-			    public String _DepDelayMinutes;
+			    public String DepDelayMinutes;
 
-				public String get_DepDelayMinutes () {
-					return this._DepDelayMinutes;
+				public String getDepDelayMinutes () {
+					return this.DepDelayMinutes;
 				}
 				
-			    public String _DepDel15;
+			    public String DepDel15;
 
-				public String get_DepDel15 () {
-					return this._DepDel15;
+				public String getDepDel15 () {
+					return this.DepDel15;
 				}
 				
-			    public String _DepartureDelayGroups;
+			    public String DepartureDelayGroups;
 
-				public String get_DepartureDelayGroups () {
-					return this._DepartureDelayGroups;
+				public String getDepartureDelayGroups () {
+					return this.DepartureDelayGroups;
 				}
 				
-			    public String _DepTimeBlk;
+			    public String DepTimeBlk;
 
-				public String get_DepTimeBlk () {
-					return this._DepTimeBlk;
+				public String getDepTimeBlk () {
+					return this.DepTimeBlk;
 				}
 				
-			    public String _TaxiOut;
+			    public String TaxiOut;
 
-				public String get_TaxiOut () {
-					return this._TaxiOut;
+				public String getTaxiOut () {
+					return this.TaxiOut;
 				}
 				
-			    public String _WheelsOff;
+			    public String WheelsOff;
 
-				public String get_WheelsOff () {
-					return this._WheelsOff;
+				public String getWheelsOff () {
+					return this.WheelsOff;
 				}
 				
-			    public String _WheelsOn;
+			    public String WheelsOn;
 
-				public String get_WheelsOn () {
-					return this._WheelsOn;
+				public String getWheelsOn () {
+					return this.WheelsOn;
 				}
 				
-			    public String _TaxiIn;
+			    public String TaxiIn;
 
-				public String get_TaxiIn () {
-					return this._TaxiIn;
+				public String getTaxiIn () {
+					return this.TaxiIn;
 				}
 				
-			    public String _CRSArrTime;
+			    public String CRSArrTime;
 
-				public String get_CRSArrTime () {
-					return this._CRSArrTime;
+				public String getCRSArrTime () {
+					return this.CRSArrTime;
 				}
 				
-			    public String _ArrTime;
+			    public String ArrTime;
 
-				public String get_ArrTime () {
-					return this._ArrTime;
+				public String getArrTime () {
+					return this.ArrTime;
 				}
 				
-			    public String _ArrDelay;
+			    public String ArrDelay;
 
-				public String get_ArrDelay () {
-					return this._ArrDelay;
+				public String getArrDelay () {
+					return this.ArrDelay;
 				}
 				
-			    public String _ArrDelayMinutes;
+			    public String ArrDelayMinutes;
 
-				public String get_ArrDelayMinutes () {
-					return this._ArrDelayMinutes;
+				public String getArrDelayMinutes () {
+					return this.ArrDelayMinutes;
 				}
 				
-			    public String _ArrDel15;
+			    public String ArrDel15;
 
-				public String get_ArrDel15 () {
-					return this._ArrDel15;
+				public String getArrDel15 () {
+					return this.ArrDel15;
 				}
 				
-			    public String _ArrivalDelayGroups;
+			    public String ArrivalDelayGroups;
 
-				public String get_ArrivalDelayGroups () {
-					return this._ArrivalDelayGroups;
+				public String getArrivalDelayGroups () {
+					return this.ArrivalDelayGroups;
 				}
 				
-			    public String _ArrTimeBlk;
+			    public String ArrTimeBlk;
 
-				public String get_ArrTimeBlk () {
-					return this._ArrTimeBlk;
+				public String getArrTimeBlk () {
+					return this.ArrTimeBlk;
 				}
 				
-			    public String _Cancelled;
+			    public Float Cancelled;
 
-				public String get_Cancelled () {
-					return this._Cancelled;
+				public Float getCancelled () {
+					return this.Cancelled;
 				}
 				
-			    public String _CancellationCode;
+			    public String CancellationCode;
 
-				public String get_CancellationCode () {
-					return this._CancellationCode;
+				public String getCancellationCode () {
+					return this.CancellationCode;
 				}
 				
-			    public Float _Diverted;
+			    public Float Diverted;
 
-				public Float get_Diverted () {
-					return this._Diverted;
+				public Float getDiverted () {
+					return this.Diverted;
 				}
 				
-			    public String _CRSElapsedTime;
+			    public Float CRSElapsedTime;
 
-				public String get_CRSElapsedTime () {
-					return this._CRSElapsedTime;
+				public Float getCRSElapsedTime () {
+					return this.CRSElapsedTime;
 				}
 				
-			    public Float _ActualElapsedTime;
+			    public String ActualElapsedTime;
 
-				public Float get_ActualElapsedTime () {
-					return this._ActualElapsedTime;
+				public String getActualElapsedTime () {
+					return this.ActualElapsedTime;
 				}
 				
-			    public Float _AirTime;
+			    public String AirTime;
 
-				public Float get_AirTime () {
-					return this._AirTime;
+				public String getAirTime () {
+					return this.AirTime;
 				}
 				
-			    public String _Flights;
+			    public Float Flights;
 
-				public String get_Flights () {
-					return this._Flights;
+				public Float getFlights () {
+					return this.Flights;
 				}
 				
-			    public String _Distance;
+			    public Float Distance;
 
-				public String get_Distance () {
-					return this._Distance;
+				public Float getDistance () {
+					return this.Distance;
 				}
 				
-			    public Float _DistanceGroup;
+			    public Integer DistanceGroup;
 
-				public Float get_DistanceGroup () {
-					return this._DistanceGroup;
+				public Integer getDistanceGroup () {
+					return this.DistanceGroup;
 				}
 				
-			    public Float _CarrierDelay;
+			    public String CarrierDelay;
 
-				public Float get_CarrierDelay () {
-					return this._CarrierDelay;
+				public String getCarrierDelay () {
+					return this.CarrierDelay;
 				}
 				
-			    public Integer _WeatherDelay;
+			    public String WeatherDelay;
 
-				public Integer get_WeatherDelay () {
-					return this._WeatherDelay;
+				public String getWeatherDelay () {
+					return this.WeatherDelay;
 				}
 				
-			    public String _NASDelay;
+			    public String NASDelay;
 
-				public String get_NASDelay () {
-					return this._NASDelay;
+				public String getNASDelay () {
+					return this.NASDelay;
 				}
 				
-			    public String _SecurityDelay;
+			    public String SecurityDelay;
 
-				public String get_SecurityDelay () {
-					return this._SecurityDelay;
+				public String getSecurityDelay () {
+					return this.SecurityDelay;
 				}
 				
-			    public String _LateAircraftDelay;
+			    public String LateAircraftDelay;
 
-				public String get_LateAircraftDelay () {
-					return this._LateAircraftDelay;
+				public String getLateAircraftDelay () {
+					return this.LateAircraftDelay;
 				}
 				
-			    public String _FirstDepTime;
+			    public String FirstDepTime;
 
-				public String get_FirstDepTime () {
-					return this._FirstDepTime;
+				public String getFirstDepTime () {
+					return this.FirstDepTime;
 				}
 				
-			    public String _TotalAddGTime;
+			    public String TotalAddGTime;
 
-				public String get_TotalAddGTime () {
-					return this._TotalAddGTime;
+				public String getTotalAddGTime () {
+					return this.TotalAddGTime;
 				}
 				
-			    public String _LongestAddGTime;
+			    public String LongestAddGTime;
 
-				public String get_LongestAddGTime () {
-					return this._LongestAddGTime;
+				public String getLongestAddGTime () {
+					return this.LongestAddGTime;
 				}
 				
-			    public String _DivAirportLandings;
+			    public Integer DivAirportLandings;
 
-				public String get_DivAirportLandings () {
-					return this._DivAirportLandings;
+				public Integer getDivAirportLandings () {
+					return this.DivAirportLandings;
 				}
 				
-			    public String _DivReachedDest;
+			    public String DivReachedDest;
 
-				public String get_DivReachedDest () {
-					return this._DivReachedDest;
+				public String getDivReachedDest () {
+					return this.DivReachedDest;
 				}
 				
-			    public Integer _DivActualElapsedTime;
+			    public String DivActualElapsedTime;
 
-				public Integer get_DivActualElapsedTime () {
-					return this._DivActualElapsedTime;
+				public String getDivActualElapsedTime () {
+					return this.DivActualElapsedTime;
 				}
 				
-			    public String _DivArrDelay;
+			    public String DivArrDelay;
 
-				public String get_DivArrDelay () {
-					return this._DivArrDelay;
+				public String getDivArrDelay () {
+					return this.DivArrDelay;
 				}
 				
-			    public String _DivDistance;
+			    public String DivDistance;
 
-				public String get_DivDistance () {
-					return this._DivDistance;
+				public String getDivDistance () {
+					return this.DivDistance;
 				}
 				
-			    public String _Div1Airport;
+			    public String Div1Airport;
 
-				public String get_Div1Airport () {
-					return this._Div1Airport;
+				public String getDiv1Airport () {
+					return this.Div1Airport;
 				}
 				
-			    public String _Div1AirportID;
+			    public String Div1AirportID;
 
-				public String get_Div1AirportID () {
-					return this._Div1AirportID;
+				public String getDiv1AirportID () {
+					return this.Div1AirportID;
 				}
 				
-			    public String _Div1AirportSeqID;
+			    public String Div1AirportSeqID;
 
-				public String get_Div1AirportSeqID () {
-					return this._Div1AirportSeqID;
+				public String getDiv1AirportSeqID () {
+					return this.Div1AirportSeqID;
 				}
 				
-			    public String _Div1WheelsOn;
+			    public String Div1WheelsOn;
 
-				public String get_Div1WheelsOn () {
-					return this._Div1WheelsOn;
+				public String getDiv1WheelsOn () {
+					return this.Div1WheelsOn;
 				}
 				
-			    public String _Div1TotalGTime;
+			    public String Div1TotalGTime;
 
-				public String get_Div1TotalGTime () {
-					return this._Div1TotalGTime;
+				public String getDiv1TotalGTime () {
+					return this.Div1TotalGTime;
 				}
 				
-			    public String _Div1LongestGTime;
+			    public String Div1LongestGTime;
 
-				public String get_Div1LongestGTime () {
-					return this._Div1LongestGTime;
+				public String getDiv1LongestGTime () {
+					return this.Div1LongestGTime;
 				}
 				
-			    public String _Div1WheelsOff;
+			    public String Div1WheelsOff;
 
-				public String get_Div1WheelsOff () {
-					return this._Div1WheelsOff;
+				public String getDiv1WheelsOff () {
+					return this.Div1WheelsOff;
 				}
 				
-			    public String _Div1TailNum;
+			    public String Div1TailNum;
 
-				public String get_Div1TailNum () {
-					return this._Div1TailNum;
+				public String getDiv1TailNum () {
+					return this.Div1TailNum;
 				}
 				
-			    public String _Div2Airport;
+			    public String Div2Airport;
 
-				public String get_Div2Airport () {
-					return this._Div2Airport;
+				public String getDiv2Airport () {
+					return this.Div2Airport;
 				}
 				
-			    public String _Div2AirportID;
+			    public String Div2AirportID;
 
-				public String get_Div2AirportID () {
-					return this._Div2AirportID;
+				public String getDiv2AirportID () {
+					return this.Div2AirportID;
 				}
 				
-			    public String _Div2AirportSeqID;
+			    public String Div2AirportSeqID;
 
-				public String get_Div2AirportSeqID () {
-					return this._Div2AirportSeqID;
+				public String getDiv2AirportSeqID () {
+					return this.Div2AirportSeqID;
 				}
 				
-			    public String _Div2WheelsOn;
+			    public String Div2WheelsOn;
 
-				public String get_Div2WheelsOn () {
-					return this._Div2WheelsOn;
+				public String getDiv2WheelsOn () {
+					return this.Div2WheelsOn;
 				}
 				
-			    public String _Div2TotalGTime;
+			    public String Div2TotalGTime;
 
-				public String get_Div2TotalGTime () {
-					return this._Div2TotalGTime;
+				public String getDiv2TotalGTime () {
+					return this.Div2TotalGTime;
 				}
 				
-			    public String _Div2LongestGTime;
+			    public String Div2LongestGTime;
 
-				public String get_Div2LongestGTime () {
-					return this._Div2LongestGTime;
+				public String getDiv2LongestGTime () {
+					return this.Div2LongestGTime;
 				}
 				
-			    public String _Div2WheelsOff;
+			    public String Div2WheelsOff;
 
-				public String get_Div2WheelsOff () {
-					return this._Div2WheelsOff;
+				public String getDiv2WheelsOff () {
+					return this.Div2WheelsOff;
 				}
 				
-			    public String _Div2TailNum;
+			    public String Div2TailNum;
 
-				public String get_Div2TailNum () {
-					return this._Div2TailNum;
+				public String getDiv2TailNum () {
+					return this.Div2TailNum;
 				}
 				
-			    public String _Div3Airport;
+			    public String Div3Airport;
 
-				public String get_Div3Airport () {
-					return this._Div3Airport;
+				public String getDiv3Airport () {
+					return this.Div3Airport;
 				}
 				
-			    public String _Div3AirportID;
+			    public String Div3AirportID;
 
-				public String get_Div3AirportID () {
-					return this._Div3AirportID;
+				public String getDiv3AirportID () {
+					return this.Div3AirportID;
 				}
 				
-			    public String _Div3AirportSeqID;
+			    public String Div3AirportSeqID;
 
-				public String get_Div3AirportSeqID () {
-					return this._Div3AirportSeqID;
+				public String getDiv3AirportSeqID () {
+					return this.Div3AirportSeqID;
 				}
 				
-			    public String _Div3WheelsOn;
+			    public String Div3WheelsOn;
 
-				public String get_Div3WheelsOn () {
-					return this._Div3WheelsOn;
+				public String getDiv3WheelsOn () {
+					return this.Div3WheelsOn;
 				}
 				
-			    public String _Div3TotalGTime;
+			    public String Div3TotalGTime;
 
-				public String get_Div3TotalGTime () {
-					return this._Div3TotalGTime;
+				public String getDiv3TotalGTime () {
+					return this.Div3TotalGTime;
 				}
 				
-			    public String _Div3LongestGTime;
+			    public String Div3LongestGTime;
 
-				public String get_Div3LongestGTime () {
-					return this._Div3LongestGTime;
+				public String getDiv3LongestGTime () {
+					return this.Div3LongestGTime;
 				}
 				
-			    public String _Div3WheelsOff;
+			    public String Div3WheelsOff;
 
-				public String get_Div3WheelsOff () {
-					return this._Div3WheelsOff;
+				public String getDiv3WheelsOff () {
+					return this.Div3WheelsOff;
 				}
 				
-			    public String _Div3TailNum;
+			    public String Div3TailNum;
 
-				public String get_Div3TailNum () {
-					return this._Div3TailNum;
+				public String getDiv3TailNum () {
+					return this.Div3TailNum;
 				}
 				
-			    public String _Div4Airport;
+			    public String Div4Airport;
 
-				public String get_Div4Airport () {
-					return this._Div4Airport;
+				public String getDiv4Airport () {
+					return this.Div4Airport;
 				}
 				
-			    public String _Div4AirportID;
+			    public String Div4AirportID;
 
-				public String get_Div4AirportID () {
-					return this._Div4AirportID;
+				public String getDiv4AirportID () {
+					return this.Div4AirportID;
 				}
 				
-			    public String _Div4AirportSeqID;
+			    public String Div4AirportSeqID;
 
-				public String get_Div4AirportSeqID () {
-					return this._Div4AirportSeqID;
+				public String getDiv4AirportSeqID () {
+					return this.Div4AirportSeqID;
 				}
 				
-			    public String _Div4WheelsOn;
+			    public String Div4WheelsOn;
 
-				public String get_Div4WheelsOn () {
-					return this._Div4WheelsOn;
+				public String getDiv4WheelsOn () {
+					return this.Div4WheelsOn;
 				}
 				
-			    public String _Div4TotalGTime;
+			    public String Div4TotalGTime;
 
-				public String get_Div4TotalGTime () {
-					return this._Div4TotalGTime;
+				public String getDiv4TotalGTime () {
+					return this.Div4TotalGTime;
 				}
 				
-			    public String _Div4LongestGTime;
+			    public String Div4LongestGTime;
 
-				public String get_Div4LongestGTime () {
-					return this._Div4LongestGTime;
+				public String getDiv4LongestGTime () {
+					return this.Div4LongestGTime;
 				}
 				
-			    public String _Div4WheelsOff;
+			    public String Div4WheelsOff;
 
-				public String get_Div4WheelsOff () {
-					return this._Div4WheelsOff;
+				public String getDiv4WheelsOff () {
+					return this.Div4WheelsOff;
 				}
 				
-			    public String _Div4TailNum;
+			    public String Div4TailNum;
 
-				public String get_Div4TailNum () {
-					return this._Div4TailNum;
+				public String getDiv4TailNum () {
+					return this.Div4TailNum;
 				}
 				
-			    public String _Div5Airport;
+			    public String Div5Airport;
 
-				public String get_Div5Airport () {
-					return this._Div5Airport;
+				public String getDiv5Airport () {
+					return this.Div5Airport;
 				}
 				
-			    public String _Div5AirportID;
+			    public String Div5AirportID;
 
-				public String get_Div5AirportID () {
-					return this._Div5AirportID;
+				public String getDiv5AirportID () {
+					return this.Div5AirportID;
 				}
 				
-			    public String _Div5AirportSeqID;
+			    public String Div5AirportSeqID;
 
-				public String get_Div5AirportSeqID () {
-					return this._Div5AirportSeqID;
+				public String getDiv5AirportSeqID () {
+					return this.Div5AirportSeqID;
 				}
 				
-			    public String _Div5WheelsOn;
+			    public String Div5WheelsOn;
 
-				public String get_Div5WheelsOn () {
-					return this._Div5WheelsOn;
+				public String getDiv5WheelsOn () {
+					return this.Div5WheelsOn;
 				}
 				
-			    public String _Div5TotalGTime;
+			    public String Div5TotalGTime;
 
-				public String get_Div5TotalGTime () {
-					return this._Div5TotalGTime;
+				public String getDiv5TotalGTime () {
+					return this.Div5TotalGTime;
 				}
 				
-			    public String _Div5LongestGTime;
+			    public String Div5LongestGTime;
 
-				public String get_Div5LongestGTime () {
-					return this._Div5LongestGTime;
+				public String getDiv5LongestGTime () {
+					return this.Div5LongestGTime;
 				}
 				
-			    public String _Div5WheelsOff;
+			    public String Div5WheelsOff;
 
-				public String get_Div5WheelsOff () {
-					return this._Div5WheelsOff;
+				public String getDiv5WheelsOff () {
+					return this.Div5WheelsOff;
 				}
 				
-			    public String _Div5TailNum;
+			    public String Div5TailNum;
 
-				public String get_Div5TailNum () {
-					return this._Div5TailNum;
+				public String getDiv5TailNum () {
+					return this.Div5TailNum;
 				}
 				
-			    public String _Duplicate;
+			    public Character Duplicate;
 
-				public String get_Duplicate () {
-					return this._Duplicate;
+				public Character getDuplicate () {
+					return this.Duplicate;
 				}
 				
 
@@ -1876,268 +1876,273 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 
         		int length = 0;
 		
-						this._Year = readInteger(dis);
+						this.Year = readInteger(dis);
 					
-						this._Quarter = readInteger(dis);
+						this.Quarter = readInteger(dis);
 					
-						this._Month = readInteger(dis);
+						this.Month = readInteger(dis);
 					
-						this._DayofMonth = readInteger(dis);
+						this.DayofMonth = readInteger(dis);
 					
-						this._DayOfWeek = readInteger(dis);
+						this.DayOfWeek = readInteger(dis);
 					
-					this._FlightDate = readString(dis);
+					this.FlightDate = readString(dis);
 					
-					this._Marketing_Airline_Network = readString(dis);
+					this.Marketing_Airline_Network = readString(dis);
 					
-					this._Operated_or_Branded_Code_Share_Partners = readString(dis);
+					this.Operated_or_Branded_Code_Share_Partners = readString(dis);
 					
-						this._DOT_ID_Marketing_Airline = readInteger(dis);
+						this.DOT_ID_Marketing_Airline = readInteger(dis);
 					
-					this._IATA_Code_Marketing_Airline = readString(dis);
+					this.IATA_Code_Marketing_Airline = readString(dis);
 					
-					this._Flight_Number_Marketing_Airline = readString(dis);
+						this.Flight_Number_Marketing_Airline = readInteger(dis);
 					
-					this._Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Operating_Airline = readString(dis);
+					this.Operating_Airline = readString(dis);
 					
-						this._DOT_ID_Operating_Airline = readInteger(dis);
+						this.DOT_ID_Operating_Airline = readInteger(dis);
 					
-					this._IATA_Code_Operating_Airline = readString(dis);
+					this.IATA_Code_Operating_Airline = readString(dis);
 					
-					this._Tail_Number = readString(dis);
+					this.Tail_Number = readString(dis);
 					
-					this._Flight_Number_Operating_Airline = readString(dis);
+						this.Flight_Number_Operating_Airline = readInteger(dis);
 					
-						this._OriginAirportID = readInteger(dis);
+						this.OriginAirportID = readInteger(dis);
 					
-						this._OriginAirportSeqID = readInteger(dis);
+						this.OriginAirportSeqID = readInteger(dis);
 					
-						this._OriginCityMarketID = readInteger(dis);
+						this.OriginCityMarketID = readInteger(dis);
 					
-					this._Origin = readString(dis);
+					this.Origin = readString(dis);
 					
-					this._OriginCityName = readString(dis);
+					this.OriginCityName = readString(dis);
 					
-					this._OriginState = readString(dis);
+					this.OriginState = readString(dis);
 					
-					this._OriginStateFips = readString(dis);
+					this.OriginStateFips = readString(dis);
 					
-					this._OriginStateName = readString(dis);
+					this.OriginStateName = readString(dis);
 					
-					this._OriginWac = readString(dis);
+						this.OriginWac = readInteger(dis);
 					
-						this._DestAirportID = readInteger(dis);
+						this.DestAirportID = readInteger(dis);
 					
-						this._DestAirportSeqID = readInteger(dis);
+						this.DestAirportSeqID = readInteger(dis);
 					
-						this._DestCityMarketID = readInteger(dis);
+						this.DestCityMarketID = readInteger(dis);
 					
-						this._Dest = readInteger(dis);
+					this.Dest = readString(dis);
 					
-					this._DestCityName = readString(dis);
+					this.DestCityName = readString(dis);
 					
-					this._DestState = readString(dis);
+					this.DestState = readString(dis);
 					
-					this._DestStateFips = readString(dis);
+					this.DestStateFips = readString(dis);
 					
-					this._DestStateName = readString(dis);
+					this.DestStateName = readString(dis);
 					
-					this._DestWac = readString(dis);
+						this.DestWac = readInteger(dis);
 					
-					this._CRSDepTime = readString(dis);
+					this.CRSDepTime = readString(dis);
 					
-						this._DepTime = readInteger(dis);
+					this.DepTime = readString(dis);
 					
-					this._DepDelay = readString(dis);
+					this.DepDelay = readString(dis);
 					
-					this._DepDelayMinutes = readString(dis);
+					this.DepDelayMinutes = readString(dis);
 					
-					this._DepDel15 = readString(dis);
+					this.DepDel15 = readString(dis);
 					
-					this._DepartureDelayGroups = readString(dis);
+					this.DepartureDelayGroups = readString(dis);
 					
-					this._DepTimeBlk = readString(dis);
+					this.DepTimeBlk = readString(dis);
 					
-					this._TaxiOut = readString(dis);
+					this.TaxiOut = readString(dis);
 					
-					this._WheelsOff = readString(dis);
+					this.WheelsOff = readString(dis);
 					
-					this._WheelsOn = readString(dis);
+					this.WheelsOn = readString(dis);
 					
-					this._TaxiIn = readString(dis);
+					this.TaxiIn = readString(dis);
 					
-					this._CRSArrTime = readString(dis);
+					this.CRSArrTime = readString(dis);
 					
-					this._ArrTime = readString(dis);
+					this.ArrTime = readString(dis);
 					
-					this._ArrDelay = readString(dis);
+					this.ArrDelay = readString(dis);
 					
-					this._ArrDelayMinutes = readString(dis);
+					this.ArrDelayMinutes = readString(dis);
 					
-					this._ArrDel15 = readString(dis);
+					this.ArrDel15 = readString(dis);
 					
-					this._ArrivalDelayGroups = readString(dis);
+					this.ArrivalDelayGroups = readString(dis);
 					
-					this._ArrTimeBlk = readString(dis);
-					
-					this._Cancelled = readString(dis);
-					
-					this._CancellationCode = readString(dis);
+					this.ArrTimeBlk = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._Diverted = null;
+           	    			this.Cancelled = null;
            				} else {
-           			    	this._Diverted = dis.readFloat();
+           			    	this.Cancelled = dis.readFloat();
            				}
 					
-					this._CRSElapsedTime = readString(dis);
+					this.CancellationCode = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._ActualElapsedTime = null;
+           	    			this.Diverted = null;
            				} else {
-           			    	this._ActualElapsedTime = dis.readFloat();
+           			    	this.Diverted = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._AirTime = null;
+           	    			this.CRSElapsedTime = null;
            				} else {
-           			    	this._AirTime = dis.readFloat();
+           			    	this.CRSElapsedTime = dis.readFloat();
            				}
 					
-					this._Flights = readString(dis);
+					this.ActualElapsedTime = readString(dis);
 					
-					this._Distance = readString(dis);
+					this.AirTime = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._DistanceGroup = null;
+           	    			this.Flights = null;
            				} else {
-           			    	this._DistanceGroup = dis.readFloat();
+           			    	this.Flights = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._CarrierDelay = null;
+           	    			this.Distance = null;
            				} else {
-           			    	this._CarrierDelay = dis.readFloat();
+           			    	this.Distance = dis.readFloat();
            				}
 					
-						this._WeatherDelay = readInteger(dis);
+						this.DistanceGroup = readInteger(dis);
 					
-					this._NASDelay = readString(dis);
+					this.CarrierDelay = readString(dis);
 					
-					this._SecurityDelay = readString(dis);
+					this.WeatherDelay = readString(dis);
 					
-					this._LateAircraftDelay = readString(dis);
+					this.NASDelay = readString(dis);
 					
-					this._FirstDepTime = readString(dis);
+					this.SecurityDelay = readString(dis);
 					
-					this._TotalAddGTime = readString(dis);
+					this.LateAircraftDelay = readString(dis);
 					
-					this._LongestAddGTime = readString(dis);
+					this.FirstDepTime = readString(dis);
 					
-					this._DivAirportLandings = readString(dis);
+					this.TotalAddGTime = readString(dis);
 					
-					this._DivReachedDest = readString(dis);
+					this.LongestAddGTime = readString(dis);
 					
-						this._DivActualElapsedTime = readInteger(dis);
+						this.DivAirportLandings = readInteger(dis);
 					
-					this._DivArrDelay = readString(dis);
+					this.DivReachedDest = readString(dis);
 					
-					this._DivDistance = readString(dis);
+					this.DivActualElapsedTime = readString(dis);
 					
-					this._Div1Airport = readString(dis);
+					this.DivArrDelay = readString(dis);
 					
-					this._Div1AirportID = readString(dis);
+					this.DivDistance = readString(dis);
 					
-					this._Div1AirportSeqID = readString(dis);
+					this.Div1Airport = readString(dis);
 					
-					this._Div1WheelsOn = readString(dis);
+					this.Div1AirportID = readString(dis);
 					
-					this._Div1TotalGTime = readString(dis);
+					this.Div1AirportSeqID = readString(dis);
 					
-					this._Div1LongestGTime = readString(dis);
+					this.Div1WheelsOn = readString(dis);
 					
-					this._Div1WheelsOff = readString(dis);
+					this.Div1TotalGTime = readString(dis);
 					
-					this._Div1TailNum = readString(dis);
+					this.Div1LongestGTime = readString(dis);
 					
-					this._Div2Airport = readString(dis);
+					this.Div1WheelsOff = readString(dis);
 					
-					this._Div2AirportID = readString(dis);
+					this.Div1TailNum = readString(dis);
 					
-					this._Div2AirportSeqID = readString(dis);
+					this.Div2Airport = readString(dis);
 					
-					this._Div2WheelsOn = readString(dis);
+					this.Div2AirportID = readString(dis);
 					
-					this._Div2TotalGTime = readString(dis);
+					this.Div2AirportSeqID = readString(dis);
 					
-					this._Div2LongestGTime = readString(dis);
+					this.Div2WheelsOn = readString(dis);
 					
-					this._Div2WheelsOff = readString(dis);
+					this.Div2TotalGTime = readString(dis);
 					
-					this._Div2TailNum = readString(dis);
+					this.Div2LongestGTime = readString(dis);
 					
-					this._Div3Airport = readString(dis);
+					this.Div2WheelsOff = readString(dis);
 					
-					this._Div3AirportID = readString(dis);
+					this.Div2TailNum = readString(dis);
 					
-					this._Div3AirportSeqID = readString(dis);
+					this.Div3Airport = readString(dis);
 					
-					this._Div3WheelsOn = readString(dis);
+					this.Div3AirportID = readString(dis);
 					
-					this._Div3TotalGTime = readString(dis);
+					this.Div3AirportSeqID = readString(dis);
 					
-					this._Div3LongestGTime = readString(dis);
+					this.Div3WheelsOn = readString(dis);
 					
-					this._Div3WheelsOff = readString(dis);
+					this.Div3TotalGTime = readString(dis);
 					
-					this._Div3TailNum = readString(dis);
+					this.Div3LongestGTime = readString(dis);
 					
-					this._Div4Airport = readString(dis);
+					this.Div3WheelsOff = readString(dis);
 					
-					this._Div4AirportID = readString(dis);
+					this.Div3TailNum = readString(dis);
 					
-					this._Div4AirportSeqID = readString(dis);
+					this.Div4Airport = readString(dis);
 					
-					this._Div4WheelsOn = readString(dis);
+					this.Div4AirportID = readString(dis);
 					
-					this._Div4TotalGTime = readString(dis);
+					this.Div4AirportSeqID = readString(dis);
 					
-					this._Div4LongestGTime = readString(dis);
+					this.Div4WheelsOn = readString(dis);
 					
-					this._Div4WheelsOff = readString(dis);
+					this.Div4TotalGTime = readString(dis);
 					
-					this._Div4TailNum = readString(dis);
+					this.Div4LongestGTime = readString(dis);
 					
-					this._Div5Airport = readString(dis);
+					this.Div4WheelsOff = readString(dis);
 					
-					this._Div5AirportID = readString(dis);
+					this.Div4TailNum = readString(dis);
 					
-					this._Div5AirportSeqID = readString(dis);
+					this.Div5Airport = readString(dis);
 					
-					this._Div5WheelsOn = readString(dis);
+					this.Div5AirportID = readString(dis);
 					
-					this._Div5TotalGTime = readString(dis);
+					this.Div5AirportSeqID = readString(dis);
 					
-					this._Div5LongestGTime = readString(dis);
+					this.Div5WheelsOn = readString(dis);
 					
-					this._Div5WheelsOff = readString(dis);
+					this.Div5TotalGTime = readString(dis);
 					
-					this._Div5TailNum = readString(dis);
+					this.Div5LongestGTime = readString(dis);
 					
-					this._Duplicate = readString(dis);
+					this.Div5WheelsOff = readString(dis);
+					
+					this.Div5TailNum = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Duplicate = null;
+           				} else {
+           			    	this.Duplicate = dis.readChar();
+           				}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -2161,268 +2166,273 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 
         		int length = 0;
 		
-						this._Year = readInteger(dis);
+						this.Year = readInteger(dis);
 					
-						this._Quarter = readInteger(dis);
+						this.Quarter = readInteger(dis);
 					
-						this._Month = readInteger(dis);
+						this.Month = readInteger(dis);
 					
-						this._DayofMonth = readInteger(dis);
+						this.DayofMonth = readInteger(dis);
 					
-						this._DayOfWeek = readInteger(dis);
+						this.DayOfWeek = readInteger(dis);
 					
-					this._FlightDate = readString(dis);
+					this.FlightDate = readString(dis);
 					
-					this._Marketing_Airline_Network = readString(dis);
+					this.Marketing_Airline_Network = readString(dis);
 					
-					this._Operated_or_Branded_Code_Share_Partners = readString(dis);
+					this.Operated_or_Branded_Code_Share_Partners = readString(dis);
 					
-						this._DOT_ID_Marketing_Airline = readInteger(dis);
+						this.DOT_ID_Marketing_Airline = readInteger(dis);
 					
-					this._IATA_Code_Marketing_Airline = readString(dis);
+					this.IATA_Code_Marketing_Airline = readString(dis);
 					
-					this._Flight_Number_Marketing_Airline = readString(dis);
+						this.Flight_Number_Marketing_Airline = readInteger(dis);
 					
-					this._Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Operating_Airline = readString(dis);
+					this.Operating_Airline = readString(dis);
 					
-						this._DOT_ID_Operating_Airline = readInteger(dis);
+						this.DOT_ID_Operating_Airline = readInteger(dis);
 					
-					this._IATA_Code_Operating_Airline = readString(dis);
+					this.IATA_Code_Operating_Airline = readString(dis);
 					
-					this._Tail_Number = readString(dis);
+					this.Tail_Number = readString(dis);
 					
-					this._Flight_Number_Operating_Airline = readString(dis);
+						this.Flight_Number_Operating_Airline = readInteger(dis);
 					
-						this._OriginAirportID = readInteger(dis);
+						this.OriginAirportID = readInteger(dis);
 					
-						this._OriginAirportSeqID = readInteger(dis);
+						this.OriginAirportSeqID = readInteger(dis);
 					
-						this._OriginCityMarketID = readInteger(dis);
+						this.OriginCityMarketID = readInteger(dis);
 					
-					this._Origin = readString(dis);
+					this.Origin = readString(dis);
 					
-					this._OriginCityName = readString(dis);
+					this.OriginCityName = readString(dis);
 					
-					this._OriginState = readString(dis);
+					this.OriginState = readString(dis);
 					
-					this._OriginStateFips = readString(dis);
+					this.OriginStateFips = readString(dis);
 					
-					this._OriginStateName = readString(dis);
+					this.OriginStateName = readString(dis);
 					
-					this._OriginWac = readString(dis);
+						this.OriginWac = readInteger(dis);
 					
-						this._DestAirportID = readInteger(dis);
+						this.DestAirportID = readInteger(dis);
 					
-						this._DestAirportSeqID = readInteger(dis);
+						this.DestAirportSeqID = readInteger(dis);
 					
-						this._DestCityMarketID = readInteger(dis);
+						this.DestCityMarketID = readInteger(dis);
 					
-						this._Dest = readInteger(dis);
+					this.Dest = readString(dis);
 					
-					this._DestCityName = readString(dis);
+					this.DestCityName = readString(dis);
 					
-					this._DestState = readString(dis);
+					this.DestState = readString(dis);
 					
-					this._DestStateFips = readString(dis);
+					this.DestStateFips = readString(dis);
 					
-					this._DestStateName = readString(dis);
+					this.DestStateName = readString(dis);
 					
-					this._DestWac = readString(dis);
+						this.DestWac = readInteger(dis);
 					
-					this._CRSDepTime = readString(dis);
+					this.CRSDepTime = readString(dis);
 					
-						this._DepTime = readInteger(dis);
+					this.DepTime = readString(dis);
 					
-					this._DepDelay = readString(dis);
+					this.DepDelay = readString(dis);
 					
-					this._DepDelayMinutes = readString(dis);
+					this.DepDelayMinutes = readString(dis);
 					
-					this._DepDel15 = readString(dis);
+					this.DepDel15 = readString(dis);
 					
-					this._DepartureDelayGroups = readString(dis);
+					this.DepartureDelayGroups = readString(dis);
 					
-					this._DepTimeBlk = readString(dis);
+					this.DepTimeBlk = readString(dis);
 					
-					this._TaxiOut = readString(dis);
+					this.TaxiOut = readString(dis);
 					
-					this._WheelsOff = readString(dis);
+					this.WheelsOff = readString(dis);
 					
-					this._WheelsOn = readString(dis);
+					this.WheelsOn = readString(dis);
 					
-					this._TaxiIn = readString(dis);
+					this.TaxiIn = readString(dis);
 					
-					this._CRSArrTime = readString(dis);
+					this.CRSArrTime = readString(dis);
 					
-					this._ArrTime = readString(dis);
+					this.ArrTime = readString(dis);
 					
-					this._ArrDelay = readString(dis);
+					this.ArrDelay = readString(dis);
 					
-					this._ArrDelayMinutes = readString(dis);
+					this.ArrDelayMinutes = readString(dis);
 					
-					this._ArrDel15 = readString(dis);
+					this.ArrDel15 = readString(dis);
 					
-					this._ArrivalDelayGroups = readString(dis);
+					this.ArrivalDelayGroups = readString(dis);
 					
-					this._ArrTimeBlk = readString(dis);
-					
-					this._Cancelled = readString(dis);
-					
-					this._CancellationCode = readString(dis);
+					this.ArrTimeBlk = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._Diverted = null;
+           	    			this.Cancelled = null;
            				} else {
-           			    	this._Diverted = dis.readFloat();
+           			    	this.Cancelled = dis.readFloat();
            				}
 					
-					this._CRSElapsedTime = readString(dis);
+					this.CancellationCode = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._ActualElapsedTime = null;
+           	    			this.Diverted = null;
            				} else {
-           			    	this._ActualElapsedTime = dis.readFloat();
+           			    	this.Diverted = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._AirTime = null;
+           	    			this.CRSElapsedTime = null;
            				} else {
-           			    	this._AirTime = dis.readFloat();
+           			    	this.CRSElapsedTime = dis.readFloat();
            				}
 					
-					this._Flights = readString(dis);
+					this.ActualElapsedTime = readString(dis);
 					
-					this._Distance = readString(dis);
+					this.AirTime = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._DistanceGroup = null;
+           	    			this.Flights = null;
            				} else {
-           			    	this._DistanceGroup = dis.readFloat();
+           			    	this.Flights = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._CarrierDelay = null;
+           	    			this.Distance = null;
            				} else {
-           			    	this._CarrierDelay = dis.readFloat();
+           			    	this.Distance = dis.readFloat();
            				}
 					
-						this._WeatherDelay = readInteger(dis);
+						this.DistanceGroup = readInteger(dis);
 					
-					this._NASDelay = readString(dis);
+					this.CarrierDelay = readString(dis);
 					
-					this._SecurityDelay = readString(dis);
+					this.WeatherDelay = readString(dis);
 					
-					this._LateAircraftDelay = readString(dis);
+					this.NASDelay = readString(dis);
 					
-					this._FirstDepTime = readString(dis);
+					this.SecurityDelay = readString(dis);
 					
-					this._TotalAddGTime = readString(dis);
+					this.LateAircraftDelay = readString(dis);
 					
-					this._LongestAddGTime = readString(dis);
+					this.FirstDepTime = readString(dis);
 					
-					this._DivAirportLandings = readString(dis);
+					this.TotalAddGTime = readString(dis);
 					
-					this._DivReachedDest = readString(dis);
+					this.LongestAddGTime = readString(dis);
 					
-						this._DivActualElapsedTime = readInteger(dis);
+						this.DivAirportLandings = readInteger(dis);
 					
-					this._DivArrDelay = readString(dis);
+					this.DivReachedDest = readString(dis);
 					
-					this._DivDistance = readString(dis);
+					this.DivActualElapsedTime = readString(dis);
 					
-					this._Div1Airport = readString(dis);
+					this.DivArrDelay = readString(dis);
 					
-					this._Div1AirportID = readString(dis);
+					this.DivDistance = readString(dis);
 					
-					this._Div1AirportSeqID = readString(dis);
+					this.Div1Airport = readString(dis);
 					
-					this._Div1WheelsOn = readString(dis);
+					this.Div1AirportID = readString(dis);
 					
-					this._Div1TotalGTime = readString(dis);
+					this.Div1AirportSeqID = readString(dis);
 					
-					this._Div1LongestGTime = readString(dis);
+					this.Div1WheelsOn = readString(dis);
 					
-					this._Div1WheelsOff = readString(dis);
+					this.Div1TotalGTime = readString(dis);
 					
-					this._Div1TailNum = readString(dis);
+					this.Div1LongestGTime = readString(dis);
 					
-					this._Div2Airport = readString(dis);
+					this.Div1WheelsOff = readString(dis);
 					
-					this._Div2AirportID = readString(dis);
+					this.Div1TailNum = readString(dis);
 					
-					this._Div2AirportSeqID = readString(dis);
+					this.Div2Airport = readString(dis);
 					
-					this._Div2WheelsOn = readString(dis);
+					this.Div2AirportID = readString(dis);
 					
-					this._Div2TotalGTime = readString(dis);
+					this.Div2AirportSeqID = readString(dis);
 					
-					this._Div2LongestGTime = readString(dis);
+					this.Div2WheelsOn = readString(dis);
 					
-					this._Div2WheelsOff = readString(dis);
+					this.Div2TotalGTime = readString(dis);
 					
-					this._Div2TailNum = readString(dis);
+					this.Div2LongestGTime = readString(dis);
 					
-					this._Div3Airport = readString(dis);
+					this.Div2WheelsOff = readString(dis);
 					
-					this._Div3AirportID = readString(dis);
+					this.Div2TailNum = readString(dis);
 					
-					this._Div3AirportSeqID = readString(dis);
+					this.Div3Airport = readString(dis);
 					
-					this._Div3WheelsOn = readString(dis);
+					this.Div3AirportID = readString(dis);
 					
-					this._Div3TotalGTime = readString(dis);
+					this.Div3AirportSeqID = readString(dis);
 					
-					this._Div3LongestGTime = readString(dis);
+					this.Div3WheelsOn = readString(dis);
 					
-					this._Div3WheelsOff = readString(dis);
+					this.Div3TotalGTime = readString(dis);
 					
-					this._Div3TailNum = readString(dis);
+					this.Div3LongestGTime = readString(dis);
 					
-					this._Div4Airport = readString(dis);
+					this.Div3WheelsOff = readString(dis);
 					
-					this._Div4AirportID = readString(dis);
+					this.Div3TailNum = readString(dis);
 					
-					this._Div4AirportSeqID = readString(dis);
+					this.Div4Airport = readString(dis);
 					
-					this._Div4WheelsOn = readString(dis);
+					this.Div4AirportID = readString(dis);
 					
-					this._Div4TotalGTime = readString(dis);
+					this.Div4AirportSeqID = readString(dis);
 					
-					this._Div4LongestGTime = readString(dis);
+					this.Div4WheelsOn = readString(dis);
 					
-					this._Div4WheelsOff = readString(dis);
+					this.Div4TotalGTime = readString(dis);
 					
-					this._Div4TailNum = readString(dis);
+					this.Div4LongestGTime = readString(dis);
 					
-					this._Div5Airport = readString(dis);
+					this.Div4WheelsOff = readString(dis);
 					
-					this._Div5AirportID = readString(dis);
+					this.Div4TailNum = readString(dis);
 					
-					this._Div5AirportSeqID = readString(dis);
+					this.Div5Airport = readString(dis);
 					
-					this._Div5WheelsOn = readString(dis);
+					this.Div5AirportID = readString(dis);
 					
-					this._Div5TotalGTime = readString(dis);
+					this.Div5AirportSeqID = readString(dis);
 					
-					this._Div5LongestGTime = readString(dis);
+					this.Div5WheelsOn = readString(dis);
 					
-					this._Div5WheelsOff = readString(dis);
+					this.Div5TotalGTime = readString(dis);
 					
-					this._Div5TailNum = readString(dis);
+					this.Div5LongestGTime = readString(dis);
 					
-					this._Duplicate = readString(dis);
+					this.Div5WheelsOff = readString(dis);
+					
+					this.Div5TailNum = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Duplicate = null;
+           				} else {
+           			    	this.Duplicate = dis.readChar();
+           				}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -2444,504 +2454,509 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 		
 					// Integer
 				
-						writeInteger(this._Year,dos);
+						writeInteger(this.Year,dos);
 					
 					// Integer
 				
-						writeInteger(this._Quarter,dos);
+						writeInteger(this.Quarter,dos);
 					
 					// Integer
 				
-						writeInteger(this._Month,dos);
+						writeInteger(this.Month,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayofMonth,dos);
+						writeInteger(this.DayofMonth,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayOfWeek,dos);
+						writeInteger(this.DayOfWeek,dos);
 					
 					// String
 				
-						writeString(this._FlightDate,dos);
+						writeString(this.FlightDate,dos);
 					
 					// String
 				
-						writeString(this._Marketing_Airline_Network,dos);
+						writeString(this.Marketing_Airline_Network,dos);
 					
 					// String
 				
-						writeString(this._Operated_or_Branded_Code_Share_Partners,dos);
+						writeString(this.Operated_or_Branded_Code_Share_Partners,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Marketing_Airline,dos);
+						writeInteger(this.DOT_ID_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Number_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Operating_Airline,dos);
+						writeString(this.IATA_Code_Marketing_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Operating_Airline,dos);
+						writeInteger(this.Flight_Number_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Operating_Airline,dos);
+						writeString(this.Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Tail_Number,dos);
+						writeString(this.DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Flight_Number_Operating_Airline,dos);
+						writeString(this.IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportID,dos);
+						writeInteger(this.DOT_ID_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.IATA_Code_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.Tail_Number,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportSeqID,dos);
+						writeInteger(this.Flight_Number_Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginCityMarketID,dos);
-					
-					// String
-				
-						writeString(this._Origin,dos);
-					
-					// String
-				
-						writeString(this._OriginCityName,dos);
-					
-					// String
-				
-						writeString(this._OriginState,dos);
-					
-					// String
-				
-						writeString(this._OriginStateFips,dos);
-					
-					// String
-				
-						writeString(this._OriginStateName,dos);
-					
-					// String
-				
-						writeString(this._OriginWac,dos);
+						writeInteger(this.OriginAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportID,dos);
+						writeInteger(this.OriginAirportSeqID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportSeqID,dos);
+						writeInteger(this.OriginCityMarketID,dos);
+					
+					// String
+				
+						writeString(this.Origin,dos);
+					
+					// String
+				
+						writeString(this.OriginCityName,dos);
+					
+					// String
+				
+						writeString(this.OriginState,dos);
+					
+					// String
+				
+						writeString(this.OriginStateFips,dos);
+					
+					// String
+				
+						writeString(this.OriginStateName,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestCityMarketID,dos);
+						writeInteger(this.OriginWac,dos);
 					
 					// Integer
 				
-						writeInteger(this._Dest,dos);
-					
-					// String
-				
-						writeString(this._DestCityName,dos);
-					
-					// String
-				
-						writeString(this._DestState,dos);
-					
-					// String
-				
-						writeString(this._DestStateFips,dos);
-					
-					// String
-				
-						writeString(this._DestStateName,dos);
-					
-					// String
-				
-						writeString(this._DestWac,dos);
-					
-					// String
-				
-						writeString(this._CRSDepTime,dos);
+						writeInteger(this.DestAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DepTime,dos);
+						writeInteger(this.DestAirportSeqID,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestCityMarketID,dos);
 					
 					// String
 				
-						writeString(this._DepDelay,dos);
+						writeString(this.Dest,dos);
 					
 					// String
 				
-						writeString(this._DepDelayMinutes,dos);
+						writeString(this.DestCityName,dos);
 					
 					// String
 				
-						writeString(this._DepDel15,dos);
+						writeString(this.DestState,dos);
 					
 					// String
 				
-						writeString(this._DepartureDelayGroups,dos);
+						writeString(this.DestStateFips,dos);
 					
 					// String
 				
-						writeString(this._DepTimeBlk,dos);
+						writeString(this.DestStateName,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestWac,dos);
 					
 					// String
 				
-						writeString(this._TaxiOut,dos);
+						writeString(this.CRSDepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOff,dos);
+						writeString(this.DepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOn,dos);
+						writeString(this.DepDelay,dos);
 					
 					// String
 				
-						writeString(this._TaxiIn,dos);
+						writeString(this.DepDelayMinutes,dos);
 					
 					// String
 				
-						writeString(this._CRSArrTime,dos);
+						writeString(this.DepDel15,dos);
 					
 					// String
 				
-						writeString(this._ArrTime,dos);
+						writeString(this.DepartureDelayGroups,dos);
 					
 					// String
 				
-						writeString(this._ArrDelay,dos);
+						writeString(this.DepTimeBlk,dos);
 					
 					// String
 				
-						writeString(this._ArrDelayMinutes,dos);
+						writeString(this.TaxiOut,dos);
 					
 					// String
 				
-						writeString(this._ArrDel15,dos);
+						writeString(this.WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._ArrivalDelayGroups,dos);
+						writeString(this.WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._ArrTimeBlk,dos);
+						writeString(this.TaxiIn,dos);
 					
 					// String
 				
-						writeString(this._Cancelled,dos);
+						writeString(this.CRSArrTime,dos);
 					
 					// String
 				
-						writeString(this._CancellationCode,dos);
+						writeString(this.ArrTime,dos);
+					
+					// String
+				
+						writeString(this.ArrDelay,dos);
+					
+					// String
+				
+						writeString(this.ArrDelayMinutes,dos);
+					
+					// String
+				
+						writeString(this.ArrDel15,dos);
+					
+					// String
+				
+						writeString(this.ArrivalDelayGroups,dos);
+					
+					// String
+				
+						writeString(this.ArrTimeBlk,dos);
 					
 					// Float
 				
-						if(this._Diverted == null) {
+						if(this.Cancelled == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._Diverted);
+           			    	dos.writeFloat(this.Cancelled);
 		            	}
 					
 					// String
 				
-						writeString(this._CRSElapsedTime,dos);
+						writeString(this.CancellationCode,dos);
 					
 					// Float
 				
-						if(this._ActualElapsedTime == null) {
+						if(this.Diverted == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._ActualElapsedTime);
+           			    	dos.writeFloat(this.Diverted);
 		            	}
 					
 					// Float
 				
-						if(this._AirTime == null) {
+						if(this.CRSElapsedTime == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._AirTime);
+           			    	dos.writeFloat(this.CRSElapsedTime);
 		            	}
 					
 					// String
 				
-						writeString(this._Flights,dos);
+						writeString(this.ActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Distance,dos);
+						writeString(this.AirTime,dos);
 					
 					// Float
 				
-						if(this._DistanceGroup == null) {
+						if(this.Flights == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._DistanceGroup);
+           			    	dos.writeFloat(this.Flights);
 		            	}
 					
 					// Float
 				
-						if(this._CarrierDelay == null) {
+						if(this.Distance == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._CarrierDelay);
+           			    	dos.writeFloat(this.Distance);
 		            	}
 					
 					// Integer
 				
-						writeInteger(this._WeatherDelay,dos);
+						writeInteger(this.DistanceGroup,dos);
 					
 					// String
 				
-						writeString(this._NASDelay,dos);
+						writeString(this.CarrierDelay,dos);
 					
 					// String
 				
-						writeString(this._SecurityDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
-						writeString(this._LateAircraftDelay,dos);
+						writeString(this.NASDelay,dos);
 					
 					// String
 				
-						writeString(this._FirstDepTime,dos);
+						writeString(this.SecurityDelay,dos);
 					
 					// String
 				
-						writeString(this._TotalAddGTime,dos);
+						writeString(this.LateAircraftDelay,dos);
 					
 					// String
 				
-						writeString(this._LongestAddGTime,dos);
+						writeString(this.FirstDepTime,dos);
 					
 					// String
 				
-						writeString(this._DivAirportLandings,dos);
+						writeString(this.TotalAddGTime,dos);
 					
 					// String
 				
-						writeString(this._DivReachedDest,dos);
+						writeString(this.LongestAddGTime,dos);
 					
 					// Integer
 				
-						writeInteger(this._DivActualElapsedTime,dos);
+						writeInteger(this.DivAirportLandings,dos);
 					
 					// String
 				
-						writeString(this._DivArrDelay,dos);
+						writeString(this.DivReachedDest,dos);
 					
 					// String
 				
-						writeString(this._DivDistance,dos);
+						writeString(this.DivActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Div1Airport,dos);
+						writeString(this.DivArrDelay,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportID,dos);
+						writeString(this.DivDistance,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportSeqID,dos);
+						writeString(this.Div1Airport,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOn,dos);
+						writeString(this.Div1AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div1TotalGTime,dos);
+						writeString(this.Div1AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div1LongestGTime,dos);
+						writeString(this.Div1WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOff,dos);
+						writeString(this.Div1TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div1TailNum,dos);
+						writeString(this.Div1LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2Airport,dos);
+						writeString(this.Div1WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportID,dos);
+						writeString(this.Div1TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportSeqID,dos);
+						writeString(this.Div2Airport,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOn,dos);
+						writeString(this.Div2AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div2TotalGTime,dos);
+						writeString(this.Div2AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div2LongestGTime,dos);
+						writeString(this.Div2WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOff,dos);
+						writeString(this.Div2TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2TailNum,dos);
+						writeString(this.Div2LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3Airport,dos);
+						writeString(this.Div2WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportID,dos);
+						writeString(this.Div2TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportSeqID,dos);
+						writeString(this.Div3Airport,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOn,dos);
+						writeString(this.Div3AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div3TotalGTime,dos);
+						writeString(this.Div3AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div3LongestGTime,dos);
+						writeString(this.Div3WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOff,dos);
+						writeString(this.Div3TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3TailNum,dos);
+						writeString(this.Div3LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4Airport,dos);
+						writeString(this.Div3WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportID,dos);
+						writeString(this.Div3TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportSeqID,dos);
+						writeString(this.Div4Airport,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOn,dos);
+						writeString(this.Div4AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div4TotalGTime,dos);
+						writeString(this.Div4AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div4LongestGTime,dos);
+						writeString(this.Div4WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOff,dos);
+						writeString(this.Div4TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4TailNum,dos);
+						writeString(this.Div4LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5Airport,dos);
+						writeString(this.Div4WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportID,dos);
+						writeString(this.Div4TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportSeqID,dos);
+						writeString(this.Div5Airport,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOn,dos);
+						writeString(this.Div5AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div5TotalGTime,dos);
+						writeString(this.Div5AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div5LongestGTime,dos);
+						writeString(this.Div5WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOff,dos);
+						writeString(this.Div5TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5TailNum,dos);
+						writeString(this.Div5LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Duplicate,dos);
+						writeString(this.Div5WheelsOff,dos);
+					
+					// String
+				
+						writeString(this.Div5TailNum,dos);
+					
+					// Character
+				
+						if(this.Duplicate == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeChar(this.Duplicate);
+		            	}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -2956,504 +2971,509 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 		
 					// Integer
 				
-						writeInteger(this._Year,dos);
+						writeInteger(this.Year,dos);
 					
 					// Integer
 				
-						writeInteger(this._Quarter,dos);
+						writeInteger(this.Quarter,dos);
 					
 					// Integer
 				
-						writeInteger(this._Month,dos);
+						writeInteger(this.Month,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayofMonth,dos);
+						writeInteger(this.DayofMonth,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayOfWeek,dos);
+						writeInteger(this.DayOfWeek,dos);
 					
 					// String
 				
-						writeString(this._FlightDate,dos);
+						writeString(this.FlightDate,dos);
 					
 					// String
 				
-						writeString(this._Marketing_Airline_Network,dos);
+						writeString(this.Marketing_Airline_Network,dos);
 					
 					// String
 				
-						writeString(this._Operated_or_Branded_Code_Share_Partners,dos);
+						writeString(this.Operated_or_Branded_Code_Share_Partners,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Marketing_Airline,dos);
+						writeInteger(this.DOT_ID_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Number_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Operating_Airline,dos);
+						writeString(this.IATA_Code_Marketing_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Operating_Airline,dos);
+						writeInteger(this.Flight_Number_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Operating_Airline,dos);
+						writeString(this.Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Tail_Number,dos);
+						writeString(this.DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Flight_Number_Operating_Airline,dos);
+						writeString(this.IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportID,dos);
+						writeInteger(this.DOT_ID_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.IATA_Code_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.Tail_Number,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportSeqID,dos);
+						writeInteger(this.Flight_Number_Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginCityMarketID,dos);
-					
-					// String
-				
-						writeString(this._Origin,dos);
-					
-					// String
-				
-						writeString(this._OriginCityName,dos);
-					
-					// String
-				
-						writeString(this._OriginState,dos);
-					
-					// String
-				
-						writeString(this._OriginStateFips,dos);
-					
-					// String
-				
-						writeString(this._OriginStateName,dos);
-					
-					// String
-				
-						writeString(this._OriginWac,dos);
+						writeInteger(this.OriginAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportID,dos);
+						writeInteger(this.OriginAirportSeqID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportSeqID,dos);
+						writeInteger(this.OriginCityMarketID,dos);
+					
+					// String
+				
+						writeString(this.Origin,dos);
+					
+					// String
+				
+						writeString(this.OriginCityName,dos);
+					
+					// String
+				
+						writeString(this.OriginState,dos);
+					
+					// String
+				
+						writeString(this.OriginStateFips,dos);
+					
+					// String
+				
+						writeString(this.OriginStateName,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestCityMarketID,dos);
+						writeInteger(this.OriginWac,dos);
 					
 					// Integer
 				
-						writeInteger(this._Dest,dos);
-					
-					// String
-				
-						writeString(this._DestCityName,dos);
-					
-					// String
-				
-						writeString(this._DestState,dos);
-					
-					// String
-				
-						writeString(this._DestStateFips,dos);
-					
-					// String
-				
-						writeString(this._DestStateName,dos);
-					
-					// String
-				
-						writeString(this._DestWac,dos);
-					
-					// String
-				
-						writeString(this._CRSDepTime,dos);
+						writeInteger(this.DestAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DepTime,dos);
+						writeInteger(this.DestAirportSeqID,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestCityMarketID,dos);
 					
 					// String
 				
-						writeString(this._DepDelay,dos);
+						writeString(this.Dest,dos);
 					
 					// String
 				
-						writeString(this._DepDelayMinutes,dos);
+						writeString(this.DestCityName,dos);
 					
 					// String
 				
-						writeString(this._DepDel15,dos);
+						writeString(this.DestState,dos);
 					
 					// String
 				
-						writeString(this._DepartureDelayGroups,dos);
+						writeString(this.DestStateFips,dos);
 					
 					// String
 				
-						writeString(this._DepTimeBlk,dos);
+						writeString(this.DestStateName,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestWac,dos);
 					
 					// String
 				
-						writeString(this._TaxiOut,dos);
+						writeString(this.CRSDepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOff,dos);
+						writeString(this.DepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOn,dos);
+						writeString(this.DepDelay,dos);
 					
 					// String
 				
-						writeString(this._TaxiIn,dos);
+						writeString(this.DepDelayMinutes,dos);
 					
 					// String
 				
-						writeString(this._CRSArrTime,dos);
+						writeString(this.DepDel15,dos);
 					
 					// String
 				
-						writeString(this._ArrTime,dos);
+						writeString(this.DepartureDelayGroups,dos);
 					
 					// String
 				
-						writeString(this._ArrDelay,dos);
+						writeString(this.DepTimeBlk,dos);
 					
 					// String
 				
-						writeString(this._ArrDelayMinutes,dos);
+						writeString(this.TaxiOut,dos);
 					
 					// String
 				
-						writeString(this._ArrDel15,dos);
+						writeString(this.WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._ArrivalDelayGroups,dos);
+						writeString(this.WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._ArrTimeBlk,dos);
+						writeString(this.TaxiIn,dos);
 					
 					// String
 				
-						writeString(this._Cancelled,dos);
+						writeString(this.CRSArrTime,dos);
 					
 					// String
 				
-						writeString(this._CancellationCode,dos);
+						writeString(this.ArrTime,dos);
+					
+					// String
+				
+						writeString(this.ArrDelay,dos);
+					
+					// String
+				
+						writeString(this.ArrDelayMinutes,dos);
+					
+					// String
+				
+						writeString(this.ArrDel15,dos);
+					
+					// String
+				
+						writeString(this.ArrivalDelayGroups,dos);
+					
+					// String
+				
+						writeString(this.ArrTimeBlk,dos);
 					
 					// Float
 				
-						if(this._Diverted == null) {
+						if(this.Cancelled == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._Diverted);
+           			    	dos.writeFloat(this.Cancelled);
 		            	}
 					
 					// String
 				
-						writeString(this._CRSElapsedTime,dos);
+						writeString(this.CancellationCode,dos);
 					
 					// Float
 				
-						if(this._ActualElapsedTime == null) {
+						if(this.Diverted == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._ActualElapsedTime);
+           			    	dos.writeFloat(this.Diverted);
 		            	}
 					
 					// Float
 				
-						if(this._AirTime == null) {
+						if(this.CRSElapsedTime == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._AirTime);
+           			    	dos.writeFloat(this.CRSElapsedTime);
 		            	}
 					
 					// String
 				
-						writeString(this._Flights,dos);
+						writeString(this.ActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Distance,dos);
+						writeString(this.AirTime,dos);
 					
 					// Float
 				
-						if(this._DistanceGroup == null) {
+						if(this.Flights == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._DistanceGroup);
+           			    	dos.writeFloat(this.Flights);
 		            	}
 					
 					// Float
 				
-						if(this._CarrierDelay == null) {
+						if(this.Distance == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._CarrierDelay);
+           			    	dos.writeFloat(this.Distance);
 		            	}
 					
 					// Integer
 				
-						writeInteger(this._WeatherDelay,dos);
+						writeInteger(this.DistanceGroup,dos);
 					
 					// String
 				
-						writeString(this._NASDelay,dos);
+						writeString(this.CarrierDelay,dos);
 					
 					// String
 				
-						writeString(this._SecurityDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
-						writeString(this._LateAircraftDelay,dos);
+						writeString(this.NASDelay,dos);
 					
 					// String
 				
-						writeString(this._FirstDepTime,dos);
+						writeString(this.SecurityDelay,dos);
 					
 					// String
 				
-						writeString(this._TotalAddGTime,dos);
+						writeString(this.LateAircraftDelay,dos);
 					
 					// String
 				
-						writeString(this._LongestAddGTime,dos);
+						writeString(this.FirstDepTime,dos);
 					
 					// String
 				
-						writeString(this._DivAirportLandings,dos);
+						writeString(this.TotalAddGTime,dos);
 					
 					// String
 				
-						writeString(this._DivReachedDest,dos);
+						writeString(this.LongestAddGTime,dos);
 					
 					// Integer
 				
-						writeInteger(this._DivActualElapsedTime,dos);
+						writeInteger(this.DivAirportLandings,dos);
 					
 					// String
 				
-						writeString(this._DivArrDelay,dos);
+						writeString(this.DivReachedDest,dos);
 					
 					// String
 				
-						writeString(this._DivDistance,dos);
+						writeString(this.DivActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Div1Airport,dos);
+						writeString(this.DivArrDelay,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportID,dos);
+						writeString(this.DivDistance,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportSeqID,dos);
+						writeString(this.Div1Airport,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOn,dos);
+						writeString(this.Div1AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div1TotalGTime,dos);
+						writeString(this.Div1AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div1LongestGTime,dos);
+						writeString(this.Div1WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOff,dos);
+						writeString(this.Div1TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div1TailNum,dos);
+						writeString(this.Div1LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2Airport,dos);
+						writeString(this.Div1WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportID,dos);
+						writeString(this.Div1TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportSeqID,dos);
+						writeString(this.Div2Airport,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOn,dos);
+						writeString(this.Div2AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div2TotalGTime,dos);
+						writeString(this.Div2AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div2LongestGTime,dos);
+						writeString(this.Div2WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOff,dos);
+						writeString(this.Div2TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2TailNum,dos);
+						writeString(this.Div2LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3Airport,dos);
+						writeString(this.Div2WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportID,dos);
+						writeString(this.Div2TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportSeqID,dos);
+						writeString(this.Div3Airport,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOn,dos);
+						writeString(this.Div3AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div3TotalGTime,dos);
+						writeString(this.Div3AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div3LongestGTime,dos);
+						writeString(this.Div3WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOff,dos);
+						writeString(this.Div3TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3TailNum,dos);
+						writeString(this.Div3LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4Airport,dos);
+						writeString(this.Div3WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportID,dos);
+						writeString(this.Div3TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportSeqID,dos);
+						writeString(this.Div4Airport,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOn,dos);
+						writeString(this.Div4AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div4TotalGTime,dos);
+						writeString(this.Div4AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div4LongestGTime,dos);
+						writeString(this.Div4WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOff,dos);
+						writeString(this.Div4TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4TailNum,dos);
+						writeString(this.Div4LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5Airport,dos);
+						writeString(this.Div4WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportID,dos);
+						writeString(this.Div4TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportSeqID,dos);
+						writeString(this.Div5Airport,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOn,dos);
+						writeString(this.Div5AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div5TotalGTime,dos);
+						writeString(this.Div5AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div5LongestGTime,dos);
+						writeString(this.Div5WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOff,dos);
+						writeString(this.Div5TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5TailNum,dos);
+						writeString(this.Div5LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Duplicate,dos);
+						writeString(this.Div5WheelsOff,dos);
+					
+					// String
+				
+						writeString(this.Div5TailNum,dos);
+					
+					// Character
+				
+						if(this.Duplicate == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeChar(this.Duplicate);
+		            	}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -3468,125 +3488,125 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("_Year="+String.valueOf(_Year));
-		sb.append(",_Quarter="+String.valueOf(_Quarter));
-		sb.append(",_Month="+String.valueOf(_Month));
-		sb.append(",_DayofMonth="+String.valueOf(_DayofMonth));
-		sb.append(",_DayOfWeek="+String.valueOf(_DayOfWeek));
-		sb.append(",_FlightDate="+_FlightDate);
-		sb.append(",_Marketing_Airline_Network="+_Marketing_Airline_Network);
-		sb.append(",_Operated_or_Branded_Code_Share_Partners="+_Operated_or_Branded_Code_Share_Partners);
-		sb.append(",_DOT_ID_Marketing_Airline="+String.valueOf(_DOT_ID_Marketing_Airline));
-		sb.append(",_IATA_Code_Marketing_Airline="+_IATA_Code_Marketing_Airline);
-		sb.append(",_Flight_Number_Marketing_Airline="+_Flight_Number_Marketing_Airline);
-		sb.append(",_Originally_Scheduled_Code_Share_Airline="+_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_DOT_ID_Originally_Scheduled_Code_Share_Airline="+_DOT_ID_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_IATA_Code_Originally_Scheduled_Code_Share_Airline="+_IATA_Code_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_Flight_Num_Originally_Scheduled_Code_Share_Airline="+_Flight_Num_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_Operating_Airline="+_Operating_Airline);
-		sb.append(",_DOT_ID_Operating_Airline="+String.valueOf(_DOT_ID_Operating_Airline));
-		sb.append(",_IATA_Code_Operating_Airline="+_IATA_Code_Operating_Airline);
-		sb.append(",_Tail_Number="+_Tail_Number);
-		sb.append(",_Flight_Number_Operating_Airline="+_Flight_Number_Operating_Airline);
-		sb.append(",_OriginAirportID="+String.valueOf(_OriginAirportID));
-		sb.append(",_OriginAirportSeqID="+String.valueOf(_OriginAirportSeqID));
-		sb.append(",_OriginCityMarketID="+String.valueOf(_OriginCityMarketID));
-		sb.append(",_Origin="+_Origin);
-		sb.append(",_OriginCityName="+_OriginCityName);
-		sb.append(",_OriginState="+_OriginState);
-		sb.append(",_OriginStateFips="+_OriginStateFips);
-		sb.append(",_OriginStateName="+_OriginStateName);
-		sb.append(",_OriginWac="+_OriginWac);
-		sb.append(",_DestAirportID="+String.valueOf(_DestAirportID));
-		sb.append(",_DestAirportSeqID="+String.valueOf(_DestAirportSeqID));
-		sb.append(",_DestCityMarketID="+String.valueOf(_DestCityMarketID));
-		sb.append(",_Dest="+String.valueOf(_Dest));
-		sb.append(",_DestCityName="+_DestCityName);
-		sb.append(",_DestState="+_DestState);
-		sb.append(",_DestStateFips="+_DestStateFips);
-		sb.append(",_DestStateName="+_DestStateName);
-		sb.append(",_DestWac="+_DestWac);
-		sb.append(",_CRSDepTime="+_CRSDepTime);
-		sb.append(",_DepTime="+String.valueOf(_DepTime));
-		sb.append(",_DepDelay="+_DepDelay);
-		sb.append(",_DepDelayMinutes="+_DepDelayMinutes);
-		sb.append(",_DepDel15="+_DepDel15);
-		sb.append(",_DepartureDelayGroups="+_DepartureDelayGroups);
-		sb.append(",_DepTimeBlk="+_DepTimeBlk);
-		sb.append(",_TaxiOut="+_TaxiOut);
-		sb.append(",_WheelsOff="+_WheelsOff);
-		sb.append(",_WheelsOn="+_WheelsOn);
-		sb.append(",_TaxiIn="+_TaxiIn);
-		sb.append(",_CRSArrTime="+_CRSArrTime);
-		sb.append(",_ArrTime="+_ArrTime);
-		sb.append(",_ArrDelay="+_ArrDelay);
-		sb.append(",_ArrDelayMinutes="+_ArrDelayMinutes);
-		sb.append(",_ArrDel15="+_ArrDel15);
-		sb.append(",_ArrivalDelayGroups="+_ArrivalDelayGroups);
-		sb.append(",_ArrTimeBlk="+_ArrTimeBlk);
-		sb.append(",_Cancelled="+_Cancelled);
-		sb.append(",_CancellationCode="+_CancellationCode);
-		sb.append(",_Diverted="+String.valueOf(_Diverted));
-		sb.append(",_CRSElapsedTime="+_CRSElapsedTime);
-		sb.append(",_ActualElapsedTime="+String.valueOf(_ActualElapsedTime));
-		sb.append(",_AirTime="+String.valueOf(_AirTime));
-		sb.append(",_Flights="+_Flights);
-		sb.append(",_Distance="+_Distance);
-		sb.append(",_DistanceGroup="+String.valueOf(_DistanceGroup));
-		sb.append(",_CarrierDelay="+String.valueOf(_CarrierDelay));
-		sb.append(",_WeatherDelay="+String.valueOf(_WeatherDelay));
-		sb.append(",_NASDelay="+_NASDelay);
-		sb.append(",_SecurityDelay="+_SecurityDelay);
-		sb.append(",_LateAircraftDelay="+_LateAircraftDelay);
-		sb.append(",_FirstDepTime="+_FirstDepTime);
-		sb.append(",_TotalAddGTime="+_TotalAddGTime);
-		sb.append(",_LongestAddGTime="+_LongestAddGTime);
-		sb.append(",_DivAirportLandings="+_DivAirportLandings);
-		sb.append(",_DivReachedDest="+_DivReachedDest);
-		sb.append(",_DivActualElapsedTime="+String.valueOf(_DivActualElapsedTime));
-		sb.append(",_DivArrDelay="+_DivArrDelay);
-		sb.append(",_DivDistance="+_DivDistance);
-		sb.append(",_Div1Airport="+_Div1Airport);
-		sb.append(",_Div1AirportID="+_Div1AirportID);
-		sb.append(",_Div1AirportSeqID="+_Div1AirportSeqID);
-		sb.append(",_Div1WheelsOn="+_Div1WheelsOn);
-		sb.append(",_Div1TotalGTime="+_Div1TotalGTime);
-		sb.append(",_Div1LongestGTime="+_Div1LongestGTime);
-		sb.append(",_Div1WheelsOff="+_Div1WheelsOff);
-		sb.append(",_Div1TailNum="+_Div1TailNum);
-		sb.append(",_Div2Airport="+_Div2Airport);
-		sb.append(",_Div2AirportID="+_Div2AirportID);
-		sb.append(",_Div2AirportSeqID="+_Div2AirportSeqID);
-		sb.append(",_Div2WheelsOn="+_Div2WheelsOn);
-		sb.append(",_Div2TotalGTime="+_Div2TotalGTime);
-		sb.append(",_Div2LongestGTime="+_Div2LongestGTime);
-		sb.append(",_Div2WheelsOff="+_Div2WheelsOff);
-		sb.append(",_Div2TailNum="+_Div2TailNum);
-		sb.append(",_Div3Airport="+_Div3Airport);
-		sb.append(",_Div3AirportID="+_Div3AirportID);
-		sb.append(",_Div3AirportSeqID="+_Div3AirportSeqID);
-		sb.append(",_Div3WheelsOn="+_Div3WheelsOn);
-		sb.append(",_Div3TotalGTime="+_Div3TotalGTime);
-		sb.append(",_Div3LongestGTime="+_Div3LongestGTime);
-		sb.append(",_Div3WheelsOff="+_Div3WheelsOff);
-		sb.append(",_Div3TailNum="+_Div3TailNum);
-		sb.append(",_Div4Airport="+_Div4Airport);
-		sb.append(",_Div4AirportID="+_Div4AirportID);
-		sb.append(",_Div4AirportSeqID="+_Div4AirportSeqID);
-		sb.append(",_Div4WheelsOn="+_Div4WheelsOn);
-		sb.append(",_Div4TotalGTime="+_Div4TotalGTime);
-		sb.append(",_Div4LongestGTime="+_Div4LongestGTime);
-		sb.append(",_Div4WheelsOff="+_Div4WheelsOff);
-		sb.append(",_Div4TailNum="+_Div4TailNum);
-		sb.append(",_Div5Airport="+_Div5Airport);
-		sb.append(",_Div5AirportID="+_Div5AirportID);
-		sb.append(",_Div5AirportSeqID="+_Div5AirportSeqID);
-		sb.append(",_Div5WheelsOn="+_Div5WheelsOn);
-		sb.append(",_Div5TotalGTime="+_Div5TotalGTime);
-		sb.append(",_Div5LongestGTime="+_Div5LongestGTime);
-		sb.append(",_Div5WheelsOff="+_Div5WheelsOff);
-		sb.append(",_Div5TailNum="+_Div5TailNum);
-		sb.append(",_Duplicate="+_Duplicate);
+		sb.append("Year="+String.valueOf(Year));
+		sb.append(",Quarter="+String.valueOf(Quarter));
+		sb.append(",Month="+String.valueOf(Month));
+		sb.append(",DayofMonth="+String.valueOf(DayofMonth));
+		sb.append(",DayOfWeek="+String.valueOf(DayOfWeek));
+		sb.append(",FlightDate="+FlightDate);
+		sb.append(",Marketing_Airline_Network="+Marketing_Airline_Network);
+		sb.append(",Operated_or_Branded_Code_Share_Partners="+Operated_or_Branded_Code_Share_Partners);
+		sb.append(",DOT_ID_Marketing_Airline="+String.valueOf(DOT_ID_Marketing_Airline));
+		sb.append(",IATA_Code_Marketing_Airline="+IATA_Code_Marketing_Airline);
+		sb.append(",Flight_Number_Marketing_Airline="+String.valueOf(Flight_Number_Marketing_Airline));
+		sb.append(",Originally_Scheduled_Code_Share_Airline="+Originally_Scheduled_Code_Share_Airline);
+		sb.append(",DOT_ID_Originally_Scheduled_Code_Share_Airline="+DOT_ID_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",IATA_Code_Originally_Scheduled_Code_Share_Airline="+IATA_Code_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",Flight_Num_Originally_Scheduled_Code_Share_Airline="+Flight_Num_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",Operating_Airline="+Operating_Airline);
+		sb.append(",DOT_ID_Operating_Airline="+String.valueOf(DOT_ID_Operating_Airline));
+		sb.append(",IATA_Code_Operating_Airline="+IATA_Code_Operating_Airline);
+		sb.append(",Tail_Number="+Tail_Number);
+		sb.append(",Flight_Number_Operating_Airline="+String.valueOf(Flight_Number_Operating_Airline));
+		sb.append(",OriginAirportID="+String.valueOf(OriginAirportID));
+		sb.append(",OriginAirportSeqID="+String.valueOf(OriginAirportSeqID));
+		sb.append(",OriginCityMarketID="+String.valueOf(OriginCityMarketID));
+		sb.append(",Origin="+Origin);
+		sb.append(",OriginCityName="+OriginCityName);
+		sb.append(",OriginState="+OriginState);
+		sb.append(",OriginStateFips="+OriginStateFips);
+		sb.append(",OriginStateName="+OriginStateName);
+		sb.append(",OriginWac="+String.valueOf(OriginWac));
+		sb.append(",DestAirportID="+String.valueOf(DestAirportID));
+		sb.append(",DestAirportSeqID="+String.valueOf(DestAirportSeqID));
+		sb.append(",DestCityMarketID="+String.valueOf(DestCityMarketID));
+		sb.append(",Dest="+Dest);
+		sb.append(",DestCityName="+DestCityName);
+		sb.append(",DestState="+DestState);
+		sb.append(",DestStateFips="+DestStateFips);
+		sb.append(",DestStateName="+DestStateName);
+		sb.append(",DestWac="+String.valueOf(DestWac));
+		sb.append(",CRSDepTime="+CRSDepTime);
+		sb.append(",DepTime="+DepTime);
+		sb.append(",DepDelay="+DepDelay);
+		sb.append(",DepDelayMinutes="+DepDelayMinutes);
+		sb.append(",DepDel15="+DepDel15);
+		sb.append(",DepartureDelayGroups="+DepartureDelayGroups);
+		sb.append(",DepTimeBlk="+DepTimeBlk);
+		sb.append(",TaxiOut="+TaxiOut);
+		sb.append(",WheelsOff="+WheelsOff);
+		sb.append(",WheelsOn="+WheelsOn);
+		sb.append(",TaxiIn="+TaxiIn);
+		sb.append(",CRSArrTime="+CRSArrTime);
+		sb.append(",ArrTime="+ArrTime);
+		sb.append(",ArrDelay="+ArrDelay);
+		sb.append(",ArrDelayMinutes="+ArrDelayMinutes);
+		sb.append(",ArrDel15="+ArrDel15);
+		sb.append(",ArrivalDelayGroups="+ArrivalDelayGroups);
+		sb.append(",ArrTimeBlk="+ArrTimeBlk);
+		sb.append(",Cancelled="+String.valueOf(Cancelled));
+		sb.append(",CancellationCode="+CancellationCode);
+		sb.append(",Diverted="+String.valueOf(Diverted));
+		sb.append(",CRSElapsedTime="+String.valueOf(CRSElapsedTime));
+		sb.append(",ActualElapsedTime="+ActualElapsedTime);
+		sb.append(",AirTime="+AirTime);
+		sb.append(",Flights="+String.valueOf(Flights));
+		sb.append(",Distance="+String.valueOf(Distance));
+		sb.append(",DistanceGroup="+String.valueOf(DistanceGroup));
+		sb.append(",CarrierDelay="+CarrierDelay);
+		sb.append(",WeatherDelay="+WeatherDelay);
+		sb.append(",NASDelay="+NASDelay);
+		sb.append(",SecurityDelay="+SecurityDelay);
+		sb.append(",LateAircraftDelay="+LateAircraftDelay);
+		sb.append(",FirstDepTime="+FirstDepTime);
+		sb.append(",TotalAddGTime="+TotalAddGTime);
+		sb.append(",LongestAddGTime="+LongestAddGTime);
+		sb.append(",DivAirportLandings="+String.valueOf(DivAirportLandings));
+		sb.append(",DivReachedDest="+DivReachedDest);
+		sb.append(",DivActualElapsedTime="+DivActualElapsedTime);
+		sb.append(",DivArrDelay="+DivArrDelay);
+		sb.append(",DivDistance="+DivDistance);
+		sb.append(",Div1Airport="+Div1Airport);
+		sb.append(",Div1AirportID="+Div1AirportID);
+		sb.append(",Div1AirportSeqID="+Div1AirportSeqID);
+		sb.append(",Div1WheelsOn="+Div1WheelsOn);
+		sb.append(",Div1TotalGTime="+Div1TotalGTime);
+		sb.append(",Div1LongestGTime="+Div1LongestGTime);
+		sb.append(",Div1WheelsOff="+Div1WheelsOff);
+		sb.append(",Div1TailNum="+Div1TailNum);
+		sb.append(",Div2Airport="+Div2Airport);
+		sb.append(",Div2AirportID="+Div2AirportID);
+		sb.append(",Div2AirportSeqID="+Div2AirportSeqID);
+		sb.append(",Div2WheelsOn="+Div2WheelsOn);
+		sb.append(",Div2TotalGTime="+Div2TotalGTime);
+		sb.append(",Div2LongestGTime="+Div2LongestGTime);
+		sb.append(",Div2WheelsOff="+Div2WheelsOff);
+		sb.append(",Div2TailNum="+Div2TailNum);
+		sb.append(",Div3Airport="+Div3Airport);
+		sb.append(",Div3AirportID="+Div3AirportID);
+		sb.append(",Div3AirportSeqID="+Div3AirportSeqID);
+		sb.append(",Div3WheelsOn="+Div3WheelsOn);
+		sb.append(",Div3TotalGTime="+Div3TotalGTime);
+		sb.append(",Div3LongestGTime="+Div3LongestGTime);
+		sb.append(",Div3WheelsOff="+Div3WheelsOff);
+		sb.append(",Div3TailNum="+Div3TailNum);
+		sb.append(",Div4Airport="+Div4Airport);
+		sb.append(",Div4AirportID="+Div4AirportID);
+		sb.append(",Div4AirportSeqID="+Div4AirportSeqID);
+		sb.append(",Div4WheelsOn="+Div4WheelsOn);
+		sb.append(",Div4TotalGTime="+Div4TotalGTime);
+		sb.append(",Div4LongestGTime="+Div4LongestGTime);
+		sb.append(",Div4WheelsOff="+Div4WheelsOff);
+		sb.append(",Div4TailNum="+Div4TailNum);
+		sb.append(",Div5Airport="+Div5Airport);
+		sb.append(",Div5AirportID="+Div5AirportID);
+		sb.append(",Div5AirportSeqID="+Div5AirportSeqID);
+		sb.append(",Div5WheelsOn="+Div5WheelsOn);
+		sb.append(",Div5TotalGTime="+Div5TotalGTime);
+		sb.append(",Div5LongestGTime="+Div5LongestGTime);
+		sb.append(",Div5WheelsOff="+Div5WheelsOff);
+		sb.append(",Div5TailNum="+Div5TailNum);
+		sb.append(",Duplicate="+String.valueOf(Duplicate));
 	    sb.append("]");
 
 	    return sb.toString();
@@ -3632,718 +3652,718 @@ public static class after_tFileInputDelimited_1Struct implements routines.system
     static byte[] commonByteArray_PARAVOLAR_FlightFact = new byte[0];
 
 	
-			    public Integer _Year;
+			    public Integer Year;
 
-				public Integer get_Year () {
-					return this._Year;
+				public Integer getYear () {
+					return this.Year;
 				}
 				
-			    public Integer _Quarter;
+			    public Integer Quarter;
 
-				public Integer get_Quarter () {
-					return this._Quarter;
+				public Integer getQuarter () {
+					return this.Quarter;
 				}
 				
-			    public Integer _Month;
+			    public Integer Month;
 
-				public Integer get_Month () {
-					return this._Month;
+				public Integer getMonth () {
+					return this.Month;
 				}
 				
-			    public Integer _DayofMonth;
+			    public Integer DayofMonth;
 
-				public Integer get_DayofMonth () {
-					return this._DayofMonth;
+				public Integer getDayofMonth () {
+					return this.DayofMonth;
 				}
 				
-			    public Integer _DayOfWeek;
+			    public Integer DayOfWeek;
 
-				public Integer get_DayOfWeek () {
-					return this._DayOfWeek;
+				public Integer getDayOfWeek () {
+					return this.DayOfWeek;
 				}
 				
-			    public String _FlightDate;
+			    public String FlightDate;
 
-				public String get_FlightDate () {
-					return this._FlightDate;
+				public String getFlightDate () {
+					return this.FlightDate;
 				}
 				
-			    public String _Marketing_Airline_Network;
+			    public String Marketing_Airline_Network;
 
-				public String get_Marketing_Airline_Network () {
-					return this._Marketing_Airline_Network;
+				public String getMarketing_Airline_Network () {
+					return this.Marketing_Airline_Network;
 				}
 				
-			    public String _Operated_or_Branded_Code_Share_Partners;
+			    public String Operated_or_Branded_Code_Share_Partners;
 
-				public String get_Operated_or_Branded_Code_Share_Partners () {
-					return this._Operated_or_Branded_Code_Share_Partners;
+				public String getOperated_or_Branded_Code_Share_Partners () {
+					return this.Operated_or_Branded_Code_Share_Partners;
 				}
 				
-			    public Integer _DOT_ID_Marketing_Airline;
+			    public Integer DOT_ID_Marketing_Airline;
 
-				public Integer get_DOT_ID_Marketing_Airline () {
-					return this._DOT_ID_Marketing_Airline;
+				public Integer getDOT_ID_Marketing_Airline () {
+					return this.DOT_ID_Marketing_Airline;
 				}
 				
-			    public String _IATA_Code_Marketing_Airline;
+			    public String IATA_Code_Marketing_Airline;
 
-				public String get_IATA_Code_Marketing_Airline () {
-					return this._IATA_Code_Marketing_Airline;
+				public String getIATA_Code_Marketing_Airline () {
+					return this.IATA_Code_Marketing_Airline;
 				}
 				
-			    public String _Flight_Number_Marketing_Airline;
+			    public Integer Flight_Number_Marketing_Airline;
 
-				public String get_Flight_Number_Marketing_Airline () {
-					return this._Flight_Number_Marketing_Airline;
+				public Integer getFlight_Number_Marketing_Airline () {
+					return this.Flight_Number_Marketing_Airline;
 				}
 				
-			    public String _Originally_Scheduled_Code_Share_Airline;
+			    public String Originally_Scheduled_Code_Share_Airline;
 
-				public String get_Originally_Scheduled_Code_Share_Airline () {
-					return this._Originally_Scheduled_Code_Share_Airline;
+				public String getOriginally_Scheduled_Code_Share_Airline () {
+					return this.Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _DOT_ID_Originally_Scheduled_Code_Share_Airline;
+			    public String DOT_ID_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_DOT_ID_Originally_Scheduled_Code_Share_Airline () {
-					return this._DOT_ID_Originally_Scheduled_Code_Share_Airline;
+				public String getDOT_ID_Originally_Scheduled_Code_Share_Airline () {
+					return this.DOT_ID_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _IATA_Code_Originally_Scheduled_Code_Share_Airline;
+			    public String IATA_Code_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_IATA_Code_Originally_Scheduled_Code_Share_Airline () {
-					return this._IATA_Code_Originally_Scheduled_Code_Share_Airline;
+				public String getIATA_Code_Originally_Scheduled_Code_Share_Airline () {
+					return this.IATA_Code_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _Flight_Num_Originally_Scheduled_Code_Share_Airline;
+			    public String Flight_Num_Originally_Scheduled_Code_Share_Airline;
 
-				public String get_Flight_Num_Originally_Scheduled_Code_Share_Airline () {
-					return this._Flight_Num_Originally_Scheduled_Code_Share_Airline;
+				public String getFlight_Num_Originally_Scheduled_Code_Share_Airline () {
+					return this.Flight_Num_Originally_Scheduled_Code_Share_Airline;
 				}
 				
-			    public String _Operating_Airline;
+			    public String Operating_Airline;
 
-				public String get_Operating_Airline () {
-					return this._Operating_Airline;
+				public String getOperating_Airline () {
+					return this.Operating_Airline;
 				}
 				
-			    public Integer _DOT_ID_Operating_Airline;
+			    public Integer DOT_ID_Operating_Airline;
 
-				public Integer get_DOT_ID_Operating_Airline () {
-					return this._DOT_ID_Operating_Airline;
+				public Integer getDOT_ID_Operating_Airline () {
+					return this.DOT_ID_Operating_Airline;
 				}
 				
-			    public String _IATA_Code_Operating_Airline;
+			    public String IATA_Code_Operating_Airline;
 
-				public String get_IATA_Code_Operating_Airline () {
-					return this._IATA_Code_Operating_Airline;
+				public String getIATA_Code_Operating_Airline () {
+					return this.IATA_Code_Operating_Airline;
 				}
 				
-			    public String _Tail_Number;
+			    public String Tail_Number;
 
-				public String get_Tail_Number () {
-					return this._Tail_Number;
+				public String getTail_Number () {
+					return this.Tail_Number;
 				}
 				
-			    public String _Flight_Number_Operating_Airline;
+			    public Integer Flight_Number_Operating_Airline;
 
-				public String get_Flight_Number_Operating_Airline () {
-					return this._Flight_Number_Operating_Airline;
+				public Integer getFlight_Number_Operating_Airline () {
+					return this.Flight_Number_Operating_Airline;
 				}
 				
-			    public Integer _OriginAirportID;
+			    public Integer OriginAirportID;
 
-				public Integer get_OriginAirportID () {
-					return this._OriginAirportID;
+				public Integer getOriginAirportID () {
+					return this.OriginAirportID;
 				}
 				
-			    public Integer _OriginAirportSeqID;
+			    public Integer OriginAirportSeqID;
 
-				public Integer get_OriginAirportSeqID () {
-					return this._OriginAirportSeqID;
+				public Integer getOriginAirportSeqID () {
+					return this.OriginAirportSeqID;
 				}
 				
-			    public Integer _OriginCityMarketID;
+			    public Integer OriginCityMarketID;
 
-				public Integer get_OriginCityMarketID () {
-					return this._OriginCityMarketID;
+				public Integer getOriginCityMarketID () {
+					return this.OriginCityMarketID;
 				}
 				
-			    public String _Origin;
+			    public String Origin;
 
-				public String get_Origin () {
-					return this._Origin;
+				public String getOrigin () {
+					return this.Origin;
 				}
 				
-			    public String _OriginCityName;
+			    public String OriginCityName;
 
-				public String get_OriginCityName () {
-					return this._OriginCityName;
+				public String getOriginCityName () {
+					return this.OriginCityName;
 				}
 				
-			    public String _OriginState;
+			    public String OriginState;
 
-				public String get_OriginState () {
-					return this._OriginState;
+				public String getOriginState () {
+					return this.OriginState;
 				}
 				
-			    public String _OriginStateFips;
+			    public String OriginStateFips;
 
-				public String get_OriginStateFips () {
-					return this._OriginStateFips;
+				public String getOriginStateFips () {
+					return this.OriginStateFips;
 				}
 				
-			    public String _OriginStateName;
+			    public String OriginStateName;
 
-				public String get_OriginStateName () {
-					return this._OriginStateName;
+				public String getOriginStateName () {
+					return this.OriginStateName;
 				}
 				
-			    public String _OriginWac;
+			    public Integer OriginWac;
 
-				public String get_OriginWac () {
-					return this._OriginWac;
+				public Integer getOriginWac () {
+					return this.OriginWac;
 				}
 				
-			    public Integer _DestAirportID;
+			    public Integer DestAirportID;
 
-				public Integer get_DestAirportID () {
-					return this._DestAirportID;
+				public Integer getDestAirportID () {
+					return this.DestAirportID;
 				}
 				
-			    public Integer _DestAirportSeqID;
+			    public Integer DestAirportSeqID;
 
-				public Integer get_DestAirportSeqID () {
-					return this._DestAirportSeqID;
+				public Integer getDestAirportSeqID () {
+					return this.DestAirportSeqID;
 				}
 				
-			    public Integer _DestCityMarketID;
+			    public Integer DestCityMarketID;
 
-				public Integer get_DestCityMarketID () {
-					return this._DestCityMarketID;
+				public Integer getDestCityMarketID () {
+					return this.DestCityMarketID;
 				}
 				
-			    public Integer _Dest;
+			    public String Dest;
 
-				public Integer get_Dest () {
-					return this._Dest;
+				public String getDest () {
+					return this.Dest;
 				}
 				
-			    public String _DestCityName;
+			    public String DestCityName;
 
-				public String get_DestCityName () {
-					return this._DestCityName;
+				public String getDestCityName () {
+					return this.DestCityName;
 				}
 				
-			    public String _DestState;
+			    public String DestState;
 
-				public String get_DestState () {
-					return this._DestState;
+				public String getDestState () {
+					return this.DestState;
 				}
 				
-			    public String _DestStateFips;
+			    public String DestStateFips;
 
-				public String get_DestStateFips () {
-					return this._DestStateFips;
+				public String getDestStateFips () {
+					return this.DestStateFips;
 				}
 				
-			    public String _DestStateName;
+			    public String DestStateName;
 
-				public String get_DestStateName () {
-					return this._DestStateName;
+				public String getDestStateName () {
+					return this.DestStateName;
 				}
 				
-			    public String _DestWac;
+			    public Integer DestWac;
 
-				public String get_DestWac () {
-					return this._DestWac;
+				public Integer getDestWac () {
+					return this.DestWac;
 				}
 				
-			    public String _CRSDepTime;
+			    public String CRSDepTime;
 
-				public String get_CRSDepTime () {
-					return this._CRSDepTime;
+				public String getCRSDepTime () {
+					return this.CRSDepTime;
 				}
 				
-			    public Integer _DepTime;
+			    public String DepTime;
 
-				public Integer get_DepTime () {
-					return this._DepTime;
+				public String getDepTime () {
+					return this.DepTime;
 				}
 				
-			    public String _DepDelay;
+			    public String DepDelay;
 
-				public String get_DepDelay () {
-					return this._DepDelay;
+				public String getDepDelay () {
+					return this.DepDelay;
 				}
 				
-			    public String _DepDelayMinutes;
+			    public String DepDelayMinutes;
 
-				public String get_DepDelayMinutes () {
-					return this._DepDelayMinutes;
+				public String getDepDelayMinutes () {
+					return this.DepDelayMinutes;
 				}
 				
-			    public String _DepDel15;
+			    public String DepDel15;
 
-				public String get_DepDel15 () {
-					return this._DepDel15;
+				public String getDepDel15 () {
+					return this.DepDel15;
 				}
 				
-			    public String _DepartureDelayGroups;
+			    public String DepartureDelayGroups;
 
-				public String get_DepartureDelayGroups () {
-					return this._DepartureDelayGroups;
+				public String getDepartureDelayGroups () {
+					return this.DepartureDelayGroups;
 				}
 				
-			    public String _DepTimeBlk;
+			    public String DepTimeBlk;
 
-				public String get_DepTimeBlk () {
-					return this._DepTimeBlk;
+				public String getDepTimeBlk () {
+					return this.DepTimeBlk;
 				}
 				
-			    public String _TaxiOut;
+			    public String TaxiOut;
 
-				public String get_TaxiOut () {
-					return this._TaxiOut;
+				public String getTaxiOut () {
+					return this.TaxiOut;
 				}
 				
-			    public String _WheelsOff;
+			    public String WheelsOff;
 
-				public String get_WheelsOff () {
-					return this._WheelsOff;
+				public String getWheelsOff () {
+					return this.WheelsOff;
 				}
 				
-			    public String _WheelsOn;
+			    public String WheelsOn;
 
-				public String get_WheelsOn () {
-					return this._WheelsOn;
+				public String getWheelsOn () {
+					return this.WheelsOn;
 				}
 				
-			    public String _TaxiIn;
+			    public String TaxiIn;
 
-				public String get_TaxiIn () {
-					return this._TaxiIn;
+				public String getTaxiIn () {
+					return this.TaxiIn;
 				}
 				
-			    public String _CRSArrTime;
+			    public String CRSArrTime;
 
-				public String get_CRSArrTime () {
-					return this._CRSArrTime;
+				public String getCRSArrTime () {
+					return this.CRSArrTime;
 				}
 				
-			    public String _ArrTime;
+			    public String ArrTime;
 
-				public String get_ArrTime () {
-					return this._ArrTime;
+				public String getArrTime () {
+					return this.ArrTime;
 				}
 				
-			    public String _ArrDelay;
+			    public String ArrDelay;
 
-				public String get_ArrDelay () {
-					return this._ArrDelay;
+				public String getArrDelay () {
+					return this.ArrDelay;
 				}
 				
-			    public String _ArrDelayMinutes;
+			    public String ArrDelayMinutes;
 
-				public String get_ArrDelayMinutes () {
-					return this._ArrDelayMinutes;
+				public String getArrDelayMinutes () {
+					return this.ArrDelayMinutes;
 				}
 				
-			    public String _ArrDel15;
+			    public String ArrDel15;
 
-				public String get_ArrDel15 () {
-					return this._ArrDel15;
+				public String getArrDel15 () {
+					return this.ArrDel15;
 				}
 				
-			    public String _ArrivalDelayGroups;
+			    public String ArrivalDelayGroups;
 
-				public String get_ArrivalDelayGroups () {
-					return this._ArrivalDelayGroups;
+				public String getArrivalDelayGroups () {
+					return this.ArrivalDelayGroups;
 				}
 				
-			    public String _ArrTimeBlk;
+			    public String ArrTimeBlk;
 
-				public String get_ArrTimeBlk () {
-					return this._ArrTimeBlk;
+				public String getArrTimeBlk () {
+					return this.ArrTimeBlk;
 				}
 				
-			    public String _Cancelled;
+			    public Float Cancelled;
 
-				public String get_Cancelled () {
-					return this._Cancelled;
+				public Float getCancelled () {
+					return this.Cancelled;
 				}
 				
-			    public String _CancellationCode;
+			    public String CancellationCode;
 
-				public String get_CancellationCode () {
-					return this._CancellationCode;
+				public String getCancellationCode () {
+					return this.CancellationCode;
 				}
 				
-			    public Float _Diverted;
+			    public Float Diverted;
 
-				public Float get_Diverted () {
-					return this._Diverted;
+				public Float getDiverted () {
+					return this.Diverted;
 				}
 				
-			    public String _CRSElapsedTime;
+			    public Float CRSElapsedTime;
 
-				public String get_CRSElapsedTime () {
-					return this._CRSElapsedTime;
+				public Float getCRSElapsedTime () {
+					return this.CRSElapsedTime;
 				}
 				
-			    public Float _ActualElapsedTime;
+			    public String ActualElapsedTime;
 
-				public Float get_ActualElapsedTime () {
-					return this._ActualElapsedTime;
+				public String getActualElapsedTime () {
+					return this.ActualElapsedTime;
 				}
 				
-			    public Float _AirTime;
+			    public String AirTime;
 
-				public Float get_AirTime () {
-					return this._AirTime;
+				public String getAirTime () {
+					return this.AirTime;
 				}
 				
-			    public String _Flights;
+			    public Float Flights;
 
-				public String get_Flights () {
-					return this._Flights;
+				public Float getFlights () {
+					return this.Flights;
 				}
 				
-			    public String _Distance;
+			    public Float Distance;
 
-				public String get_Distance () {
-					return this._Distance;
+				public Float getDistance () {
+					return this.Distance;
 				}
 				
-			    public Float _DistanceGroup;
+			    public Integer DistanceGroup;
 
-				public Float get_DistanceGroup () {
-					return this._DistanceGroup;
+				public Integer getDistanceGroup () {
+					return this.DistanceGroup;
 				}
 				
-			    public Float _CarrierDelay;
+			    public String CarrierDelay;
 
-				public Float get_CarrierDelay () {
-					return this._CarrierDelay;
+				public String getCarrierDelay () {
+					return this.CarrierDelay;
 				}
 				
-			    public Integer _WeatherDelay;
+			    public String WeatherDelay;
 
-				public Integer get_WeatherDelay () {
-					return this._WeatherDelay;
+				public String getWeatherDelay () {
+					return this.WeatherDelay;
 				}
 				
-			    public String _NASDelay;
+			    public String NASDelay;
 
-				public String get_NASDelay () {
-					return this._NASDelay;
+				public String getNASDelay () {
+					return this.NASDelay;
 				}
 				
-			    public String _SecurityDelay;
+			    public String SecurityDelay;
 
-				public String get_SecurityDelay () {
-					return this._SecurityDelay;
+				public String getSecurityDelay () {
+					return this.SecurityDelay;
 				}
 				
-			    public String _LateAircraftDelay;
+			    public String LateAircraftDelay;
 
-				public String get_LateAircraftDelay () {
-					return this._LateAircraftDelay;
+				public String getLateAircraftDelay () {
+					return this.LateAircraftDelay;
 				}
 				
-			    public String _FirstDepTime;
+			    public String FirstDepTime;
 
-				public String get_FirstDepTime () {
-					return this._FirstDepTime;
+				public String getFirstDepTime () {
+					return this.FirstDepTime;
 				}
 				
-			    public String _TotalAddGTime;
+			    public String TotalAddGTime;
 
-				public String get_TotalAddGTime () {
-					return this._TotalAddGTime;
+				public String getTotalAddGTime () {
+					return this.TotalAddGTime;
 				}
 				
-			    public String _LongestAddGTime;
+			    public String LongestAddGTime;
 
-				public String get_LongestAddGTime () {
-					return this._LongestAddGTime;
+				public String getLongestAddGTime () {
+					return this.LongestAddGTime;
 				}
 				
-			    public String _DivAirportLandings;
+			    public Integer DivAirportLandings;
 
-				public String get_DivAirportLandings () {
-					return this._DivAirportLandings;
+				public Integer getDivAirportLandings () {
+					return this.DivAirportLandings;
 				}
 				
-			    public String _DivReachedDest;
+			    public String DivReachedDest;
 
-				public String get_DivReachedDest () {
-					return this._DivReachedDest;
+				public String getDivReachedDest () {
+					return this.DivReachedDest;
 				}
 				
-			    public Integer _DivActualElapsedTime;
+			    public String DivActualElapsedTime;
 
-				public Integer get_DivActualElapsedTime () {
-					return this._DivActualElapsedTime;
+				public String getDivActualElapsedTime () {
+					return this.DivActualElapsedTime;
 				}
 				
-			    public String _DivArrDelay;
+			    public String DivArrDelay;
 
-				public String get_DivArrDelay () {
-					return this._DivArrDelay;
+				public String getDivArrDelay () {
+					return this.DivArrDelay;
 				}
 				
-			    public String _DivDistance;
+			    public String DivDistance;
 
-				public String get_DivDistance () {
-					return this._DivDistance;
+				public String getDivDistance () {
+					return this.DivDistance;
 				}
 				
-			    public String _Div1Airport;
+			    public String Div1Airport;
 
-				public String get_Div1Airport () {
-					return this._Div1Airport;
+				public String getDiv1Airport () {
+					return this.Div1Airport;
 				}
 				
-			    public String _Div1AirportID;
+			    public String Div1AirportID;
 
-				public String get_Div1AirportID () {
-					return this._Div1AirportID;
+				public String getDiv1AirportID () {
+					return this.Div1AirportID;
 				}
 				
-			    public String _Div1AirportSeqID;
+			    public String Div1AirportSeqID;
 
-				public String get_Div1AirportSeqID () {
-					return this._Div1AirportSeqID;
+				public String getDiv1AirportSeqID () {
+					return this.Div1AirportSeqID;
 				}
 				
-			    public String _Div1WheelsOn;
+			    public String Div1WheelsOn;
 
-				public String get_Div1WheelsOn () {
-					return this._Div1WheelsOn;
+				public String getDiv1WheelsOn () {
+					return this.Div1WheelsOn;
 				}
 				
-			    public String _Div1TotalGTime;
+			    public String Div1TotalGTime;
 
-				public String get_Div1TotalGTime () {
-					return this._Div1TotalGTime;
+				public String getDiv1TotalGTime () {
+					return this.Div1TotalGTime;
 				}
 				
-			    public String _Div1LongestGTime;
+			    public String Div1LongestGTime;
 
-				public String get_Div1LongestGTime () {
-					return this._Div1LongestGTime;
+				public String getDiv1LongestGTime () {
+					return this.Div1LongestGTime;
 				}
 				
-			    public String _Div1WheelsOff;
+			    public String Div1WheelsOff;
 
-				public String get_Div1WheelsOff () {
-					return this._Div1WheelsOff;
+				public String getDiv1WheelsOff () {
+					return this.Div1WheelsOff;
 				}
 				
-			    public String _Div1TailNum;
+			    public String Div1TailNum;
 
-				public String get_Div1TailNum () {
-					return this._Div1TailNum;
+				public String getDiv1TailNum () {
+					return this.Div1TailNum;
 				}
 				
-			    public String _Div2Airport;
+			    public String Div2Airport;
 
-				public String get_Div2Airport () {
-					return this._Div2Airport;
+				public String getDiv2Airport () {
+					return this.Div2Airport;
 				}
 				
-			    public String _Div2AirportID;
+			    public String Div2AirportID;
 
-				public String get_Div2AirportID () {
-					return this._Div2AirportID;
+				public String getDiv2AirportID () {
+					return this.Div2AirportID;
 				}
 				
-			    public String _Div2AirportSeqID;
+			    public String Div2AirportSeqID;
 
-				public String get_Div2AirportSeqID () {
-					return this._Div2AirportSeqID;
+				public String getDiv2AirportSeqID () {
+					return this.Div2AirportSeqID;
 				}
 				
-			    public String _Div2WheelsOn;
+			    public String Div2WheelsOn;
 
-				public String get_Div2WheelsOn () {
-					return this._Div2WheelsOn;
+				public String getDiv2WheelsOn () {
+					return this.Div2WheelsOn;
 				}
 				
-			    public String _Div2TotalGTime;
+			    public String Div2TotalGTime;
 
-				public String get_Div2TotalGTime () {
-					return this._Div2TotalGTime;
+				public String getDiv2TotalGTime () {
+					return this.Div2TotalGTime;
 				}
 				
-			    public String _Div2LongestGTime;
+			    public String Div2LongestGTime;
 
-				public String get_Div2LongestGTime () {
-					return this._Div2LongestGTime;
+				public String getDiv2LongestGTime () {
+					return this.Div2LongestGTime;
 				}
 				
-			    public String _Div2WheelsOff;
+			    public String Div2WheelsOff;
 
-				public String get_Div2WheelsOff () {
-					return this._Div2WheelsOff;
+				public String getDiv2WheelsOff () {
+					return this.Div2WheelsOff;
 				}
 				
-			    public String _Div2TailNum;
+			    public String Div2TailNum;
 
-				public String get_Div2TailNum () {
-					return this._Div2TailNum;
+				public String getDiv2TailNum () {
+					return this.Div2TailNum;
 				}
 				
-			    public String _Div3Airport;
+			    public String Div3Airport;
 
-				public String get_Div3Airport () {
-					return this._Div3Airport;
+				public String getDiv3Airport () {
+					return this.Div3Airport;
 				}
 				
-			    public String _Div3AirportID;
+			    public String Div3AirportID;
 
-				public String get_Div3AirportID () {
-					return this._Div3AirportID;
+				public String getDiv3AirportID () {
+					return this.Div3AirportID;
 				}
 				
-			    public String _Div3AirportSeqID;
+			    public String Div3AirportSeqID;
 
-				public String get_Div3AirportSeqID () {
-					return this._Div3AirportSeqID;
+				public String getDiv3AirportSeqID () {
+					return this.Div3AirportSeqID;
 				}
 				
-			    public String _Div3WheelsOn;
+			    public String Div3WheelsOn;
 
-				public String get_Div3WheelsOn () {
-					return this._Div3WheelsOn;
+				public String getDiv3WheelsOn () {
+					return this.Div3WheelsOn;
 				}
 				
-			    public String _Div3TotalGTime;
+			    public String Div3TotalGTime;
 
-				public String get_Div3TotalGTime () {
-					return this._Div3TotalGTime;
+				public String getDiv3TotalGTime () {
+					return this.Div3TotalGTime;
 				}
 				
-			    public String _Div3LongestGTime;
+			    public String Div3LongestGTime;
 
-				public String get_Div3LongestGTime () {
-					return this._Div3LongestGTime;
+				public String getDiv3LongestGTime () {
+					return this.Div3LongestGTime;
 				}
 				
-			    public String _Div3WheelsOff;
+			    public String Div3WheelsOff;
 
-				public String get_Div3WheelsOff () {
-					return this._Div3WheelsOff;
+				public String getDiv3WheelsOff () {
+					return this.Div3WheelsOff;
 				}
 				
-			    public String _Div3TailNum;
+			    public String Div3TailNum;
 
-				public String get_Div3TailNum () {
-					return this._Div3TailNum;
+				public String getDiv3TailNum () {
+					return this.Div3TailNum;
 				}
 				
-			    public String _Div4Airport;
+			    public String Div4Airport;
 
-				public String get_Div4Airport () {
-					return this._Div4Airport;
+				public String getDiv4Airport () {
+					return this.Div4Airport;
 				}
 				
-			    public String _Div4AirportID;
+			    public String Div4AirportID;
 
-				public String get_Div4AirportID () {
-					return this._Div4AirportID;
+				public String getDiv4AirportID () {
+					return this.Div4AirportID;
 				}
 				
-			    public String _Div4AirportSeqID;
+			    public String Div4AirportSeqID;
 
-				public String get_Div4AirportSeqID () {
-					return this._Div4AirportSeqID;
+				public String getDiv4AirportSeqID () {
+					return this.Div4AirportSeqID;
 				}
 				
-			    public String _Div4WheelsOn;
+			    public String Div4WheelsOn;
 
-				public String get_Div4WheelsOn () {
-					return this._Div4WheelsOn;
+				public String getDiv4WheelsOn () {
+					return this.Div4WheelsOn;
 				}
 				
-			    public String _Div4TotalGTime;
+			    public String Div4TotalGTime;
 
-				public String get_Div4TotalGTime () {
-					return this._Div4TotalGTime;
+				public String getDiv4TotalGTime () {
+					return this.Div4TotalGTime;
 				}
 				
-			    public String _Div4LongestGTime;
+			    public String Div4LongestGTime;
 
-				public String get_Div4LongestGTime () {
-					return this._Div4LongestGTime;
+				public String getDiv4LongestGTime () {
+					return this.Div4LongestGTime;
 				}
 				
-			    public String _Div4WheelsOff;
+			    public String Div4WheelsOff;
 
-				public String get_Div4WheelsOff () {
-					return this._Div4WheelsOff;
+				public String getDiv4WheelsOff () {
+					return this.Div4WheelsOff;
 				}
 				
-			    public String _Div4TailNum;
+			    public String Div4TailNum;
 
-				public String get_Div4TailNum () {
-					return this._Div4TailNum;
+				public String getDiv4TailNum () {
+					return this.Div4TailNum;
 				}
 				
-			    public String _Div5Airport;
+			    public String Div5Airport;
 
-				public String get_Div5Airport () {
-					return this._Div5Airport;
+				public String getDiv5Airport () {
+					return this.Div5Airport;
 				}
 				
-			    public String _Div5AirportID;
+			    public String Div5AirportID;
 
-				public String get_Div5AirportID () {
-					return this._Div5AirportID;
+				public String getDiv5AirportID () {
+					return this.Div5AirportID;
 				}
 				
-			    public String _Div5AirportSeqID;
+			    public String Div5AirportSeqID;
 
-				public String get_Div5AirportSeqID () {
-					return this._Div5AirportSeqID;
+				public String getDiv5AirportSeqID () {
+					return this.Div5AirportSeqID;
 				}
 				
-			    public String _Div5WheelsOn;
+			    public String Div5WheelsOn;
 
-				public String get_Div5WheelsOn () {
-					return this._Div5WheelsOn;
+				public String getDiv5WheelsOn () {
+					return this.Div5WheelsOn;
 				}
 				
-			    public String _Div5TotalGTime;
+			    public String Div5TotalGTime;
 
-				public String get_Div5TotalGTime () {
-					return this._Div5TotalGTime;
+				public String getDiv5TotalGTime () {
+					return this.Div5TotalGTime;
 				}
 				
-			    public String _Div5LongestGTime;
+			    public String Div5LongestGTime;
 
-				public String get_Div5LongestGTime () {
-					return this._Div5LongestGTime;
+				public String getDiv5LongestGTime () {
+					return this.Div5LongestGTime;
 				}
 				
-			    public String _Div5WheelsOff;
+			    public String Div5WheelsOff;
 
-				public String get_Div5WheelsOff () {
-					return this._Div5WheelsOff;
+				public String getDiv5WheelsOff () {
+					return this.Div5WheelsOff;
 				}
 				
-			    public String _Div5TailNum;
+			    public String Div5TailNum;
 
-				public String get_Div5TailNum () {
-					return this._Div5TailNum;
+				public String getDiv5TailNum () {
+					return this.Div5TailNum;
 				}
 				
-			    public String _Duplicate;
+			    public Character Duplicate;
 
-				public String get_Duplicate () {
-					return this._Duplicate;
+				public Character getDuplicate () {
+					return this.Duplicate;
 				}
 				
 
@@ -4458,268 +4478,273 @@ public static class after_tFileInputDelimited_1Struct implements routines.system
 
         		int length = 0;
 		
-						this._Year = readInteger(dis);
+						this.Year = readInteger(dis);
 					
-						this._Quarter = readInteger(dis);
+						this.Quarter = readInteger(dis);
 					
-						this._Month = readInteger(dis);
+						this.Month = readInteger(dis);
 					
-						this._DayofMonth = readInteger(dis);
+						this.DayofMonth = readInteger(dis);
 					
-						this._DayOfWeek = readInteger(dis);
+						this.DayOfWeek = readInteger(dis);
 					
-					this._FlightDate = readString(dis);
+					this.FlightDate = readString(dis);
 					
-					this._Marketing_Airline_Network = readString(dis);
+					this.Marketing_Airline_Network = readString(dis);
 					
-					this._Operated_or_Branded_Code_Share_Partners = readString(dis);
+					this.Operated_or_Branded_Code_Share_Partners = readString(dis);
 					
-						this._DOT_ID_Marketing_Airline = readInteger(dis);
+						this.DOT_ID_Marketing_Airline = readInteger(dis);
 					
-					this._IATA_Code_Marketing_Airline = readString(dis);
+					this.IATA_Code_Marketing_Airline = readString(dis);
 					
-					this._Flight_Number_Marketing_Airline = readString(dis);
+						this.Flight_Number_Marketing_Airline = readInteger(dis);
 					
-					this._Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Operating_Airline = readString(dis);
+					this.Operating_Airline = readString(dis);
 					
-						this._DOT_ID_Operating_Airline = readInteger(dis);
+						this.DOT_ID_Operating_Airline = readInteger(dis);
 					
-					this._IATA_Code_Operating_Airline = readString(dis);
+					this.IATA_Code_Operating_Airline = readString(dis);
 					
-					this._Tail_Number = readString(dis);
+					this.Tail_Number = readString(dis);
 					
-					this._Flight_Number_Operating_Airline = readString(dis);
+						this.Flight_Number_Operating_Airline = readInteger(dis);
 					
-						this._OriginAirportID = readInteger(dis);
+						this.OriginAirportID = readInteger(dis);
 					
-						this._OriginAirportSeqID = readInteger(dis);
+						this.OriginAirportSeqID = readInteger(dis);
 					
-						this._OriginCityMarketID = readInteger(dis);
+						this.OriginCityMarketID = readInteger(dis);
 					
-					this._Origin = readString(dis);
+					this.Origin = readString(dis);
 					
-					this._OriginCityName = readString(dis);
+					this.OriginCityName = readString(dis);
 					
-					this._OriginState = readString(dis);
+					this.OriginState = readString(dis);
 					
-					this._OriginStateFips = readString(dis);
+					this.OriginStateFips = readString(dis);
 					
-					this._OriginStateName = readString(dis);
+					this.OriginStateName = readString(dis);
 					
-					this._OriginWac = readString(dis);
+						this.OriginWac = readInteger(dis);
 					
-						this._DestAirportID = readInteger(dis);
+						this.DestAirportID = readInteger(dis);
 					
-						this._DestAirportSeqID = readInteger(dis);
+						this.DestAirportSeqID = readInteger(dis);
 					
-						this._DestCityMarketID = readInteger(dis);
+						this.DestCityMarketID = readInteger(dis);
 					
-						this._Dest = readInteger(dis);
+					this.Dest = readString(dis);
 					
-					this._DestCityName = readString(dis);
+					this.DestCityName = readString(dis);
 					
-					this._DestState = readString(dis);
+					this.DestState = readString(dis);
 					
-					this._DestStateFips = readString(dis);
+					this.DestStateFips = readString(dis);
 					
-					this._DestStateName = readString(dis);
+					this.DestStateName = readString(dis);
 					
-					this._DestWac = readString(dis);
+						this.DestWac = readInteger(dis);
 					
-					this._CRSDepTime = readString(dis);
+					this.CRSDepTime = readString(dis);
 					
-						this._DepTime = readInteger(dis);
+					this.DepTime = readString(dis);
 					
-					this._DepDelay = readString(dis);
+					this.DepDelay = readString(dis);
 					
-					this._DepDelayMinutes = readString(dis);
+					this.DepDelayMinutes = readString(dis);
 					
-					this._DepDel15 = readString(dis);
+					this.DepDel15 = readString(dis);
 					
-					this._DepartureDelayGroups = readString(dis);
+					this.DepartureDelayGroups = readString(dis);
 					
-					this._DepTimeBlk = readString(dis);
+					this.DepTimeBlk = readString(dis);
 					
-					this._TaxiOut = readString(dis);
+					this.TaxiOut = readString(dis);
 					
-					this._WheelsOff = readString(dis);
+					this.WheelsOff = readString(dis);
 					
-					this._WheelsOn = readString(dis);
+					this.WheelsOn = readString(dis);
 					
-					this._TaxiIn = readString(dis);
+					this.TaxiIn = readString(dis);
 					
-					this._CRSArrTime = readString(dis);
+					this.CRSArrTime = readString(dis);
 					
-					this._ArrTime = readString(dis);
+					this.ArrTime = readString(dis);
 					
-					this._ArrDelay = readString(dis);
+					this.ArrDelay = readString(dis);
 					
-					this._ArrDelayMinutes = readString(dis);
+					this.ArrDelayMinutes = readString(dis);
 					
-					this._ArrDel15 = readString(dis);
+					this.ArrDel15 = readString(dis);
 					
-					this._ArrivalDelayGroups = readString(dis);
+					this.ArrivalDelayGroups = readString(dis);
 					
-					this._ArrTimeBlk = readString(dis);
-					
-					this._Cancelled = readString(dis);
-					
-					this._CancellationCode = readString(dis);
+					this.ArrTimeBlk = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._Diverted = null;
+           	    			this.Cancelled = null;
            				} else {
-           			    	this._Diverted = dis.readFloat();
+           			    	this.Cancelled = dis.readFloat();
            				}
 					
-					this._CRSElapsedTime = readString(dis);
+					this.CancellationCode = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._ActualElapsedTime = null;
+           	    			this.Diverted = null;
            				} else {
-           			    	this._ActualElapsedTime = dis.readFloat();
+           			    	this.Diverted = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._AirTime = null;
+           	    			this.CRSElapsedTime = null;
            				} else {
-           			    	this._AirTime = dis.readFloat();
+           			    	this.CRSElapsedTime = dis.readFloat();
            				}
 					
-					this._Flights = readString(dis);
+					this.ActualElapsedTime = readString(dis);
 					
-					this._Distance = readString(dis);
+					this.AirTime = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._DistanceGroup = null;
+           	    			this.Flights = null;
            				} else {
-           			    	this._DistanceGroup = dis.readFloat();
+           			    	this.Flights = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._CarrierDelay = null;
+           	    			this.Distance = null;
            				} else {
-           			    	this._CarrierDelay = dis.readFloat();
+           			    	this.Distance = dis.readFloat();
            				}
 					
-						this._WeatherDelay = readInteger(dis);
+						this.DistanceGroup = readInteger(dis);
 					
-					this._NASDelay = readString(dis);
+					this.CarrierDelay = readString(dis);
 					
-					this._SecurityDelay = readString(dis);
+					this.WeatherDelay = readString(dis);
 					
-					this._LateAircraftDelay = readString(dis);
+					this.NASDelay = readString(dis);
 					
-					this._FirstDepTime = readString(dis);
+					this.SecurityDelay = readString(dis);
 					
-					this._TotalAddGTime = readString(dis);
+					this.LateAircraftDelay = readString(dis);
 					
-					this._LongestAddGTime = readString(dis);
+					this.FirstDepTime = readString(dis);
 					
-					this._DivAirportLandings = readString(dis);
+					this.TotalAddGTime = readString(dis);
 					
-					this._DivReachedDest = readString(dis);
+					this.LongestAddGTime = readString(dis);
 					
-						this._DivActualElapsedTime = readInteger(dis);
+						this.DivAirportLandings = readInteger(dis);
 					
-					this._DivArrDelay = readString(dis);
+					this.DivReachedDest = readString(dis);
 					
-					this._DivDistance = readString(dis);
+					this.DivActualElapsedTime = readString(dis);
 					
-					this._Div1Airport = readString(dis);
+					this.DivArrDelay = readString(dis);
 					
-					this._Div1AirportID = readString(dis);
+					this.DivDistance = readString(dis);
 					
-					this._Div1AirportSeqID = readString(dis);
+					this.Div1Airport = readString(dis);
 					
-					this._Div1WheelsOn = readString(dis);
+					this.Div1AirportID = readString(dis);
 					
-					this._Div1TotalGTime = readString(dis);
+					this.Div1AirportSeqID = readString(dis);
 					
-					this._Div1LongestGTime = readString(dis);
+					this.Div1WheelsOn = readString(dis);
 					
-					this._Div1WheelsOff = readString(dis);
+					this.Div1TotalGTime = readString(dis);
 					
-					this._Div1TailNum = readString(dis);
+					this.Div1LongestGTime = readString(dis);
 					
-					this._Div2Airport = readString(dis);
+					this.Div1WheelsOff = readString(dis);
 					
-					this._Div2AirportID = readString(dis);
+					this.Div1TailNum = readString(dis);
 					
-					this._Div2AirportSeqID = readString(dis);
+					this.Div2Airport = readString(dis);
 					
-					this._Div2WheelsOn = readString(dis);
+					this.Div2AirportID = readString(dis);
 					
-					this._Div2TotalGTime = readString(dis);
+					this.Div2AirportSeqID = readString(dis);
 					
-					this._Div2LongestGTime = readString(dis);
+					this.Div2WheelsOn = readString(dis);
 					
-					this._Div2WheelsOff = readString(dis);
+					this.Div2TotalGTime = readString(dis);
 					
-					this._Div2TailNum = readString(dis);
+					this.Div2LongestGTime = readString(dis);
 					
-					this._Div3Airport = readString(dis);
+					this.Div2WheelsOff = readString(dis);
 					
-					this._Div3AirportID = readString(dis);
+					this.Div2TailNum = readString(dis);
 					
-					this._Div3AirportSeqID = readString(dis);
+					this.Div3Airport = readString(dis);
 					
-					this._Div3WheelsOn = readString(dis);
+					this.Div3AirportID = readString(dis);
 					
-					this._Div3TotalGTime = readString(dis);
+					this.Div3AirportSeqID = readString(dis);
 					
-					this._Div3LongestGTime = readString(dis);
+					this.Div3WheelsOn = readString(dis);
 					
-					this._Div3WheelsOff = readString(dis);
+					this.Div3TotalGTime = readString(dis);
 					
-					this._Div3TailNum = readString(dis);
+					this.Div3LongestGTime = readString(dis);
 					
-					this._Div4Airport = readString(dis);
+					this.Div3WheelsOff = readString(dis);
 					
-					this._Div4AirportID = readString(dis);
+					this.Div3TailNum = readString(dis);
 					
-					this._Div4AirportSeqID = readString(dis);
+					this.Div4Airport = readString(dis);
 					
-					this._Div4WheelsOn = readString(dis);
+					this.Div4AirportID = readString(dis);
 					
-					this._Div4TotalGTime = readString(dis);
+					this.Div4AirportSeqID = readString(dis);
 					
-					this._Div4LongestGTime = readString(dis);
+					this.Div4WheelsOn = readString(dis);
 					
-					this._Div4WheelsOff = readString(dis);
+					this.Div4TotalGTime = readString(dis);
 					
-					this._Div4TailNum = readString(dis);
+					this.Div4LongestGTime = readString(dis);
 					
-					this._Div5Airport = readString(dis);
+					this.Div4WheelsOff = readString(dis);
 					
-					this._Div5AirportID = readString(dis);
+					this.Div4TailNum = readString(dis);
 					
-					this._Div5AirportSeqID = readString(dis);
+					this.Div5Airport = readString(dis);
 					
-					this._Div5WheelsOn = readString(dis);
+					this.Div5AirportID = readString(dis);
 					
-					this._Div5TotalGTime = readString(dis);
+					this.Div5AirportSeqID = readString(dis);
 					
-					this._Div5LongestGTime = readString(dis);
+					this.Div5WheelsOn = readString(dis);
 					
-					this._Div5WheelsOff = readString(dis);
+					this.Div5TotalGTime = readString(dis);
 					
-					this._Div5TailNum = readString(dis);
+					this.Div5LongestGTime = readString(dis);
 					
-					this._Duplicate = readString(dis);
+					this.Div5WheelsOff = readString(dis);
+					
+					this.Div5TailNum = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Duplicate = null;
+           				} else {
+           			    	this.Duplicate = dis.readChar();
+           				}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -4743,268 +4768,273 @@ public static class after_tFileInputDelimited_1Struct implements routines.system
 
         		int length = 0;
 		
-						this._Year = readInteger(dis);
+						this.Year = readInteger(dis);
 					
-						this._Quarter = readInteger(dis);
+						this.Quarter = readInteger(dis);
 					
-						this._Month = readInteger(dis);
+						this.Month = readInteger(dis);
 					
-						this._DayofMonth = readInteger(dis);
+						this.DayofMonth = readInteger(dis);
 					
-						this._DayOfWeek = readInteger(dis);
+						this.DayOfWeek = readInteger(dis);
 					
-					this._FlightDate = readString(dis);
+					this.FlightDate = readString(dis);
 					
-					this._Marketing_Airline_Network = readString(dis);
+					this.Marketing_Airline_Network = readString(dis);
 					
-					this._Operated_or_Branded_Code_Share_Partners = readString(dis);
+					this.Operated_or_Branded_Code_Share_Partners = readString(dis);
 					
-						this._DOT_ID_Marketing_Airline = readInteger(dis);
+						this.DOT_ID_Marketing_Airline = readInteger(dis);
 					
-					this._IATA_Code_Marketing_Airline = readString(dis);
+					this.IATA_Code_Marketing_Airline = readString(dis);
 					
-					this._Flight_Number_Marketing_Airline = readString(dis);
+						this.Flight_Number_Marketing_Airline = readInteger(dis);
 					
-					this._Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.DOT_ID_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.IATA_Code_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
+					this.Flight_Num_Originally_Scheduled_Code_Share_Airline = readString(dis);
 					
-					this._Operating_Airline = readString(dis);
+					this.Operating_Airline = readString(dis);
 					
-						this._DOT_ID_Operating_Airline = readInteger(dis);
+						this.DOT_ID_Operating_Airline = readInteger(dis);
 					
-					this._IATA_Code_Operating_Airline = readString(dis);
+					this.IATA_Code_Operating_Airline = readString(dis);
 					
-					this._Tail_Number = readString(dis);
+					this.Tail_Number = readString(dis);
 					
-					this._Flight_Number_Operating_Airline = readString(dis);
+						this.Flight_Number_Operating_Airline = readInteger(dis);
 					
-						this._OriginAirportID = readInteger(dis);
+						this.OriginAirportID = readInteger(dis);
 					
-						this._OriginAirportSeqID = readInteger(dis);
+						this.OriginAirportSeqID = readInteger(dis);
 					
-						this._OriginCityMarketID = readInteger(dis);
+						this.OriginCityMarketID = readInteger(dis);
 					
-					this._Origin = readString(dis);
+					this.Origin = readString(dis);
 					
-					this._OriginCityName = readString(dis);
+					this.OriginCityName = readString(dis);
 					
-					this._OriginState = readString(dis);
+					this.OriginState = readString(dis);
 					
-					this._OriginStateFips = readString(dis);
+					this.OriginStateFips = readString(dis);
 					
-					this._OriginStateName = readString(dis);
+					this.OriginStateName = readString(dis);
 					
-					this._OriginWac = readString(dis);
+						this.OriginWac = readInteger(dis);
 					
-						this._DestAirportID = readInteger(dis);
+						this.DestAirportID = readInteger(dis);
 					
-						this._DestAirportSeqID = readInteger(dis);
+						this.DestAirportSeqID = readInteger(dis);
 					
-						this._DestCityMarketID = readInteger(dis);
+						this.DestCityMarketID = readInteger(dis);
 					
-						this._Dest = readInteger(dis);
+					this.Dest = readString(dis);
 					
-					this._DestCityName = readString(dis);
+					this.DestCityName = readString(dis);
 					
-					this._DestState = readString(dis);
+					this.DestState = readString(dis);
 					
-					this._DestStateFips = readString(dis);
+					this.DestStateFips = readString(dis);
 					
-					this._DestStateName = readString(dis);
+					this.DestStateName = readString(dis);
 					
-					this._DestWac = readString(dis);
+						this.DestWac = readInteger(dis);
 					
-					this._CRSDepTime = readString(dis);
+					this.CRSDepTime = readString(dis);
 					
-						this._DepTime = readInteger(dis);
+					this.DepTime = readString(dis);
 					
-					this._DepDelay = readString(dis);
+					this.DepDelay = readString(dis);
 					
-					this._DepDelayMinutes = readString(dis);
+					this.DepDelayMinutes = readString(dis);
 					
-					this._DepDel15 = readString(dis);
+					this.DepDel15 = readString(dis);
 					
-					this._DepartureDelayGroups = readString(dis);
+					this.DepartureDelayGroups = readString(dis);
 					
-					this._DepTimeBlk = readString(dis);
+					this.DepTimeBlk = readString(dis);
 					
-					this._TaxiOut = readString(dis);
+					this.TaxiOut = readString(dis);
 					
-					this._WheelsOff = readString(dis);
+					this.WheelsOff = readString(dis);
 					
-					this._WheelsOn = readString(dis);
+					this.WheelsOn = readString(dis);
 					
-					this._TaxiIn = readString(dis);
+					this.TaxiIn = readString(dis);
 					
-					this._CRSArrTime = readString(dis);
+					this.CRSArrTime = readString(dis);
 					
-					this._ArrTime = readString(dis);
+					this.ArrTime = readString(dis);
 					
-					this._ArrDelay = readString(dis);
+					this.ArrDelay = readString(dis);
 					
-					this._ArrDelayMinutes = readString(dis);
+					this.ArrDelayMinutes = readString(dis);
 					
-					this._ArrDel15 = readString(dis);
+					this.ArrDel15 = readString(dis);
 					
-					this._ArrivalDelayGroups = readString(dis);
+					this.ArrivalDelayGroups = readString(dis);
 					
-					this._ArrTimeBlk = readString(dis);
-					
-					this._Cancelled = readString(dis);
-					
-					this._CancellationCode = readString(dis);
+					this.ArrTimeBlk = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._Diverted = null;
+           	    			this.Cancelled = null;
            				} else {
-           			    	this._Diverted = dis.readFloat();
+           			    	this.Cancelled = dis.readFloat();
            				}
 					
-					this._CRSElapsedTime = readString(dis);
+					this.CancellationCode = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._ActualElapsedTime = null;
+           	    			this.Diverted = null;
            				} else {
-           			    	this._ActualElapsedTime = dis.readFloat();
+           			    	this.Diverted = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._AirTime = null;
+           	    			this.CRSElapsedTime = null;
            				} else {
-           			    	this._AirTime = dis.readFloat();
+           			    	this.CRSElapsedTime = dis.readFloat();
            				}
 					
-					this._Flights = readString(dis);
+					this.ActualElapsedTime = readString(dis);
 					
-					this._Distance = readString(dis);
+					this.AirTime = readString(dis);
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._DistanceGroup = null;
+           	    			this.Flights = null;
            				} else {
-           			    	this._DistanceGroup = dis.readFloat();
+           			    	this.Flights = dis.readFloat();
            				}
 					
 			            length = dis.readByte();
            				if (length == -1) {
-           	    			this._CarrierDelay = null;
+           	    			this.Distance = null;
            				} else {
-           			    	this._CarrierDelay = dis.readFloat();
+           			    	this.Distance = dis.readFloat();
            				}
 					
-						this._WeatherDelay = readInteger(dis);
+						this.DistanceGroup = readInteger(dis);
 					
-					this._NASDelay = readString(dis);
+					this.CarrierDelay = readString(dis);
 					
-					this._SecurityDelay = readString(dis);
+					this.WeatherDelay = readString(dis);
 					
-					this._LateAircraftDelay = readString(dis);
+					this.NASDelay = readString(dis);
 					
-					this._FirstDepTime = readString(dis);
+					this.SecurityDelay = readString(dis);
 					
-					this._TotalAddGTime = readString(dis);
+					this.LateAircraftDelay = readString(dis);
 					
-					this._LongestAddGTime = readString(dis);
+					this.FirstDepTime = readString(dis);
 					
-					this._DivAirportLandings = readString(dis);
+					this.TotalAddGTime = readString(dis);
 					
-					this._DivReachedDest = readString(dis);
+					this.LongestAddGTime = readString(dis);
 					
-						this._DivActualElapsedTime = readInteger(dis);
+						this.DivAirportLandings = readInteger(dis);
 					
-					this._DivArrDelay = readString(dis);
+					this.DivReachedDest = readString(dis);
 					
-					this._DivDistance = readString(dis);
+					this.DivActualElapsedTime = readString(dis);
 					
-					this._Div1Airport = readString(dis);
+					this.DivArrDelay = readString(dis);
 					
-					this._Div1AirportID = readString(dis);
+					this.DivDistance = readString(dis);
 					
-					this._Div1AirportSeqID = readString(dis);
+					this.Div1Airport = readString(dis);
 					
-					this._Div1WheelsOn = readString(dis);
+					this.Div1AirportID = readString(dis);
 					
-					this._Div1TotalGTime = readString(dis);
+					this.Div1AirportSeqID = readString(dis);
 					
-					this._Div1LongestGTime = readString(dis);
+					this.Div1WheelsOn = readString(dis);
 					
-					this._Div1WheelsOff = readString(dis);
+					this.Div1TotalGTime = readString(dis);
 					
-					this._Div1TailNum = readString(dis);
+					this.Div1LongestGTime = readString(dis);
 					
-					this._Div2Airport = readString(dis);
+					this.Div1WheelsOff = readString(dis);
 					
-					this._Div2AirportID = readString(dis);
+					this.Div1TailNum = readString(dis);
 					
-					this._Div2AirportSeqID = readString(dis);
+					this.Div2Airport = readString(dis);
 					
-					this._Div2WheelsOn = readString(dis);
+					this.Div2AirportID = readString(dis);
 					
-					this._Div2TotalGTime = readString(dis);
+					this.Div2AirportSeqID = readString(dis);
 					
-					this._Div2LongestGTime = readString(dis);
+					this.Div2WheelsOn = readString(dis);
 					
-					this._Div2WheelsOff = readString(dis);
+					this.Div2TotalGTime = readString(dis);
 					
-					this._Div2TailNum = readString(dis);
+					this.Div2LongestGTime = readString(dis);
 					
-					this._Div3Airport = readString(dis);
+					this.Div2WheelsOff = readString(dis);
 					
-					this._Div3AirportID = readString(dis);
+					this.Div2TailNum = readString(dis);
 					
-					this._Div3AirportSeqID = readString(dis);
+					this.Div3Airport = readString(dis);
 					
-					this._Div3WheelsOn = readString(dis);
+					this.Div3AirportID = readString(dis);
 					
-					this._Div3TotalGTime = readString(dis);
+					this.Div3AirportSeqID = readString(dis);
 					
-					this._Div3LongestGTime = readString(dis);
+					this.Div3WheelsOn = readString(dis);
 					
-					this._Div3WheelsOff = readString(dis);
+					this.Div3TotalGTime = readString(dis);
 					
-					this._Div3TailNum = readString(dis);
+					this.Div3LongestGTime = readString(dis);
 					
-					this._Div4Airport = readString(dis);
+					this.Div3WheelsOff = readString(dis);
 					
-					this._Div4AirportID = readString(dis);
+					this.Div3TailNum = readString(dis);
 					
-					this._Div4AirportSeqID = readString(dis);
+					this.Div4Airport = readString(dis);
 					
-					this._Div4WheelsOn = readString(dis);
+					this.Div4AirportID = readString(dis);
 					
-					this._Div4TotalGTime = readString(dis);
+					this.Div4AirportSeqID = readString(dis);
 					
-					this._Div4LongestGTime = readString(dis);
+					this.Div4WheelsOn = readString(dis);
 					
-					this._Div4WheelsOff = readString(dis);
+					this.Div4TotalGTime = readString(dis);
 					
-					this._Div4TailNum = readString(dis);
+					this.Div4LongestGTime = readString(dis);
 					
-					this._Div5Airport = readString(dis);
+					this.Div4WheelsOff = readString(dis);
 					
-					this._Div5AirportID = readString(dis);
+					this.Div4TailNum = readString(dis);
 					
-					this._Div5AirportSeqID = readString(dis);
+					this.Div5Airport = readString(dis);
 					
-					this._Div5WheelsOn = readString(dis);
+					this.Div5AirportID = readString(dis);
 					
-					this._Div5TotalGTime = readString(dis);
+					this.Div5AirportSeqID = readString(dis);
 					
-					this._Div5LongestGTime = readString(dis);
+					this.Div5WheelsOn = readString(dis);
 					
-					this._Div5WheelsOff = readString(dis);
+					this.Div5TotalGTime = readString(dis);
 					
-					this._Div5TailNum = readString(dis);
+					this.Div5LongestGTime = readString(dis);
 					
-					this._Duplicate = readString(dis);
+					this.Div5WheelsOff = readString(dis);
+					
+					this.Div5TailNum = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.Duplicate = null;
+           				} else {
+           			    	this.Duplicate = dis.readChar();
+           				}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -5026,504 +5056,509 @@ public static class after_tFileInputDelimited_1Struct implements routines.system
 		
 					// Integer
 				
-						writeInteger(this._Year,dos);
+						writeInteger(this.Year,dos);
 					
 					// Integer
 				
-						writeInteger(this._Quarter,dos);
+						writeInteger(this.Quarter,dos);
 					
 					// Integer
 				
-						writeInteger(this._Month,dos);
+						writeInteger(this.Month,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayofMonth,dos);
+						writeInteger(this.DayofMonth,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayOfWeek,dos);
+						writeInteger(this.DayOfWeek,dos);
 					
 					// String
 				
-						writeString(this._FlightDate,dos);
+						writeString(this.FlightDate,dos);
 					
 					// String
 				
-						writeString(this._Marketing_Airline_Network,dos);
+						writeString(this.Marketing_Airline_Network,dos);
 					
 					// String
 				
-						writeString(this._Operated_or_Branded_Code_Share_Partners,dos);
+						writeString(this.Operated_or_Branded_Code_Share_Partners,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Marketing_Airline,dos);
+						writeInteger(this.DOT_ID_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Number_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Operating_Airline,dos);
+						writeString(this.IATA_Code_Marketing_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Operating_Airline,dos);
+						writeInteger(this.Flight_Number_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Operating_Airline,dos);
+						writeString(this.Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Tail_Number,dos);
+						writeString(this.DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Flight_Number_Operating_Airline,dos);
+						writeString(this.IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportID,dos);
+						writeInteger(this.DOT_ID_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.IATA_Code_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.Tail_Number,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportSeqID,dos);
+						writeInteger(this.Flight_Number_Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginCityMarketID,dos);
-					
-					// String
-				
-						writeString(this._Origin,dos);
-					
-					// String
-				
-						writeString(this._OriginCityName,dos);
-					
-					// String
-				
-						writeString(this._OriginState,dos);
-					
-					// String
-				
-						writeString(this._OriginStateFips,dos);
-					
-					// String
-				
-						writeString(this._OriginStateName,dos);
-					
-					// String
-				
-						writeString(this._OriginWac,dos);
+						writeInteger(this.OriginAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportID,dos);
+						writeInteger(this.OriginAirportSeqID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportSeqID,dos);
+						writeInteger(this.OriginCityMarketID,dos);
+					
+					// String
+				
+						writeString(this.Origin,dos);
+					
+					// String
+				
+						writeString(this.OriginCityName,dos);
+					
+					// String
+				
+						writeString(this.OriginState,dos);
+					
+					// String
+				
+						writeString(this.OriginStateFips,dos);
+					
+					// String
+				
+						writeString(this.OriginStateName,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestCityMarketID,dos);
+						writeInteger(this.OriginWac,dos);
 					
 					// Integer
 				
-						writeInteger(this._Dest,dos);
-					
-					// String
-				
-						writeString(this._DestCityName,dos);
-					
-					// String
-				
-						writeString(this._DestState,dos);
-					
-					// String
-				
-						writeString(this._DestStateFips,dos);
-					
-					// String
-				
-						writeString(this._DestStateName,dos);
-					
-					// String
-				
-						writeString(this._DestWac,dos);
-					
-					// String
-				
-						writeString(this._CRSDepTime,dos);
+						writeInteger(this.DestAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DepTime,dos);
+						writeInteger(this.DestAirportSeqID,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestCityMarketID,dos);
 					
 					// String
 				
-						writeString(this._DepDelay,dos);
+						writeString(this.Dest,dos);
 					
 					// String
 				
-						writeString(this._DepDelayMinutes,dos);
+						writeString(this.DestCityName,dos);
 					
 					// String
 				
-						writeString(this._DepDel15,dos);
+						writeString(this.DestState,dos);
 					
 					// String
 				
-						writeString(this._DepartureDelayGroups,dos);
+						writeString(this.DestStateFips,dos);
 					
 					// String
 				
-						writeString(this._DepTimeBlk,dos);
+						writeString(this.DestStateName,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestWac,dos);
 					
 					// String
 				
-						writeString(this._TaxiOut,dos);
+						writeString(this.CRSDepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOff,dos);
+						writeString(this.DepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOn,dos);
+						writeString(this.DepDelay,dos);
 					
 					// String
 				
-						writeString(this._TaxiIn,dos);
+						writeString(this.DepDelayMinutes,dos);
 					
 					// String
 				
-						writeString(this._CRSArrTime,dos);
+						writeString(this.DepDel15,dos);
 					
 					// String
 				
-						writeString(this._ArrTime,dos);
+						writeString(this.DepartureDelayGroups,dos);
 					
 					// String
 				
-						writeString(this._ArrDelay,dos);
+						writeString(this.DepTimeBlk,dos);
 					
 					// String
 				
-						writeString(this._ArrDelayMinutes,dos);
+						writeString(this.TaxiOut,dos);
 					
 					// String
 				
-						writeString(this._ArrDel15,dos);
+						writeString(this.WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._ArrivalDelayGroups,dos);
+						writeString(this.WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._ArrTimeBlk,dos);
+						writeString(this.TaxiIn,dos);
 					
 					// String
 				
-						writeString(this._Cancelled,dos);
+						writeString(this.CRSArrTime,dos);
 					
 					// String
 				
-						writeString(this._CancellationCode,dos);
+						writeString(this.ArrTime,dos);
+					
+					// String
+				
+						writeString(this.ArrDelay,dos);
+					
+					// String
+				
+						writeString(this.ArrDelayMinutes,dos);
+					
+					// String
+				
+						writeString(this.ArrDel15,dos);
+					
+					// String
+				
+						writeString(this.ArrivalDelayGroups,dos);
+					
+					// String
+				
+						writeString(this.ArrTimeBlk,dos);
 					
 					// Float
 				
-						if(this._Diverted == null) {
+						if(this.Cancelled == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._Diverted);
+           			    	dos.writeFloat(this.Cancelled);
 		            	}
 					
 					// String
 				
-						writeString(this._CRSElapsedTime,dos);
+						writeString(this.CancellationCode,dos);
 					
 					// Float
 				
-						if(this._ActualElapsedTime == null) {
+						if(this.Diverted == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._ActualElapsedTime);
+           			    	dos.writeFloat(this.Diverted);
 		            	}
 					
 					// Float
 				
-						if(this._AirTime == null) {
+						if(this.CRSElapsedTime == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._AirTime);
+           			    	dos.writeFloat(this.CRSElapsedTime);
 		            	}
 					
 					// String
 				
-						writeString(this._Flights,dos);
+						writeString(this.ActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Distance,dos);
+						writeString(this.AirTime,dos);
 					
 					// Float
 				
-						if(this._DistanceGroup == null) {
+						if(this.Flights == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._DistanceGroup);
+           			    	dos.writeFloat(this.Flights);
 		            	}
 					
 					// Float
 				
-						if(this._CarrierDelay == null) {
+						if(this.Distance == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._CarrierDelay);
+           			    	dos.writeFloat(this.Distance);
 		            	}
 					
 					// Integer
 				
-						writeInteger(this._WeatherDelay,dos);
+						writeInteger(this.DistanceGroup,dos);
 					
 					// String
 				
-						writeString(this._NASDelay,dos);
+						writeString(this.CarrierDelay,dos);
 					
 					// String
 				
-						writeString(this._SecurityDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
-						writeString(this._LateAircraftDelay,dos);
+						writeString(this.NASDelay,dos);
 					
 					// String
 				
-						writeString(this._FirstDepTime,dos);
+						writeString(this.SecurityDelay,dos);
 					
 					// String
 				
-						writeString(this._TotalAddGTime,dos);
+						writeString(this.LateAircraftDelay,dos);
 					
 					// String
 				
-						writeString(this._LongestAddGTime,dos);
+						writeString(this.FirstDepTime,dos);
 					
 					// String
 				
-						writeString(this._DivAirportLandings,dos);
+						writeString(this.TotalAddGTime,dos);
 					
 					// String
 				
-						writeString(this._DivReachedDest,dos);
+						writeString(this.LongestAddGTime,dos);
 					
 					// Integer
 				
-						writeInteger(this._DivActualElapsedTime,dos);
+						writeInteger(this.DivAirportLandings,dos);
 					
 					// String
 				
-						writeString(this._DivArrDelay,dos);
+						writeString(this.DivReachedDest,dos);
 					
 					// String
 				
-						writeString(this._DivDistance,dos);
+						writeString(this.DivActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Div1Airport,dos);
+						writeString(this.DivArrDelay,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportID,dos);
+						writeString(this.DivDistance,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportSeqID,dos);
+						writeString(this.Div1Airport,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOn,dos);
+						writeString(this.Div1AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div1TotalGTime,dos);
+						writeString(this.Div1AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div1LongestGTime,dos);
+						writeString(this.Div1WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOff,dos);
+						writeString(this.Div1TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div1TailNum,dos);
+						writeString(this.Div1LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2Airport,dos);
+						writeString(this.Div1WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportID,dos);
+						writeString(this.Div1TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportSeqID,dos);
+						writeString(this.Div2Airport,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOn,dos);
+						writeString(this.Div2AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div2TotalGTime,dos);
+						writeString(this.Div2AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div2LongestGTime,dos);
+						writeString(this.Div2WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOff,dos);
+						writeString(this.Div2TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2TailNum,dos);
+						writeString(this.Div2LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3Airport,dos);
+						writeString(this.Div2WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportID,dos);
+						writeString(this.Div2TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportSeqID,dos);
+						writeString(this.Div3Airport,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOn,dos);
+						writeString(this.Div3AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div3TotalGTime,dos);
+						writeString(this.Div3AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div3LongestGTime,dos);
+						writeString(this.Div3WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOff,dos);
+						writeString(this.Div3TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3TailNum,dos);
+						writeString(this.Div3LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4Airport,dos);
+						writeString(this.Div3WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportID,dos);
+						writeString(this.Div3TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportSeqID,dos);
+						writeString(this.Div4Airport,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOn,dos);
+						writeString(this.Div4AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div4TotalGTime,dos);
+						writeString(this.Div4AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div4LongestGTime,dos);
+						writeString(this.Div4WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOff,dos);
+						writeString(this.Div4TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4TailNum,dos);
+						writeString(this.Div4LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5Airport,dos);
+						writeString(this.Div4WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportID,dos);
+						writeString(this.Div4TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportSeqID,dos);
+						writeString(this.Div5Airport,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOn,dos);
+						writeString(this.Div5AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div5TotalGTime,dos);
+						writeString(this.Div5AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div5LongestGTime,dos);
+						writeString(this.Div5WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOff,dos);
+						writeString(this.Div5TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5TailNum,dos);
+						writeString(this.Div5LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Duplicate,dos);
+						writeString(this.Div5WheelsOff,dos);
+					
+					// String
+				
+						writeString(this.Div5TailNum,dos);
+					
+					// Character
+				
+						if(this.Duplicate == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeChar(this.Duplicate);
+		            	}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -5538,504 +5573,509 @@ public static class after_tFileInputDelimited_1Struct implements routines.system
 		
 					// Integer
 				
-						writeInteger(this._Year,dos);
+						writeInteger(this.Year,dos);
 					
 					// Integer
 				
-						writeInteger(this._Quarter,dos);
+						writeInteger(this.Quarter,dos);
 					
 					// Integer
 				
-						writeInteger(this._Month,dos);
+						writeInteger(this.Month,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayofMonth,dos);
+						writeInteger(this.DayofMonth,dos);
 					
 					// Integer
 				
-						writeInteger(this._DayOfWeek,dos);
+						writeInteger(this.DayOfWeek,dos);
 					
 					// String
 				
-						writeString(this._FlightDate,dos);
+						writeString(this.FlightDate,dos);
 					
 					// String
 				
-						writeString(this._Marketing_Airline_Network,dos);
+						writeString(this.Marketing_Airline_Network,dos);
 					
 					// String
 				
-						writeString(this._Operated_or_Branded_Code_Share_Partners,dos);
+						writeString(this.Operated_or_Branded_Code_Share_Partners,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Marketing_Airline,dos);
+						writeInteger(this.DOT_ID_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Number_Marketing_Airline,dos);
-					
-					// String
-				
-						writeString(this._Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
-					
-					// String
-				
-						writeString(this._Operating_Airline,dos);
+						writeString(this.IATA_Code_Marketing_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._DOT_ID_Operating_Airline,dos);
+						writeInteger(this.Flight_Number_Marketing_Airline,dos);
 					
 					// String
 				
-						writeString(this._IATA_Code_Operating_Airline,dos);
+						writeString(this.Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Tail_Number,dos);
+						writeString(this.DOT_ID_Originally_Scheduled_Code_Share_Airline,dos);
 					
 					// String
 				
-						writeString(this._Flight_Number_Operating_Airline,dos);
+						writeString(this.IATA_Code_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Flight_Num_Originally_Scheduled_Code_Share_Airline,dos);
+					
+					// String
+				
+						writeString(this.Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportID,dos);
+						writeInteger(this.DOT_ID_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.IATA_Code_Operating_Airline,dos);
+					
+					// String
+				
+						writeString(this.Tail_Number,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginAirportSeqID,dos);
+						writeInteger(this.Flight_Number_Operating_Airline,dos);
 					
 					// Integer
 				
-						writeInteger(this._OriginCityMarketID,dos);
-					
-					// String
-				
-						writeString(this._Origin,dos);
-					
-					// String
-				
-						writeString(this._OriginCityName,dos);
-					
-					// String
-				
-						writeString(this._OriginState,dos);
-					
-					// String
-				
-						writeString(this._OriginStateFips,dos);
-					
-					// String
-				
-						writeString(this._OriginStateName,dos);
-					
-					// String
-				
-						writeString(this._OriginWac,dos);
+						writeInteger(this.OriginAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportID,dos);
+						writeInteger(this.OriginAirportSeqID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestAirportSeqID,dos);
+						writeInteger(this.OriginCityMarketID,dos);
+					
+					// String
+				
+						writeString(this.Origin,dos);
+					
+					// String
+				
+						writeString(this.OriginCityName,dos);
+					
+					// String
+				
+						writeString(this.OriginState,dos);
+					
+					// String
+				
+						writeString(this.OriginStateFips,dos);
+					
+					// String
+				
+						writeString(this.OriginStateName,dos);
 					
 					// Integer
 				
-						writeInteger(this._DestCityMarketID,dos);
+						writeInteger(this.OriginWac,dos);
 					
 					// Integer
 				
-						writeInteger(this._Dest,dos);
-					
-					// String
-				
-						writeString(this._DestCityName,dos);
-					
-					// String
-				
-						writeString(this._DestState,dos);
-					
-					// String
-				
-						writeString(this._DestStateFips,dos);
-					
-					// String
-				
-						writeString(this._DestStateName,dos);
-					
-					// String
-				
-						writeString(this._DestWac,dos);
-					
-					// String
-				
-						writeString(this._CRSDepTime,dos);
+						writeInteger(this.DestAirportID,dos);
 					
 					// Integer
 				
-						writeInteger(this._DepTime,dos);
+						writeInteger(this.DestAirportSeqID,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestCityMarketID,dos);
 					
 					// String
 				
-						writeString(this._DepDelay,dos);
+						writeString(this.Dest,dos);
 					
 					// String
 				
-						writeString(this._DepDelayMinutes,dos);
+						writeString(this.DestCityName,dos);
 					
 					// String
 				
-						writeString(this._DepDel15,dos);
+						writeString(this.DestState,dos);
 					
 					// String
 				
-						writeString(this._DepartureDelayGroups,dos);
+						writeString(this.DestStateFips,dos);
 					
 					// String
 				
-						writeString(this._DepTimeBlk,dos);
+						writeString(this.DestStateName,dos);
+					
+					// Integer
+				
+						writeInteger(this.DestWac,dos);
 					
 					// String
 				
-						writeString(this._TaxiOut,dos);
+						writeString(this.CRSDepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOff,dos);
+						writeString(this.DepTime,dos);
 					
 					// String
 				
-						writeString(this._WheelsOn,dos);
+						writeString(this.DepDelay,dos);
 					
 					// String
 				
-						writeString(this._TaxiIn,dos);
+						writeString(this.DepDelayMinutes,dos);
 					
 					// String
 				
-						writeString(this._CRSArrTime,dos);
+						writeString(this.DepDel15,dos);
 					
 					// String
 				
-						writeString(this._ArrTime,dos);
+						writeString(this.DepartureDelayGroups,dos);
 					
 					// String
 				
-						writeString(this._ArrDelay,dos);
+						writeString(this.DepTimeBlk,dos);
 					
 					// String
 				
-						writeString(this._ArrDelayMinutes,dos);
+						writeString(this.TaxiOut,dos);
 					
 					// String
 				
-						writeString(this._ArrDel15,dos);
+						writeString(this.WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._ArrivalDelayGroups,dos);
+						writeString(this.WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._ArrTimeBlk,dos);
+						writeString(this.TaxiIn,dos);
 					
 					// String
 				
-						writeString(this._Cancelled,dos);
+						writeString(this.CRSArrTime,dos);
 					
 					// String
 				
-						writeString(this._CancellationCode,dos);
+						writeString(this.ArrTime,dos);
+					
+					// String
+				
+						writeString(this.ArrDelay,dos);
+					
+					// String
+				
+						writeString(this.ArrDelayMinutes,dos);
+					
+					// String
+				
+						writeString(this.ArrDel15,dos);
+					
+					// String
+				
+						writeString(this.ArrivalDelayGroups,dos);
+					
+					// String
+				
+						writeString(this.ArrTimeBlk,dos);
 					
 					// Float
 				
-						if(this._Diverted == null) {
+						if(this.Cancelled == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._Diverted);
+           			    	dos.writeFloat(this.Cancelled);
 		            	}
 					
 					// String
 				
-						writeString(this._CRSElapsedTime,dos);
+						writeString(this.CancellationCode,dos);
 					
 					// Float
 				
-						if(this._ActualElapsedTime == null) {
+						if(this.Diverted == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._ActualElapsedTime);
+           			    	dos.writeFloat(this.Diverted);
 		            	}
 					
 					// Float
 				
-						if(this._AirTime == null) {
+						if(this.CRSElapsedTime == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._AirTime);
+           			    	dos.writeFloat(this.CRSElapsedTime);
 		            	}
 					
 					// String
 				
-						writeString(this._Flights,dos);
+						writeString(this.ActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Distance,dos);
+						writeString(this.AirTime,dos);
 					
 					// Float
 				
-						if(this._DistanceGroup == null) {
+						if(this.Flights == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._DistanceGroup);
+           			    	dos.writeFloat(this.Flights);
 		            	}
 					
 					// Float
 				
-						if(this._CarrierDelay == null) {
+						if(this.Distance == null) {
 			                dos.writeByte(-1);
 						} else {
                				dos.writeByte(0);
-           			    	dos.writeFloat(this._CarrierDelay);
+           			    	dos.writeFloat(this.Distance);
 		            	}
 					
 					// Integer
 				
-						writeInteger(this._WeatherDelay,dos);
+						writeInteger(this.DistanceGroup,dos);
 					
 					// String
 				
-						writeString(this._NASDelay,dos);
+						writeString(this.CarrierDelay,dos);
 					
 					// String
 				
-						writeString(this._SecurityDelay,dos);
+						writeString(this.WeatherDelay,dos);
 					
 					// String
 				
-						writeString(this._LateAircraftDelay,dos);
+						writeString(this.NASDelay,dos);
 					
 					// String
 				
-						writeString(this._FirstDepTime,dos);
+						writeString(this.SecurityDelay,dos);
 					
 					// String
 				
-						writeString(this._TotalAddGTime,dos);
+						writeString(this.LateAircraftDelay,dos);
 					
 					// String
 				
-						writeString(this._LongestAddGTime,dos);
+						writeString(this.FirstDepTime,dos);
 					
 					// String
 				
-						writeString(this._DivAirportLandings,dos);
+						writeString(this.TotalAddGTime,dos);
 					
 					// String
 				
-						writeString(this._DivReachedDest,dos);
+						writeString(this.LongestAddGTime,dos);
 					
 					// Integer
 				
-						writeInteger(this._DivActualElapsedTime,dos);
+						writeInteger(this.DivAirportLandings,dos);
 					
 					// String
 				
-						writeString(this._DivArrDelay,dos);
+						writeString(this.DivReachedDest,dos);
 					
 					// String
 				
-						writeString(this._DivDistance,dos);
+						writeString(this.DivActualElapsedTime,dos);
 					
 					// String
 				
-						writeString(this._Div1Airport,dos);
+						writeString(this.DivArrDelay,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportID,dos);
+						writeString(this.DivDistance,dos);
 					
 					// String
 				
-						writeString(this._Div1AirportSeqID,dos);
+						writeString(this.Div1Airport,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOn,dos);
+						writeString(this.Div1AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div1TotalGTime,dos);
+						writeString(this.Div1AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div1LongestGTime,dos);
+						writeString(this.Div1WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div1WheelsOff,dos);
+						writeString(this.Div1TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div1TailNum,dos);
+						writeString(this.Div1LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2Airport,dos);
+						writeString(this.Div1WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportID,dos);
+						writeString(this.Div1TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div2AirportSeqID,dos);
+						writeString(this.Div2Airport,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOn,dos);
+						writeString(this.Div2AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div2TotalGTime,dos);
+						writeString(this.Div2AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div2LongestGTime,dos);
+						writeString(this.Div2WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div2WheelsOff,dos);
+						writeString(this.Div2TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div2TailNum,dos);
+						writeString(this.Div2LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3Airport,dos);
+						writeString(this.Div2WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportID,dos);
+						writeString(this.Div2TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div3AirportSeqID,dos);
+						writeString(this.Div3Airport,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOn,dos);
+						writeString(this.Div3AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div3TotalGTime,dos);
+						writeString(this.Div3AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div3LongestGTime,dos);
+						writeString(this.Div3WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div3WheelsOff,dos);
+						writeString(this.Div3TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div3TailNum,dos);
+						writeString(this.Div3LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4Airport,dos);
+						writeString(this.Div3WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportID,dos);
+						writeString(this.Div3TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div4AirportSeqID,dos);
+						writeString(this.Div4Airport,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOn,dos);
+						writeString(this.Div4AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div4TotalGTime,dos);
+						writeString(this.Div4AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div4LongestGTime,dos);
+						writeString(this.Div4WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div4WheelsOff,dos);
+						writeString(this.Div4TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div4TailNum,dos);
+						writeString(this.Div4LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5Airport,dos);
+						writeString(this.Div4WheelsOff,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportID,dos);
+						writeString(this.Div4TailNum,dos);
 					
 					// String
 				
-						writeString(this._Div5AirportSeqID,dos);
+						writeString(this.Div5Airport,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOn,dos);
+						writeString(this.Div5AirportID,dos);
 					
 					// String
 				
-						writeString(this._Div5TotalGTime,dos);
+						writeString(this.Div5AirportSeqID,dos);
 					
 					// String
 				
-						writeString(this._Div5LongestGTime,dos);
+						writeString(this.Div5WheelsOn,dos);
 					
 					// String
 				
-						writeString(this._Div5WheelsOff,dos);
+						writeString(this.Div5TotalGTime,dos);
 					
 					// String
 				
-						writeString(this._Div5TailNum,dos);
+						writeString(this.Div5LongestGTime,dos);
 					
 					// String
 				
-						writeString(this._Duplicate,dos);
+						writeString(this.Div5WheelsOff,dos);
+					
+					// String
+				
+						writeString(this.Div5TailNum,dos);
+					
+					// Character
+				
+						if(this.Duplicate == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeChar(this.Duplicate);
+		            	}
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -6050,125 +6090,125 @@ public static class after_tFileInputDelimited_1Struct implements routines.system
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("_Year="+String.valueOf(_Year));
-		sb.append(",_Quarter="+String.valueOf(_Quarter));
-		sb.append(",_Month="+String.valueOf(_Month));
-		sb.append(",_DayofMonth="+String.valueOf(_DayofMonth));
-		sb.append(",_DayOfWeek="+String.valueOf(_DayOfWeek));
-		sb.append(",_FlightDate="+_FlightDate);
-		sb.append(",_Marketing_Airline_Network="+_Marketing_Airline_Network);
-		sb.append(",_Operated_or_Branded_Code_Share_Partners="+_Operated_or_Branded_Code_Share_Partners);
-		sb.append(",_DOT_ID_Marketing_Airline="+String.valueOf(_DOT_ID_Marketing_Airline));
-		sb.append(",_IATA_Code_Marketing_Airline="+_IATA_Code_Marketing_Airline);
-		sb.append(",_Flight_Number_Marketing_Airline="+_Flight_Number_Marketing_Airline);
-		sb.append(",_Originally_Scheduled_Code_Share_Airline="+_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_DOT_ID_Originally_Scheduled_Code_Share_Airline="+_DOT_ID_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_IATA_Code_Originally_Scheduled_Code_Share_Airline="+_IATA_Code_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_Flight_Num_Originally_Scheduled_Code_Share_Airline="+_Flight_Num_Originally_Scheduled_Code_Share_Airline);
-		sb.append(",_Operating_Airline="+_Operating_Airline);
-		sb.append(",_DOT_ID_Operating_Airline="+String.valueOf(_DOT_ID_Operating_Airline));
-		sb.append(",_IATA_Code_Operating_Airline="+_IATA_Code_Operating_Airline);
-		sb.append(",_Tail_Number="+_Tail_Number);
-		sb.append(",_Flight_Number_Operating_Airline="+_Flight_Number_Operating_Airline);
-		sb.append(",_OriginAirportID="+String.valueOf(_OriginAirportID));
-		sb.append(",_OriginAirportSeqID="+String.valueOf(_OriginAirportSeqID));
-		sb.append(",_OriginCityMarketID="+String.valueOf(_OriginCityMarketID));
-		sb.append(",_Origin="+_Origin);
-		sb.append(",_OriginCityName="+_OriginCityName);
-		sb.append(",_OriginState="+_OriginState);
-		sb.append(",_OriginStateFips="+_OriginStateFips);
-		sb.append(",_OriginStateName="+_OriginStateName);
-		sb.append(",_OriginWac="+_OriginWac);
-		sb.append(",_DestAirportID="+String.valueOf(_DestAirportID));
-		sb.append(",_DestAirportSeqID="+String.valueOf(_DestAirportSeqID));
-		sb.append(",_DestCityMarketID="+String.valueOf(_DestCityMarketID));
-		sb.append(",_Dest="+String.valueOf(_Dest));
-		sb.append(",_DestCityName="+_DestCityName);
-		sb.append(",_DestState="+_DestState);
-		sb.append(",_DestStateFips="+_DestStateFips);
-		sb.append(",_DestStateName="+_DestStateName);
-		sb.append(",_DestWac="+_DestWac);
-		sb.append(",_CRSDepTime="+_CRSDepTime);
-		sb.append(",_DepTime="+String.valueOf(_DepTime));
-		sb.append(",_DepDelay="+_DepDelay);
-		sb.append(",_DepDelayMinutes="+_DepDelayMinutes);
-		sb.append(",_DepDel15="+_DepDel15);
-		sb.append(",_DepartureDelayGroups="+_DepartureDelayGroups);
-		sb.append(",_DepTimeBlk="+_DepTimeBlk);
-		sb.append(",_TaxiOut="+_TaxiOut);
-		sb.append(",_WheelsOff="+_WheelsOff);
-		sb.append(",_WheelsOn="+_WheelsOn);
-		sb.append(",_TaxiIn="+_TaxiIn);
-		sb.append(",_CRSArrTime="+_CRSArrTime);
-		sb.append(",_ArrTime="+_ArrTime);
-		sb.append(",_ArrDelay="+_ArrDelay);
-		sb.append(",_ArrDelayMinutes="+_ArrDelayMinutes);
-		sb.append(",_ArrDel15="+_ArrDel15);
-		sb.append(",_ArrivalDelayGroups="+_ArrivalDelayGroups);
-		sb.append(",_ArrTimeBlk="+_ArrTimeBlk);
-		sb.append(",_Cancelled="+_Cancelled);
-		sb.append(",_CancellationCode="+_CancellationCode);
-		sb.append(",_Diverted="+String.valueOf(_Diverted));
-		sb.append(",_CRSElapsedTime="+_CRSElapsedTime);
-		sb.append(",_ActualElapsedTime="+String.valueOf(_ActualElapsedTime));
-		sb.append(",_AirTime="+String.valueOf(_AirTime));
-		sb.append(",_Flights="+_Flights);
-		sb.append(",_Distance="+_Distance);
-		sb.append(",_DistanceGroup="+String.valueOf(_DistanceGroup));
-		sb.append(",_CarrierDelay="+String.valueOf(_CarrierDelay));
-		sb.append(",_WeatherDelay="+String.valueOf(_WeatherDelay));
-		sb.append(",_NASDelay="+_NASDelay);
-		sb.append(",_SecurityDelay="+_SecurityDelay);
-		sb.append(",_LateAircraftDelay="+_LateAircraftDelay);
-		sb.append(",_FirstDepTime="+_FirstDepTime);
-		sb.append(",_TotalAddGTime="+_TotalAddGTime);
-		sb.append(",_LongestAddGTime="+_LongestAddGTime);
-		sb.append(",_DivAirportLandings="+_DivAirportLandings);
-		sb.append(",_DivReachedDest="+_DivReachedDest);
-		sb.append(",_DivActualElapsedTime="+String.valueOf(_DivActualElapsedTime));
-		sb.append(",_DivArrDelay="+_DivArrDelay);
-		sb.append(",_DivDistance="+_DivDistance);
-		sb.append(",_Div1Airport="+_Div1Airport);
-		sb.append(",_Div1AirportID="+_Div1AirportID);
-		sb.append(",_Div1AirportSeqID="+_Div1AirportSeqID);
-		sb.append(",_Div1WheelsOn="+_Div1WheelsOn);
-		sb.append(",_Div1TotalGTime="+_Div1TotalGTime);
-		sb.append(",_Div1LongestGTime="+_Div1LongestGTime);
-		sb.append(",_Div1WheelsOff="+_Div1WheelsOff);
-		sb.append(",_Div1TailNum="+_Div1TailNum);
-		sb.append(",_Div2Airport="+_Div2Airport);
-		sb.append(",_Div2AirportID="+_Div2AirportID);
-		sb.append(",_Div2AirportSeqID="+_Div2AirportSeqID);
-		sb.append(",_Div2WheelsOn="+_Div2WheelsOn);
-		sb.append(",_Div2TotalGTime="+_Div2TotalGTime);
-		sb.append(",_Div2LongestGTime="+_Div2LongestGTime);
-		sb.append(",_Div2WheelsOff="+_Div2WheelsOff);
-		sb.append(",_Div2TailNum="+_Div2TailNum);
-		sb.append(",_Div3Airport="+_Div3Airport);
-		sb.append(",_Div3AirportID="+_Div3AirportID);
-		sb.append(",_Div3AirportSeqID="+_Div3AirportSeqID);
-		sb.append(",_Div3WheelsOn="+_Div3WheelsOn);
-		sb.append(",_Div3TotalGTime="+_Div3TotalGTime);
-		sb.append(",_Div3LongestGTime="+_Div3LongestGTime);
-		sb.append(",_Div3WheelsOff="+_Div3WheelsOff);
-		sb.append(",_Div3TailNum="+_Div3TailNum);
-		sb.append(",_Div4Airport="+_Div4Airport);
-		sb.append(",_Div4AirportID="+_Div4AirportID);
-		sb.append(",_Div4AirportSeqID="+_Div4AirportSeqID);
-		sb.append(",_Div4WheelsOn="+_Div4WheelsOn);
-		sb.append(",_Div4TotalGTime="+_Div4TotalGTime);
-		sb.append(",_Div4LongestGTime="+_Div4LongestGTime);
-		sb.append(",_Div4WheelsOff="+_Div4WheelsOff);
-		sb.append(",_Div4TailNum="+_Div4TailNum);
-		sb.append(",_Div5Airport="+_Div5Airport);
-		sb.append(",_Div5AirportID="+_Div5AirportID);
-		sb.append(",_Div5AirportSeqID="+_Div5AirportSeqID);
-		sb.append(",_Div5WheelsOn="+_Div5WheelsOn);
-		sb.append(",_Div5TotalGTime="+_Div5TotalGTime);
-		sb.append(",_Div5LongestGTime="+_Div5LongestGTime);
-		sb.append(",_Div5WheelsOff="+_Div5WheelsOff);
-		sb.append(",_Div5TailNum="+_Div5TailNum);
-		sb.append(",_Duplicate="+_Duplicate);
+		sb.append("Year="+String.valueOf(Year));
+		sb.append(",Quarter="+String.valueOf(Quarter));
+		sb.append(",Month="+String.valueOf(Month));
+		sb.append(",DayofMonth="+String.valueOf(DayofMonth));
+		sb.append(",DayOfWeek="+String.valueOf(DayOfWeek));
+		sb.append(",FlightDate="+FlightDate);
+		sb.append(",Marketing_Airline_Network="+Marketing_Airline_Network);
+		sb.append(",Operated_or_Branded_Code_Share_Partners="+Operated_or_Branded_Code_Share_Partners);
+		sb.append(",DOT_ID_Marketing_Airline="+String.valueOf(DOT_ID_Marketing_Airline));
+		sb.append(",IATA_Code_Marketing_Airline="+IATA_Code_Marketing_Airline);
+		sb.append(",Flight_Number_Marketing_Airline="+String.valueOf(Flight_Number_Marketing_Airline));
+		sb.append(",Originally_Scheduled_Code_Share_Airline="+Originally_Scheduled_Code_Share_Airline);
+		sb.append(",DOT_ID_Originally_Scheduled_Code_Share_Airline="+DOT_ID_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",IATA_Code_Originally_Scheduled_Code_Share_Airline="+IATA_Code_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",Flight_Num_Originally_Scheduled_Code_Share_Airline="+Flight_Num_Originally_Scheduled_Code_Share_Airline);
+		sb.append(",Operating_Airline="+Operating_Airline);
+		sb.append(",DOT_ID_Operating_Airline="+String.valueOf(DOT_ID_Operating_Airline));
+		sb.append(",IATA_Code_Operating_Airline="+IATA_Code_Operating_Airline);
+		sb.append(",Tail_Number="+Tail_Number);
+		sb.append(",Flight_Number_Operating_Airline="+String.valueOf(Flight_Number_Operating_Airline));
+		sb.append(",OriginAirportID="+String.valueOf(OriginAirportID));
+		sb.append(",OriginAirportSeqID="+String.valueOf(OriginAirportSeqID));
+		sb.append(",OriginCityMarketID="+String.valueOf(OriginCityMarketID));
+		sb.append(",Origin="+Origin);
+		sb.append(",OriginCityName="+OriginCityName);
+		sb.append(",OriginState="+OriginState);
+		sb.append(",OriginStateFips="+OriginStateFips);
+		sb.append(",OriginStateName="+OriginStateName);
+		sb.append(",OriginWac="+String.valueOf(OriginWac));
+		sb.append(",DestAirportID="+String.valueOf(DestAirportID));
+		sb.append(",DestAirportSeqID="+String.valueOf(DestAirportSeqID));
+		sb.append(",DestCityMarketID="+String.valueOf(DestCityMarketID));
+		sb.append(",Dest="+Dest);
+		sb.append(",DestCityName="+DestCityName);
+		sb.append(",DestState="+DestState);
+		sb.append(",DestStateFips="+DestStateFips);
+		sb.append(",DestStateName="+DestStateName);
+		sb.append(",DestWac="+String.valueOf(DestWac));
+		sb.append(",CRSDepTime="+CRSDepTime);
+		sb.append(",DepTime="+DepTime);
+		sb.append(",DepDelay="+DepDelay);
+		sb.append(",DepDelayMinutes="+DepDelayMinutes);
+		sb.append(",DepDel15="+DepDel15);
+		sb.append(",DepartureDelayGroups="+DepartureDelayGroups);
+		sb.append(",DepTimeBlk="+DepTimeBlk);
+		sb.append(",TaxiOut="+TaxiOut);
+		sb.append(",WheelsOff="+WheelsOff);
+		sb.append(",WheelsOn="+WheelsOn);
+		sb.append(",TaxiIn="+TaxiIn);
+		sb.append(",CRSArrTime="+CRSArrTime);
+		sb.append(",ArrTime="+ArrTime);
+		sb.append(",ArrDelay="+ArrDelay);
+		sb.append(",ArrDelayMinutes="+ArrDelayMinutes);
+		sb.append(",ArrDel15="+ArrDel15);
+		sb.append(",ArrivalDelayGroups="+ArrivalDelayGroups);
+		sb.append(",ArrTimeBlk="+ArrTimeBlk);
+		sb.append(",Cancelled="+String.valueOf(Cancelled));
+		sb.append(",CancellationCode="+CancellationCode);
+		sb.append(",Diverted="+String.valueOf(Diverted));
+		sb.append(",CRSElapsedTime="+String.valueOf(CRSElapsedTime));
+		sb.append(",ActualElapsedTime="+ActualElapsedTime);
+		sb.append(",AirTime="+AirTime);
+		sb.append(",Flights="+String.valueOf(Flights));
+		sb.append(",Distance="+String.valueOf(Distance));
+		sb.append(",DistanceGroup="+String.valueOf(DistanceGroup));
+		sb.append(",CarrierDelay="+CarrierDelay);
+		sb.append(",WeatherDelay="+WeatherDelay);
+		sb.append(",NASDelay="+NASDelay);
+		sb.append(",SecurityDelay="+SecurityDelay);
+		sb.append(",LateAircraftDelay="+LateAircraftDelay);
+		sb.append(",FirstDepTime="+FirstDepTime);
+		sb.append(",TotalAddGTime="+TotalAddGTime);
+		sb.append(",LongestAddGTime="+LongestAddGTime);
+		sb.append(",DivAirportLandings="+String.valueOf(DivAirportLandings));
+		sb.append(",DivReachedDest="+DivReachedDest);
+		sb.append(",DivActualElapsedTime="+DivActualElapsedTime);
+		sb.append(",DivArrDelay="+DivArrDelay);
+		sb.append(",DivDistance="+DivDistance);
+		sb.append(",Div1Airport="+Div1Airport);
+		sb.append(",Div1AirportID="+Div1AirportID);
+		sb.append(",Div1AirportSeqID="+Div1AirportSeqID);
+		sb.append(",Div1WheelsOn="+Div1WheelsOn);
+		sb.append(",Div1TotalGTime="+Div1TotalGTime);
+		sb.append(",Div1LongestGTime="+Div1LongestGTime);
+		sb.append(",Div1WheelsOff="+Div1WheelsOff);
+		sb.append(",Div1TailNum="+Div1TailNum);
+		sb.append(",Div2Airport="+Div2Airport);
+		sb.append(",Div2AirportID="+Div2AirportID);
+		sb.append(",Div2AirportSeqID="+Div2AirportSeqID);
+		sb.append(",Div2WheelsOn="+Div2WheelsOn);
+		sb.append(",Div2TotalGTime="+Div2TotalGTime);
+		sb.append(",Div2LongestGTime="+Div2LongestGTime);
+		sb.append(",Div2WheelsOff="+Div2WheelsOff);
+		sb.append(",Div2TailNum="+Div2TailNum);
+		sb.append(",Div3Airport="+Div3Airport);
+		sb.append(",Div3AirportID="+Div3AirportID);
+		sb.append(",Div3AirportSeqID="+Div3AirportSeqID);
+		sb.append(",Div3WheelsOn="+Div3WheelsOn);
+		sb.append(",Div3TotalGTime="+Div3TotalGTime);
+		sb.append(",Div3LongestGTime="+Div3LongestGTime);
+		sb.append(",Div3WheelsOff="+Div3WheelsOff);
+		sb.append(",Div3TailNum="+Div3TailNum);
+		sb.append(",Div4Airport="+Div4Airport);
+		sb.append(",Div4AirportID="+Div4AirportID);
+		sb.append(",Div4AirportSeqID="+Div4AirportSeqID);
+		sb.append(",Div4WheelsOn="+Div4WheelsOn);
+		sb.append(",Div4TotalGTime="+Div4TotalGTime);
+		sb.append(",Div4LongestGTime="+Div4LongestGTime);
+		sb.append(",Div4WheelsOff="+Div4WheelsOff);
+		sb.append(",Div4TailNum="+Div4TailNum);
+		sb.append(",Div5Airport="+Div5Airport);
+		sb.append(",Div5AirportID="+Div5AirportID);
+		sb.append(",Div5AirportSeqID="+Div5AirportSeqID);
+		sb.append(",Div5WheelsOn="+Div5WheelsOn);
+		sb.append(",Div5TotalGTime="+Div5TotalGTime);
+		sb.append(",Div5LongestGTime="+Div5LongestGTime);
+		sb.append(",Div5WheelsOff="+Div5WheelsOff);
+		sb.append(",Div5TailNum="+Div5TailNum);
+		sb.append(",Duplicate="+String.valueOf(Duplicate));
 	    sb.append("]");
 
 	    return sb.toString();
@@ -6292,14 +6332,106 @@ String fileName_tFileOutputDelimited_1 = "";
     boolean isFileGenerated_tFileOutputDelimited_1 = true;
     java.io.File filetFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
     globalMap.put("tFileOutputDelimited_1_FILE_NAME",fileName_tFileOutputDelimited_1);
+                String[] headColutFileOutputDelimited_1=new String[15];
+            class CSVBasicSet_tFileOutputDelimited_1{
+                private char field_Delim;
+                private char row_Delim;
+                private char escape;
+                private char textEnclosure;
+                private boolean useCRLFRecordDelimiter;
+
+                public boolean isUseCRLFRecordDelimiter() {
+                    return useCRLFRecordDelimiter;
+                }
+
+                public void setFieldSeparator(String fieldSep) throws IllegalArgumentException{
+                    char field_Delim_tFileOutputDelimited_1[] = null;
+
+                    //support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'.
+                    if (fieldSep.length() > 0 ){
+                        field_Delim_tFileOutputDelimited_1 = fieldSep.toCharArray();
+                    }else {
+                        throw new IllegalArgumentException("Field Separator must be assigned a char.");
+                    }
+                    this.field_Delim = field_Delim_tFileOutputDelimited_1[0];
+                }
+
+                public char getFieldDelim(){
+                    if(this.field_Delim==0){
+                        setFieldSeparator(",");
+                    }
+                    return this.field_Delim;
+                }
+
+                public void setRowSeparator(String rowSep){
+                    if("\r\n".equals(rowSep)) {
+                        useCRLFRecordDelimiter = true;
+                        return;
+                    }
+                    char row_DelimtFileOutputDelimited_1[] = null;
+
+                    //support passing value (property: Row Separator) by 'context.rs' or 'globalMap.get("rs")'.
+                    if (rowSep.length() > 0 ){
+                        row_DelimtFileOutputDelimited_1 = rowSep.toCharArray();
+                    }else {
+                        throw new IllegalArgumentException("Row Separator must be assigned a char.");
+                    }
+                    this.row_Delim = row_DelimtFileOutputDelimited_1[0];
+                }
+
+                public char getRowDelim(){
+                    if(this.row_Delim==0){
+                        setRowSeparator("\n");
+                    }
+                    return this.row_Delim;
+                }
+
+                public void setEscapeAndTextEnclosure(String strEscape, String strTextEnclosure) throws IllegalArgumentException{
+                    if(strEscape.length() <= 0 ){
+                        throw new IllegalArgumentException("Escape Char must be assigned a char.");
+                    }
+
+                    if ("".equals(strTextEnclosure)) strTextEnclosure = "\0";
+                    char textEnclosure_tFileOutputDelimited_1[] = null;
+
+                    if(strTextEnclosure.length() > 0 ){
+                        textEnclosure_tFileOutputDelimited_1 = strTextEnclosure.toCharArray();
+                    }else {
+                        throw new IllegalArgumentException("Text Enclosure must be assigned a char.");
+                    }
+
+                    this.textEnclosure = textEnclosure_tFileOutputDelimited_1[0];
+
+                    if(("\\").equals(strEscape)){
+                        this.escape = '\\';
+                    }else if(strEscape.equals(strTextEnclosure)){
+                        this.escape = this.textEnclosure;
+                    } else {
+                        //the default escape mode is double escape
+                        this.escape = this.textEnclosure;
+                    }
+
+
+                }
+
+                public char getEscapeChar(){
+                    return (char)this.escape;
+                }
+
+                public char getTextEnclosure(){
+                    return this.textEnclosure;
+                }
+            }
+
             int nb_line_tFileOutputDelimited_1 = 0;
-            int splitedFileNo_tFileOutputDelimited_1 = 0;
+            int splitedFileNo_tFileOutputDelimited_1 =0;
             int currentRow_tFileOutputDelimited_1 = 0;
 
-            final String OUT_DELIM_tFileOutputDelimited_1 = /** Start field tFileOutputDelimited_1:FIELDSEPARATOR */","/** End field tFileOutputDelimited_1:FIELDSEPARATOR */;
 
-            final String OUT_DELIM_ROWSEP_tFileOutputDelimited_1 = /** Start field tFileOutputDelimited_1:ROWSEPARATOR */"\n"/** End field tFileOutputDelimited_1:ROWSEPARATOR */;
-
+            CSVBasicSet_tFileOutputDelimited_1 csvSettings_tFileOutputDelimited_1 = new CSVBasicSet_tFileOutputDelimited_1();
+            csvSettings_tFileOutputDelimited_1.setFieldSeparator(",");
+            csvSettings_tFileOutputDelimited_1.setRowSeparator("\n");
+            csvSettings_tFileOutputDelimited_1.setEscapeAndTextEnclosure("\"","\"");
                     //create directory only if not exists
                     if(directory_tFileOutputDelimited_1 != null && directory_tFileOutputDelimited_1.trim().length() != 0) {
                         java.io.File dir_tFileOutputDelimited_1 = new java.io.File(directory_tFileOutputDelimited_1);
@@ -6307,52 +6439,44 @@ String fileName_tFileOutputDelimited_1 = "";
                             dir_tFileOutputDelimited_1.mkdirs();
                         }
                     }
+                            com.talend.csv.CSVWriter CsvWritertFileOutputDelimited_1 = null;
 
-                        //routines.system.Row
-                        java.io.Writer outtFileOutputDelimited_1 = null;
-
-                        java.io.File fileToDelete_tFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
-                        if(fileToDelete_tFileOutputDelimited_1.exists()) {
-                            fileToDelete_tFileOutputDelimited_1.delete();
+                            java.io.File fileToDelete_tFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
+                            if(fileToDelete_tFileOutputDelimited_1.exists()) {
+                                fileToDelete_tFileOutputDelimited_1.delete();
+                            }
+                            CsvWritertFileOutputDelimited_1 = new com.talend.csv.CSVWriter(new java.io.BufferedWriter(new java.io.OutputStreamWriter(
+                            new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false), "ISO-8859-15")));
+                            CsvWritertFileOutputDelimited_1.setSeparator(csvSettings_tFileOutputDelimited_1.getFieldDelim());
+                    if(!csvSettings_tFileOutputDelimited_1.isUseCRLFRecordDelimiter() && csvSettings_tFileOutputDelimited_1.getRowDelim()!='\r' && csvSettings_tFileOutputDelimited_1.getRowDelim()!='\n') {
+                        CsvWritertFileOutputDelimited_1.setLineEnd(""+csvSettings_tFileOutputDelimited_1.getRowDelim());
+                    }
+                        if(filetFileOutputDelimited_1.length()==0){
+                                    headColutFileOutputDelimited_1[0]="FlightId";
+                                    headColutFileOutputDelimited_1[1]="FlightNumber";
+                                    headColutFileOutputDelimited_1[2]="TimePeriodId";
+                                    headColutFileOutputDelimited_1[3]="AirlineId";
+                                    headColutFileOutputDelimited_1[4]="OriginId";
+                                    headColutFileOutputDelimited_1[5]="DestinationId";
+                                    headColutFileOutputDelimited_1[6]="DepDelay";
+                                    headColutFileOutputDelimited_1[7]="ArrDelay";
+                                    headColutFileOutputDelimited_1[8]="CarrierDelay";
+                                    headColutFileOutputDelimited_1[9]="WeatherDelay";
+                                    headColutFileOutputDelimited_1[10]="NASDelay";
+                                    headColutFileOutputDelimited_1[11]="SecurityDelay";
+                                    headColutFileOutputDelimited_1[12]="LateAircraftDelay";
+                                    headColutFileOutputDelimited_1[13]="Cancelled";
+                                    headColutFileOutputDelimited_1[14]="Diverted";
+                            CsvWritertFileOutputDelimited_1.writeNext(headColutFileOutputDelimited_1);
+                            CsvWritertFileOutputDelimited_1.flush();
                         }
-                        outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
-                        new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false),"ISO-8859-15"));
-                                    if(filetFileOutputDelimited_1.length()==0){
-                                        outtFileOutputDelimited_1.write("FlightId");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("FlightNumber");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("TimePeriodId");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("AirlineId");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("OriginId");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("DestinationId");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("DepDelay");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("ArrDelay");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("CarrierDelay");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("WeatherDelay");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("NASDelay");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("SecurityDelay");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("LateAircraftDelay");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("Cancelled");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("Diverted");
-                                        outtFileOutputDelimited_1.write(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.flush();
-                                    }
+                CsvWritertFileOutputDelimited_1.setEscapeChar(csvSettings_tFileOutputDelimited_1.getEscapeChar());
+                CsvWritertFileOutputDelimited_1.setQuoteChar(csvSettings_tFileOutputDelimited_1.getTextEnclosure());
+                CsvWritertFileOutputDelimited_1.setQuoteStatus(com.talend.csv.CSVWriter.QuoteStatus.FORCE);
 
 
-        resourceMap.put("out_tFileOutputDelimited_1", outtFileOutputDelimited_1);
+
+    resourceMap.put("CsvWriter_tFileOutputDelimited_1", CsvWritertFileOutputDelimited_1);
 resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
 
  
@@ -6414,16 +6538,6 @@ row2Struct row2Default = new row2Struct();
 row3Struct row3HashKey = new row3Struct();
 row3Struct row3Default = new row3Struct();
 	
-		org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row5Struct> tHash_Lookup_row5 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row5Struct>) 
-				((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row5Struct>) 
-					globalMap.get( "tHash_Lookup_row5" ))
-					;					
-					
-	
-
-row5Struct row5HashKey = new row5Struct();
-row5Struct row5Default = new row5Struct();
-	
 		org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row4Struct> tHash_Lookup_row4 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row4Struct>) 
 				((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row4Struct>) 
 					globalMap.get( "tHash_Lookup_row4" ))
@@ -6433,6 +6547,16 @@ row5Struct row5Default = new row5Struct();
 
 row4Struct row4HashKey = new row4Struct();
 row4Struct row4Default = new row4Struct();
+	
+		org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row5Struct> tHash_Lookup_row5 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row5Struct>) 
+				((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row5Struct>) 
+					globalMap.get( "tHash_Lookup_row5" ))
+					;					
+					
+	
+
+row5Struct row5HashKey = new row5Struct();
+row5Struct row5Default = new row5Struct();
 // ###############################        
 
 // ###############################
@@ -6501,1042 +6625,3380 @@ factStruct fact_tmp = new factStruct();
 	
 				class RowHelper_tFileInputDelimited_1{
 				
-					public void valueToConn_0(org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
+					public void valueToConn_0(String[] rowtFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
 						
-				int columnIndexWithD_tFileInputDelimited_1 = 0;
-				
-					String temp = ""; 
-				
-					columnIndexWithD_tFileInputDelimited_1 = 0;
+				char fieldSeparator_tFileInputDelimited_1_ListType[] = null;
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_1_ListType = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+				if(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])){//empty line when row separator is '\n'
 					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+							row1.Year = null;
+					
+							row1.Quarter = null;
+					
+							row1.Month = null;
+					
+							row1.DayofMonth = null;
+					
+							row1.DayOfWeek = null;
+					
+							row1.FlightDate = null;
+					
+							row1.Marketing_Airline_Network = null;
+					
+							row1.Operated_or_Branded_Code_Share_Partners = null;
+					
+							row1.DOT_ID_Marketing_Airline = null;
+					
+							row1.IATA_Code_Marketing_Airline = null;
+					
+							row1.Flight_Number_Marketing_Airline = null;
+					
+							row1.Originally_Scheduled_Code_Share_Airline = null;
+					
+							row1.DOT_ID_Originally_Scheduled_Code_Share_Airline = null;
+					
+							row1.IATA_Code_Originally_Scheduled_Code_Share_Airline = null;
+					
+							row1.Flight_Num_Originally_Scheduled_Code_Share_Airline = null;
+					
+							row1.Operating_Airline = null;
+					
+							row1.DOT_ID_Operating_Airline = null;
+					
+							row1.IATA_Code_Operating_Airline = null;
+					
+							row1.Tail_Number = null;
+					
+							row1.Flight_Number_Operating_Airline = null;
+					
+							row1.OriginAirportID = null;
+					
+							row1.OriginAirportSeqID = null;
+					
+							row1.OriginCityMarketID = null;
+					
+							row1.Origin = null;
+					
+							row1.OriginCityName = null;
+					
+							row1.OriginState = null;
+					
+							row1.OriginStateFips = null;
+					
+							row1.OriginStateName = null;
+					
+							row1.OriginWac = null;
+					
+							row1.DestAirportID = null;
+					
+							row1.DestAirportSeqID = null;
+					
+							row1.DestCityMarketID = null;
+					
+							row1.Dest = null;
+					
+							row1.DestCityName = null;
+					
+							row1.DestState = null;
+					
+							row1.DestStateFips = null;
+					
+							row1.DestStateName = null;
+					
+							row1.DestWac = null;
+					
+							row1.CRSDepTime = null;
+					
+							row1.DepTime = null;
+					
+							row1.DepDelay = null;
+					
+							row1.DepDelayMinutes = null;
+					
+							row1.DepDel15 = null;
+					
+							row1.DepartureDelayGroups = null;
+					
+							row1.DepTimeBlk = null;
+					
+							row1.TaxiOut = null;
+					
+							row1.WheelsOff = null;
+					
+							row1.WheelsOn = null;
+					
+							row1.TaxiIn = null;
+					
+							row1.CRSArrTime = null;
+					
+							row1.ArrTime = null;
+					
+							row1.ArrDelay = null;
+					
+							row1.ArrDelayMinutes = null;
+					
+							row1.ArrDel15 = null;
+					
+							row1.ArrivalDelayGroups = null;
+					
+							row1.ArrTimeBlk = null;
+					
+							row1.Cancelled = null;
+					
+							row1.CancellationCode = null;
+					
+							row1.Diverted = null;
+					
+							row1.CRSElapsedTime = null;
+					
+							row1.ActualElapsedTime = null;
+					
+							row1.AirTime = null;
+					
+							row1.Flights = null;
+					
+							row1.Distance = null;
+					
+							row1.DistanceGroup = null;
+					
+							row1.CarrierDelay = null;
+					
+							row1.WeatherDelay = null;
+					
+							row1.NASDelay = null;
+					
+							row1.SecurityDelay = null;
+					
+							row1.LateAircraftDelay = null;
+					
+							row1.FirstDepTime = null;
+					
+							row1.TotalAddGTime = null;
+					
+							row1.LongestAddGTime = null;
+					
+							row1.DivAirportLandings = null;
+					
+							row1.DivReachedDest = null;
+					
+							row1.DivActualElapsedTime = null;
+					
+							row1.DivArrDelay = null;
+					
+							row1.DivDistance = null;
+					
+							row1.Div1Airport = null;
+					
+							row1.Div1AirportID = null;
+					
+							row1.Div1AirportSeqID = null;
+					
+							row1.Div1WheelsOn = null;
+					
+							row1.Div1TotalGTime = null;
+					
+							row1.Div1LongestGTime = null;
+					
+							row1.Div1WheelsOff = null;
+					
+							row1.Div1TailNum = null;
+					
+							row1.Div2Airport = null;
+					
+							row1.Div2AirportID = null;
+					
+							row1.Div2AirportSeqID = null;
+					
+							row1.Div2WheelsOn = null;
+					
+							row1.Div2TotalGTime = null;
+					
+							row1.Div2LongestGTime = null;
+					
+							row1.Div2WheelsOff = null;
+					
+							row1.Div2TailNum = null;
+					
+							row1.Div3Airport = null;
+					
+							row1.Div3AirportID = null;
+					
+							row1.Div3AirportSeqID = null;
+					
+							row1.Div3WheelsOn = null;
+					
+							row1.Div3TotalGTime = null;
+					
+							row1.Div3LongestGTime = null;
+					
+				}else{
+					
+	                int columnIndexWithD_tFileInputDelimited_1 = 0; //Column Index 
+	                
+						columnIndexWithD_tFileInputDelimited_1 = 0;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._Year = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Year = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_Year", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Year", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Year = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._Year = null;
-								
+						
+						}else{
+						
 							
+								row1.Year = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 1;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 1;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._Quarter = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Quarter = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_Quarter", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Quarter", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Quarter = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._Quarter = null;
-								
+						
+						}else{
+						
 							
+								row1.Quarter = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 2;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 2;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._Month = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Month = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_Month", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Month", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Month = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._Month = null;
-								
+						
+						}else{
+						
 							
+								row1.Month = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 3;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 3;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._DayofMonth = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DayofMonth = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DayofMonth", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DayofMonth", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DayofMonth = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DayofMonth = null;
-								
+						
+						}else{
+						
 							
+								row1.DayofMonth = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 4;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 4;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._DayOfWeek = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DayOfWeek = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DayOfWeek", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DayOfWeek", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DayOfWeek = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DayOfWeek = null;
-								
+						
+						}else{
+						
 							
+								row1.DayOfWeek = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 5;
-					
-							row1._FlightDate = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 6;
-					
-							row1._Marketing_Airline_Network = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 7;
 					
-							row1._Operated_or_Branded_Code_Share_Partners = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 5;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 8;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.FlightDate = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.FlightDate = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 6;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Marketing_Airline_Network = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Marketing_Airline_Network = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 7;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Operated_or_Branded_Code_Share_Partners = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Operated_or_Branded_Code_Share_Partners = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 8;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._DOT_ID_Marketing_Airline = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DOT_ID_Marketing_Airline = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DOT_ID_Marketing_Airline", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DOT_ID_Marketing_Airline", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DOT_ID_Marketing_Airline = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DOT_ID_Marketing_Airline = null;
-								
+						
+						}else{
+						
 							
+								row1.DOT_ID_Marketing_Airline = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 9;
-					
-							row1._IATA_Code_Marketing_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 10;
-					
-							row1._Flight_Number_Marketing_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 11;
 					
-							row1._Originally_Scheduled_Code_Share_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 9;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 12;
-					
-							row1._DOT_ID_Originally_Scheduled_Code_Share_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 13;
-					
-							row1._IATA_Code_Originally_Scheduled_Code_Share_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 14;
-					
-							row1._Flight_Num_Originally_Scheduled_Code_Share_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 15;
-					
-							row1._Operating_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 16;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
 							
-								try {
+									row1.IATA_Code_Marketing_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.IATA_Code_Marketing_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 10;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._DOT_ID_Operating_Airline = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Flight_Number_Marketing_Airline = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DOT_ID_Operating_Airline", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Flight_Number_Marketing_Airline", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Flight_Number_Marketing_Airline = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DOT_ID_Operating_Airline = null;
-								
+						
+						}else{
+						
 							
+								row1.Flight_Number_Marketing_Airline = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 17;
-					
-							row1._IATA_Code_Operating_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 18;
-					
-							row1._Tail_Number = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 19;
 					
-							row1._Flight_Number_Operating_Airline = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 11;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 20;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.Originally_Scheduled_Code_Share_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Originally_Scheduled_Code_Share_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 12;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DOT_ID_Originally_Scheduled_Code_Share_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DOT_ID_Originally_Scheduled_Code_Share_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 13;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.IATA_Code_Originally_Scheduled_Code_Share_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.IATA_Code_Originally_Scheduled_Code_Share_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 14;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Flight_Num_Originally_Scheduled_Code_Share_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Flight_Num_Originally_Scheduled_Code_Share_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 15;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Operating_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Operating_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 16;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._OriginAirportID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DOT_ID_Operating_Airline = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_OriginAirportID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DOT_ID_Operating_Airline", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DOT_ID_Operating_Airline = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._OriginAirportID = null;
-								
+						
+						}else{
+						
 							
+								row1.DOT_ID_Operating_Airline = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 21;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 17;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.IATA_Code_Operating_Airline = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.IATA_Code_Operating_Airline = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 18;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Tail_Number = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Tail_Number = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 19;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._OriginAirportSeqID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Flight_Number_Operating_Airline = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_OriginAirportSeqID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Flight_Number_Operating_Airline", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Flight_Number_Operating_Airline = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._OriginAirportSeqID = null;
-								
+						
+						}else{
+						
 							
+								row1.Flight_Number_Operating_Airline = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 22;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 20;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._OriginCityMarketID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.OriginAirportID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_OriginCityMarketID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"OriginAirportID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.OriginAirportID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._OriginCityMarketID = null;
-								
+						
+						}else{
+						
 							
+								row1.OriginAirportID = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 23;
-					
-							row1._Origin = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 24;
-					
-							row1._OriginCityName = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 25;
 					
-							row1._OriginState = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 21;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 26;
-					
-							row1._OriginStateFips = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 27;
-					
-							row1._OriginStateName = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 28;
-					
-							row1._OriginWac = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 29;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						
 							
-								try {
 								
-    								row1._DestAirportID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.OriginAirportSeqID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DestAirportID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"OriginAirportSeqID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.OriginAirportSeqID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DestAirportID = null;
-								
+						
+						}else{
+						
 							
+								row1.OriginAirportSeqID = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 30;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 22;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._DestAirportSeqID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.OriginCityMarketID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DestAirportSeqID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"OriginCityMarketID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.OriginCityMarketID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DestAirportSeqID = null;
-								
+						
+						}else{
+						
 							
+								row1.OriginCityMarketID = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 31;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 23;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.Origin = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Origin = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 24;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.OriginCityName = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.OriginCityName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 25;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.OriginState = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.OriginState = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 26;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.OriginStateFips = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.OriginStateFips = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 27;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.OriginStateName = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.OriginStateName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 28;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._DestCityMarketID = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.OriginWac = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DestCityMarketID", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"OriginWac", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.OriginWac = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DestCityMarketID = null;
-								
+						
+						}else{
+						
 							
+								row1.OriginWac = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 32;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 29;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._Dest = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DestAirportID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_Dest", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DestAirportID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DestAirportID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._Dest = null;
-								
+						
+						}else{
+						
 							
+								row1.DestAirportID = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 33;
-					
-							row1._DestCityName = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 34;
-					
-							row1._DestState = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 35;
 					
-							row1._DestStateFips = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 30;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 36;
-					
-							row1._DestStateName = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 37;
-					
-							row1._DestWac = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 38;
-					
-							row1._CRSDepTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 39;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						
 							
-								try {
 								
-    								row1._DepTime = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DestAirportSeqID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DepTime", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DestAirportSeqID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DestAirportSeqID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DepTime = null;
-								
+						
+						}else{
+						
 							
+								row1.DestAirportSeqID = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 40;
-					
-							row1._DepDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 41;
-					
-							row1._DepDelayMinutes = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 42;
 					
-							row1._DepDel15 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 31;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 43;
-					
-							row1._DepartureDelayGroups = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 44;
-					
-							row1._DepTimeBlk = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 45;
-					
-							row1._TaxiOut = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 46;
-					
-							row1._WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 47;
-					
-							row1._WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 48;
-					
-							row1._TaxiIn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 49;
-					
-							row1._CRSArrTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 50;
-					
-							row1._ArrTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 51;
-					
-							row1._ArrDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 52;
-					
-							row1._ArrDelayMinutes = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 53;
-					
-							row1._ArrDel15 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 54;
-					
-							row1._ArrivalDelayGroups = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 55;
-					
-							row1._ArrTimeBlk = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 56;
-					
-							row1._Cancelled = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 57;
-					
-							row1._CancellationCode = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 58;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
 							
-								try {
 								
-    								row1._Diverted = ParserUtils.parseTo_Float(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DestCityMarketID = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_Diverted", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DestCityMarketID", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DestCityMarketID = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._Diverted = null;
-								
-							
-						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 59;
-					
-							row1._CRSElapsedTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 60;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						}else{
+						
 							
-								try {
+								row1.DestCityMarketID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 32;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Dest = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Dest = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 33;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DestCityName = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DestCityName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 34;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DestState = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DestState = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 35;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DestStateFips = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DestStateFips = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 36;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DestStateName = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DestStateName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 37;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._ActualElapsedTime = ParserUtils.parseTo_Float(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DestWac = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_ActualElapsedTime", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DestWac", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DestWac = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._ActualElapsedTime = null;
-								
+						
+						}else{
+						
 							
+								row1.DestWac = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 61;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 38;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.CRSDepTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.CRSDepTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 39;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 40;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepDelay = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 41;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepDelayMinutes = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepDelayMinutes = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 42;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepDel15 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepDel15 = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 43;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepartureDelayGroups = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepartureDelayGroups = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 44;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DepTimeBlk = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DepTimeBlk = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 45;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.TaxiOut = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.TaxiOut = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 46;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.WheelsOff = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 47;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.WheelsOn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 48;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.TaxiIn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.TaxiIn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 49;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.CRSArrTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.CRSArrTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 50;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 51;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrDelay = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 52;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrDelayMinutes = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrDelayMinutes = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 53;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrDel15 = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrDel15 = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 54;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrivalDelayGroups = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrivalDelayGroups = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 55;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.ArrTimeBlk = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ArrTimeBlk = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 56;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._AirTime = ParserUtils.parseTo_Float(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Cancelled = ParserUtils.parseTo_Float(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_AirTime", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Cancelled", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Cancelled = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._AirTime = null;
-								
+						
+						}else{
+						
 							
+								row1.Cancelled = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 62;
-					
-							row1._Flights = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 63;
-					
-							row1._Distance = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 64;
 					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 57;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.CancellationCode = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.CancellationCode = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 58;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._DistanceGroup = ParserUtils.parseTo_Float(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Diverted = ParserUtils.parseTo_Float(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DistanceGroup", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Diverted", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Diverted = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DistanceGroup = null;
-								
+						
+						}else{
+						
 							
+								row1.Diverted = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 65;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 59;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
 								
-    								row1._CarrierDelay = ParserUtils.parseTo_Float(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.CRSElapsedTime = ParserUtils.parseTo_Float(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_CarrierDelay", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"CRSElapsedTime", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.CRSElapsedTime = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._CarrierDelay = null;
-								
+						
+						}else{
+						
 							
+								row1.CRSElapsedTime = null;
+							
+						
 						}
+						
+						
 					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 66;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
+						columnIndexWithD_tFileInputDelimited_1 = 60;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
 							
-								try {
+									row1.ActualElapsedTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.ActualElapsedTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 61;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.AirTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.AirTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 62;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
 								
-    								row1._WeatherDelay = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Flights = ParserUtils.parseTo_Float(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_WeatherDelay", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Flights", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Flights = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._WeatherDelay = null;
-								
+						
+						}else{
+						
 							
+								row1.Flights = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 67;
-					
-							row1._NASDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 68;
-					
-							row1._SecurityDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 69;
 					
-							row1._LateAircraftDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 63;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 70;
-					
-							row1._FirstDepTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 71;
-					
-							row1._TotalAddGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 72;
-					
-							row1._LongestAddGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 73;
-					
-							row1._DivAirportLandings = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 74;
-					
-							row1._DivReachedDest = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 75;
-					
-						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						if(temp.length() > 0) {
 							
-								try {
 								
-    								row1._DivActualElapsedTime = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Distance = ParserUtils.parseTo_Float(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"_DivActualElapsedTime", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-    							
-						} else {						
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Distance", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Distance = null;
+											
+    									
+    								}
+									
+									
 							
-								
-									row1._DivActualElapsedTime = null;
-								
+						
+						}else{
+						
 							
+								row1.Distance = null;
+							
+						
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_1 = 76;
-					
-							row1._DivArrDelay = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 77;
-					
-							row1._DivDistance = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 78;
 					
-							row1._Div1Airport = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 64;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 79;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DistanceGroup = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DistanceGroup", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DistanceGroup = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row1.DistanceGroup = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1AirportID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 65;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 80;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.CarrierDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.CarrierDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1AirportSeqID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 66;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 81;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.WeatherDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.WeatherDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 67;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 82;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.NASDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.NASDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1TotalGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 68;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 83;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.SecurityDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.SecurityDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1LongestGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 69;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 84;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.LateAircraftDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.LateAircraftDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 70;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 85;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.FirstDepTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.FirstDepTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div1TailNum = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 71;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 86;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.TotalAddGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.TotalAddGTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2Airport = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 72;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 87;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.LongestAddGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.LongestAddGTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2AirportID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 73;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 88;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.DivAirportLandings = ParserUtils.parseTo_Integer(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"DivAirportLandings", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.DivAirportLandings = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row1.DivAirportLandings = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2AirportSeqID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 74;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 89;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DivReachedDest = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DivReachedDest = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 75;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 90;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DivActualElapsedTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DivActualElapsedTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2TotalGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 76;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 91;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DivArrDelay = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DivArrDelay = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2LongestGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 77;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 92;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.DivDistance = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.DivDistance = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 78;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 93;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1Airport = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1Airport = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div2TailNum = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 79;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 94;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1AirportID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1AirportID = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3Airport = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 80;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 95;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1AirportSeqID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1AirportSeqID = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3AirportID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 81;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 96;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1WheelsOn = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3AirportSeqID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 82;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 97;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1TotalGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1TotalGTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 83;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 98;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1LongestGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1LongestGTime = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3TotalGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 84;
 						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 99;
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1WheelsOff = null;
+							
+						
+						}
+						
+						
 					
-							row1._Div3LongestGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						columnIndexWithD_tFileInputDelimited_1 = 85;
 						
-				
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div1TailNum = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div1TailNum = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 86;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2Airport = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2Airport = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 87;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2AirportID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2AirportID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 88;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2AirportSeqID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2AirportSeqID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 89;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2WheelsOn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 90;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2TotalGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2TotalGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 91;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2LongestGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2LongestGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 92;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2WheelsOff = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 93;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div2TailNum = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div2TailNum = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 94;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3Airport = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3Airport = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 95;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3AirportID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3AirportID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 96;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3AirportSeqID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3AirportSeqID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 97;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3WheelsOn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 98;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3TotalGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3TotalGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 99;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3LongestGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3LongestGTime = null;
+							
+						
+						}
+						
+						
+					
+				}
 				
 					}
 					
-					public void valueToConn_1(org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
+					public void valueToConn_1(String[] rowtFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
 						
-				int columnIndexWithD_tFileInputDelimited_1 = 0;
-				
-					String temp = ""; 
-				
-					columnIndexWithD_tFileInputDelimited_1 = 100;
+				char fieldSeparator_tFileInputDelimited_1_ListType[] = null;
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_1_ListType = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+				if(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])){//empty line when row separator is '\n'
 					
-							row1._Div3WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 101;
+							row1.Div3WheelsOff = null;
 					
-							row1._Div3TailNum = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 102;
+							row1.Div3TailNum = null;
 					
-							row1._Div4Airport = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 103;
+							row1.Div4Airport = null;
 					
-							row1._Div4AirportID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 104;
+							row1.Div4AirportID = null;
 					
-							row1._Div4AirportSeqID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 105;
+							row1.Div4AirportSeqID = null;
 					
-							row1._Div4WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 106;
+							row1.Div4WheelsOn = null;
 					
-							row1._Div4TotalGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 107;
+							row1.Div4TotalGTime = null;
 					
-							row1._Div4LongestGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 108;
+							row1.Div4LongestGTime = null;
 					
-							row1._Div4WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 109;
+							row1.Div4WheelsOff = null;
 					
-							row1._Div4TailNum = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 110;
+							row1.Div4TailNum = null;
 					
-							row1._Div5Airport = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 111;
+							row1.Div5Airport = null;
 					
-							row1._Div5AirportID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 112;
+							row1.Div5AirportID = null;
 					
-							row1._Div5AirportSeqID = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 113;
+							row1.Div5AirportSeqID = null;
 					
-							row1._Div5WheelsOn = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 114;
+							row1.Div5WheelsOn = null;
 					
-							row1._Div5TotalGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 115;
+							row1.Div5TotalGTime = null;
 					
-							row1._Div5LongestGTime = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 116;
+							row1.Div5LongestGTime = null;
 					
-							row1._Div5WheelsOff = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 117;
+							row1.Div5WheelsOff = null;
 					
-							row1._Div5TailNum = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-						
-				
-					columnIndexWithD_tFileInputDelimited_1 = 118;
+							row1.Div5TailNum = null;
 					
-							row1._Duplicate = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row1.Duplicate = null;
+					
+				}else{
+					
+	                int columnIndexWithD_tFileInputDelimited_1 = 0; //Column Index 
+	                
+						columnIndexWithD_tFileInputDelimited_1 = 100;
 						
-				
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3WheelsOff = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 101;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div3TailNum = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div3TailNum = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 102;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4Airport = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4Airport = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 103;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4AirportID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4AirportID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 104;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4AirportSeqID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4AirportSeqID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 105;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4WheelsOn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 106;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4TotalGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4TotalGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 107;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4LongestGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4LongestGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 108;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4WheelsOff = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 109;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div4TailNum = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div4TailNum = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 110;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5Airport = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5Airport = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 111;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5AirportID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5AirportID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 112;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5AirportSeqID = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5AirportSeqID = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 113;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5WheelsOn = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5WheelsOn = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 114;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5TotalGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5TotalGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 115;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5LongestGTime = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5LongestGTime = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 116;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5WheelsOff = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5WheelsOff = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 117;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+									row1.Div5TailNum = rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1];
+									
+							
+						
+						}else{
+						
+							
+								row1.Div5TailNum = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_1 = 118;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_1 < rowtFileInputDelimited_1.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1].length() > 0) {
+										try {
+									
+										row1.Duplicate = ParserUtils.parseTo_Character(rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+											rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"Duplicate", "row1", rowtFileInputDelimited_1[columnIndexWithD_tFileInputDelimited_1], ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+										}
+    								}else{
+    									
+											
+												row1.Duplicate = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row1.Duplicate = null;
+							
+						
+						}
+						
+						
+					
+				}
 				
 					}
 					
-					public void valueToConn(org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
+					public void valueToConn(String[] rowtFileInputDelimited_1,row1Struct row1 ) throws java.lang.Exception{
 				
-						valueToConn_0(fid_tFileInputDelimited_1,row1 );
+						valueToConn_0(rowtFileInputDelimited_1,row1 );
 					
-						valueToConn_1(fid_tFileInputDelimited_1,row1 );
+						valueToConn_1(rowtFileInputDelimited_1,row1 );
 					
 					}
 				
@@ -7544,60 +10006,167 @@ globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.get
 				RowHelper_tFileInputDelimited_1 rowHelper_tFileInputDelimited_1  = new RowHelper_tFileInputDelimited_1();
 			
 				int nb_line_tFileInputDelimited_1 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
-				int limit_tFileInputDelimited_1 = -1;
+				int footer_tFileInputDelimited_1 = 0;
+				int totalLinetFileInputDelimited_1 = 0;
+				int limittFileInputDelimited_1 = -1;
+				int lastLinetFileInputDelimited_1 = -1;	
+				
+				char fieldSeparator_tFileInputDelimited_1[] = null;
+				
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_1 = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+			
+				char rowSeparator_tFileInputDelimited_1[] = null;
+			
+				//support passing value (property: Row Separator) by 'context.rs' or 'globalMap.get("rs")'. 
+				if ( ((String)"\n").length() > 0 ){
+					rowSeparator_tFileInputDelimited_1 = ((String)"\n").toCharArray();
+				}else {
+					throw new IllegalArgumentException("Row Separator must be assigned a char."); 
+				}
+			
+				Object filename_tFileInputDelimited_1 = /** Start field tFileInputDelimited_1:FILENAME */"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stageUpdated.csv"/** End field tFileInputDelimited_1:FILENAME */;		
+				com.talend.csv.CSVReader csvReadertFileInputDelimited_1 = null;
+	
 				try{
 					
-						Object filename_tFileInputDelimited_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/flightsStage.csv";
-						if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
+						String[] rowtFileInputDelimited_1=null;
+						int currentLinetFileInputDelimited_1 = 0;
+	        			int outputLinetFileInputDelimited_1 = 0;
+						try {//TD110 begin
+							if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
 							
-			int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
-			if(footer_value_tFileInputDelimited_1 >0 || random_value_tFileInputDelimited_1 > 0){
-				throw new java.lang.Exception("When the input source is a stream,footer and random shouldn't be bigger than 0.");				
+			int footer_value_tFileInputDelimited_1 = 0;
+			if(footer_value_tFileInputDelimited_1 > 0){
+				throw new java.lang.Exception("When the input source is a stream,footer shouldn't be bigger than 0.");
 			}
 		
-						}
-						try {
-							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/flightsStage.csv", "ISO-8859-15",",","\n",true,1,0,
-									limit_tFileInputDelimited_1
-								,-1, false);
-						} catch(java.lang.Exception e) {
-globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
-							
-								
-								System.err.println(e.getMessage());
-							
-						}
+								csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_1, fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+							}else{
+								csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_1),fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+		        			}
 					
-				    
-					while (fid_tFileInputDelimited_1!=null && fid_tFileInputDelimited_1.nextRecord()) {
-						rowstate_tFileInputDelimited_1.reset();
+					
+					csvReadertFileInputDelimited_1.setTrimWhitespace(false);
+					if ( (rowSeparator_tFileInputDelimited_1[0] != '\n') && (rowSeparator_tFileInputDelimited_1[0] != '\r') )
+	        			csvReadertFileInputDelimited_1.setLineEnd(""+rowSeparator_tFileInputDelimited_1[0]);
 						
-			    						row1 = null;			
-												
-									boolean whetherReject_tFileInputDelimited_1 = false;
-									row1 = new row1Struct();
-									try {
-										
-			rowHelper_tFileInputDelimited_1.valueToConn(fid_tFileInputDelimited_1, row1 );
+	        				csvReadertFileInputDelimited_1.setQuoteChar('\"');
+						
+	            				csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
+							      
 		
-										
-										if(rowstate_tFileInputDelimited_1.getException()!=null) {
-											throw rowstate_tFileInputDelimited_1.getException();
-										}
-										
-										
+			
+						if(footer_tFileInputDelimited_1 > 0){
+						for(totalLinetFileInputDelimited_1=0;totalLinetFileInputDelimited_1 < 1; totalLinetFileInputDelimited_1++){
+							csvReadertFileInputDelimited_1.readNext();
+						}
+						csvReadertFileInputDelimited_1.setSkipEmptyRecords(true);
+			            while (csvReadertFileInputDelimited_1.readNext()) {
 							
-			    					} catch (java.lang.Exception e) {
+								rowtFileInputDelimited_1=csvReadertFileInputDelimited_1.getValues();
+								if(!(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0]))){//empty line when row separator is '\n'
+							
+	                
+	                		totalLinetFileInputDelimited_1++;
+	                
+							
+								}
+							
+	                
+			            }
+	            		int lastLineTemptFileInputDelimited_1 = totalLinetFileInputDelimited_1 - footer_tFileInputDelimited_1   < 0? 0 : totalLinetFileInputDelimited_1 - footer_tFileInputDelimited_1 ;
+	            		if(lastLinetFileInputDelimited_1 > 0){
+	                		lastLinetFileInputDelimited_1 = lastLinetFileInputDelimited_1 < lastLineTemptFileInputDelimited_1 ? lastLinetFileInputDelimited_1 : lastLineTemptFileInputDelimited_1; 
+	            		}else {
+	                		lastLinetFileInputDelimited_1 = lastLineTemptFileInputDelimited_1;
+	            		}
+	         
+			          	csvReadertFileInputDelimited_1.close();
+				        if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
+				 			csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_1, fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+		        		}else{
+							csvReadertFileInputDelimited_1=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_1),fieldSeparator_tFileInputDelimited_1[0], "ISO-8859-15");
+						}
+						csvReadertFileInputDelimited_1.setTrimWhitespace(false);
+						if ( (rowSeparator_tFileInputDelimited_1[0] != '\n') && (rowSeparator_tFileInputDelimited_1[0] != '\r') )	
+	        				csvReadertFileInputDelimited_1.setLineEnd(""+rowSeparator_tFileInputDelimited_1[0]);
+						
+							csvReadertFileInputDelimited_1.setQuoteChar('\"');
+						
+	        				csvReadertFileInputDelimited_1.setEscapeChar(csvReadertFileInputDelimited_1.getQuoteChar());
+							  
+	        		}
+	        
+			        if(limittFileInputDelimited_1 != 0){
+			        	for(currentLinetFileInputDelimited_1=0;currentLinetFileInputDelimited_1 < 1;currentLinetFileInputDelimited_1++){
+			        		csvReadertFileInputDelimited_1.readNext();
+			        	}
+			        }
+			        csvReadertFileInputDelimited_1.setSkipEmptyRecords(true);
+	        
+	    		} catch(java.lang.Exception e) {
 globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
-			        					whetherReject_tFileInputDelimited_1 = true;
-			        					
-			                					System.err.println(e.getMessage());
-			                					row1 = null;
-			                				
-										
-			    					}
+					
+						
+						System.err.println(e.getMessage());
+					
+	    		}//TD110 end
+	        
+			    
+	        	while ( limittFileInputDelimited_1 != 0 && csvReadertFileInputDelimited_1!=null && csvReadertFileInputDelimited_1.readNext() ) { 
+	        		rowstate_tFileInputDelimited_1.reset();
+	        
+		        	rowtFileInputDelimited_1=csvReadertFileInputDelimited_1.getValues();
+		        	
+					
+	        			if(rowtFileInputDelimited_1.length == 1 && ("\015").equals(rowtFileInputDelimited_1[0])){//empty line when row separator is '\n'
+	        				continue;
+	        			}
+					
+	        	
+	        	
+	        		currentLinetFileInputDelimited_1++;
+	            
+		            if(lastLinetFileInputDelimited_1 > -1 && currentLinetFileInputDelimited_1 > lastLinetFileInputDelimited_1) {
+		                break;
+	    	        }
+	        	    outputLinetFileInputDelimited_1++;
+	            	if (limittFileInputDelimited_1 > 0 && outputLinetFileInputDelimited_1 > limittFileInputDelimited_1) {
+	                	break;
+	            	}  
+	                                                                      
+					
+	    							row1 = null;			
 								
+								boolean whetherReject_tFileInputDelimited_1 = false;
+								row1 = new row1Struct();
+								try {			
+									
+			rowHelper_tFileInputDelimited_1.valueToConn(rowtFileInputDelimited_1, row1 );
+		
+									
+									if(rowstate_tFileInputDelimited_1.getException()!=null) {
+										throw rowstate_tFileInputDelimited_1.getException();
+									}
+									
+									
+	    						} catch (java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
+							        whetherReject_tFileInputDelimited_1 = true;
+        							
+                							System.err.println(e.getMessage());
+                							row1 = null;
+                						
+            							globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
+            							
+	    						}
+	
+							
 
  
 
@@ -7703,7 +10272,7 @@ if(row1 != null) {
 								
 								hasCasePrimitiveKeyWithNull_tMap_1 = false;
 								
-                        		    		    row2HashKey.destinationKey = row1._DestAirportID ;
+                        		    		    row2HashKey.destinationKey = row1.DestAirportID ;
                         		    		
 
 								
@@ -7808,7 +10377,7 @@ if(row1 != null) {
 								
 								hasCasePrimitiveKeyWithNull_tMap_1 = false;
 								
-                        		    		    row3HashKey.originKey = row1._OriginAirportID ;
+                        		    		    row3HashKey.flightDate = row1.FlightDate ;
                         		    		
 
 								
@@ -7852,7 +10421,7 @@ if(row1 != null) {
 			  							
 			  						
 									 		
-									//System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row3' and it contains more one result from keys :  row3.originKey = '" + row3HashKey.originKey + "'");
+									//System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row3' and it contains more one result from keys :  row3.flightDate = '" + row3HashKey.flightDate + "'");
 								} // G 071
 							
 
@@ -7896,111 +10465,6 @@ if(row1 != null) {
 	            
 
 				///////////////////////////////////////////////
-				// Starting Lookup Table "row5" 
-				///////////////////////////////////////////////
-
-
-				
-				
-                            
- 					    boolean forceLooprow5 = false;
-       		  	    	
-       		  	    	
- 							row5Struct row5ObjectFromLookup = null;
-                          
-		           		  	if(!rejectedInnerJoin_tMap_1) { // G_TM_M_020
-
-								
-								hasCasePrimitiveKeyWithNull_tMap_1 = false;
-								
-                        		    		    row5HashKey.flightDate = row1._FlightDate ;
-                        		    		
-
-								
-		                        	row5HashKey.hashCodeDirty = true;
-                        		
-	  					
-	  							
-			  					
-			  					
-	  					
-		  							tHash_Lookup_row5.lookup( row5HashKey );
-
-	  							
-
-	  							
-
- 								
-								  
-								  if(!tHash_Lookup_row5.hasNext()) { // G_TM_M_090
-
-  								
-		  				
-	  								
-			  							rejectedInnerJoin_tMap_1 = true;
-	  								
-						
-									
-  									  		
- 								
-								  
-								  } // G_TM_M_090
-
-  								
-
-
-
-							} // G_TM_M_020
-			           		  	  
-							
-				           		if(tHash_Lookup_row5 != null && tHash_Lookup_row5.getCount(row5HashKey) > 1) { // G 071
-			  							
-			  						
-									 		
-									//System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row5' and it contains more one result from keys :  row5.flightDate = '" + row5HashKey.flightDate + "'");
-								} // G 071
-							
-
-							row5Struct row5 = null;
-                    		  	 
-							   
-                    		  	 
-	       		  	    	row5Struct fromLookup_row5 = null;
-							row5 = row5Default;
-										 
-							
-								 
-							
-							
-								if (tHash_Lookup_row5 !=null && tHash_Lookup_row5.hasNext()) { // G 099
-								
-							
-								
-								fromLookup_row5 = tHash_Lookup_row5.next();
-
-							
-							
-								} // G 099
-							
-							
-
-							if(fromLookup_row5 != null) {
-								row5 = fromLookup_row5;
-							}
-							
-							
-							
-			  							
-								
-	                    		  	
-		                    
-	            	
-	           	
-	            	
-	            	
-	            
-
-				///////////////////////////////////////////////
 				// Starting Lookup Table "row4" 
 				///////////////////////////////////////////////
 
@@ -8018,7 +10482,7 @@ if(row1 != null) {
 								
 								hasCasePrimitiveKeyWithNull_tMap_1 = false;
 								
-                        		    		    row4HashKey.Code = row1._IATA_Code_Operating_Airline ;
+                        		    		    row4HashKey.originKey = row1.OriginAirportID ;
                         		    		
 
 								
@@ -8036,22 +10500,12 @@ if(row1 != null) {
 	  							
 
  								
-								  
-								  if(!tHash_Lookup_row4.hasNext()) { // G_TM_M_090
-
-  								
 		  				
-	  								
-			  							rejectedInnerJoin_tMap_1 = true;
 	  								
 						
 									
   									  		
  								
-								  
-								  } // G_TM_M_090
-
-  								
 
 
 
@@ -8062,7 +10516,7 @@ if(row1 != null) {
 			  							
 			  						
 									 		
-									//System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row4' and it contains more one result from keys :  row4.Code = '" + row4HashKey.Code + "'");
+									//System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row4' and it contains more one result from keys :  row4.originKey = '" + row4HashKey.originKey + "'");
 								} // G 071
 							
 
@@ -8100,6 +10554,101 @@ if(row1 != null) {
 	                    		  	
 		                    
 	            	
+	           	
+	            	
+	            	
+	            
+
+				///////////////////////////////////////////////
+				// Starting Lookup Table "row5" 
+				///////////////////////////////////////////////
+
+
+				
+				
+                            
+ 					    boolean forceLooprow5 = false;
+       		  	    	
+       		  	    	
+ 							row5Struct row5ObjectFromLookup = null;
+                          
+		           		  	if(!rejectedInnerJoin_tMap_1) { // G_TM_M_020
+
+								
+								hasCasePrimitiveKeyWithNull_tMap_1 = false;
+								
+                        		    		    row5HashKey.Code = row1.IATA_Code_Marketing_Airline ;
+                        		    		
+
+								
+		                        	row5HashKey.hashCodeDirty = true;
+                        		
+	  					
+	  							
+			  					
+			  					
+	  					
+		  							tHash_Lookup_row5.lookup( row5HashKey );
+
+	  							
+
+	  							
+
+ 								
+		  				
+	  								
+						
+									
+  									  		
+ 								
+
+
+
+							} // G_TM_M_020
+			           		  	  
+							
+				           		if(tHash_Lookup_row5 != null && tHash_Lookup_row5.getCount(row5HashKey) > 1) { // G 071
+			  							
+			  						
+									 		
+									//System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row5' and it contains more one result from keys :  row5.Code = '" + row5HashKey.Code + "'");
+								} // G 071
+							
+
+							row5Struct row5 = null;
+                    		  	 
+							   
+                    		  	 
+	       		  	    	row5Struct fromLookup_row5 = null;
+							row5 = row5Default;
+										 
+							
+								 
+							
+							
+								if (tHash_Lookup_row5 !=null && tHash_Lookup_row5.hasNext()) { // G 099
+								
+							
+								
+								fromLookup_row5 = tHash_Lookup_row5.next();
+
+							
+							
+								} // G 099
+							
+							
+
+							if(fromLookup_row5 != null) {
+								row5 = fromLookup_row5;
+							}
+							
+							
+							
+			  							
+								
+	                    		  	
+		                    
+	            	
 	            	
 	            // ###############################
         { // start of Var scope
@@ -8117,20 +10666,20 @@ if(!rejectedInnerJoin_tMap_1 ) {
 
 // # Output table : 'fact'
 fact_tmp.FlightId = Numeric.sequence("FactSeq", 1, 1) ;
-fact_tmp.FlightNumber = row1._Flight_Number_Marketing_Airline ;
-fact_tmp.TimePeriodId =  row5.timePeriodId ;
-fact_tmp.AirlineId = row4.AirlineId ;
-fact_tmp.OriginId =  row3.originId ;
+fact_tmp.FlightNumber = row1.Flight_Number_Marketing_Airline ;
+fact_tmp.TimePeriodId = row3.timePeriodId ;
+fact_tmp.AirlineId = row5.AirlineId ;
+fact_tmp.OriginId = row4.originId ;
 fact_tmp.DestinationId = row2.destinationId ;
-fact_tmp.DepDelay = row1._DepDelay ;
-fact_tmp.ArrDelay = row1._ArrDelay ;
-fact_tmp.CarrierDelay = row1._CarrierDelay ;
-fact_tmp.WeatherDelay = row1._WeatherDelay ;
-fact_tmp.NASDelay = row1._NASDelay ;
-fact_tmp.SecurityDelay = row1._SecurityDelay ;
-fact_tmp.LateAircraftDelay = row1._LateAircraftDelay ;
-fact_tmp.Cancelled = row1._Cancelled ;
-fact_tmp.Diverted = row1._Diverted ;
+fact_tmp.DepDelay = row1.DepDelay ;
+fact_tmp.ArrDelay = row1.ArrDelay ;
+fact_tmp.CarrierDelay = row1.CarrierDelay ;
+fact_tmp.WeatherDelay = row1.WeatherDelay ;
+fact_tmp.NASDelay = row1.NASDelay ;
+fact_tmp.SecurityDelay = row1.SecurityDelay ;
+fact_tmp.LateAircraftDelay = row1.LateAircraftDelay ;
+fact_tmp.Cancelled = row1.Cancelled ;
+fact_tmp.Diverted = row1.Diverted ;
 fact = fact_tmp;
 }  // closing inner join bracket (2)
 // ###############################
@@ -8203,103 +10752,25 @@ if(fact != null) {
 					
 
 
-                    StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
-                            if(fact.FlightId != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.FlightId
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.FlightNumber != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.FlightNumber
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.TimePeriodId != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.TimePeriodId
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.AirlineId != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.AirlineId
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.OriginId != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.OriginId
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.DestinationId != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.DestinationId
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.DepDelay != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.DepDelay
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.ArrDelay != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.ArrDelay
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.CarrierDelay != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.CarrierDelay
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.WeatherDelay != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.WeatherDelay
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.NASDelay != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.NASDelay
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.SecurityDelay != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.SecurityDelay
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.LateAircraftDelay != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.LateAircraftDelay
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.Cancelled != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.Cancelled
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(fact.Diverted != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            fact.Diverted
-                        );
-                            }
-                    sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
-
-
-                    nb_line_tFileOutputDelimited_1++;
-                    resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
-
-                        outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+                        String[] rowtFileOutputDelimited_1=new String[15];
+                            rowtFileOutputDelimited_1[0]=fact.FlightId == null ? null : String.valueOf(fact.FlightId);
+                            rowtFileOutputDelimited_1[1]=fact.FlightNumber == null ? null : String.valueOf(fact.FlightNumber);
+                            rowtFileOutputDelimited_1[2]=fact.TimePeriodId == null ? null : String.valueOf(fact.TimePeriodId);
+                            rowtFileOutputDelimited_1[3]=fact.AirlineId == null ? null : String.valueOf(fact.AirlineId);
+                            rowtFileOutputDelimited_1[4]=fact.OriginId == null ? null : String.valueOf(fact.OriginId);
+                            rowtFileOutputDelimited_1[5]=fact.DestinationId == null ? null : String.valueOf(fact.DestinationId);
+                            rowtFileOutputDelimited_1[6]=fact.DepDelay == null ? null : fact.DepDelay;
+                            rowtFileOutputDelimited_1[7]=fact.ArrDelay == null ? null : fact.ArrDelay;
+                            rowtFileOutputDelimited_1[8]=fact.CarrierDelay == null ? null : fact.CarrierDelay;
+                            rowtFileOutputDelimited_1[9]=fact.WeatherDelay == null ? null : fact.WeatherDelay;
+                            rowtFileOutputDelimited_1[10]=fact.NASDelay == null ? null : fact.NASDelay;
+                            rowtFileOutputDelimited_1[11]=fact.SecurityDelay == null ? null : fact.SecurityDelay;
+                            rowtFileOutputDelimited_1[12]=fact.LateAircraftDelay == null ? null : fact.LateAircraftDelay;
+                            rowtFileOutputDelimited_1[13]=fact.Cancelled == null ? null : String.valueOf(fact.Cancelled);
+                            rowtFileOutputDelimited_1[14]=fact.Diverted == null ? null : String.valueOf(fact.Diverted);
+                nb_line_tFileOutputDelimited_1++;
+                resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+                                       CsvWritertFileOutputDelimited_1.writeNext(rowtFileOutputDelimited_1);
 
 
 
@@ -8418,20 +10889,21 @@ if(fact != null) {
 	
 
 
-
-            }
-            }finally{
-                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/flightsStage.csv") instanceof java.io.InputStream)){
-                	if(fid_tFileInputDelimited_1!=null){
-                		fid_tFileInputDelimited_1.close();
-                	}
-                }
-                if(fid_tFileInputDelimited_1!=null){
-                	globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
-					
-                }
+				nb_line_tFileInputDelimited_1++;
 			}
-			  
+			
+			}finally{
+    			if(!(filename_tFileInputDelimited_1 instanceof java.io.InputStream)){
+    				if(csvReadertFileInputDelimited_1!=null){
+    					csvReadertFileInputDelimited_1.close();
+    				}
+    			}
+    			if(csvReadertFileInputDelimited_1!=null){
+    				globalMap.put("tFileInputDelimited_1_NB_LINE",nb_line_tFileInputDelimited_1);
+    			}
+				
+			}
+						  
 
  
 
@@ -8477,18 +10949,18 @@ end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
 					
 					
 				
-					if(tHash_Lookup_row5 != null) {
-						tHash_Lookup_row5.endGet();
-					}
-					globalMap.remove( "tHash_Lookup_row5" );
-
-					
-					
-				
 					if(tHash_Lookup_row4 != null) {
 						tHash_Lookup_row4.endGet();
 					}
 					globalMap.remove( "tHash_Lookup_row4" );
+
+					
+					
+				
+					if(tHash_Lookup_row5 != null) {
+						tHash_Lookup_row5.endGet();
+					}
+					globalMap.remove( "tHash_Lookup_row5" );
 
 					
 					
@@ -8532,13 +11004,13 @@ end_Hash.put("tMap_1", System.currentTimeMillis());
 
 		
 			
-					if(outtFileOutputDelimited_1!=null) {
-						outtFileOutputDelimited_1.flush();
-						outtFileOutputDelimited_1.close();
-					}
+		
 				
-				globalMap.put("tFileOutputDelimited_1_NB_LINE",nb_line_tFileOutputDelimited_1);
-				globalMap.put("tFileOutputDelimited_1_FILE_NAME",fileName_tFileOutputDelimited_1);
+					if(CsvWritertFileOutputDelimited_1!=null) {
+				    	CsvWritertFileOutputDelimited_1.close();
+				    }
+					
+		    	globalMap.put("tFileOutputDelimited_1_NB_LINE",nb_line_tFileOutputDelimited_1);
 			
 		
 		
@@ -8555,7 +11027,7 @@ ok_Hash.put("tFileOutputDelimited_1", true);
 end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
 
 				if(execStat){   
-   	 				runStat.updateStatOnConnection("OnComponentOk1", 0, "ok");
+   	 				runStat.updateStatOnConnection("OnComponentOk3", 0, "ok");
 				}
 				tS3Connection_1Process(globalMap);
 
@@ -8593,13 +11065,13 @@ end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
 					     			globalMap.remove("tHash_Lookup_row2"); 
 				     			
 					     			//free memory for "tMap_1"
-					     			globalMap.remove("tHash_Lookup_row5"); 
-				     			
-					     			//free memory for "tMap_1"
 					     			globalMap.remove("tHash_Lookup_row3"); 
 				     			
 					     			//free memory for "tMap_1"
 					     			globalMap.remove("tHash_Lookup_row4"); 
+				     			
+					     			//free memory for "tMap_1"
+					     			globalMap.remove("tHash_Lookup_row5"); 
 				     			
 				try{
 					
@@ -8662,13 +11134,13 @@ end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
 		if(resourceMap.get("finish_tFileOutputDelimited_1") == null){ 
 			
 				
-						java.io.Writer outtFileOutputDelimited_1 = (java.io.Writer)resourceMap.get("out_tFileOutputDelimited_1");
-						if(outtFileOutputDelimited_1!=null) {
-							outtFileOutputDelimited_1.flush();
-							outtFileOutputDelimited_1.close();
-						}
+			
+					com.talend.csv.CSVWriter CsvWritertFileOutputDelimited_1 = (com.talend.csv.CSVWriter)resourceMap.get("CsvWriter_tFileOutputDelimited_1");
 					
-				
+						if(CsvWritertFileOutputDelimited_1!=null) {
+					    	CsvWritertFileOutputDelimited_1.close();
+					    }
+						
 			
 		}
 	
@@ -8746,7 +11218,7 @@ public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap
 	
 	
 	     
-	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:UAwryNRMW4cBJL174G0TuBW9WMit4Kms0zZHqRIBZDsUIbx/JMcwO6WMoBve2gL1IKkIvUrxJK1IQyGsqLn5VPnLJK4=");
+	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:k9M9GF7nn2D5UjU9Idd0n9hgERndqYEGaR6MdCWBC640pO65Q0Msv71I1cPV3wqMN+M/l4HkZ1GCdZPtDWUVNQdapR0=");
 
             com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials("AKIAVMNG53PSSPPWBSHA",decryptedPassword_tS3Connection_1);
             com.amazonaws.auth.AWSCredentialsProvider credentialsProvider_tS3Connection_1 = new com.amazonaws.auth.AWSStaticCredentialsProvider(credentials_tS3Connection_1);
@@ -9338,9 +11810,9 @@ public static class row2Struct implements routines.system.IPersistableComparable
 					return this.destAirportSeqId;
 				}
 				
-			    public Integer airportCode;
+			    public String airportCode;
 
-				public Integer getAirportCode () {
+				public String getAirportCode () {
 					return this.airportCode;
 				}
 				
@@ -9647,7 +12119,7 @@ public static class row2Struct implements routines.system.IPersistableComparable
 					
 						this.destAirportSeqId = readInteger(dis,ois);
 					
-						this.airportCode = readInteger(dis,ois);
+						this.airportCode = readString(dis,ois);
 					
 						this.cityName = readString(dis,ois);
 					
@@ -9676,7 +12148,7 @@ public static class row2Struct implements routines.system.IPersistableComparable
 					
 						this.destAirportSeqId = readInteger(dis,objectIn);
 					
-						this.airportCode = readInteger(dis,objectIn);
+						this.airportCode = readString(dis,objectIn);
 					
 						this.cityName = readString(dis,objectIn);
 					
@@ -9708,7 +12180,7 @@ public static class row2Struct implements routines.system.IPersistableComparable
 					
 					writeInteger(this.destAirportSeqId, dos, oos);
 					
-					writeInteger(this.airportCode, dos, oos);
+						writeString(this.airportCode, dos, oos);
 					
 						writeString(this.cityName, dos, oos);
 					
@@ -9732,7 +12204,7 @@ public static class row2Struct implements routines.system.IPersistableComparable
 					
 					writeInteger(this.destAirportSeqId, dos, objectOut);
 					
-					writeInteger(this.airportCode, dos, objectOut);
+						writeString(this.airportCode, dos, objectOut);
 					
 						writeString(this.cityName, dos, objectOut);
 					
@@ -9762,7 +12234,7 @@ public static class row2Struct implements routines.system.IPersistableComparable
 		sb.append("destinationId="+String.valueOf(destinationId));
 		sb.append(",destinationKey="+String.valueOf(destinationKey));
 		sb.append(",destAirportSeqId="+String.valueOf(destAirportSeqId));
-		sb.append(",airportCode="+String.valueOf(airportCode));
+		sb.append(",airportCode="+airportCode);
 		sb.append(",cityName="+cityName);
 		sb.append(",stateCode="+stateCode);
 		sb.append(",stateName="+stateName);
@@ -9865,7 +12337,7 @@ public void tFileInputDelimited_2Process(final java.util.Map<String, Object> glo
 
 			   		// connection name:row2
 			   		// source node:tFileInputDelimited_2 - inputs:(after_tFileInputDelimited_1) outputs:(row2,row2) | target node:tAdvancedHash_row2 - inputs:(row2) outputs:()
-			   		// linked node: tMap_1 - inputs:(row1,row2,row5,row3,row4) outputs:(fact)
+			   		// linked node: tMap_1 - inputs:(row1,row2,row3,row4,row5) outputs:(fact)
 			   
 			   		org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row2 = 
 			   			org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
@@ -9917,181 +12389,435 @@ public void tFileInputDelimited_2Process(final java.util.Map<String, Object> glo
 	
 	
 				int nb_line_tFileInputDelimited_2 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_2 = null;
-				int limit_tFileInputDelimited_2 = -1;
+				int footer_tFileInputDelimited_2 = 0;
+				int totalLinetFileInputDelimited_2 = 0;
+				int limittFileInputDelimited_2 = -1;
+				int lastLinetFileInputDelimited_2 = -1;	
+				
+				char fieldSeparator_tFileInputDelimited_2[] = null;
+				
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_2 = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+			
+				char rowSeparator_tFileInputDelimited_2[] = null;
+			
+				//support passing value (property: Row Separator) by 'context.rs' or 'globalMap.get("rs")'. 
+				if ( ((String)"\n").length() > 0 ){
+					rowSeparator_tFileInputDelimited_2 = ((String)"\n").toCharArray();
+				}else {
+					throw new IllegalArgumentException("Row Separator must be assigned a char."); 
+				}
+			
+				Object filename_tFileInputDelimited_2 = /** Start field tFileInputDelimited_2:FILENAME */"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimDestination.csv"/** End field tFileInputDelimited_2:FILENAME */;		
+				com.talend.csv.CSVReader csvReadertFileInputDelimited_2 = null;
+	
 				try{
 					
-						Object filename_tFileInputDelimited_2 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimDestination.csv";
-						if(filename_tFileInputDelimited_2 instanceof java.io.InputStream){
+						String[] rowtFileInputDelimited_2=null;
+						int currentLinetFileInputDelimited_2 = 0;
+	        			int outputLinetFileInputDelimited_2 = 0;
+						try {//TD110 begin
+							if(filename_tFileInputDelimited_2 instanceof java.io.InputStream){
 							
-			int footer_value_tFileInputDelimited_2 = 0, random_value_tFileInputDelimited_2 = -1;
-			if(footer_value_tFileInputDelimited_2 >0 || random_value_tFileInputDelimited_2 > 0){
-				throw new java.lang.Exception("When the input source is a stream,footer and random shouldn't be bigger than 0.");				
+			int footer_value_tFileInputDelimited_2 = 0;
+			if(footer_value_tFileInputDelimited_2 > 0){
+				throw new java.lang.Exception("When the input source is a stream,footer shouldn't be bigger than 0.");
 			}
 		
-						}
-						try {
-							fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimDestination.csv", "ISO-8859-15",";","\n",true,1,0,
-									limit_tFileInputDelimited_2
-								,-1, false);
-						} catch(java.lang.Exception e) {
-globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",e.getMessage());
-							
-								
-								System.err.println(e.getMessage());
-							
-						}
+								csvReadertFileInputDelimited_2=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_2, fieldSeparator_tFileInputDelimited_2[0], "ISO-8859-15");
+							}else{
+								csvReadertFileInputDelimited_2=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_2),fieldSeparator_tFileInputDelimited_2[0], "ISO-8859-15");
+		        			}
 					
-				    
-					while (fid_tFileInputDelimited_2!=null && fid_tFileInputDelimited_2.nextRecord()) {
-						rowstate_tFileInputDelimited_2.reset();
+					
+					csvReadertFileInputDelimited_2.setTrimWhitespace(false);
+					if ( (rowSeparator_tFileInputDelimited_2[0] != '\n') && (rowSeparator_tFileInputDelimited_2[0] != '\r') )
+	        			csvReadertFileInputDelimited_2.setLineEnd(""+rowSeparator_tFileInputDelimited_2[0]);
 						
-			    						row2 = null;			
+	        				csvReadertFileInputDelimited_2.setQuoteChar('\"');
+						
+	            				//?????doesn't work for other escapeChar
+	            				//the default escape mode is double escape
+	            				csvReadertFileInputDelimited_2.setEscapeChar(csvReadertFileInputDelimited_2.getQuoteChar());
+							      
+		
+			
+						if(footer_tFileInputDelimited_2 > 0){
+						for(totalLinetFileInputDelimited_2=0;totalLinetFileInputDelimited_2 < 1; totalLinetFileInputDelimited_2++){
+							csvReadertFileInputDelimited_2.readNext();
+						}
+						csvReadertFileInputDelimited_2.setSkipEmptyRecords(true);
+			            while (csvReadertFileInputDelimited_2.readNext()) {
+							
+								rowtFileInputDelimited_2=csvReadertFileInputDelimited_2.getValues();
+								if(!(rowtFileInputDelimited_2.length == 1 && ("\015").equals(rowtFileInputDelimited_2[0]))){//empty line when row separator is '\n'
+							
+	                
+	                		totalLinetFileInputDelimited_2++;
+	                
+							
+								}
+							
+	                
+			            }
+	            		int lastLineTemptFileInputDelimited_2 = totalLinetFileInputDelimited_2 - footer_tFileInputDelimited_2   < 0? 0 : totalLinetFileInputDelimited_2 - footer_tFileInputDelimited_2 ;
+	            		if(lastLinetFileInputDelimited_2 > 0){
+	                		lastLinetFileInputDelimited_2 = lastLinetFileInputDelimited_2 < lastLineTemptFileInputDelimited_2 ? lastLinetFileInputDelimited_2 : lastLineTemptFileInputDelimited_2; 
+	            		}else {
+	                		lastLinetFileInputDelimited_2 = lastLineTemptFileInputDelimited_2;
+	            		}
+	         
+			          	csvReadertFileInputDelimited_2.close();
+				        if(filename_tFileInputDelimited_2 instanceof java.io.InputStream){
+				 			csvReadertFileInputDelimited_2=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_2, fieldSeparator_tFileInputDelimited_2[0], "ISO-8859-15");
+		        		}else{
+							csvReadertFileInputDelimited_2=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_2),fieldSeparator_tFileInputDelimited_2[0], "ISO-8859-15");
+						}
+						csvReadertFileInputDelimited_2.setTrimWhitespace(false);
+						if ( (rowSeparator_tFileInputDelimited_2[0] != '\n') && (rowSeparator_tFileInputDelimited_2[0] != '\r') )	
+	        				csvReadertFileInputDelimited_2.setLineEnd(""+rowSeparator_tFileInputDelimited_2[0]);
+						
+							csvReadertFileInputDelimited_2.setQuoteChar('\"');
+						
+	        				//?????doesn't work for other escapeChar
+	        				//the default escape mode is double escape
+	        				csvReadertFileInputDelimited_2.setEscapeChar(csvReadertFileInputDelimited_2.getQuoteChar());
+							  
+	        		}
+	        
+			        if(limittFileInputDelimited_2 != 0){
+			        	for(currentLinetFileInputDelimited_2=0;currentLinetFileInputDelimited_2 < 1;currentLinetFileInputDelimited_2++){
+			        		csvReadertFileInputDelimited_2.readNext();
+			        	}
+			        }
+			        csvReadertFileInputDelimited_2.setSkipEmptyRecords(true);
+	        
+	    		} catch(java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",e.getMessage());
+					
+						
+						System.err.println(e.getMessage());
+					
+	    		}//TD110 end
+	        
+			    
+	        	while ( limittFileInputDelimited_2 != 0 && csvReadertFileInputDelimited_2!=null && csvReadertFileInputDelimited_2.readNext() ) { 
+	        		rowstate_tFileInputDelimited_2.reset();
+	        
+		        	rowtFileInputDelimited_2=csvReadertFileInputDelimited_2.getValues();
+		        	
+					
+	        			if(rowtFileInputDelimited_2.length == 1 && ("\015").equals(rowtFileInputDelimited_2[0])){//empty line when row separator is '\n'
+	        				continue;
+	        			}
+					
+	        	
+	        	
+	        		currentLinetFileInputDelimited_2++;
+	            
+		            if(lastLinetFileInputDelimited_2 > -1 && currentLinetFileInputDelimited_2 > lastLinetFileInputDelimited_2) {
+		                break;
+	    	        }
+	        	    outputLinetFileInputDelimited_2++;
+	            	if (limittFileInputDelimited_2 > 0 && outputLinetFileInputDelimited_2 > limittFileInputDelimited_2) {
+	                	break;
+	            	}  
+	                                                                      
+					
+	    							row2 = null;			
+								
+	    							row2 = null;			
+								
+								boolean whetherReject_tFileInputDelimited_2 = false;
+								row2 = new row2Struct();
+								try {			
 									
-			    						row2 = null;			
-												
-									boolean whetherReject_tFileInputDelimited_2 = false;
-									row2 = new row2Struct();
-									try {
-										
-				int columnIndexWithD_tFileInputDelimited_2 = 0;
-				
-					String temp = ""; 
-				
-					columnIndexWithD_tFileInputDelimited_2 = 0;
+				char fieldSeparator_tFileInputDelimited_2_ListType[] = null;
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_2_ListType = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+				if(rowtFileInputDelimited_2.length == 1 && ("\015").equals(rowtFileInputDelimited_2[0])){//empty line when row separator is '\n'
 					
-						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row2.destinationId = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
-globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"destinationId", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
-								}
-    							
-						} else {						
-							
-								
-									row2.destinationId = null;
-								
-							
-						}
+							row2.destinationId = null;
 					
-				
-					columnIndexWithD_tFileInputDelimited_2 = 1;
+							row2.destinationKey = null;
 					
-						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row2.destinationKey = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
-globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"destinationKey", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
-								}
-    							
-						} else {						
-							
-								
-									row2.destinationKey = null;
-								
-							
-						}
+							row2.destAirportSeqId = null;
 					
-				
-					columnIndexWithD_tFileInputDelimited_2 = 2;
+							row2.airportCode = null;
 					
-						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row2.destAirportSeqId = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
-globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"destAirportSeqId", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
-								}
-    							
-						} else {						
-							
-								
-									row2.destAirportSeqId = null;
-								
-							
-						}
+							row2.cityName = null;
 					
-				
-					columnIndexWithD_tFileInputDelimited_2 = 3;
+							row2.stateCode = null;
 					
-						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row2.airportCode = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
-globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"airportCode", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
-								}
-    							
-						} else {						
-							
-								
-									row2.airportCode = null;
-								
-							
-						}
+							row2.stateName = null;
 					
-				
-					columnIndexWithD_tFileInputDelimited_2 = 4;
+							row2.worldAreaCode = null;
 					
-							row2.cityName = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+				}else{
+					
+	                int columnIndexWithD_tFileInputDelimited_2 = 0; //Column Index 
+	                
+						columnIndexWithD_tFileInputDelimited_2 = 0;
 						
-				
-					columnIndexWithD_tFileInputDelimited_2 = 5;
-					
-							row2.stateCode = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 						
-				
-					columnIndexWithD_tFileInputDelimited_2 = 6;
-					
-							row2.stateName = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 						
-				
-					columnIndexWithD_tFileInputDelimited_2 = 7;
-					
-							row2.worldAreaCode = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length){
 						
-				
-				
-										
-										if(rowstate_tFileInputDelimited_2.getException()!=null) {
-											throw rowstate_tFileInputDelimited_2.getException();
+						
+							
+								
+									if(rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2].length() > 0) {
+										try {
+									
+										row2.destinationId = ParserUtils.parseTo_Integer(rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+											rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"destinationId", "row2", rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2], ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
 										}
-										
-										
+    								}else{
+    									
+											
+												row2.destinationId = null;
+											
+    									
+    								}
+									
+									
 							
-			    					} catch (java.lang.Exception e) {
-globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",e.getMessage());
-			        					whetherReject_tFileInputDelimited_2 = true;
-			        					
-			                					System.err.println(e.getMessage());
-			                					row2 = null;
-			                				
-										
-			    					}
+						
+						}else{
+						
+							
+								row2.destinationId = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_2 = 1;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length){
+						
+						
+							
 								
+									if(rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2].length() > 0) {
+										try {
+									
+										row2.destinationKey = ParserUtils.parseTo_Integer(rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+											rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"destinationKey", "row2", rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2], ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+										}
+    								}else{
+    									
+											
+												row2.destinationKey = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row2.destinationKey = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_2 = 2;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2].length() > 0) {
+										try {
+									
+										row2.destAirportSeqId = ParserUtils.parseTo_Integer(rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+											rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"destAirportSeqId", "row2", rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2], ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+										}
+    								}else{
+    									
+											
+												row2.destAirportSeqId = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row2.destAirportSeqId = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_2 = 3;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length){
+						
+						
+							
+									row2.airportCode = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									
+							
+						
+						}else{
+						
+							
+								row2.airportCode = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_2 = 4;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length){
+						
+						
+							
+									row2.cityName = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									
+							
+						
+						}else{
+						
+							
+								row2.cityName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_2 = 5;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length){
+						
+						
+							
+									row2.stateCode = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									
+							
+						
+						}else{
+						
+							
+								row2.stateCode = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_2 = 6;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length){
+						
+						
+							
+									row2.stateName = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									
+							
+						
+						}else{
+						
+							
+								row2.stateName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_2 = 7;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_2 < rowtFileInputDelimited_2.length){
+						
+						
+							
+									row2.worldAreaCode = rowtFileInputDelimited_2[columnIndexWithD_tFileInputDelimited_2];
+									
+							
+						
+						}else{
+						
+							
+								row2.worldAreaCode = null;
+							
+						
+						}
+						
+						
+					
+				}
+				
+									
+									if(rowstate_tFileInputDelimited_2.getException()!=null) {
+										throw rowstate_tFileInputDelimited_2.getException();
+									}
+									
+									
+	    						} catch (java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",e.getMessage());
+							        whetherReject_tFileInputDelimited_2 = true;
+        							
+                							System.err.println(e.getMessage());
+                							row2 = null;
+                						
+            							globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
+            							
+	    						}
+	
+							
 
  
 
@@ -10285,20 +13011,21 @@ if(row2 != null) {
 	
 
 
-
-            }
-            }finally{
-                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimDestination.csv") instanceof java.io.InputStream)){
-                	if(fid_tFileInputDelimited_2!=null){
-                		fid_tFileInputDelimited_2.close();
-                	}
-                }
-                if(fid_tFileInputDelimited_2!=null){
-                	globalMap.put("tFileInputDelimited_2_NB_LINE", fid_tFileInputDelimited_2.getRowNumber());
-					
-                }
+				nb_line_tFileInputDelimited_2++;
 			}
-			  
+			
+			}finally{
+    			if(!(filename_tFileInputDelimited_2 instanceof java.io.InputStream)){
+    				if(csvReadertFileInputDelimited_2!=null){
+    					csvReadertFileInputDelimited_2.close();
+    				}
+    			}
+    			if(csvReadertFileInputDelimited_2!=null){
+    				globalMap.put("tFileInputDelimited_2_NB_LINE",nb_line_tFileInputDelimited_2);
+    			}
+				
+			}
+						  
 
  
 
@@ -10424,7 +13151,7 @@ end_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
 	
 
 
-public static class row5Struct implements routines.system.IPersistableComparableLookupRow<row5Struct> {
+public static class row3Struct implements routines.system.IPersistableComparableLookupRow<row3Struct> {
     final static byte[] commonByteArrayLock_PARAVOLAR_FlightFact = new byte[0];
     static byte[] commonByteArray_PARAVOLAR_FlightFact = new byte[0];
 	protected static final int DEFAULT_HASHCODE = 1;
@@ -10500,7 +13227,7 @@ public static class row5Struct implements routines.system.IPersistableComparable
 		if (this == obj) return true;
 		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
-		final row5Struct other = (row5Struct) obj;
+		final row3Struct other = (row3Struct) obj;
 		
 						if (this.flightDate == null) {
 							if (other.flightDate != null)
@@ -10514,7 +13241,7 @@ public static class row5Struct implements routines.system.IPersistableComparable
 		return true;
     }
 
-	public void copyDataTo(row5Struct other) {
+	public void copyDataTo(row3Struct other) {
 
 		other.timePeriodId = this.timePeriodId;
 	            other.year = this.year;
@@ -10526,7 +13253,7 @@ public static class row5Struct implements routines.system.IPersistableComparable
 	            
 	}
 
-	public void copyKeysDataTo(row5Struct other) {
+	public void copyKeysDataTo(row3Struct other) {
 
 		other.flightDate = this.flightDate;
 	            	
@@ -10847,7 +13574,7 @@ public static class row5Struct implements routines.system.IPersistableComparable
     /**
      * Compare keys
      */
-    public int compareTo(row5Struct other) {
+    public int compareTo(row3Struct other) {
 
 		int returnValue = -1;
 		
@@ -10907,46 +13634,46 @@ public void tFileInputDelimited_3Process(final java.util.Map<String, Object> glo
 
 
 
-		row5Struct row5 = new row5Struct();
+		row3Struct row3 = new row3Struct();
 
 
 
 
 	
 	/**
-	 * [tAdvancedHash_row5 begin ] start
+	 * [tAdvancedHash_row3 begin ] start
 	 */
 
 	
 
 	
 		
-		ok_Hash.put("tAdvancedHash_row5", false);
-		start_Hash.put("tAdvancedHash_row5", System.currentTimeMillis());
+		ok_Hash.put("tAdvancedHash_row3", false);
+		start_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
 		
 	
-	currentComponent="tAdvancedHash_row5";
+	currentComponent="tAdvancedHash_row3";
 
 	
 					if(execStat) {
-						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row5");
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row3");
 					}
 				
-		int tos_count_tAdvancedHash_row5 = 0;
+		int tos_count_tAdvancedHash_row3 = 0;
 		
 
-			   		// connection name:row5
-			   		// source node:tFileInputDelimited_3 - inputs:(after_tFileInputDelimited_1) outputs:(row5,row5) | target node:tAdvancedHash_row5 - inputs:(row5) outputs:()
-			   		// linked node: tMap_1 - inputs:(row1,row2,row5,row3,row4) outputs:(fact)
+			   		// connection name:row3
+			   		// source node:tFileInputDelimited_3 - inputs:(after_tFileInputDelimited_1) outputs:(row3,row3) | target node:tAdvancedHash_row3 - inputs:(row3) outputs:()
+			   		// linked node: tMap_1 - inputs:(row1,row2,row3,row4,row5) outputs:(fact)
 			   
-			   		org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row5 = 
+			   		org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row3 = 
 			   			org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
 			   			
 			   
-	   			org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row5Struct> tHash_Lookup_row5 =org.talend.designer.components.lookup.memory.AdvancedMemoryLookup.
-	   						<row5Struct>getLookup(matchingModeEnum_row5);
+	   			org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row3Struct> tHash_Lookup_row3 =org.talend.designer.components.lookup.memory.AdvancedMemoryLookup.
+	   						<row3Struct>getLookup(matchingModeEnum_row3);
 	   						   
-		   	   	   globalMap.put("tHash_Lookup_row5", tHash_Lookup_row5);
+		   	   	   globalMap.put("tHash_Lookup_row3", tHash_Lookup_row3);
 		   	   	   
 				
            
@@ -10956,7 +13683,7 @@ public void tFileInputDelimited_3Process(final java.util.Map<String, Object> glo
 
 
 /**
- * [tAdvancedHash_row5 begin ] stop
+ * [tAdvancedHash_row3 begin ] stop
  */
 
 
@@ -10989,214 +13716,468 @@ public void tFileInputDelimited_3Process(final java.util.Map<String, Object> glo
 	
 	
 				int nb_line_tFileInputDelimited_3 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_3 = null;
-				int limit_tFileInputDelimited_3 = -1;
+				int footer_tFileInputDelimited_3 = 0;
+				int totalLinetFileInputDelimited_3 = 0;
+				int limittFileInputDelimited_3 = -1;
+				int lastLinetFileInputDelimited_3 = -1;	
+				
+				char fieldSeparator_tFileInputDelimited_3[] = null;
+				
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_3 = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+			
+				char rowSeparator_tFileInputDelimited_3[] = null;
+			
+				//support passing value (property: Row Separator) by 'context.rs' or 'globalMap.get("rs")'. 
+				if ( ((String)"\n").length() > 0 ){
+					rowSeparator_tFileInputDelimited_3 = ((String)"\n").toCharArray();
+				}else {
+					throw new IllegalArgumentException("Row Separator must be assigned a char."); 
+				}
+			
+				Object filename_tFileInputDelimited_3 = /** Start field tFileInputDelimited_3:FILENAME */"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimTimePeriod.csv"/** End field tFileInputDelimited_3:FILENAME */;		
+				com.talend.csv.CSVReader csvReadertFileInputDelimited_3 = null;
+	
 				try{
 					
-						Object filename_tFileInputDelimited_3 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimTimePeriod.csv";
-						if(filename_tFileInputDelimited_3 instanceof java.io.InputStream){
+						String[] rowtFileInputDelimited_3=null;
+						int currentLinetFileInputDelimited_3 = 0;
+	        			int outputLinetFileInputDelimited_3 = 0;
+						try {//TD110 begin
+							if(filename_tFileInputDelimited_3 instanceof java.io.InputStream){
 							
-			int footer_value_tFileInputDelimited_3 = 0, random_value_tFileInputDelimited_3 = -1;
-			if(footer_value_tFileInputDelimited_3 >0 || random_value_tFileInputDelimited_3 > 0){
-				throw new java.lang.Exception("When the input source is a stream,footer and random shouldn't be bigger than 0.");				
+			int footer_value_tFileInputDelimited_3 = 0;
+			if(footer_value_tFileInputDelimited_3 > 0){
+				throw new java.lang.Exception("When the input source is a stream,footer shouldn't be bigger than 0.");
 			}
 		
-						}
-						try {
-							fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimTimePeriod.csv", "ISO-8859-15",";","\n",true,1,0,
-									limit_tFileInputDelimited_3
-								,-1, false);
-						} catch(java.lang.Exception e) {
-globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",e.getMessage());
-							
-								
-								System.err.println(e.getMessage());
-							
-						}
+								csvReadertFileInputDelimited_3=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_3, fieldSeparator_tFileInputDelimited_3[0], "ISO-8859-15");
+							}else{
+								csvReadertFileInputDelimited_3=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_3),fieldSeparator_tFileInputDelimited_3[0], "ISO-8859-15");
+		        			}
 					
-				    
-					while (fid_tFileInputDelimited_3!=null && fid_tFileInputDelimited_3.nextRecord()) {
-						rowstate_tFileInputDelimited_3.reset();
+					
+					csvReadertFileInputDelimited_3.setTrimWhitespace(false);
+					if ( (rowSeparator_tFileInputDelimited_3[0] != '\n') && (rowSeparator_tFileInputDelimited_3[0] != '\r') )
+	        			csvReadertFileInputDelimited_3.setLineEnd(""+rowSeparator_tFileInputDelimited_3[0]);
 						
-			    						row5 = null;			
+	        				csvReadertFileInputDelimited_3.setQuoteChar('\"');
+						
+	            				//?????doesn't work for other escapeChar
+	            				//the default escape mode is double escape
+	            				csvReadertFileInputDelimited_3.setEscapeChar(csvReadertFileInputDelimited_3.getQuoteChar());
+							      
+		
+			
+						if(footer_tFileInputDelimited_3 > 0){
+						for(totalLinetFileInputDelimited_3=0;totalLinetFileInputDelimited_3 < 1; totalLinetFileInputDelimited_3++){
+							csvReadertFileInputDelimited_3.readNext();
+						}
+						csvReadertFileInputDelimited_3.setSkipEmptyRecords(true);
+			            while (csvReadertFileInputDelimited_3.readNext()) {
+							
+								rowtFileInputDelimited_3=csvReadertFileInputDelimited_3.getValues();
+								if(!(rowtFileInputDelimited_3.length == 1 && ("\015").equals(rowtFileInputDelimited_3[0]))){//empty line when row separator is '\n'
+							
+	                
+	                		totalLinetFileInputDelimited_3++;
+	                
+							
+								}
+							
+	                
+			            }
+	            		int lastLineTemptFileInputDelimited_3 = totalLinetFileInputDelimited_3 - footer_tFileInputDelimited_3   < 0? 0 : totalLinetFileInputDelimited_3 - footer_tFileInputDelimited_3 ;
+	            		if(lastLinetFileInputDelimited_3 > 0){
+	                		lastLinetFileInputDelimited_3 = lastLinetFileInputDelimited_3 < lastLineTemptFileInputDelimited_3 ? lastLinetFileInputDelimited_3 : lastLineTemptFileInputDelimited_3; 
+	            		}else {
+	                		lastLinetFileInputDelimited_3 = lastLineTemptFileInputDelimited_3;
+	            		}
+	         
+			          	csvReadertFileInputDelimited_3.close();
+				        if(filename_tFileInputDelimited_3 instanceof java.io.InputStream){
+				 			csvReadertFileInputDelimited_3=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_3, fieldSeparator_tFileInputDelimited_3[0], "ISO-8859-15");
+		        		}else{
+							csvReadertFileInputDelimited_3=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_3),fieldSeparator_tFileInputDelimited_3[0], "ISO-8859-15");
+						}
+						csvReadertFileInputDelimited_3.setTrimWhitespace(false);
+						if ( (rowSeparator_tFileInputDelimited_3[0] != '\n') && (rowSeparator_tFileInputDelimited_3[0] != '\r') )	
+	        				csvReadertFileInputDelimited_3.setLineEnd(""+rowSeparator_tFileInputDelimited_3[0]);
+						
+							csvReadertFileInputDelimited_3.setQuoteChar('\"');
+						
+	        				//?????doesn't work for other escapeChar
+	        				//the default escape mode is double escape
+	        				csvReadertFileInputDelimited_3.setEscapeChar(csvReadertFileInputDelimited_3.getQuoteChar());
+							  
+	        		}
+	        
+			        if(limittFileInputDelimited_3 != 0){
+			        	for(currentLinetFileInputDelimited_3=0;currentLinetFileInputDelimited_3 < 1;currentLinetFileInputDelimited_3++){
+			        		csvReadertFileInputDelimited_3.readNext();
+			        	}
+			        }
+			        csvReadertFileInputDelimited_3.setSkipEmptyRecords(true);
+	        
+	    		} catch(java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",e.getMessage());
+					
+						
+						System.err.println(e.getMessage());
+					
+	    		}//TD110 end
+	        
+			    
+	        	while ( limittFileInputDelimited_3 != 0 && csvReadertFileInputDelimited_3!=null && csvReadertFileInputDelimited_3.readNext() ) { 
+	        		rowstate_tFileInputDelimited_3.reset();
+	        
+		        	rowtFileInputDelimited_3=csvReadertFileInputDelimited_3.getValues();
+		        	
+					
+	        			if(rowtFileInputDelimited_3.length == 1 && ("\015").equals(rowtFileInputDelimited_3[0])){//empty line when row separator is '\n'
+	        				continue;
+	        			}
+					
+	        	
+	        	
+	        		currentLinetFileInputDelimited_3++;
+	            
+		            if(lastLinetFileInputDelimited_3 > -1 && currentLinetFileInputDelimited_3 > lastLinetFileInputDelimited_3) {
+		                break;
+	    	        }
+	        	    outputLinetFileInputDelimited_3++;
+	            	if (limittFileInputDelimited_3 > 0 && outputLinetFileInputDelimited_3 > limittFileInputDelimited_3) {
+	                	break;
+	            	}  
+	                                                                      
+					
+	    							row3 = null;			
+								
+	    							row3 = null;			
+								
+								boolean whetherReject_tFileInputDelimited_3 = false;
+								row3 = new row3Struct();
+								try {			
 									
-			    						row5 = null;			
-												
-									boolean whetherReject_tFileInputDelimited_3 = false;
-									row5 = new row5Struct();
-									try {
-										
-				int columnIndexWithD_tFileInputDelimited_3 = 0;
-				
-					String temp = ""; 
-				
-					columnIndexWithD_tFileInputDelimited_3 = 0;
+				char fieldSeparator_tFileInputDelimited_3_ListType[] = null;
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_3_ListType = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+				if(rowtFileInputDelimited_3.length == 1 && ("\015").equals(rowtFileInputDelimited_3[0])){//empty line when row separator is '\n'
 					
-						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row5.timePeriodId = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"timePeriodId", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
-								}
-    							
-						} else {						
-							
-								
-									row5.timePeriodId = null;
-								
-							
-						}
+							row3.timePeriodId = null;
 					
-				
-					columnIndexWithD_tFileInputDelimited_3 = 1;
+							row3.year = null;
 					
-						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row5.year = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"year", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
-								}
-    							
-						} else {						
-							
-								
-									row5.year = null;
-								
-							
-						}
+							row3.quarter = null;
 					
-				
-					columnIndexWithD_tFileInputDelimited_3 = 2;
+							row3.month = null;
 					
-						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row5.quarter = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"quarter", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
-								}
-    							
-						} else {						
-							
-								
-									row5.quarter = null;
-								
-							
-						}
+							row3.dayOfMonth = null;
 					
-				
-					columnIndexWithD_tFileInputDelimited_3 = 3;
+							row3.dayOfWeek = null;
 					
-						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row5.month = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"month", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
-								}
-    							
-						} else {						
-							
-								
-									row5.month = null;
-								
-							
-						}
+							row3.flightDate = null;
 					
-				
-					columnIndexWithD_tFileInputDelimited_3 = 4;
+				}else{
 					
-						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row5.dayOfMonth = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"dayOfMonth", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
-								}
-    							
-						} else {						
-							
-								
-									row5.dayOfMonth = null;
-								
-							
-						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_3 = 5;
-					
-						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row5.dayOfWeek = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"dayOfWeek", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
-								}
-    							
-						} else {						
-							
-								
-									row5.dayOfWeek = null;
-								
-							
-						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_3 = 6;
-					
-							row5.flightDate = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+	                int columnIndexWithD_tFileInputDelimited_3 = 0; //Column Index 
+	                
+						columnIndexWithD_tFileInputDelimited_3 = 0;
 						
-				
-				
-										
-										if(rowstate_tFileInputDelimited_3.getException()!=null) {
-											throw rowstate_tFileInputDelimited_3.getException();
-										}
-										
-										
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length){
+						
+						
 							
-			    					} catch (java.lang.Exception e) {
-globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",e.getMessage());
-			        					whetherReject_tFileInputDelimited_3 = true;
-			        					
-			                					System.err.println(e.getMessage());
-			                					row5 = null;
-			                				
-										
-			    					}
 								
+									if(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3].length() > 0) {
+										try {
+									
+										row3.timePeriodId = ParserUtils.parseTo_Integer(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+											rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"timePeriodId", "row3", rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3], ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+										}
+    								}else{
+    									
+											
+												row3.timePeriodId = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row3.timePeriodId = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_3 = 1;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3].length() > 0) {
+										try {
+									
+										row3.year = ParserUtils.parseTo_Integer(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+											rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"year", "row3", rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3], ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+										}
+    								}else{
+    									
+											
+												row3.year = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row3.year = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_3 = 2;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3].length() > 0) {
+										try {
+									
+										row3.quarter = ParserUtils.parseTo_Integer(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+											rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"quarter", "row3", rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3], ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+										}
+    								}else{
+    									
+											
+												row3.quarter = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row3.quarter = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_3 = 3;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3].length() > 0) {
+										try {
+									
+										row3.month = ParserUtils.parseTo_Integer(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+											rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"month", "row3", rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3], ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+										}
+    								}else{
+    									
+											
+												row3.month = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row3.month = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_3 = 4;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3].length() > 0) {
+										try {
+									
+										row3.dayOfMonth = ParserUtils.parseTo_Integer(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+											rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"dayOfMonth", "row3", rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3], ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+										}
+    								}else{
+    									
+											
+												row3.dayOfMonth = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row3.dayOfMonth = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_3 = 5;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3].length() > 0) {
+										try {
+									
+										row3.dayOfWeek = ParserUtils.parseTo_Integer(rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+											rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"dayOfWeek", "row3", rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3], ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+										}
+    								}else{
+    									
+											
+												row3.dayOfWeek = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row3.dayOfWeek = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_3 = 6;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_3 < rowtFileInputDelimited_3.length){
+						
+						
+							
+									row3.flightDate = rowtFileInputDelimited_3[columnIndexWithD_tFileInputDelimited_3];
+									
+							
+						
+						}else{
+						
+							
+								row3.flightDate = null;
+							
+						
+						}
+						
+						
+					
+				}
+				
+									
+									if(rowstate_tFileInputDelimited_3.getException()!=null) {
+										throw rowstate_tFileInputDelimited_3.getException();
+									}
+									
+									
+	    						} catch (java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",e.getMessage());
+							        whetherReject_tFileInputDelimited_3 = true;
+        							
+                							System.err.println(e.getMessage());
+                							row3 = null;
+                						
+            							globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE", e.getMessage());
+            							
+	    						}
+	
+							
 
  
 
@@ -11246,27 +14227,27 @@ globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",e.getMessage());
 /**
  * [tFileInputDelimited_3 process_data_begin ] stop
  */
-// Start of branch "row5"
-if(row5 != null) { 
+// Start of branch "row3"
+if(row3 != null) { 
 
 
 
 	
 	/**
-	 * [tAdvancedHash_row5 main ] start
+	 * [tAdvancedHash_row3 main ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row5";
+	currentComponent="tAdvancedHash_row3";
 
 	
 					if(execStat){
 						runStat.updateStatOnConnection(iterateId,1,1
 						
-							,"row5"
+							,"row3"
 						
 						);
 					}
@@ -11276,24 +14257,24 @@ if(row5 != null) {
 			   
 			   
 
-					row5Struct row5_HashRow = new row5Struct();
+					row3Struct row3_HashRow = new row3Struct();
 		   	   	   
 				
-				row5_HashRow.timePeriodId = row5.timePeriodId;
+				row3_HashRow.timePeriodId = row3.timePeriodId;
 				
-				row5_HashRow.year = row5.year;
+				row3_HashRow.year = row3.year;
 				
-				row5_HashRow.quarter = row5.quarter;
+				row3_HashRow.quarter = row3.quarter;
 				
-				row5_HashRow.month = row5.month;
+				row3_HashRow.month = row3.month;
 				
-				row5_HashRow.dayOfMonth = row5.dayOfMonth;
+				row3_HashRow.dayOfMonth = row3.dayOfMonth;
 				
-				row5_HashRow.dayOfWeek = row5.dayOfWeek;
+				row3_HashRow.dayOfWeek = row3.dayOfWeek;
 				
-				row5_HashRow.flightDate = row5.flightDate;
+				row3_HashRow.flightDate = row3.flightDate;
 				
-			tHash_Lookup_row5.put(row5_HashRow);
+			tHash_Lookup_row3.put(row3_HashRow);
 			
             
 
@@ -11303,21 +14284,21 @@ if(row5 != null) {
  
 
 
-	tos_count_tAdvancedHash_row5++;
+	tos_count_tAdvancedHash_row3++;
 
 /**
- * [tAdvancedHash_row5 main ] stop
+ * [tAdvancedHash_row3 main ] stop
  */
 	
 	/**
-	 * [tAdvancedHash_row5 process_data_begin ] start
+	 * [tAdvancedHash_row3 process_data_begin ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row5";
+	currentComponent="tAdvancedHash_row3";
 
 	
 
@@ -11326,18 +14307,18 @@ if(row5 != null) {
 
 
 /**
- * [tAdvancedHash_row5 process_data_begin ] stop
+ * [tAdvancedHash_row3 process_data_begin ] stop
  */
 	
 	/**
-	 * [tAdvancedHash_row5 process_data_end ] start
+	 * [tAdvancedHash_row3 process_data_end ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row5";
+	currentComponent="tAdvancedHash_row3";
 
 	
 
@@ -11346,10 +14327,10 @@ if(row5 != null) {
 
 
 /**
- * [tAdvancedHash_row5 process_data_end ] stop
+ * [tAdvancedHash_row3 process_data_end ] stop
  */
 
-} // End of branch "row5"
+} // End of branch "row3"
 
 
 
@@ -11388,20 +14369,21 @@ if(row5 != null) {
 	
 
 
-
-            }
-            }finally{
-                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimTimePeriod.csv") instanceof java.io.InputStream)){
-                	if(fid_tFileInputDelimited_3!=null){
-                		fid_tFileInputDelimited_3.close();
-                	}
-                }
-                if(fid_tFileInputDelimited_3!=null){
-                	globalMap.put("tFileInputDelimited_3_NB_LINE", fid_tFileInputDelimited_3.getRowNumber());
-					
-                }
+				nb_line_tFileInputDelimited_3++;
 			}
-			  
+			
+			}finally{
+    			if(!(filename_tFileInputDelimited_3 instanceof java.io.InputStream)){
+    				if(csvReadertFileInputDelimited_3!=null){
+    					csvReadertFileInputDelimited_3.close();
+    				}
+    			}
+    			if(csvReadertFileInputDelimited_3!=null){
+    				globalMap.put("tFileInputDelimited_3_NB_LINE",nb_line_tFileInputDelimited_3);
+    			}
+				
+			}
+						  
 
  
 
@@ -11417,33 +14399,33 @@ end_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
 
 	
 	/**
-	 * [tAdvancedHash_row5 end ] start
+	 * [tAdvancedHash_row3 end ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row5";
+	currentComponent="tAdvancedHash_row3";
 
 	
 
-tHash_Lookup_row5.endPut();
+tHash_Lookup_row3.endPut();
 
 				if(execStat){
-			  		runStat.updateStat(resourceMap,iterateId,2,0,"row5");
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row3");
 			  	}
 			  	
  
 
-ok_Hash.put("tAdvancedHash_row5", true);
-end_Hash.put("tAdvancedHash_row5", System.currentTimeMillis());
+ok_Hash.put("tAdvancedHash_row3", true);
+end_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
 
 
 
 
 /**
- * [tAdvancedHash_row5 end ] stop
+ * [tAdvancedHash_row3 end ] stop
  */
 
 
@@ -11492,14 +14474,14 @@ end_Hash.put("tAdvancedHash_row5", System.currentTimeMillis());
 
 	
 	/**
-	 * [tAdvancedHash_row5 finally ] start
+	 * [tAdvancedHash_row3 finally ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row5";
+	currentComponent="tAdvancedHash_row3";
 
 	
 
@@ -11508,7 +14490,7 @@ end_Hash.put("tAdvancedHash_row5", System.currentTimeMillis());
 
 
 /**
- * [tAdvancedHash_row5 finally ] stop
+ * [tAdvancedHash_row3 finally ] stop
  */
 
 
@@ -11527,7 +14509,7 @@ end_Hash.put("tAdvancedHash_row5", System.currentTimeMillis());
 	
 
 
-public static class row3Struct implements routines.system.IPersistableComparableLookupRow<row3Struct> {
+public static class row4Struct implements routines.system.IPersistableComparableLookupRow<row4Struct> {
     final static byte[] commonByteArrayLock_PARAVOLAR_FlightFact = new byte[0];
     static byte[] commonByteArray_PARAVOLAR_FlightFact = new byte[0];
 	protected static final int DEFAULT_HASHCODE = 1;
@@ -11609,7 +14591,7 @@ public static class row3Struct implements routines.system.IPersistableComparable
 		if (this == obj) return true;
 		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
-		final row3Struct other = (row3Struct) obj;
+		final row4Struct other = (row4Struct) obj;
 		
 						if (this.originKey == null) {
 							if (other.originKey != null)
@@ -11623,7 +14605,7 @@ public static class row3Struct implements routines.system.IPersistableComparable
 		return true;
     }
 
-	public void copyDataTo(row3Struct other) {
+	public void copyDataTo(row4Struct other) {
 
 		other.originId = this.originId;
 	            other.originKey = this.originKey;
@@ -11636,7 +14618,7 @@ public static class row3Struct implements routines.system.IPersistableComparable
 	            
 	}
 
-	public void copyKeysDataTo(row3Struct other) {
+	public void copyKeysDataTo(row4Struct other) {
 
 		other.originKey = this.originKey;
 	            	
@@ -11995,7 +14977,7 @@ public static class row3Struct implements routines.system.IPersistableComparable
     /**
      * Compare keys
      */
-    public int compareTo(row3Struct other) {
+    public int compareTo(row4Struct other) {
 
 		int returnValue = -1;
 		
@@ -12055,46 +15037,46 @@ public void tFileInputDelimited_4Process(final java.util.Map<String, Object> glo
 
 
 
-		row3Struct row3 = new row3Struct();
+		row4Struct row4 = new row4Struct();
 
 
 
 
 	
 	/**
-	 * [tAdvancedHash_row3 begin ] start
+	 * [tAdvancedHash_row4 begin ] start
 	 */
 
 	
 
 	
 		
-		ok_Hash.put("tAdvancedHash_row3", false);
-		start_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
+		ok_Hash.put("tAdvancedHash_row4", false);
+		start_Hash.put("tAdvancedHash_row4", System.currentTimeMillis());
 		
 	
-	currentComponent="tAdvancedHash_row3";
+	currentComponent="tAdvancedHash_row4";
 
 	
 					if(execStat) {
-						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row3");
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row4");
 					}
 				
-		int tos_count_tAdvancedHash_row3 = 0;
+		int tos_count_tAdvancedHash_row4 = 0;
 		
 
-			   		// connection name:row3
-			   		// source node:tFileInputDelimited_4 - inputs:(after_tFileInputDelimited_1) outputs:(row3,row3) | target node:tAdvancedHash_row3 - inputs:(row3) outputs:()
-			   		// linked node: tMap_1 - inputs:(row1,row2,row5,row3,row4) outputs:(fact)
+			   		// connection name:row4
+			   		// source node:tFileInputDelimited_4 - inputs:(after_tFileInputDelimited_1) outputs:(row4,row4) | target node:tAdvancedHash_row4 - inputs:(row4) outputs:()
+			   		// linked node: tMap_1 - inputs:(row1,row2,row3,row4,row5) outputs:(fact)
 			   
-			   		org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row3 = 
+			   		org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row4 = 
 			   			org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
 			   			
 			   
-	   			org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row3Struct> tHash_Lookup_row3 =org.talend.designer.components.lookup.memory.AdvancedMemoryLookup.
-	   						<row3Struct>getLookup(matchingModeEnum_row3);
+	   			org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row4Struct> tHash_Lookup_row4 =org.talend.designer.components.lookup.memory.AdvancedMemoryLookup.
+	   						<row4Struct>getLookup(matchingModeEnum_row4);
 	   						   
-		   	   	   globalMap.put("tHash_Lookup_row3", tHash_Lookup_row3);
+		   	   	   globalMap.put("tHash_Lookup_row4", tHash_Lookup_row4);
 		   	   	   
 				
            
@@ -12104,7 +15086,7 @@ public void tFileInputDelimited_4Process(final java.util.Map<String, Object> glo
 
 
 /**
- * [tAdvancedHash_row3 begin ] stop
+ * [tAdvancedHash_row4 begin ] stop
  */
 
 
@@ -12137,162 +15119,435 @@ public void tFileInputDelimited_4Process(final java.util.Map<String, Object> glo
 	
 	
 				int nb_line_tFileInputDelimited_4 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_4 = null;
-				int limit_tFileInputDelimited_4 = -1;
+				int footer_tFileInputDelimited_4 = 0;
+				int totalLinetFileInputDelimited_4 = 0;
+				int limittFileInputDelimited_4 = -1;
+				int lastLinetFileInputDelimited_4 = -1;	
+				
+				char fieldSeparator_tFileInputDelimited_4[] = null;
+				
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_4 = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+			
+				char rowSeparator_tFileInputDelimited_4[] = null;
+			
+				//support passing value (property: Row Separator) by 'context.rs' or 'globalMap.get("rs")'. 
+				if ( ((String)"\n").length() > 0 ){
+					rowSeparator_tFileInputDelimited_4 = ((String)"\n").toCharArray();
+				}else {
+					throw new IllegalArgumentException("Row Separator must be assigned a char."); 
+				}
+			
+				Object filename_tFileInputDelimited_4 = /** Start field tFileInputDelimited_4:FILENAME */"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimOrigin.csv"/** End field tFileInputDelimited_4:FILENAME */;		
+				com.talend.csv.CSVReader csvReadertFileInputDelimited_4 = null;
+	
 				try{
 					
-						Object filename_tFileInputDelimited_4 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimOrigin.csv";
-						if(filename_tFileInputDelimited_4 instanceof java.io.InputStream){
+						String[] rowtFileInputDelimited_4=null;
+						int currentLinetFileInputDelimited_4 = 0;
+	        			int outputLinetFileInputDelimited_4 = 0;
+						try {//TD110 begin
+							if(filename_tFileInputDelimited_4 instanceof java.io.InputStream){
 							
-			int footer_value_tFileInputDelimited_4 = 0, random_value_tFileInputDelimited_4 = -1;
-			if(footer_value_tFileInputDelimited_4 >0 || random_value_tFileInputDelimited_4 > 0){
-				throw new java.lang.Exception("When the input source is a stream,footer and random shouldn't be bigger than 0.");				
+			int footer_value_tFileInputDelimited_4 = 0;
+			if(footer_value_tFileInputDelimited_4 > 0){
+				throw new java.lang.Exception("When the input source is a stream,footer shouldn't be bigger than 0.");
 			}
 		
-						}
-						try {
-							fid_tFileInputDelimited_4 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimOrigin.csv", "ISO-8859-15",";","\n",true,1,0,
-									limit_tFileInputDelimited_4
-								,-1, false);
-						} catch(java.lang.Exception e) {
-globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",e.getMessage());
-							
-								
-								System.err.println(e.getMessage());
-							
-						}
+								csvReadertFileInputDelimited_4=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_4, fieldSeparator_tFileInputDelimited_4[0], "ISO-8859-15");
+							}else{
+								csvReadertFileInputDelimited_4=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_4),fieldSeparator_tFileInputDelimited_4[0], "ISO-8859-15");
+		        			}
 					
-				    
-					while (fid_tFileInputDelimited_4!=null && fid_tFileInputDelimited_4.nextRecord()) {
-						rowstate_tFileInputDelimited_4.reset();
+					
+					csvReadertFileInputDelimited_4.setTrimWhitespace(false);
+					if ( (rowSeparator_tFileInputDelimited_4[0] != '\n') && (rowSeparator_tFileInputDelimited_4[0] != '\r') )
+	        			csvReadertFileInputDelimited_4.setLineEnd(""+rowSeparator_tFileInputDelimited_4[0]);
 						
-			    						row3 = null;			
+	        				csvReadertFileInputDelimited_4.setQuoteChar('\"');
+						
+	            				//?????doesn't work for other escapeChar
+	            				//the default escape mode is double escape
+	            				csvReadertFileInputDelimited_4.setEscapeChar(csvReadertFileInputDelimited_4.getQuoteChar());
+							      
+		
+			
+						if(footer_tFileInputDelimited_4 > 0){
+						for(totalLinetFileInputDelimited_4=0;totalLinetFileInputDelimited_4 < 1; totalLinetFileInputDelimited_4++){
+							csvReadertFileInputDelimited_4.readNext();
+						}
+						csvReadertFileInputDelimited_4.setSkipEmptyRecords(true);
+			            while (csvReadertFileInputDelimited_4.readNext()) {
+							
+								rowtFileInputDelimited_4=csvReadertFileInputDelimited_4.getValues();
+								if(!(rowtFileInputDelimited_4.length == 1 && ("\015").equals(rowtFileInputDelimited_4[0]))){//empty line when row separator is '\n'
+							
+	                
+	                		totalLinetFileInputDelimited_4++;
+	                
+							
+								}
+							
+	                
+			            }
+	            		int lastLineTemptFileInputDelimited_4 = totalLinetFileInputDelimited_4 - footer_tFileInputDelimited_4   < 0? 0 : totalLinetFileInputDelimited_4 - footer_tFileInputDelimited_4 ;
+	            		if(lastLinetFileInputDelimited_4 > 0){
+	                		lastLinetFileInputDelimited_4 = lastLinetFileInputDelimited_4 < lastLineTemptFileInputDelimited_4 ? lastLinetFileInputDelimited_4 : lastLineTemptFileInputDelimited_4; 
+	            		}else {
+	                		lastLinetFileInputDelimited_4 = lastLineTemptFileInputDelimited_4;
+	            		}
+	         
+			          	csvReadertFileInputDelimited_4.close();
+				        if(filename_tFileInputDelimited_4 instanceof java.io.InputStream){
+				 			csvReadertFileInputDelimited_4=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_4, fieldSeparator_tFileInputDelimited_4[0], "ISO-8859-15");
+		        		}else{
+							csvReadertFileInputDelimited_4=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_4),fieldSeparator_tFileInputDelimited_4[0], "ISO-8859-15");
+						}
+						csvReadertFileInputDelimited_4.setTrimWhitespace(false);
+						if ( (rowSeparator_tFileInputDelimited_4[0] != '\n') && (rowSeparator_tFileInputDelimited_4[0] != '\r') )	
+	        				csvReadertFileInputDelimited_4.setLineEnd(""+rowSeparator_tFileInputDelimited_4[0]);
+						
+							csvReadertFileInputDelimited_4.setQuoteChar('\"');
+						
+	        				//?????doesn't work for other escapeChar
+	        				//the default escape mode is double escape
+	        				csvReadertFileInputDelimited_4.setEscapeChar(csvReadertFileInputDelimited_4.getQuoteChar());
+							  
+	        		}
+	        
+			        if(limittFileInputDelimited_4 != 0){
+			        	for(currentLinetFileInputDelimited_4=0;currentLinetFileInputDelimited_4 < 1;currentLinetFileInputDelimited_4++){
+			        		csvReadertFileInputDelimited_4.readNext();
+			        	}
+			        }
+			        csvReadertFileInputDelimited_4.setSkipEmptyRecords(true);
+	        
+	    		} catch(java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",e.getMessage());
+					
+						
+						System.err.println(e.getMessage());
+					
+	    		}//TD110 end
+	        
+			    
+	        	while ( limittFileInputDelimited_4 != 0 && csvReadertFileInputDelimited_4!=null && csvReadertFileInputDelimited_4.readNext() ) { 
+	        		rowstate_tFileInputDelimited_4.reset();
+	        
+		        	rowtFileInputDelimited_4=csvReadertFileInputDelimited_4.getValues();
+		        	
+					
+	        			if(rowtFileInputDelimited_4.length == 1 && ("\015").equals(rowtFileInputDelimited_4[0])){//empty line when row separator is '\n'
+	        				continue;
+	        			}
+					
+	        	
+	        	
+	        		currentLinetFileInputDelimited_4++;
+	            
+		            if(lastLinetFileInputDelimited_4 > -1 && currentLinetFileInputDelimited_4 > lastLinetFileInputDelimited_4) {
+		                break;
+	    	        }
+	        	    outputLinetFileInputDelimited_4++;
+	            	if (limittFileInputDelimited_4 > 0 && outputLinetFileInputDelimited_4 > limittFileInputDelimited_4) {
+	                	break;
+	            	}  
+	                                                                      
+					
+	    							row4 = null;			
+								
+	    							row4 = null;			
+								
+								boolean whetherReject_tFileInputDelimited_4 = false;
+								row4 = new row4Struct();
+								try {			
 									
-			    						row3 = null;			
-												
-									boolean whetherReject_tFileInputDelimited_4 = false;
-									row3 = new row3Struct();
-									try {
-										
-				int columnIndexWithD_tFileInputDelimited_4 = 0;
-				
-					String temp = ""; 
-				
-					columnIndexWithD_tFileInputDelimited_4 = 0;
+				char fieldSeparator_tFileInputDelimited_4_ListType[] = null;
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_4_ListType = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+				if(rowtFileInputDelimited_4.length == 1 && ("\015").equals(rowtFileInputDelimited_4[0])){//empty line when row separator is '\n'
 					
-						temp = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
-						if(temp.length() > 0) {
+							row4.originId = null;
+					
+							row4.originKey = null;
+					
+							row4.originAirportSeqId = null;
+					
+							row4.airportCode = null;
+					
+							row4.cityName = null;
+					
+							row4.stateCode = null;
+					
+							row4.stateName = null;
+					
+							row4.worldAreaCode = null;
+					
+				}else{
+					
+	                int columnIndexWithD_tFileInputDelimited_4 = 0; //Column Index 
+	                
+						columnIndexWithD_tFileInputDelimited_4 = 0;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length){
+						
+						
 							
-								try {
 								
-    								row3.originId = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_4) {
+									if(rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4].length() > 0) {
+										try {
+									
+										row4.originId = ParserUtils.parseTo_Integer(rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_4) {
 globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",ex_tFileInputDelimited_4.getMessage());
-									rowstate_tFileInputDelimited_4.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"originId", "row3", temp, ex_tFileInputDelimited_4), ex_tFileInputDelimited_4));
-								}
-    							
-						} else {						
-							
-								
-									row3.originId = null;
-								
-							
-						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_4 = 1;
-					
-						temp = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row3.originKey = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_4) {
-globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",ex_tFileInputDelimited_4.getMessage());
-									rowstate_tFileInputDelimited_4.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"originKey", "row3", temp, ex_tFileInputDelimited_4), ex_tFileInputDelimited_4));
-								}
-    							
-						} else {						
-							
-								
-									row3.originKey = null;
-								
-							
-						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_4 = 2;
-					
-						temp = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
-						if(temp.length() > 0) {
-							
-								try {
-								
-    								row3.originAirportSeqId = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_4) {
-globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",ex_tFileInputDelimited_4.getMessage());
-									rowstate_tFileInputDelimited_4.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"originAirportSeqId", "row3", temp, ex_tFileInputDelimited_4), ex_tFileInputDelimited_4));
-								}
-    							
-						} else {						
-							
-								
-									row3.originAirportSeqId = null;
-								
-							
-						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_4 = 3;
-					
-							row3.airportCode = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
-						
-				
-					columnIndexWithD_tFileInputDelimited_4 = 4;
-					
-							row3.cityName = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
-						
-				
-					columnIndexWithD_tFileInputDelimited_4 = 5;
-					
-							row3.stateCode = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
-						
-				
-					columnIndexWithD_tFileInputDelimited_4 = 6;
-					
-							row3.stateName = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
-						
-				
-					columnIndexWithD_tFileInputDelimited_4 = 7;
-					
-							row3.worldAreaCode = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
-						
-				
-				
-										
-										if(rowstate_tFileInputDelimited_4.getException()!=null) {
-											throw rowstate_tFileInputDelimited_4.getException();
+											rowstate_tFileInputDelimited_4.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"originId", "row4", rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4], ex_tFileInputDelimited_4), ex_tFileInputDelimited_4));
 										}
-										
-										
+    								}else{
+    									
+											
+												row4.originId = null;
+											
+    									
+    								}
+									
+									
 							
-			    					} catch (java.lang.Exception e) {
-globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",e.getMessage());
-			        					whetherReject_tFileInputDelimited_4 = true;
-			        					
-			                					System.err.println(e.getMessage());
-			                					row3 = null;
-			                				
-										
-			    					}
+						
+						}else{
+						
+							
+								row4.originId = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_4 = 1;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length){
+						
+						
+							
 								
+									if(rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4].length() > 0) {
+										try {
+									
+										row4.originKey = ParserUtils.parseTo_Integer(rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_4) {
+globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",ex_tFileInputDelimited_4.getMessage());
+											rowstate_tFileInputDelimited_4.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"originKey", "row4", rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4], ex_tFileInputDelimited_4), ex_tFileInputDelimited_4));
+										}
+    								}else{
+    									
+											
+												row4.originKey = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row4.originKey = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_4 = 2;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4].length() > 0) {
+										try {
+									
+										row4.originAirportSeqId = ParserUtils.parseTo_Integer(rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_4) {
+globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",ex_tFileInputDelimited_4.getMessage());
+											rowstate_tFileInputDelimited_4.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"originAirportSeqId", "row4", rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4], ex_tFileInputDelimited_4), ex_tFileInputDelimited_4));
+										}
+    								}else{
+    									
+											
+												row4.originAirportSeqId = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row4.originAirportSeqId = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_4 = 3;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length){
+						
+						
+							
+									row4.airportCode = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									
+							
+						
+						}else{
+						
+							
+								row4.airportCode = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_4 = 4;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length){
+						
+						
+							
+									row4.cityName = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									
+							
+						
+						}else{
+						
+							
+								row4.cityName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_4 = 5;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length){
+						
+						
+							
+									row4.stateCode = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									
+							
+						
+						}else{
+						
+							
+								row4.stateCode = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_4 = 6;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length){
+						
+						
+							
+									row4.stateName = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									
+							
+						
+						}else{
+						
+							
+								row4.stateName = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_4 = 7;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_4 < rowtFileInputDelimited_4.length){
+						
+						
+							
+									row4.worldAreaCode = rowtFileInputDelimited_4[columnIndexWithD_tFileInputDelimited_4];
+									
+							
+						
+						}else{
+						
+							
+								row4.worldAreaCode = null;
+							
+						
+						}
+						
+						
+					
+				}
+				
+									
+									if(rowstate_tFileInputDelimited_4.getException()!=null) {
+										throw rowstate_tFileInputDelimited_4.getException();
+									}
+									
+									
+	    						} catch (java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",e.getMessage());
+							        whetherReject_tFileInputDelimited_4 = true;
+        							
+                							System.err.println(e.getMessage());
+                							row4 = null;
+                						
+            							globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE", e.getMessage());
+            							
+	    						}
+	
+							
 
  
 
@@ -12342,27 +15597,27 @@ globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",e.getMessage());
 /**
  * [tFileInputDelimited_4 process_data_begin ] stop
  */
-// Start of branch "row3"
-if(row3 != null) { 
+// Start of branch "row4"
+if(row4 != null) { 
 
 
 
 	
 	/**
-	 * [tAdvancedHash_row3 main ] start
+	 * [tAdvancedHash_row4 main ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row3";
+	currentComponent="tAdvancedHash_row4";
 
 	
 					if(execStat){
 						runStat.updateStatOnConnection(iterateId,1,1
 						
-							,"row3"
+							,"row4"
 						
 						);
 					}
@@ -12372,26 +15627,26 @@ if(row3 != null) {
 			   
 			   
 
-					row3Struct row3_HashRow = new row3Struct();
+					row4Struct row4_HashRow = new row4Struct();
 		   	   	   
 				
-				row3_HashRow.originId = row3.originId;
+				row4_HashRow.originId = row4.originId;
 				
-				row3_HashRow.originKey = row3.originKey;
+				row4_HashRow.originKey = row4.originKey;
 				
-				row3_HashRow.originAirportSeqId = row3.originAirportSeqId;
+				row4_HashRow.originAirportSeqId = row4.originAirportSeqId;
 				
-				row3_HashRow.airportCode = row3.airportCode;
+				row4_HashRow.airportCode = row4.airportCode;
 				
-				row3_HashRow.cityName = row3.cityName;
+				row4_HashRow.cityName = row4.cityName;
 				
-				row3_HashRow.stateCode = row3.stateCode;
+				row4_HashRow.stateCode = row4.stateCode;
 				
-				row3_HashRow.stateName = row3.stateName;
+				row4_HashRow.stateName = row4.stateName;
 				
-				row3_HashRow.worldAreaCode = row3.worldAreaCode;
+				row4_HashRow.worldAreaCode = row4.worldAreaCode;
 				
-			tHash_Lookup_row3.put(row3_HashRow);
+			tHash_Lookup_row4.put(row4_HashRow);
 			
             
 
@@ -12401,21 +15656,21 @@ if(row3 != null) {
  
 
 
-	tos_count_tAdvancedHash_row3++;
+	tos_count_tAdvancedHash_row4++;
 
 /**
- * [tAdvancedHash_row3 main ] stop
+ * [tAdvancedHash_row4 main ] stop
  */
 	
 	/**
-	 * [tAdvancedHash_row3 process_data_begin ] start
+	 * [tAdvancedHash_row4 process_data_begin ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row3";
+	currentComponent="tAdvancedHash_row4";
 
 	
 
@@ -12424,18 +15679,18 @@ if(row3 != null) {
 
 
 /**
- * [tAdvancedHash_row3 process_data_begin ] stop
+ * [tAdvancedHash_row4 process_data_begin ] stop
  */
 	
 	/**
-	 * [tAdvancedHash_row3 process_data_end ] start
+	 * [tAdvancedHash_row4 process_data_end ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row3";
+	currentComponent="tAdvancedHash_row4";
 
 	
 
@@ -12444,10 +15699,10 @@ if(row3 != null) {
 
 
 /**
- * [tAdvancedHash_row3 process_data_end ] stop
+ * [tAdvancedHash_row4 process_data_end ] stop
  */
 
-} // End of branch "row3"
+} // End of branch "row4"
 
 
 
@@ -12486,20 +15741,21 @@ if(row3 != null) {
 	
 
 
-
-            }
-            }finally{
-                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimOrigin.csv") instanceof java.io.InputStream)){
-                	if(fid_tFileInputDelimited_4!=null){
-                		fid_tFileInputDelimited_4.close();
-                	}
-                }
-                if(fid_tFileInputDelimited_4!=null){
-                	globalMap.put("tFileInputDelimited_4_NB_LINE", fid_tFileInputDelimited_4.getRowNumber());
-					
-                }
+				nb_line_tFileInputDelimited_4++;
 			}
-			  
+			
+			}finally{
+    			if(!(filename_tFileInputDelimited_4 instanceof java.io.InputStream)){
+    				if(csvReadertFileInputDelimited_4!=null){
+    					csvReadertFileInputDelimited_4.close();
+    				}
+    			}
+    			if(csvReadertFileInputDelimited_4!=null){
+    				globalMap.put("tFileInputDelimited_4_NB_LINE",nb_line_tFileInputDelimited_4);
+    			}
+				
+			}
+						  
 
  
 
@@ -12515,33 +15771,33 @@ end_Hash.put("tFileInputDelimited_4", System.currentTimeMillis());
 
 	
 	/**
-	 * [tAdvancedHash_row3 end ] start
+	 * [tAdvancedHash_row4 end ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row3";
+	currentComponent="tAdvancedHash_row4";
 
 	
 
-tHash_Lookup_row3.endPut();
+tHash_Lookup_row4.endPut();
 
 				if(execStat){
-			  		runStat.updateStat(resourceMap,iterateId,2,0,"row3");
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row4");
 			  	}
 			  	
  
 
-ok_Hash.put("tAdvancedHash_row3", true);
-end_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
+ok_Hash.put("tAdvancedHash_row4", true);
+end_Hash.put("tAdvancedHash_row4", System.currentTimeMillis());
 
 
 
 
 /**
- * [tAdvancedHash_row3 end ] stop
+ * [tAdvancedHash_row4 end ] stop
  */
 
 
@@ -12590,14 +15846,14 @@ end_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
 
 	
 	/**
-	 * [tAdvancedHash_row3 finally ] start
+	 * [tAdvancedHash_row4 finally ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row3";
+	currentComponent="tAdvancedHash_row4";
 
 	
 
@@ -12606,7 +15862,7 @@ end_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
 
 
 /**
- * [tAdvancedHash_row3 finally ] stop
+ * [tAdvancedHash_row4 finally ] stop
  */
 
 
@@ -12625,7 +15881,7 @@ end_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
 	
 
 
-public static class row4Struct implements routines.system.IPersistableComparableLookupRow<row4Struct> {
+public static class row5Struct implements routines.system.IPersistableComparableLookupRow<row5Struct> {
     final static byte[] commonByteArrayLock_PARAVOLAR_FlightFact = new byte[0];
     static byte[] commonByteArray_PARAVOLAR_FlightFact = new byte[0];
 	protected static final int DEFAULT_HASHCODE = 1;
@@ -12677,7 +15933,7 @@ public static class row4Struct implements routines.system.IPersistableComparable
 		if (this == obj) return true;
 		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
-		final row4Struct other = (row4Struct) obj;
+		final row5Struct other = (row5Struct) obj;
 		
 						if (this.Code == null) {
 							if (other.Code != null)
@@ -12691,7 +15947,7 @@ public static class row4Struct implements routines.system.IPersistableComparable
 		return true;
     }
 
-	public void copyDataTo(row4Struct other) {
+	public void copyDataTo(row5Struct other) {
 
 		other.AirlineId = this.AirlineId;
 	            other.Code = this.Code;
@@ -12699,7 +15955,7 @@ public static class row4Struct implements routines.system.IPersistableComparable
 	            
 	}
 
-	public void copyKeysDataTo(row4Struct other) {
+	public void copyKeysDataTo(row5Struct other) {
 
 		other.Code = this.Code;
 	            	
@@ -13032,7 +16288,7 @@ public static class row4Struct implements routines.system.IPersistableComparable
     /**
      * Compare keys
      */
-    public int compareTo(row4Struct other) {
+    public int compareTo(row5Struct other) {
 
 		int returnValue = -1;
 		
@@ -13092,46 +16348,46 @@ public void tFileInputDelimited_5Process(final java.util.Map<String, Object> glo
 
 
 
-		row4Struct row4 = new row4Struct();
+		row5Struct row5 = new row5Struct();
 
 
 
 
 	
 	/**
-	 * [tAdvancedHash_row4 begin ] start
+	 * [tAdvancedHash_row5 begin ] start
 	 */
 
 	
 
 	
 		
-		ok_Hash.put("tAdvancedHash_row4", false);
-		start_Hash.put("tAdvancedHash_row4", System.currentTimeMillis());
+		ok_Hash.put("tAdvancedHash_row5", false);
+		start_Hash.put("tAdvancedHash_row5", System.currentTimeMillis());
 		
 	
-	currentComponent="tAdvancedHash_row4";
+	currentComponent="tAdvancedHash_row5";
 
 	
 					if(execStat) {
-						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row4");
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row5");
 					}
 				
-		int tos_count_tAdvancedHash_row4 = 0;
+		int tos_count_tAdvancedHash_row5 = 0;
 		
 
-			   		// connection name:row4
-			   		// source node:tFileInputDelimited_5 - inputs:(after_tFileInputDelimited_1) outputs:(row4,row4) | target node:tAdvancedHash_row4 - inputs:(row4) outputs:()
-			   		// linked node: tMap_1 - inputs:(row1,row2,row5,row3,row4) outputs:(fact)
+			   		// connection name:row5
+			   		// source node:tFileInputDelimited_5 - inputs:(after_tFileInputDelimited_1) outputs:(row5,row5) | target node:tAdvancedHash_row5 - inputs:(row5) outputs:()
+			   		// linked node: tMap_1 - inputs:(row1,row2,row3,row4,row5) outputs:(fact)
 			   
-			   		org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row4 = 
+			   		org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row5 = 
 			   			org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
 			   			
 			   
-	   			org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row4Struct> tHash_Lookup_row4 =org.talend.designer.components.lookup.memory.AdvancedMemoryLookup.
-	   						<row4Struct>getLookup(matchingModeEnum_row4);
+	   			org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row5Struct> tHash_Lookup_row5 =org.talend.designer.components.lookup.memory.AdvancedMemoryLookup.
+	   						<row5Struct>getLookup(matchingModeEnum_row5);
 	   						   
-		   	   	   globalMap.put("tHash_Lookup_row4", tHash_Lookup_row4);
+		   	   	   globalMap.put("tHash_Lookup_row5", tHash_Lookup_row5);
 		   	   	   
 				
            
@@ -13141,7 +16397,7 @@ public void tFileInputDelimited_5Process(final java.util.Map<String, Object> glo
 
 
 /**
- * [tAdvancedHash_row4 begin ] stop
+ * [tAdvancedHash_row5 begin ] stop
  */
 
 
@@ -13174,99 +16430,277 @@ public void tFileInputDelimited_5Process(final java.util.Map<String, Object> glo
 	
 	
 				int nb_line_tFileInputDelimited_5 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_5 = null;
-				int limit_tFileInputDelimited_5 = -1;
+				int footer_tFileInputDelimited_5 = 0;
+				int totalLinetFileInputDelimited_5 = 0;
+				int limittFileInputDelimited_5 = -1;
+				int lastLinetFileInputDelimited_5 = -1;	
+				
+				char fieldSeparator_tFileInputDelimited_5[] = null;
+				
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_5 = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+			
+				char rowSeparator_tFileInputDelimited_5[] = null;
+			
+				//support passing value (property: Row Separator) by 'context.rs' or 'globalMap.get("rs")'. 
+				if ( ((String)"\n").length() > 0 ){
+					rowSeparator_tFileInputDelimited_5 = ((String)"\n").toCharArray();
+				}else {
+					throw new IllegalArgumentException("Row Separator must be assigned a char."); 
+				}
+			
+				Object filename_tFileInputDelimited_5 = /** Start field tFileInputDelimited_5:FILENAME */"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/dimAirlines.csv"/** End field tFileInputDelimited_5:FILENAME */;		
+				com.talend.csv.CSVReader csvReadertFileInputDelimited_5 = null;
+	
 				try{
 					
-						Object filename_tFileInputDelimited_5 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/dimAirlines.csv";
-						if(filename_tFileInputDelimited_5 instanceof java.io.InputStream){
+						String[] rowtFileInputDelimited_5=null;
+						int currentLinetFileInputDelimited_5 = 0;
+	        			int outputLinetFileInputDelimited_5 = 0;
+						try {//TD110 begin
+							if(filename_tFileInputDelimited_5 instanceof java.io.InputStream){
 							
-			int footer_value_tFileInputDelimited_5 = 0, random_value_tFileInputDelimited_5 = -1;
-			if(footer_value_tFileInputDelimited_5 >0 || random_value_tFileInputDelimited_5 > 0){
-				throw new java.lang.Exception("When the input source is a stream,footer and random shouldn't be bigger than 0.");				
+			int footer_value_tFileInputDelimited_5 = 0;
+			if(footer_value_tFileInputDelimited_5 > 0){
+				throw new java.lang.Exception("When the input source is a stream,footer shouldn't be bigger than 0.");
 			}
 		
-						}
-						try {
-							fid_tFileInputDelimited_5 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/dimAirlines.csv", "ISO-8859-15",";","\n",true,1,0,
-									limit_tFileInputDelimited_5
-								,-1, false);
-						} catch(java.lang.Exception e) {
-globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",e.getMessage());
-							
-								
-								System.err.println(e.getMessage());
-							
-						}
+								csvReadertFileInputDelimited_5=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_5, fieldSeparator_tFileInputDelimited_5[0], "ISO-8859-15");
+							}else{
+								csvReadertFileInputDelimited_5=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_5),fieldSeparator_tFileInputDelimited_5[0], "ISO-8859-15");
+		        			}
 					
-				    
-					while (fid_tFileInputDelimited_5!=null && fid_tFileInputDelimited_5.nextRecord()) {
-						rowstate_tFileInputDelimited_5.reset();
+					
+					csvReadertFileInputDelimited_5.setTrimWhitespace(false);
+					if ( (rowSeparator_tFileInputDelimited_5[0] != '\n') && (rowSeparator_tFileInputDelimited_5[0] != '\r') )
+	        			csvReadertFileInputDelimited_5.setLineEnd(""+rowSeparator_tFileInputDelimited_5[0]);
 						
-			    						row4 = null;			
-									
-			    						row4 = null;			
-												
-									boolean whetherReject_tFileInputDelimited_5 = false;
-									row4 = new row4Struct();
-									try {
-										
-				int columnIndexWithD_tFileInputDelimited_5 = 0;
-				
-					String temp = ""; 
-				
-					columnIndexWithD_tFileInputDelimited_5 = 0;
-					
-						temp = fid_tFileInputDelimited_5.get(columnIndexWithD_tFileInputDelimited_5);
-						if(temp.length() > 0) {
+	        				csvReadertFileInputDelimited_5.setQuoteChar('\"');
+						
+	            				//?????doesn't work for other escapeChar
+	            				//the default escape mode is double escape
+	            				csvReadertFileInputDelimited_5.setEscapeChar(csvReadertFileInputDelimited_5.getQuoteChar());
+							      
+		
+			
+						if(footer_tFileInputDelimited_5 > 0){
+						for(totalLinetFileInputDelimited_5=0;totalLinetFileInputDelimited_5 < 1; totalLinetFileInputDelimited_5++){
+							csvReadertFileInputDelimited_5.readNext();
+						}
+						csvReadertFileInputDelimited_5.setSkipEmptyRecords(true);
+			            while (csvReadertFileInputDelimited_5.readNext()) {
 							
-								try {
-								
-    								row4.AirlineId = ParserUtils.parseTo_Integer(temp);
-    							
-    							} catch(java.lang.Exception ex_tFileInputDelimited_5) {
-globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",ex_tFileInputDelimited_5.getMessage());
-									rowstate_tFileInputDelimited_5.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-										"AirlineId", "row4", temp, ex_tFileInputDelimited_5), ex_tFileInputDelimited_5));
+								rowtFileInputDelimited_5=csvReadertFileInputDelimited_5.getValues();
+								if(!(rowtFileInputDelimited_5.length == 1 && ("\015").equals(rowtFileInputDelimited_5[0]))){//empty line when row separator is '\n'
+							
+	                
+	                		totalLinetFileInputDelimited_5++;
+	                
+							
 								}
-    							
-						} else {						
 							
-								
-									row4.AirlineId = null;
-								
-							
+	                
+			            }
+	            		int lastLineTemptFileInputDelimited_5 = totalLinetFileInputDelimited_5 - footer_tFileInputDelimited_5   < 0? 0 : totalLinetFileInputDelimited_5 - footer_tFileInputDelimited_5 ;
+	            		if(lastLinetFileInputDelimited_5 > 0){
+	                		lastLinetFileInputDelimited_5 = lastLinetFileInputDelimited_5 < lastLineTemptFileInputDelimited_5 ? lastLinetFileInputDelimited_5 : lastLineTemptFileInputDelimited_5; 
+	            		}else {
+	                		lastLinetFileInputDelimited_5 = lastLineTemptFileInputDelimited_5;
+	            		}
+	         
+			          	csvReadertFileInputDelimited_5.close();
+				        if(filename_tFileInputDelimited_5 instanceof java.io.InputStream){
+				 			csvReadertFileInputDelimited_5=new com.talend.csv.CSVReader((java.io.InputStream)filename_tFileInputDelimited_5, fieldSeparator_tFileInputDelimited_5[0], "ISO-8859-15");
+		        		}else{
+							csvReadertFileInputDelimited_5=new com.talend.csv.CSVReader(String.valueOf(filename_tFileInputDelimited_5),fieldSeparator_tFileInputDelimited_5[0], "ISO-8859-15");
 						}
-					
-				
-					columnIndexWithD_tFileInputDelimited_5 = 1;
-					
-							row4.Code = fid_tFileInputDelimited_5.get(columnIndexWithD_tFileInputDelimited_5);
+						csvReadertFileInputDelimited_5.setTrimWhitespace(false);
+						if ( (rowSeparator_tFileInputDelimited_5[0] != '\n') && (rowSeparator_tFileInputDelimited_5[0] != '\r') )	
+	        				csvReadertFileInputDelimited_5.setLineEnd(""+rowSeparator_tFileInputDelimited_5[0]);
 						
-				
-					columnIndexWithD_tFileInputDelimited_5 = 2;
-					
-							row4.Description = fid_tFileInputDelimited_5.get(columnIndexWithD_tFileInputDelimited_5);
+							csvReadertFileInputDelimited_5.setQuoteChar('\"');
 						
-				
-				
-										
-										if(rowstate_tFileInputDelimited_5.getException()!=null) {
-											throw rowstate_tFileInputDelimited_5.getException();
-										}
-										
-										
-							
-			    					} catch (java.lang.Exception e) {
+	        				//?????doesn't work for other escapeChar
+	        				//the default escape mode is double escape
+	        				csvReadertFileInputDelimited_5.setEscapeChar(csvReadertFileInputDelimited_5.getQuoteChar());
+							  
+	        		}
+	        
+			        if(limittFileInputDelimited_5 != 0){
+			        	for(currentLinetFileInputDelimited_5=0;currentLinetFileInputDelimited_5 < 1;currentLinetFileInputDelimited_5++){
+			        		csvReadertFileInputDelimited_5.readNext();
+			        	}
+			        }
+			        csvReadertFileInputDelimited_5.setSkipEmptyRecords(true);
+	        
+	    		} catch(java.lang.Exception e) {
 globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",e.getMessage());
-			        					whetherReject_tFileInputDelimited_5 = true;
-			        					
-			                					System.err.println(e.getMessage());
-			                					row4 = null;
-			                				
-										
-			    					}
+					
+						
+						System.err.println(e.getMessage());
+					
+	    		}//TD110 end
+	        
+			    
+	        	while ( limittFileInputDelimited_5 != 0 && csvReadertFileInputDelimited_5!=null && csvReadertFileInputDelimited_5.readNext() ) { 
+	        		rowstate_tFileInputDelimited_5.reset();
+	        
+		        	rowtFileInputDelimited_5=csvReadertFileInputDelimited_5.getValues();
+		        	
+					
+	        			if(rowtFileInputDelimited_5.length == 1 && ("\015").equals(rowtFileInputDelimited_5[0])){//empty line when row separator is '\n'
+	        				continue;
+	        			}
+					
+	        	
+	        	
+	        		currentLinetFileInputDelimited_5++;
+	            
+		            if(lastLinetFileInputDelimited_5 > -1 && currentLinetFileInputDelimited_5 > lastLinetFileInputDelimited_5) {
+		                break;
+	    	        }
+	        	    outputLinetFileInputDelimited_5++;
+	            	if (limittFileInputDelimited_5 > 0 && outputLinetFileInputDelimited_5 > limittFileInputDelimited_5) {
+	                	break;
+	            	}  
+	                                                                      
+					
+	    							row5 = null;			
 								
+	    							row5 = null;			
+								
+								boolean whetherReject_tFileInputDelimited_5 = false;
+								row5 = new row5Struct();
+								try {			
+									
+				char fieldSeparator_tFileInputDelimited_5_ListType[] = null;
+				//support passing value (property: Field Separator) by 'context.fs' or 'globalMap.get("fs")'. 
+				if ( ((String)",").length() > 0 ){
+					fieldSeparator_tFileInputDelimited_5_ListType = ((String)",").toCharArray();
+				}else {			
+					throw new IllegalArgumentException("Field Separator must be assigned a char."); 
+				}
+				if(rowtFileInputDelimited_5.length == 1 && ("\015").equals(rowtFileInputDelimited_5[0])){//empty line when row separator is '\n'
+					
+							row5.AirlineId = null;
+					
+							row5.Code = null;
+					
+							row5.Description = null;
+					
+				}else{
+					
+	                int columnIndexWithD_tFileInputDelimited_5 = 0; //Column Index 
+	                
+						columnIndexWithD_tFileInputDelimited_5 = 0;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_5 < rowtFileInputDelimited_5.length){
+						
+						
+							
+								
+									if(rowtFileInputDelimited_5[columnIndexWithD_tFileInputDelimited_5].length() > 0) {
+										try {
+									
+										row5.AirlineId = ParserUtils.parseTo_Integer(rowtFileInputDelimited_5[columnIndexWithD_tFileInputDelimited_5]);
+									
+									
+										} catch(java.lang.Exception ex_tFileInputDelimited_5) {
+globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",ex_tFileInputDelimited_5.getMessage());
+											rowstate_tFileInputDelimited_5.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+												"AirlineId", "row5", rowtFileInputDelimited_5[columnIndexWithD_tFileInputDelimited_5], ex_tFileInputDelimited_5), ex_tFileInputDelimited_5));
+										}
+    								}else{
+    									
+											
+												row5.AirlineId = null;
+											
+    									
+    								}
+									
+									
+							
+						
+						}else{
+						
+							
+								row5.AirlineId = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_5 = 1;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_5 < rowtFileInputDelimited_5.length){
+						
+						
+							
+									row5.Code = rowtFileInputDelimited_5[columnIndexWithD_tFileInputDelimited_5];
+									
+							
+						
+						}else{
+						
+							
+								row5.Code = null;
+							
+						
+						}
+						
+						
+					
+						columnIndexWithD_tFileInputDelimited_5 = 2;
+						
+						
+						
+						if(columnIndexWithD_tFileInputDelimited_5 < rowtFileInputDelimited_5.length){
+						
+						
+							
+									row5.Description = rowtFileInputDelimited_5[columnIndexWithD_tFileInputDelimited_5];
+									
+							
+						
+						}else{
+						
+							
+								row5.Description = null;
+							
+						
+						}
+						
+						
+					
+				}
+				
+									
+									if(rowstate_tFileInputDelimited_5.getException()!=null) {
+										throw rowstate_tFileInputDelimited_5.getException();
+									}
+									
+									
+	    						} catch (java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",e.getMessage());
+							        whetherReject_tFileInputDelimited_5 = true;
+        							
+                							System.err.println(e.getMessage());
+                							row5 = null;
+                						
+            							globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE", e.getMessage());
+            							
+	    						}
+	
+							
 
  
 
@@ -13316,27 +16750,27 @@ globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",e.getMessage());
 /**
  * [tFileInputDelimited_5 process_data_begin ] stop
  */
-// Start of branch "row4"
-if(row4 != null) { 
+// Start of branch "row5"
+if(row5 != null) { 
 
 
 
 	
 	/**
-	 * [tAdvancedHash_row4 main ] start
+	 * [tAdvancedHash_row5 main ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row4";
+	currentComponent="tAdvancedHash_row5";
 
 	
 					if(execStat){
 						runStat.updateStatOnConnection(iterateId,1,1
 						
-							,"row4"
+							,"row5"
 						
 						);
 					}
@@ -13346,16 +16780,16 @@ if(row4 != null) {
 			   
 			   
 
-					row4Struct row4_HashRow = new row4Struct();
+					row5Struct row5_HashRow = new row5Struct();
 		   	   	   
 				
-				row4_HashRow.AirlineId = row4.AirlineId;
+				row5_HashRow.AirlineId = row5.AirlineId;
 				
-				row4_HashRow.Code = row4.Code;
+				row5_HashRow.Code = row5.Code;
 				
-				row4_HashRow.Description = row4.Description;
+				row5_HashRow.Description = row5.Description;
 				
-			tHash_Lookup_row4.put(row4_HashRow);
+			tHash_Lookup_row5.put(row5_HashRow);
 			
             
 
@@ -13365,21 +16799,21 @@ if(row4 != null) {
  
 
 
-	tos_count_tAdvancedHash_row4++;
+	tos_count_tAdvancedHash_row5++;
 
 /**
- * [tAdvancedHash_row4 main ] stop
+ * [tAdvancedHash_row5 main ] stop
  */
 	
 	/**
-	 * [tAdvancedHash_row4 process_data_begin ] start
+	 * [tAdvancedHash_row5 process_data_begin ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row4";
+	currentComponent="tAdvancedHash_row5";
 
 	
 
@@ -13388,18 +16822,18 @@ if(row4 != null) {
 
 
 /**
- * [tAdvancedHash_row4 process_data_begin ] stop
+ * [tAdvancedHash_row5 process_data_begin ] stop
  */
 	
 	/**
-	 * [tAdvancedHash_row4 process_data_end ] start
+	 * [tAdvancedHash_row5 process_data_end ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row4";
+	currentComponent="tAdvancedHash_row5";
 
 	
 
@@ -13408,10 +16842,10 @@ if(row4 != null) {
 
 
 /**
- * [tAdvancedHash_row4 process_data_end ] stop
+ * [tAdvancedHash_row5 process_data_end ] stop
  */
 
-} // End of branch "row4"
+} // End of branch "row5"
 
 
 
@@ -13450,20 +16884,21 @@ if(row4 != null) {
 	
 
 
-
-            }
-            }finally{
-                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/dimAirlines.csv") instanceof java.io.InputStream)){
-                	if(fid_tFileInputDelimited_5!=null){
-                		fid_tFileInputDelimited_5.close();
-                	}
-                }
-                if(fid_tFileInputDelimited_5!=null){
-                	globalMap.put("tFileInputDelimited_5_NB_LINE", fid_tFileInputDelimited_5.getRowNumber());
-					
-                }
+				nb_line_tFileInputDelimited_5++;
 			}
-			  
+			
+			}finally{
+    			if(!(filename_tFileInputDelimited_5 instanceof java.io.InputStream)){
+    				if(csvReadertFileInputDelimited_5!=null){
+    					csvReadertFileInputDelimited_5.close();
+    				}
+    			}
+    			if(csvReadertFileInputDelimited_5!=null){
+    				globalMap.put("tFileInputDelimited_5_NB_LINE",nb_line_tFileInputDelimited_5);
+    			}
+				
+			}
+						  
 
  
 
@@ -13479,33 +16914,33 @@ end_Hash.put("tFileInputDelimited_5", System.currentTimeMillis());
 
 	
 	/**
-	 * [tAdvancedHash_row4 end ] start
+	 * [tAdvancedHash_row5 end ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row4";
+	currentComponent="tAdvancedHash_row5";
 
 	
 
-tHash_Lookup_row4.endPut();
+tHash_Lookup_row5.endPut();
 
 				if(execStat){
-			  		runStat.updateStat(resourceMap,iterateId,2,0,"row4");
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row5");
 			  	}
 			  	
  
 
-ok_Hash.put("tAdvancedHash_row4", true);
-end_Hash.put("tAdvancedHash_row4", System.currentTimeMillis());
+ok_Hash.put("tAdvancedHash_row5", true);
+end_Hash.put("tAdvancedHash_row5", System.currentTimeMillis());
 
 
 
 
 /**
- * [tAdvancedHash_row4 end ] stop
+ * [tAdvancedHash_row5 end ] stop
  */
 
 
@@ -13554,14 +16989,14 @@ end_Hash.put("tAdvancedHash_row4", System.currentTimeMillis());
 
 	
 	/**
-	 * [tAdvancedHash_row4 finally ] start
+	 * [tAdvancedHash_row5 finally ] start
 	 */
 
 	
 
 	
 	
-	currentComponent="tAdvancedHash_row4";
+	currentComponent="tAdvancedHash_row5";
 
 	
 
@@ -13570,7 +17005,7 @@ end_Hash.put("tAdvancedHash_row4", System.currentTimeMillis());
 
 
 /**
- * [tAdvancedHash_row4 finally ] stop
+ * [tAdvancedHash_row5 finally ] stop
  */
 
 
@@ -13995,6 +17430,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     352797 characters generated by Talend Open Studio for Data Integration 
- *     on the November 6, 2022 at 9:35:47 PM CST
+ *     431993 characters generated by Talend Open Studio for Data Integration 
+ *     on the November 8, 2022 at 11:17:37 PM CST
  ************************************************************************************************/

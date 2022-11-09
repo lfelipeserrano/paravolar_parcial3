@@ -43,7 +43,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:ogk3/UwARN/thNeQcBJHP2RWAPSR0rHnV2cKdrx5" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:hsnpU/lqFWovt5/js7ZAkVIBlET6+kdvxiul26+l" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -78,7 +78,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:q4vPmvsTrxrQi3GjnAZXuNojZkVpuaZw3Y/qIKXz" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:9mnYF1A/pWwDw4/NcDCt40lY3krXPT2oroaqN6/O" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -112,13 +112,13 @@
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_YiQrsF2DEe2wMbBzrHIkww - metadata" show="false"/>
     <elementParameter field="LABEL" name="FILENAMETEXT" value="&quot;When the input source is a stream or a zip file,footer and random shouldn't be bigger than 0.&quot;"/>
-    <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Users/felip/Downloads/airlines (1).csv&quot;"/>
-    <elementParameter field="CHECK" name="CSV_OPTION" value="false"/>
-    <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
-    <elementParameter field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;" show="false"/>
+    <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Users/felip/Downloads/archive/Airlines.csv&quot;"/>
+    <elementParameter field="CHECK" name="CSV_OPTION" value="true"/>
+    <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;" show="false"/>
+    <elementParameter field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;"/>
     <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;,&quot;"/>
-    <elementParameter field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TEXT_ENCLOSURE" value="&quot;&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;&quot;"/>
+    <elementParameter field="TEXT" name="TEXT_ENCLOSURE" value="&quot;\&quot;&quot;"/>
     <elementParameter field="TEXT" name="HEADER" value="1"/>
     <elementParameter field="TEXT" name="FOOTER" value="0"/>
     <elementParameter field="TEXT" name="LIMIT" value=""/>
@@ -129,7 +129,7 @@
     <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
     <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;" show="false"/>
     <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;" show="false"/>
-    <elementParameter field="CHECK" name="RANDOM" value="false"/>
+    <elementParameter field="CHECK" name="RANDOM" value="false" show="false"/>
     <elementParameter field="TEXT" name="NB_RANDOM" value="10" show="false"/>
     <elementParameter field="CHECK" name="TRIMALL" value="false"/>
     <elementParameter field="TABLE" name="TRIMSELECT">
@@ -142,7 +142,7 @@
     <elementParameter field="CHECK" name="CHECK_DATE" value="false"/>
     <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="SPLITRECORD" value="false"/>
+    <elementParameter field="CHECK" name="SPLITRECORD" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_DECODE" value="false"/>
     <elementParameter field="TABLE" name="DECODE_COLS" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="Code"/>
@@ -188,7 +188,7 @@
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="dimension">
         <mapperTableEntries name="AirlineId" expression="Numeric.sequence(&quot;AirlineSeq&quot;, 1, 1) " type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Code" expression="'&quot;' + row1.Code + '&quot;' " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Code" expression="row1.Code " type="id_String" nullable="true"/>
         <mapperTableEntries name="Description" expression="row1.Description " type="id_String" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="row1" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
@@ -202,19 +202,19 @@
     <elementParameter field="CHECK" name="USESTREAM" value="false"/>
     <elementParameter field="TEXT" name="STREAMNAME" value="outputStream" show="false"/>
     <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/dimAirlines.csv&quot;"/>
-    <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
-    <elementParameter field="CHECK" name="OS_LINE_SEPARATOR_AS_ROW_SEPARATOR" value="true" show="false"/>
-    <elementParameter field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;" show="false"/>
-    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;;&quot;"/>
+    <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;" show="false"/>
+    <elementParameter field="CHECK" name="OS_LINE_SEPARATOR_AS_ROW_SEPARATOR" value="true"/>
+    <elementParameter field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;,&quot;"/>
     <elementParameter field="CHECK" name="APPEND" value="false"/>
     <elementParameter field="CHECK" name="INCLUDEHEADER" value="true"/>
     <elementParameter field="CHECK" name="COMPRESS" value="false"/>
     <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
     <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;" show="false"/>
     <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;" show="false"/>
-    <elementParameter field="CHECK" name="CSV_OPTION" value="false"/>
-    <elementParameter field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TEXT_ENCLOSURE" value="&quot;&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="CSV_OPTION" value="true"/>
+    <elementParameter field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;&quot;"/>
+    <elementParameter field="TEXT" name="TEXT_ENCLOSURE" value="&quot;\&quot;&quot;"/>
     <elementParameter field="CHECK" name="CREATE" value="true"/>
     <elementParameter field="CHECK" name="SPLIT" value="false"/>
     <elementParameter field="TEXT" name="SPLIT_EVERY" value="1000" show="false"/>
@@ -239,7 +239,7 @@
     <elementParameter field="FILE" name="PROFILE_PATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROFILE_NAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;AKIAVMNG53PSSPPWBSHA&quot;"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:+/txFIC0Roww9FI6GNxdmWzO84h3VNuz1HSWmF/mwIl51j+SIdCyE7BX/29VXj1ZN4AsGNL9r74gBWX3EqsnsBkcB43A5g=="/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:tLnMfsSxxJ3CCNLOIALMl6tBZ6MrbGliwabDvM6Hl/hQLNGgVr0XCjhU83wZUH3lmCZQHdxi4Pz9L5YRwQJjY5ooR3i6uA=="/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false"/>
     <elementParameter field="TEXT" name="ARN" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ROLE_SESSION_NAME" value="&quot;&quot;" show="false"/>
@@ -250,8 +250,8 @@
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_SYMMETRIC_MASTER_KEY" value="AES" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_ASYMMETRIC_MASTER_KEY" value="RSA" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="BASE64" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:BOa5kCKn/t6aX6YzvmpH3uYN1YSuDSc+ibzP5S9m" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:5jqY4IjSjVT7klSLSqIKUhEgfTaY/6FxYk4xGU9V" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:8tamG1wRZ3DCvU7+X+4wayIZSetIg478cFgn+xp0" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:RAg3s2vRRZQrkU0mCVZGOWZ6ZhPHfVEz0TsHaer5" show="false"/>
     <elementParameter field="FILE" name="ENCRYPTED_KEY_X509" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PUBLIC_KEY" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PRIVATE_KEY" value="&quot;&quot;" show="false"/>
@@ -285,7 +285,7 @@
     <elementParameter field="FILE" name="PROFILE_PATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROFILE_NAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:/Jqs2rLyI5lgscXd0zzSfTy+J/cgSac4dYKxLjo6" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:N5VDoOwA2C1mxDQc9Ju6QZfcvmzL+XvIuQ6ABhF4" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
     <elementParameter field="TEXT" name="ARN" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ROLE_SESSION_NAME" value="&quot;&quot;" show="false"/>
@@ -296,8 +296,8 @@
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_SYMMETRIC_MASTER_KEY" value="AES" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_ASYMMETRIC_MASTER_KEY" value="RSA" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="BASE64" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:H2xnFFRYqnCGhtijwVhDfJ6W6nBWjAqo7EO0mjaY" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:MDy1HUQpu9yVMt6sSqQ8pB4XA04NQ5iSOJ3K/wuh" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:X5s5LerCIfPjkYyMl5tq4Sp7o7DMt0W6x3+3+yeZ" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:E9r5wKNeP8DLb8gKflg+5wJdF12TI33VLV2kN0xW" show="false"/>
     <elementParameter field="FILE" name="ENCRYPTED_KEY_X509" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PUBLIC_KEY" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PRIVATE_KEY" value="&quot;&quot;" show="false"/>
@@ -348,7 +348,7 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="dimension" show="false"/>
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tFileOutputDelimited_1" offsetLabelX="0" offsetLabelY="0" source="tFileOutputDelimited_1" target="tS3Connection_1">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk1" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk3" show="false"/>
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tS3Connection_1" offsetLabelX="0" offsetLabelY="0" source="tS3Connection_1" target="tS3Put_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2" show="false"/>
